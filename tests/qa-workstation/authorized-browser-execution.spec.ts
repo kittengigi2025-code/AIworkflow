@@ -324,7 +324,7 @@ test.describe("authorized read-only browser execution", () => {
     await expect(firstRun).resolves.toMatchObject({ status: "passed" });
   });
 
-  test("a repeated case appends stable run and evidence IDs without overwriting history", async ({}, testInfo) => {
+  test("a repeated passed case is idempotent and does not duplicate run or evidence", async ({}, testInfo) => {
     const intake = await prepareExecutableJob(testInfo, "append-history");
     await runAuthorizedBrowserCase({ workspace: intake.workspace, browser: createControlledBrowser() });
     const requirement = JSON.parse(await readFile(intake.artifacts.requirement, "utf8"));
@@ -342,10 +342,11 @@ test.describe("authorized read-only browser execution", () => {
     const execution = JSON.parse(await readFile(result.artifacts.executionResults, "utf8"));
     const manifest = JSON.parse(await readFile(result.artifacts.evidenceManifest, "utf8"));
 
-    expect(execution.runs.map((run) => run.result_id)).toEqual(["RUN-001", "RUN-002"]);
-    expect(manifest.evidence.map((item) => item.evidence_id)).toEqual(["EV-001", "EV-002"]);
+    expect(result).toMatchObject({ status: "passed", already_completed: true, result_id: "RUN-001" });
+    expect(execution.runs.map((run) => run.result_id)).toEqual(["RUN-001"]);
+    expect(manifest.evidence.map((item) => item.evidence_id)).toEqual(["EV-001"]);
     await expect(access(path.join(intake.workspace, "evidence", "EV-001.png"))).resolves.toBeUndefined();
-    await expect(access(path.join(intake.workspace, "evidence", "EV-002.png"))).resolves.toBeUndefined();
+    await expect(access(path.join(intake.workspace, "evidence", "EV-002.png"))).rejects.toThrow();
   });
 
   test("a browser release failure changes the durable run to blocked", async ({}, testInfo) => {

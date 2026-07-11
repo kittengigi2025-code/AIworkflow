@@ -19,12 +19,18 @@ This is a prototype contract for the local-first AI QA workstation. It defines t
     evidence-manifest.json
     bugs.json
     retrospective.json
+    closing-manifest.json
     test-report.html
     bug-tickets.html
     evidence/
       <evidence-id>.png
       <evidence-id>.html
       <evidence-id>.txt
+    .recovery/
+      <timestamp>-strategy.json
+      <timestamp>-test-cases.json
+      <timestamp>-execution-results.json
+      <timestamp>-evidence-manifest.json
 ```
 
 HTML files are the human-facing deliverables. JSON files are the machine-operable source of truth. HTML can be regenerated from JSON plus evidence files.
@@ -123,9 +129,22 @@ The executor must refuse to run a step with no `action_class`.
       "text": "Assumption used for test design",
       "risk_if_wrong": "What changes if this assumption is wrong"
     }
-  ]
+  ],
+  "phase_journal": {
+    "intake": {
+      "state": "pending|in_progress|done",
+      "artifacts": ["requirement.json", "questions.json"],
+      "checksums": { "requirement.json": "SHA-256" },
+      "updated_at": "ISO-8601"
+    },
+    "design": {},
+    "execute": {},
+    "close": {}
+  }
 }
 ```
+
+`phase_journal` records the boundary of each major phase. It is written atomically after the artifacts it describes, and `inspectQaJobState` uses it to resume from the earliest incomplete or invalid gate. A phase entry is only `done` when every listed artifact exists and its checksum still matches.
 
 ## Blocking Question Schema
 
@@ -325,12 +344,15 @@ Every contribution names its own evidence reference IDs, and `sourceText` must o
 
 `execution-results.json`
 
+Runs are append-only. Retrying a blocked, failed, or residual-risk case creates a new `RUN-NNN` whose `retry_of` points to the previous run for the same case. Already-passed cases are skipped on retry, and resuming a partially executed case copies the prior passed step results into the new run so history is never overwritten.
+
 ```json
 {
   "requirement_id": "REQ-20260710-vip-count",
   "runs": [
     {
       "result_id": "RUN-001",
+      "retry_of": "",
       "case_id": "TC-001",
       "status": "passed|failed|blocked|not_run|residual_risk",
       "started_at": "ISO-8601",
@@ -384,13 +406,16 @@ Every contribution names its own evidence reference IDs, and `sourceText` must o
       "redaction_status": "not_needed|required|complete",
       "hash": "",
       "requirement_id": "REQ-20260710-vip-count",
-      "step_id": "STEP-001"
+      "step_id": "STEP-001",
+      "reused_by_run_ids": ["RUN-002"]
     }
   ]
 }
 ```
 
 Evidence should live close to the result or bug it proves. Screenshots with sensitive data must be marked before broad sharing.
+
+Evidence capture is idempotent by content hash. Before writing a new screenshot the executor checks existing manifest entries for the same `sha256` and `step_id`. If one exists, the existing `evidence_id` is referenced and the current run is appended to `reused_by_run_ids` instead of creating a duplicate file.
 
 The executor owns the live browser as `main_agent`, verifies the observed environment, merchant scope, and management-backend surface before the first step, and dispatches only `read_only` operations. Login, OTP, CAPTCHA, session recovery, unexpected scope, and evidence-capture failure produce a blocker instead of an inferred pass or failure.
 
@@ -499,18 +524,39 @@ The ledger links only current intended artifacts, not obsolete drafts.
 
 Feedback can update future requirement analysis and test design only when its `reuse_scope` is not `requirement_specific` and its `confidence` is `confirmed` or explicitly accepted by the human.
 
+## Resume and Retry Contract
+
+`resumeQaJob` reconstructs the current phase from durable artifacts, the `phase_journal`, and the closing manifest rather than from chat narration. It behaves as follows:
+
+1. If `requirement.json` and `questions.json` are missing or incomplete, resume restarts at intake.
+2. If design artifacts are missing, invalid, or tampered, resume returns to design and archives partial files to `.recovery/`.
+3. If execution artifacts are partial, resume archives them to `.recovery/` and re-runs the case from the earliest non-passed step.
+4. Before any browser work resumes, the runner revalidates `inspectSession`, environment, merchant scope, and `authorization_ref`.
+5. Retrying a blocked or failed case appends a new run with `retry_of` set to the previous run id; passed cases are skipped.
+6. Evidence capture reuses existing entries by hash, so repeated execution does not duplicate proof.
+7. If the job is already complete and the closing manifest checksums match, resume is idempotent and performs no browser actions.
+
+## Closing Commit Manifest
+
+`closing-manifest.json` is written last and is the commit marker for a complete human-facing package. It contains the requirement ID, generation time, SHA-256 revisions of authoritative source JSON, and SHA-256 revisions of `bugs.json`, reports, retrospective, conditional bug tickets, and the ledger. Resume treats missing or mismatched revisions as `synthesis`, preserves an existing valid retrospective, and regenerates the package from current authoritative JSON. The `phase_journal.close` entry is updated before the closing manifest is written so the final `requirement.json` revision recorded in the manifest remains stable.
+
 ## Generation Order
 
-1. `requirement.json`
+1. `requirement.json` (intake facts)
 2. `questions.json`
-3. `strategy.json`
-4. `test-cases.json`
-5. `execution-results.json`
-6. `evidence-manifest.json`
-7. `bugs.json`
-8. `test-report.html`
-9. `bug-tickets.html`
-10. `qa-index.html`
-11. `retrospective.json`
+3. `requirement.json` (intake phase journal updated)
+4. `strategy.json`
+5. `test-cases.json`
+6. `requirement.json` (design phase journal updated)
+7. `execution-results.json`
+8. `evidence-manifest.json`
+9. `requirement.json` (execute phase journal updated)
+10. `bugs.json`
+11. `test-report.html`
+12. `bug-tickets.html` (conditional)
+13. `qa-index.html`
+14. `retrospective.json`
+15. `requirement.json` (close phase journal updated)
+16. `closing-manifest.json`
 
 The loop is intentionally closed: retrospective findings feed the next requirement intake, question gate, strategy, and test design.

@@ -1,6 +1,8 @@
 import { createHash, randomUUID } from "node:crypto";
-import { mkdir, open, readFile, rename, rm, writeFile } from "node:fs/promises";
+import { mkdir, open, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+
+import { PHASES, markPhaseDone, markPhaseInProgress } from "./job-phase.mjs";
 
 const EXECUTOR = "main_agent";
 const READ_ONLY_OPERATIONS = new Set(["navigate", "filter", "open_detail", "read_visible"]);
@@ -162,22 +164,45 @@ async function executeCase({ workspace, browser, caseId }) {
     });
   }
 
+  const runId = formatId("RUN", history.nextRunIndex);
+  const priorRun = findLatestRunForCase(history.runs, testCase.case_id);
+
+  if (priorRun?.status === "passed") {
+    return {
+      status: "passed",
+      workspace,
+      artifacts: {
+        executionResults: path.join(workspace, "execution-results.json"),
+        evidenceManifest: path.join(workspace, "evidence-manifest.json"),
+        evidenceDirectory: path.join(workspace, "evidence")
+      },
+      already_completed: true,
+      result_id: priorRun.result_id
+    };
+  }
+
+  const { resumeStepIndex, copiedStepResults } = deriveResumePoint(testCase.steps, priorRun);
+  markPhaseInProgress(requirement, PHASES.execute);
+
   const startedAt = new Date().toISOString();
   requirement.status = "testing";
   await writeJsonAtomic(requirementPath, requirement);
 
   const evidence = [];
-  const stepResults = [];
+  const stepResults = [...copiedStepResults];
   let terminalStatus = "passed";
   let terminalJudgment = "All expected read-only observations were positively verified.";
 
-  for (const step of testCase.steps) {
+  for (let stepIndex = resumeStepIndex; stepIndex < testCase.steps.length; stepIndex++) {
+    const step = testCase.steps[stepIndex];
     let observation;
     try {
       observation = await dispatchReadOnlyOperation(browser, step);
     } catch (error) {
       const blocker = classifyBrowserError(error);
-      stepResults.push(blockedStep(step, blocker, error.message));
+      stepResults.push(
+        blockedStep(step, blocker, error.message, {}, authorizationRef(requirement))
+      );
       terminalStatus = "blocked";
       terminalJudgment = blockerJudgment(blocker, error.message);
       break;
@@ -203,7 +228,7 @@ async function executeCase({ workspace, browser, caseId }) {
     const evidenceIds = [];
     if (step.evidence_required || !matchesExpected) {
       try {
-        const item = await captureEvidence({
+        const { item, isReuse } = await captureEvidence({
           workspace,
           browser,
           requirement,
@@ -211,12 +236,24 @@ async function executeCase({ workspace, browser, caseId }) {
           step,
           observation,
           matchesExpected,
-          evidenceIndex: history.evidence.length + evidence.length
+          history,
+          evidence,
+          runId
         });
-        evidence.push(item);
+        if (!isReuse) {
+          evidence.push(item);
+        }
         evidenceIds.push(item.evidence_id);
       } catch (error) {
-        stepResults.push(blockedStep(step, "evidence_capture_failed", error.message, observation));
+        stepResults.push(
+          blockedStep(
+            step,
+            "evidence_capture_failed",
+            error.message,
+            observation,
+            authorizationRef(requirement)
+          )
+        );
         terminalStatus = "blocked";
         terminalJudgment = `Required evidence for ${step.step_id} could not be captured: ${error.message}`;
         break;
@@ -241,8 +278,10 @@ async function executeCase({ workspace, browser, caseId }) {
   }
 
   const run = {
-    result_id: formatId("RUN", history.runs.length),
+    result_id: runId,
+    retry_of: priorRun?.result_id ?? "",
     case_id: testCase.case_id,
+    case_revision: hashJson(testCase),
     status: terminalStatus,
     started_at: startedAt,
     ended_at: new Date().toISOString(),
@@ -266,6 +305,8 @@ async function executeCase({ workspace, browser, caseId }) {
     run,
     evidence
   });
+  await markPhaseDone(requirement, workspace, PHASES.execute);
+  await publishJsonArtifacts([[requirementPath, requirement]]);
   return { status: terminalStatus, workspace, artifacts };
 }
 
@@ -283,9 +324,12 @@ async function persistPreflightBlock({
 }) {
   const selected = testCase ?? selectCase(testCases.cases, caseId);
   const now = new Date().toISOString();
+  const priorRun = findLatestRunForCase(history.runs, selected.case_id);
   const run = {
-    result_id: formatId("RUN", history.runs.length),
+    result_id: formatId("RUN", history.nextRunIndex),
+    retry_of: priorRun?.result_id ?? "",
     case_id: selected.case_id,
+    case_revision: hashJson(selected),
     status: "blocked",
     started_at: now,
     ended_at: now,
@@ -367,7 +411,9 @@ async function captureEvidence({
   step,
   observation,
   matchesExpected,
-  evidenceIndex
+  history,
+  evidence,
+  runId
 }) {
   requireBrowserMethod(browser, "screenshot");
   const capture = await browser.screenshot({ caseId: testCase.case_id, stepId: step.step_id });
@@ -389,12 +435,29 @@ async function captureEvidence({
     throw new Error("Screenshot requires completed redaction before persistence");
   }
 
-  const evidenceId = formatId("EV", evidenceIndex);
+  const captureHash = createHash("sha256").update(capture.bytes).digest("hex");
+  const description = `${matchesExpected ? "Positive proof" : "Contradictory proof"} for ${step.step_id}: ${observation.observed}`;
+  const existing = findExistingEvidence(
+    history.evidence,
+    evidence,
+    captureHash,
+    step.step_id,
+    description
+  );
+  if (existing) {
+    existing.reused_by_run_ids ??= [];
+    if (!existing.reused_by_run_ids.includes(runId)) {
+      existing.reused_by_run_ids.push(runId);
+    }
+    return { item: existing, isReuse: true };
+  }
+
+  const evidenceId = formatId("EV", history.nextEvidenceIndex + evidence.length);
   const relativePath = `evidence/${evidenceId}.png`;
   const evidencePath = path.join(workspace, "evidence", `${evidenceId}.png`);
   await mkdir(path.dirname(evidencePath), { recursive: true });
   await writeBinaryAtomic(evidencePath, capture.bytes);
-  return {
+  const item = {
     evidence_id: evidenceId,
     type: "screenshot",
     path: relativePath,
@@ -402,13 +465,15 @@ async function captureEvidence({
     captured_from: step.target_surface,
     related_case_ids: [testCase.case_id],
     related_bug_ids: [],
-    description: `${matchesExpected ? "Positive proof" : "Contradictory proof"} for ${step.step_id}: ${observation.observed}`,
+    description,
     sensitivity,
     redaction_status: redactionStatus,
-    hash: createHash("sha256").update(capture.bytes).digest("hex"),
+    hash: captureHash,
     requirement_id: requirement.requirement_id,
-    step_id: step.step_id
+    step_id: step.step_id,
+    reused_by_run_ids: []
   };
+  return { item, isReuse: false };
 }
 
 async function persistExecution({ workspace, requirementPath, requirement, history, run, evidence }) {
@@ -482,14 +547,14 @@ function sanitizeSession(session) {
   };
 }
 
-function blockedStep(step, blocker, message, observation = {}) {
+function blockedStep(step, blocker, message, observation = {}, authorization = "") {
   return {
     step_id: step.step_id,
     status: "blocked",
     observed: observation.observed ?? "",
     observed_facts: observation.facts ?? [],
     evidence_ids: [],
-    authorization_ref: "",
+    authorization_ref: authorization,
     blocker,
     error: message
   };
@@ -545,6 +610,48 @@ function formatId(prefix, zeroBasedIndex) {
   return `${prefix}-${String(zeroBasedIndex + 1).padStart(3, "0")}`;
 }
 
+function hashJson(value) {
+  return createHash("sha256").update(JSON.stringify(value)).digest("hex");
+}
+
+function findLatestRunForCase(runs, caseId) {
+  if (!Array.isArray(runs)) return null;
+  return [...runs].reverse().find((run) => run.case_id === caseId) ?? null;
+}
+
+function deriveResumePoint(steps, priorRun) {
+  if (!priorRun || !Array.isArray(priorRun.step_results) || priorRun.step_results.length === 0) {
+    return { resumeStepIndex: 0, copiedStepResults: [] };
+  }
+  const copiedStepResults = [];
+  let resumeStepIndex = 0;
+  for (let index = 0; index < steps.length; index++) {
+    const step = steps[index];
+    const priorStep = priorRun.step_results[index];
+    if (priorStep && priorStep.step_id === step.step_id && priorStep.status === "passed") {
+      copiedStepResults.push(priorStep);
+      resumeStepIndex = index + 1;
+    } else {
+      break;
+    }
+  }
+  return { resumeStepIndex, copiedStepResults };
+}
+
+function findExistingEvidence(historyEvidence, newEvidence, hash, stepId, description) {
+  const allEvidence = [...(historyEvidence ?? []), ...(newEvidence ?? [])];
+  return (
+    allEvidence.find(
+      (item) =>
+        item.hash === hash &&
+        item.step_id === stepId &&
+        item.description === description &&
+        item.evidence_id
+    ) ??
+    null
+  );
+}
+
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
 }
@@ -555,7 +662,14 @@ async function readExecutionHistory(workspace, requirementId) {
   if ((execution && !manifest) || (!execution && manifest)) {
     throw new Error("Execution history is incomplete; results and evidence manifest must coexist");
   }
-  if (!execution) return { runs: [], evidence: [] };
+  if (!execution) {
+    return {
+      runs: [],
+      evidence: [],
+      nextRunIndex: 0,
+      nextEvidenceIndex: await nextEvidenceIndex(workspace, [])
+    };
+  }
   if (
     execution.requirement_id !== requirementId ||
     manifest.requirement_id !== requirementId ||
@@ -564,7 +678,53 @@ async function readExecutionHistory(workspace, requirementId) {
   ) {
     throw new Error("Execution history does not match the current requirement contract");
   }
-  return { runs: execution.runs, evidence: manifest.evidence };
+  for (const evidence of manifest.evidence) {
+    if (typeof evidence.path !== "string" || !evidence.path.startsWith("evidence/")) {
+      throw new Error(`Evidence ${evidence.evidence_id} has an unsafe path`);
+    }
+    const absolute = path.resolve(workspace, evidence.path);
+    if (!absolute.startsWith(`${path.resolve(workspace)}${path.sep}`)) {
+      throw new Error(`Evidence ${evidence.evidence_id} escapes the job workspace`);
+    }
+    const bytes = await readFile(absolute);
+    const hash = createHash("sha256").update(bytes).digest("hex");
+    if (!/^[a-f0-9]{64}$/.test(evidence.hash ?? "") || evidence.hash !== hash) {
+      throw new Error(`Evidence ${evidence.evidence_id} hash does not match its file`);
+    }
+  }
+  const runIndexes = [];
+  const runIds = new Set();
+  for (const run of execution.runs) {
+    const match = /^RUN-(\d{3})$/.exec(run.result_id);
+    if (!match || runIds.has(run.result_id)) {
+      throw new Error(`Execution history has invalid or duplicate run ID ${String(run.result_id)}`);
+    }
+    runIds.add(run.result_id);
+    runIndexes.push(Number(match[1]));
+  }
+  return {
+    runs: execution.runs,
+    evidence: manifest.evidence,
+    nextRunIndex: runIndexes.length === 0 ? 0 : Math.max(...runIndexes),
+    nextEvidenceIndex: await nextEvidenceIndex(workspace, manifest.evidence)
+  };
+}
+
+async function nextEvidenceIndex(workspace, manifestEvidence) {
+  const indexes = manifestEvidence
+    .map((item) => /^EV-(\d{3})$/.exec(item.evidence_id)?.[1])
+    .filter(Boolean)
+    .map(Number);
+  try {
+    const files = await readdir(path.join(workspace, "evidence"));
+    for (const file of files) {
+      const match = /^EV-(\d{3})\.[a-z0-9]+$/i.exec(file);
+      if (match) indexes.push(Number(match[1]));
+    }
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+  return indexes.length === 0 ? 0 : Math.max(...indexes);
 }
 
 async function readJsonIfExists(filePath) {

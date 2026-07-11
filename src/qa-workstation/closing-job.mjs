@@ -1,6 +1,8 @@
 import { access, mkdir, readFile, rename, writeFile, rm } from "node:fs/promises";
 import path from "node:path";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
+
+import { PHASES, markPhaseDone, markPhaseInProgress } from "./job-phase.mjs";
 
 const BUG_SEVERITIES = new Set(["blocker", "critical", "major", "minor", "trivial"]);
 const BUG_PRIORITIES = new Set(["P0", "P1", "P2"]);
@@ -19,7 +21,11 @@ const SENSITIVE_PATTERN = /(?:password|passwd|secret|token|bearer|cookie|otp|cap
 export async function runClosingJob({ workspace, workspaceRoot, retrospective }) {
   assertString(workspace, "workspace");
 
-  const requirement = await readJson(path.join(workspace, "requirement.json"));
+  const requirementPath = path.join(workspace, "requirement.json");
+  const requirement = await readJson(requirementPath);
+
+  markPhaseInProgress(requirement, PHASES.close);
+
   const questions = await readJsonIfExists(path.join(workspace, "questions.json"));
   const strategy = await readJsonIfExists(path.join(workspace, "strategy.json"));
   const testCases = await readJsonIfExists(path.join(workspace, "test-cases.json"));
@@ -34,7 +40,11 @@ export async function runClosingJob({ workspace, workspaceRoot, retrospective })
   const evidenceMap = buildEvidenceMap(evidenceManifest);
   const bugs = synthesizeBugs(requirement, executionResults, caseMap);
 
-  const retrospectiveData = buildRetrospective(requirement, retrospective);
+  const existingRetrospective = await readJsonIfExists(path.join(workspace, "retrospective.json"));
+  const retrospectiveData = buildRetrospective(
+    requirement,
+    retrospective === undefined ? existingRetrospective : retrospective
+  );
   validateRetrospectiveGate(retrospectiveData);
 
   const testReportHtml = renderTestReport({
@@ -51,7 +61,8 @@ export async function runClosingJob({ workspace, workspaceRoot, retrospective })
   const artifacts = {
     bugs: path.join(workspace, "bugs.json"),
     testReport: path.join(workspace, "test-report.html"),
-    retrospective: path.join(workspace, "retrospective.json")
+    retrospective: path.join(workspace, "retrospective.json"),
+    closingManifest: path.join(workspace, "closing-manifest.json")
   };
 
   const writes = [
@@ -72,6 +83,8 @@ export async function runClosingJob({ workspace, workspaceRoot, retrospective })
     validateNoSecretLeaks(bugTicketsHtml);
   }
 
+  await publishArtifacts(writes);
+
   const ledgerPath = await regenerateLedger({
     workspaceRoot: workspaceRoot || path.dirname(workspace),
     workspace,
@@ -80,7 +93,39 @@ export async function runClosingJob({ workspace, workspaceRoot, retrospective })
   });
   artifacts.ledger = ledgerPath;
 
-  await publishArtifacts(writes);
+  await markPhaseDone(requirement, workspace, PHASES.close, [
+    "bugs.json",
+    "test-report.html",
+    "retrospective.json",
+    ...(artifacts.bugTickets ? ["bug-tickets.html"] : [])
+  ]);
+  await publishArtifacts([[requirementPath, `${JSON.stringify(requirement, null, 2)}\n`]]);
+
+  const root = workspaceRoot || path.dirname(workspace);
+  const sourcePaths = [
+    "requirement.json",
+    "questions.json",
+    "strategy.json",
+    "test-cases.json",
+    "execution-results.json",
+    "evidence-manifest.json"
+  ].map((name) => path.join(workspace, name));
+  const outputPaths = [
+    artifacts.bugs,
+    artifacts.testReport,
+    artifacts.retrospective,
+    ...(artifacts.bugTickets ? [artifacts.bugTickets] : []),
+    artifacts.ledger
+  ];
+  const closingManifest = {
+    requirement_id: requirement.requirement_id,
+    generated_at: new Date().toISOString(),
+    source_revisions: await hashExistingFiles(sourcePaths, workspace),
+    outputs: await hashExistingFiles(outputPaths, root)
+  };
+  await publishArtifacts([
+    [artifacts.closingManifest, `${JSON.stringify(closingManifest, null, 2)}\n`]
+  ]);
 
   return {
     status: requirement.status,
@@ -103,6 +148,7 @@ function synthesizeBugs(requirement, executionResults, caseMap) {
     const bugId = `BUG-${String(bugNum).padStart(3, "0")}`;
     bugNum++;
 
+    const regression = findPassingRetry(executionResults.runs || [], run.result_id);
     bugs.push({
       bug_id: bugId,
       title: testCase ? `${testCase.title} — ${failingStep?.step_id || "failure"}` : `${run.case_id} failure`,
@@ -116,13 +162,27 @@ function synthesizeBugs(requirement, executionResults, caseMap) {
       actual_result: failingStep?.observed || "Observed state contradicted expected state",
       rule_ids: testCase?.rule_ids || [],
       case_ids: [run.case_id],
+      result_ids: [run.result_id],
       evidence_ids: failedSteps.flatMap((s) => s.evidence_ids || []),
-      status: "open",
-      regression_result: ""
+      status: regression ? "closed" : "open",
+      regression_result: regression ? `passed:${regression.result_id}` : ""
     });
   }
 
   return bugs;
+}
+
+function findPassingRetry(runs, resultId) {
+  let frontier = [resultId];
+  const seen = new Set(frontier);
+  while (frontier.length > 0) {
+    const children = runs.filter((run) => frontier.includes(run.retry_of) && !seen.has(run.result_id));
+    const passed = children.find((run) => run.status === "passed");
+    if (passed) return passed;
+    frontier = children.map((run) => run.result_id);
+    frontier.forEach((id) => seen.add(id));
+  }
+  return null;
 }
 
 function renderTestReport(ctx) {
@@ -213,17 +273,25 @@ ${strategy ? `
 
 <h2>Test Case Results</h2>
 <table>
-<thead><tr><th>Case ID</th><th>Rules</th><th>Priority</th><th>Status</th><th>Evidence</th>${bugIds.length > 0 ? "<th>Bug</th>" : ""}</tr></thead>
+<thead><tr><th>Run</th><th>Case ID</th><th>Rules</th><th>Priority</th><th>Status</th><th>Observed</th><th>Evidence</th>${bugIds.length > 0 ? "<th>Bug</th>" : ""}</tr></thead>
 <tbody>
 ${runs.map((run) => {
   const testCase = (testCases?.cases || []).find((c) => c.case_id === run.case_id);
   const evIds = (run.step_results || []).flatMap((s) => s.evidence_ids || []);
-  const bugLinks = bugs.filter((b) => b.case_ids.includes(run.case_id)).map((b) => `<a href="bug-tickets.html#${b.bug_id}">${b.bug_id}</a>`);
+  const observations = (run.step_results || [])
+    .map((step) => step.observed)
+    .filter(Boolean)
+    .join(" | ");
+  const bugLinks = bugs
+    .filter((b) => b.result_ids?.includes(run.result_id))
+    .map((b) => `<a href="bug-tickets.html#${b.bug_id}">${b.bug_id}</a>`);
   return `<tr>
+<td>${escapeHtml(run.result_id)}${run.retry_of ? `<br><small>after ${escapeHtml(run.retry_of)}</small>` : ""}</td>
 <td>${escapeHtml(run.case_id)}</td>
 <td>${escapeHtml(testCase?.rule_ids?.join(", ") || "")}</td>
 <td>${escapeHtml(testCase?.priority || "")}</td>
 <td class="status-${run.status}">${escapeHtml(run.status)}</td>
+<td>${escapeHtml(observations || run.judgment || "")}</td>
 <td>${evIds.map((id) => safeEvidenceLink(id, evidenceMap)).join(" ")}</td>
 ${bugIds.length > 0 ? `<td>${bugLinks.join(", ") || "—"}</td>` : ""}
 </tr>`;
@@ -283,7 +351,7 @@ a { color:var(--info); text-decoration:none; }
 ${bugs.map((bug) => {
   const evidenceItems = (bug.evidence_ids || []).map((id) => evidenceMap.get(id)).filter(Boolean);
   const testCase = caseMap.get(bug.case_ids[0]);
-  const run = runs.find((r) => r.case_id === bug.case_ids[0]);
+  const run = runs.find((r) => bug.result_ids?.includes(r.result_id));
 
   return `<div class="bug" id="${bug.bug_id}">
 <h2><a href="#${bug.bug_id}">${bug.bug_id}</a> — ${escapeHtml(bug.title)}</h2>
@@ -297,6 +365,7 @@ ${bugs.map((bug) => {
 <tr><th>Impact Scope</th><td>${escapeHtml(bug.impact_scope)}</td></tr>
 <tr><th>Rules</th><td>${escapeHtml(bug.rule_ids.join(", "))}</td></tr>
 <tr><th>Cases</th><td>${escapeHtml(bug.case_ids.join(", "))}</td></tr>
+<tr><th>Runs</th><td>${escapeHtml((bug.result_ids || []).join(", "))}</td></tr>
 ${run ? `<tr><th>Run</th><td>${escapeHtml(run.result_id)}</td></tr>` : ""}
 </table>
 <h3>Preconditions</h3>
@@ -555,6 +624,22 @@ async function readJsonIfExists(filePath) {
   } catch {
     return null;
   }
+}
+
+async function hashExistingFiles(filePaths, relativeRoot) {
+  const revisions = [];
+  for (const filePath of filePaths) {
+    try {
+      const bytes = await readFile(filePath);
+      revisions.push({
+        path: path.relative(relativeRoot, filePath).replaceAll(path.sep, "/"),
+        sha256: createHash("sha256").update(bytes).digest("hex")
+      });
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+    }
+  }
+  return revisions;
 }
 
 async function fileExists(filePath) {

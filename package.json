@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "qa:question-gate": "node scripts/run-question-gate-job.mjs",
+    "qa:run": "node scripts/run-qa-workstation.mjs",
     "qa:publish": "node scripts/publish-qa-site.mjs",
     "test:qa-workstation": "playwright test tests/qa-workstation",
     "test:smoke": "playwright test tests/smoke",

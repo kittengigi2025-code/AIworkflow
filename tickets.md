@@ -92,14 +92,14 @@ Work the **frontier**: any ticket whose blockers are all done. Start each ticket
 
 **Blocked by:** Close a job with reports, ledger, and retrospective.
 
-- [ ] Resume reconstructs the current phase from artifact completeness, question state, execution runs, evidence, and authorization records rather than chat narration.
-- [ ] Browser-session readiness, expected environment, and authorization scope are revalidated before resumed execution.
-- [ ] The runner continues from the earliest incomplete or invalid gate instead of blindly repeating the last narrated action.
-- [ ] Existing evidence IDs and manifest entries are checked before capture so repeated execution does not create duplicate or misleading proof.
-- [ ] Retrying a blocked or failed case appends a new run linked to the previous run and never overwrites history.
-- [ ] Completed immutable observations remain available to reports and audit after a retry.
-- [ ] Resuming an already complete and valid job is idempotent and does not repeat browser actions.
-- [ ] Tests cover interruption during intake, design, browser execution, evidence capture, synthesis, and retrospective generation.
+- [x] Resume reconstructs the current phase from artifact completeness, question state, execution runs, evidence, and authorization records rather than chat narration.
+- [x] Browser-session readiness, expected environment, and authorization scope are revalidated before resumed execution.
+- [x] The runner continues from the earliest incomplete or invalid gate instead of blindly repeating the last narrated action.
+- [x] Existing evidence IDs and manifest entries are checked before capture so repeated execution does not create duplicate or misleading proof.
+- [x] Retrying a blocked or failed case appends a new run linked to the previous run and never overwrites history.
+- [x] Completed immutable observations remain available to reports and audit after a retry.
+- [x] Resuming an already complete and valid job is idempotent and does not repeat browser actions.
+- [x] Tests cover interruption during intake, design, browser execution, evidence capture, synthesis, and retrospective generation.
 
 ## Enforce the bounded worker-proposal contract
 
