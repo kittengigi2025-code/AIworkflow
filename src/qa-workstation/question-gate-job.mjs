@@ -1,5 +1,12 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import path from "node:path";
+
+import {
+  PHASES,
+  markPhaseDone,
+  markPhaseInProgress,
+  publishJsonArtifacts
+} from "./job-phase.mjs";
 
 const BLOCKING_IMPACTS = new Set([
   "pass_fail",
@@ -131,6 +138,8 @@ export async function runQuestionGateJob({ rawJob, workspaceRoot }) {
       risk_if_wrong: assumption.riskIfWrong
     }))
   };
+  markPhaseInProgress(requirement, PHASES.intake);
+
   const questionArtifact = {
     requirement_id: rawJob.requirementId,
     questions
@@ -142,8 +151,12 @@ export async function runQuestionGateJob({ rawJob, workspaceRoot }) {
   };
 
   await mkdir(workspace, { recursive: true });
-  await writeJson(artifacts.requirement, requirement);
-  await writeJson(artifacts.questions, questionArtifact);
+  await publishJsonArtifacts([
+    [artifacts.requirement, requirement],
+    [artifacts.questions, questionArtifact]
+  ]);
+  await markPhaseDone(requirement, workspace, PHASES.intake);
+  await publishJsonArtifacts([[artifacts.requirement, requirement]]);
 
   return { status, workspace, artifacts };
 }
@@ -189,10 +202,6 @@ function hasBlockingImpact(impacts, questionIndex) {
     }
   }
   return impacts.some((impact) => BLOCKING_IMPACTS.has(impact));
-}
-
-async function writeJson(filePath, value) {
-  await writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
 function validateJobIdentity({ rawJob, workspaceRoot }) {

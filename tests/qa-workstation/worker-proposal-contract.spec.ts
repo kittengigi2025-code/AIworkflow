@@ -318,6 +318,34 @@ test.describe("bounded worker proposal contract", () => {
         proposals: [makeProposal(reused, "WP-002")]
       })
     ).rejects.toThrow(/reused with a different immutable definition/i);
+
+    const provenanceIntake = await prepareWorkerJob(testInfo, "worker-provenance-integrity");
+    const provenanceAssignment = await makeAssignment(provenanceIntake.workspace);
+    const provenanceResult = await reviewWorkerProposals({
+      workspace: provenanceIntake.workspace,
+      assignments: [provenanceAssignment],
+      proposals: [makeProposal(provenanceAssignment)]
+    });
+    const provenance = JSON.parse(await readFile(provenanceResult.artifacts.contributions, "utf8"));
+    provenance.accepted_contributions[0].provenance.confidence = "weak";
+    await writeFile(
+      provenanceResult.artifacts.contributions,
+      `${JSON.stringify(provenance, null, 2)}\n`,
+      "utf8"
+    );
+    const followUp = await makeAssignment(
+      provenanceIntake.workspace,
+      "WA-002",
+      "design-b",
+      "follow-up-topic"
+    );
+    await expect(
+      reviewWorkerProposals({
+        workspace: provenanceIntake.workspace,
+        assignments: [followUp],
+        proposals: [makeProposal(followUp, "WP-002")]
+      })
+    ).rejects.toThrow(/forged proposal provenance/i);
   });
 
   test("one workspace cannot publish competing worker reviews concurrently", async ({}, testInfo) => {

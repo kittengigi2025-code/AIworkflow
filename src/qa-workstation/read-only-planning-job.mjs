@@ -2,6 +2,8 @@ import { access, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { randomUUID } from "node:crypto";
 import path from "node:path";
 
+import { PHASES, markPhaseDone, markPhaseInProgress } from "./job-phase.mjs";
+
 const ACTION_CLASSES = new Set([
   "read_only",
   "pre_authorized_mutation",
@@ -57,6 +59,7 @@ export async function runReadOnlyPlanningJob({ workspace, plan }) {
     throw new Error(`Job status ${requirement.status} cannot enter planning`);
   }
   await assertNoPlanningArtifacts(workspace);
+  markPhaseInProgress(requirement, PHASES.design);
 
   const validation = validatePlan(requirement, plan);
   const strategy = buildStrategy(requirement, plan, validation);
@@ -81,6 +84,8 @@ export async function runReadOnlyPlanningJob({ workspace, plan }) {
       [artifacts.strategy, strategy],
       [requirementPath, requirement]
     ]);
+    await markPhaseDone(requirement, workspace, PHASES.design);
+    await publishJsonArtifacts([[requirementPath, requirement]]);
     return { status: requirement.status, workspace, artifacts };
   }
 
@@ -92,6 +97,8 @@ export async function runReadOnlyPlanningJob({ workspace, plan }) {
     [artifacts.testCases, testCases],
     [requirementPath, requirement]
   ]);
+  await markPhaseDone(requirement, workspace, PHASES.design);
+  await publishJsonArtifacts([[requirementPath, requirement]]);
 
   return { status: requirement.status, workspace, artifacts };
 }
