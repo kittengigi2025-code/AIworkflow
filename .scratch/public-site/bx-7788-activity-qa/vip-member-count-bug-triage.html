@@ -1,0 +1,264 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIP管理查看会员 - Bug 去重与状态整理</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9dee7;
+      --ok: #14804a;
+      --warn: #b54708;
+      --fail: #b42318;
+      --info: #175cd3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+    }
+    a { color: var(--info); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    .tag {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .confirmed { color: var(--fail); background: #fff1f0; }
+    .pending { color: var(--warn); background: #fff7e6; }
+    .duplicate { color: var(--info); background: #eff8ff; }
+    .closed { color: var(--ok); background: #f6fef9; }
+    figure {
+      margin: 10px 0 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    img { display: block; width: 100%; height: auto; }
+    figcaption { padding: 8px 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .note { color: var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>VIP管理查看会员 - Bug 去重与状态整理</h1>
+    <p class="note">基于人工测试、Multica 对照测试和后端对 VIP 等级配置的反馈整理。更新时间：2026-07-09。</p>
+  </header>
+
+  <section>
+    <h2>结论</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>分类</th>
+          <th>数量</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag closed">回归通过</span></td>
+          <td>1</td>
+          <td>BUG-001 已回归通过：成员数量为 0 时不再是 link/pointer/button，点击不打开成员明细弹框。</td>
+        </tr>
+        <tr>
+          <td><span class="tag closed">产品接受</span></td>
+          <td>1</td>
+          <td>Q-001 已确认维持现状：VIP0 对应 grade=1、VIP1 对应 grade=2，列表展示 grade 数字、弹框展示 VIP 名称为接受口径，非 bug。</td>
+        </tr>
+        <tr>
+          <td><span class="tag duplicate">重复项</span></td>
+          <td>0 个独立新 Bug</td>
+          <td>Multica 没有发现第三个独立问题；它加深了 0 成员数量问题的实际行为证据。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>合并后的问题清单</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>标题</th>
+          <th>当前状态</th>
+          <th>来源</th>
+          <th>处理建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BUG-001</td>
+          <td>成员数量为 0 时仍为可点击入口，且 Multica 复测记录到点击后弹出成员明细</td>
+          <td><span class="tag closed">回归通过 / 已修复</span></td>
+          <td>人工测试 + Multica 对照测试</td>
+          <td>已回归通过，保留历史记录；当前验证 0 值已移除 link/pointer/button 样式，点击不再打开成员明细弹框。</td>
+        </tr>
+        <tr>
+          <td>Q-001</td>
+          <td>列表 grade 数字与弹框 VIP 名称展示口径不一致</td>
+          <td><span class="tag closed">产品接受 / 非 Bug</span></td>
+          <td>人工测试 + Multica 对照测试 + 后端反馈</td>
+          <td>产品/后端已确认维持现状，列表展示 grade 数字、弹框展示 VIP 名称为接受口径；关闭为非 bug。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>BUG-001 详情</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>建议级别</th>
+          <td>P1 / Major</td>
+        </tr>
+        <tr>
+          <th>环境</th>
+          <td>UAT 后台：<code>http://site.bx-tytest.xyz/#/member/level</code>；路径：福利中心 / VIP管理 / 查看会员；站点：巴西站-测试；商户：888。</td>
+        </tr>
+        <tr>
+          <th>期望结果</th>
+          <td>成员数量为 0 时不可点击；不应显示为蓝色 link 或 pointer；点击后不应出现查看会员/成员明细弹框。</td>
+        </tr>
+        <tr>
+          <th>回归结果</th>
+          <td>2026-07-09 回归通过：VIP10 成员数量 0 为普通 TD，无 button / anchor，颜色为 rgba(0, 0, 0, 0.85)，cursor 为 auto；点击后未打开成员明细弹框。</td>
+        </tr>
+        <tr>
+          <th>是否重复</th>
+          <td>不是新增独立 Bug。Multica 的“点击后弹框”是同一 0 值点击问题的更强证据，应合并进 BUG-001。</td>
+        </tr>
+        <tr>
+          <th>残余不确定性</th>
+          <td>人工首测与 Multica 对照测试对“点击后是否弹框”结果不同。建议前端修复前先在干净列表状态下复核一次 VIP10 的 0 点击行为；无论是否弹框，0 值可点击样式本身已违反需求。</td>
+        </tr>
+      </tbody>
+    </table>
+    <figure>
+      <img src="evidence/bug-001-vip10-zero-link.png" alt="人工测试：VIP10 成员数量 0 仍显示为蓝色 link">
+      <figcaption>人工测试证据：VIP10 成员数量 0 仍显示为蓝色 link 样式。</figcaption>
+    </figure>
+    <figure>
+      <img src="../multica-runs/vip-member-count-squad-check/evidence/execution-04d-vip10-zero-after-click.png" alt="Multica 对照测试：点击 VIP10 0 后弹出成员明细">
+      <figcaption>Multica 对照测试证据：点击 VIP10 的 0 后弹出成员明细弹框。</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Q-001 展示口径待确认</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>原观察</th>
+          <td>点击 VIP1 成员数量时，弹框行内 VIP等级为 1，但顶部筛选显示 VIP0；点击 VIP2 时，行内 VIP等级为 2，但顶部筛选显示 VIP1。</td>
+        </tr>
+        <tr>
+          <th>后端反馈</th>
+          <td>后端等级配置是 VIP0 对应 grade=1，VIP1 对应 grade=2，第一等级叫 VIP0。</td>
+        </tr>
+        <tr>
+          <th>当前定性</th>
+          <td>产品/后端已确认维持现状，VIP0 对应 grade=1、VIP1 对应 grade=2；列表展示 grade 数字、弹框展示 VIP 名称属于接受口径，非 bug。</td>
+        </tr>
+        <tr>
+          <th>给产品的问题</th>
+          <td>后端确认 VIP0 对应 grade=1，VIP1 对应 grade=2。当前列表展示数字 grade=1，点击后弹框筛选显示 VIP0。请确认产品期望：列表和弹框是否允许一个显示 grade 数字、一个显示 VIP 名称？还是要求统一展示为同一种口径？</td>
+        </tr>
+        <tr>
+          <th>处理结论</th>
+          <td>产品接受映射，关闭为非 bug。</td>
+        </tr>
+      </tbody>
+    </table>
+    <figure>
+      <img src="evidence/bug-002-vip2-filter-mismatch.png" alt="人工测试：VIP2 弹框显示 VIP1">
+      <figcaption>人工测试证据：点击 VIP2，弹框顶部显示 VIP1，行内 VIP等级为 2。该现象需结合后端配置由产品确认展示口径。</figcaption>
+    </figure>
+  </section>  <section>
+    <h2>2026-07-09 BUG-001 回归结果</h2>
+    <table>
+      <tbody>
+        <tr><th>回归结论</th><td><span class="tag closed">通过 / 已修复</span></td></tr>
+        <tr><th>执行报告</th><td><a href="../multica-runs/vip-member-count-regression-20260709/regression-report.html">../multica-runs/vip-member-count-regression-20260709/regression-report.html</a></td></tr>
+        <tr><th>关键证据</th><td>VIP10 成员数量 0 无 link / pointer / button 样式，点击后未打开成员明细弹框。</td></tr>
+      </tbody>
+    </table>
+    <figure>
+      <img src="../multica-runs/vip-member-count-regression-20260709/evidence/regression-02-vip10-zero-visible-before-click.png" alt="回归：VIP10 成员数量 0 不再为可点击样式">
+      <figcaption>回归证据：VIP10 成员数量 0 为普通文本样式。</figcaption>
+    </figure>
+    <figure>
+      <img src="../multica-runs/vip-member-count-regression-20260709/evidence/regression-03-vip10-zero-after-click.png" alt="回归：点击 0 后未弹框">
+      <figcaption>回归证据：点击 0 后未出现成员明细弹框。</figcaption>
+    </figure>
+  </section>
+  <section>
+    <h2>关联产物</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>人工测试 Bug 单</th>
+          <td><a href="vip-member-count-bug-tickets.html">vip-member-count-bug-tickets.html</a></td>
+        </tr>
+        <tr>
+          <th>Multica 对照 Bug 单</th>
+          <td><a href="../multica-runs/vip-member-count-squad-check/bug-tickets.html">../multica-runs/vip-member-count-squad-check/bug-tickets.html</a></td>
+        </tr>
+        <tr>
+          <th>Multica 对照测试报告</th>
+          <td><a href="../multica-runs/vip-member-count-squad-check/test-report.html">../multica-runs/vip-member-count-squad-check/test-report.html</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>
+
+
+

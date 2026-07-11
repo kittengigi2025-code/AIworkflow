@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA测试需求台账</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --line: #d9dee7;
+      --ok: #14804a;
+      --warn: #b54708;
+      --fail: #b42318;
+      --info: #175cd3;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 28px; letter-spacing: 0; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 16px;
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: #344054;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+    }
+    a { color: var(--info); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .status-bug {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #fff1f0;
+      color: var(--fail);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .status-wait {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #fff7e6;
+      color: var(--warn);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .status-pass {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #f6fef9;
+      color: var(--ok);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    @media (max-width: 860px) {
+      main { width: min(100% - 24px, 1180px); margin-top: 18px; }
+      header { grid-template-columns: 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 7px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>QA测试需求台账</h1>
+      <div class="meta">
+        <span class="chip">本地轻量测试管理</span>
+        <span class="chip">入口文件：qa-index.html</span>
+        <span class="chip">最后更新：2026-07-08</span>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>需求总览</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th>需求</th>
+          <th>路径</th>
+          <th>状态</th>
+          <th>问题数</th>
+          <th>报告</th>
+          <th>Bug单</th>
+          <th>回归</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026-07-08</td>
+          <td>VIP管理 / 查看会员 / 成员数量</td>
+          <td>福利中心 / VIP管理 / 查看会员</td>
+          <td><span class="status-bug">有 bug</span></td>
+          <td>2</td>
+          <td><a href="bx-7788-activity-qa/vip-member-count-test-report.html">测试报告</a></td>
+          <td><a href="bx-7788-activity-qa/vip-member-count-bug-tickets.html">Bug单</a></td>
+          <td><span class="status-wait">待回归</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>使用规则</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>动作</th>
+          <th>规则</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>新需求开始测试</td>
+          <td>在台账新增一行，状态先标为 <span class="status-wait">待确认</span> 或 <span class="status-wait">待测</span>。</td>
+        </tr>
+        <tr>
+          <td>测试完成</td>
+          <td>更新测试报告链接、bug 单链接、问题数和状态。</td>
+        </tr>
+        <tr>
+          <td>开发修复后</td>
+          <td>更新回归状态：待回归 / 回归通过 / 回归失败。</td>
+        </tr>
+        <tr>
+          <td>团队共享</td>
+          <td>把整个 <code>.scratch</code> 或导出的 <code>QA台账</code> 文件夹放到共享盘、飞书云文档附件或群文件。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>流程复盘</h2>
+    <p><a href="qa-process-retrospective.html">查看这次流程复盘与轻量台账方案</a></p>
+  </section>
+</main>
+</body>
+</html>

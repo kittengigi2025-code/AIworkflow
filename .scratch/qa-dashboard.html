@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=qa-dashboard-app.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>本地 QA 工作台</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9dee7;
+      --blue: #175cd3;
+      --green: #14804a;
+      --orange: #b54708;
+      --red: #b42318;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1220px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    header { display: grid; gap: 8px; margin-bottom: 16px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .sub { color: var(--muted); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcfd;
+    }
+    .stat strong { display: block; font-size: 22px; margin-bottom: 2px; }
+    .stat span { color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid #b7c7e6;
+      border-radius: 6px;
+      background: #f7faff;
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn.download { border-color: #b7dfc7; background: #f6fef9; color: var(--green); }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--chip);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .ok { color: var(--green); background: #f6fef9; }
+    .warn { color: var(--orange); background: #fff7e6; }
+    .fail { color: var(--red); background: #fff1f0; }
+    code {
+      color: #101828;
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    @media (max-width: 900px) {
+      main { width: min(100% - 24px, 1220px); margin-top: 18px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .stats { grid-template-columns: 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 7px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>本地 QA 工作台</h1>
+    <div class="sub">统一查看已测需求、当前 Bug、HTML 报告、证据和一键下载包。入口地址：<code>http://127.0.0.1:8765/qa-dashboard.html</code></div>
+  </header>
+
+  <section>
+    <h2>当前总览</h2>
+    <div class="stats">
+      <div class="stat"><strong>2</strong><span>已测试需求</span></div>
+      <div class="stat"><strong>1</strong><span>已关闭需求</span></div>
+      <div class="stat"><strong>1</strong><span>待修复 Bug</span></div>
+      <div class="stat"><strong>3</strong><span>可下载交付包</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>需求台账</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>需求</th>
+          <th>状态</th>
+          <th>当前结论</th>
+          <th>动作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VIP管理 / 查看会员 / 成员数量</td>
+          <td><span class="tag ok">通过 / 已关闭</span></td>
+          <td>BUG-001 已修复并回归通过；Q-001 已按产品/后端口径接受为非 Bug。</td>
+          <td>
+            <div class="actions">
+              <a class="btn" href="bx-7788-activity-qa/vip-member-count-final-test-report.html">最终报告</a>
+              <a class="btn" href="bx-7788-activity-qa/vip-member-count-bug-triage.html">Bug 整理</a>
+              <a class="btn download" href="packages/vip-member-count-final-report-package-20260709.zip" download>下载报告包</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>【站点】VIP管理增加查看会员 tab</td>
+          <td><span class="tag fail">有 Bug / 待修复</span></td>
+          <td>发现 BUG-IND-001：成员明细空数据查询后弹框无法关闭。主责 Daniel-前端，Mario/Jerson 后端协查。</td>
+          <td>
+            <div class="actions">
+              <a class="btn" href="multica-runs/vip-member-tab-independent-20260709/test-report.html">测试报告</a>
+              <a class="btn" href="multica-runs/vip-member-tab-independent-20260709/bug-tickets.html">Bug 单</a>
+              <a class="btn" href="multica-runs/vip-member-tab-independent-20260709/evidence/">证据目录</a>
+              <a class="btn download" href="packages/vip-member-tab-bug-ind-001-dev-package-20260709.zip" download>下载 Bug 包</a>
+              <a class="btn download" href="packages/vip-member-tab-full-test-package-20260709.zip" download>下载完整测试包</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>待处理 Bug</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>标题</th>
+          <th>建议级别</th>
+          <th>主责</th>
+          <th>回归要求</th>
+          <th>交付</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BUG-IND-001</td>
+          <td>成员明细空数据查询后弹框无法关闭</td>
+          <td><span class="tag fail">P1 / Major</span></td>
+          <td>Daniel-前端；Mario/Jerson 后端协查</td>
+          <td>修复后回归空数据查询、关闭按钮、ESC、关闭后返回查看会员列表。</td>
+          <td><a class="btn download" href="packages/vip-member-tab-bug-ind-001-dev-package-20260709.zip" download>下载给开发</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>下载包说明</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>包</th>
+          <th>用途</th>
+          <th>内容</th>
+          <th>下载</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>成员数量最终报告包</td>
+          <td>归档给产品/测试查看</td>
+          <td>最终报告、Bug 整理、历史 Bug 单、Multica 回归报告和截图证据。</td>
+          <td><a class="btn download" href="packages/vip-member-count-final-report-package-20260709.zip" download>下载</a></td>
+        </tr>
+        <tr>
+          <td>查看会员 tab 开发 Bug 包</td>
+          <td>直接发给开发</td>
+          <td>BUG-IND-001 的 Bug 单和截图证据。</td>
+          <td><a class="btn download" href="packages/vip-member-tab-bug-ind-001-dev-package-20260709.zip" download>下载</a></td>
+        </tr>
+        <tr>
+          <td>查看会员 tab 完整测试包</td>
+          <td>归档完整测试过程</td>
+          <td>疑问闸门、测试设计、测试报告、Bug 单、台账建议和全部证据。</td>
+          <td><a class="btn download" href="packages/vip-member-tab-full-test-package-20260709.zip" download>下载</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

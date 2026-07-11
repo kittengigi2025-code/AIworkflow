@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIP管理增加查看会员Tab - 独立对照测试报告</title>
+  <style>
+    :root { --line:#d8dee4; --text:#1f2933; --muted:#667085; --pass:#16794c; --fail:#b42318; --risk:#b54708; --info:#175cd3; }
+    body { margin:0; font-family: Arial, "Microsoft YaHei", sans-serif; color:var(--text); background:#f6f8fa; line-height:1.55; }
+    main { width:min(1180px, calc(100% - 40px)); margin:24px auto 48px; }
+    h1 { font-size:24px; margin:0 0 10px; }
+    h2 { font-size:18px; margin:24px 0 10px; }
+    p { margin:6px 0; }
+    section { background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px; margin:14px 0; }
+    table { width:100%; border-collapse:collapse; table-layout:fixed; margin-top:8px; }
+    th, td { border:1px solid var(--line); padding:8px; vertical-align:top; word-break:break-word; }
+    th { background:#f3f6f8; text-align:left; }
+    .chip { display:inline-block; border:1px solid var(--line); border-radius:4px; padding:2px 6px; background:#fff; margin:2px 4px 2px 0; font-size:12px; }
+    .pass { color:var(--pass); font-weight:700; }
+    .fail { color:var(--fail); font-weight:700; }
+    .risk { color:var(--risk); font-weight:700; }
+    .info { color:var(--info); font-weight:700; }
+    figure { margin:10px 0 0; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff; }
+    img { display:block; width:100%; height:auto; }
+    figcaption { color:var(--muted); padding:8px 10px; border-top:1px solid var(--line); font-size:12px; }
+    code { background:#f6f8fa; padding:2px 4px; border-radius:3px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>VIP管理增加查看会员Tab - 独立对照测试报告</h1>
+  <p><span class="chip">Issue: WS-12</span><span class="chip">执行日期: 2026-07-09</span><span class="chip">环境: http://site.bx-tytest.xyz</span><span class="chip">账号: t0lle01</span></p>
+
+  <section>
+    <h2>结论</h2>
+    <table>
+      <tr><th>是否阻塞</th><td class="pass">无环境阻塞。后台已有登录态，查看会员页面可访问。</td></tr>
+      <tr><th>是否发现 bug</th><td class="fail">发现 1 个新 bug：成员明细弹框在空数据查询后无法关闭。</td></tr>
+      <tr><th>需要回归</th><td>BUG-IND-001：空数据查询后成员明细弹框关闭按钮与 ESC 应可关闭弹框，并回到查看会员列表。</td></tr>
+      <tr><th>H5 BR-08</th><td class="risk">未触发。后台问题限定在弹框关闭交互，未观察到疑似外溢到 H5 的 VIP 展示异常。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>需求摘要</h2>
+    <table>
+      <tr><th>业务路径</th><td>福利中心 / VIP管理 / 查看会员，路由 <code>#/member/level</code></td></tr>
+      <tr><th>验收重点</th><td>tab 存在；VIP等级列表展示；成员数量大于 0 可查看明细；成员数量为 0 不可点击且不弹框；明细上下文、分页、筛选、空数据、关闭后列表状态。</td></tr>
+      <tr><th>只读边界</th><td>本轮仅执行导航、tab 切换、列表数字点击、弹框查看、分页、查询筛选、关闭弹框和截图；未执行保存、提交、删除、审批、导出、充值、提现、奖励发放、会员状态变更、密码、验证码或 OTP。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>完成观察</h2>
+    <table>
+      <tr><th>观察项</th><th>实际结果</th><th>证据</th></tr>
+      <tr>
+        <td>查看会员 tab 与列表</td>
+        <td>后台登录态有效；查看会员 tab 可切换并激活。列表展示 12 个 VIP 等级，列包含 VIP等级、成员数量、今日晋级奖励、今日日奖励、今日周奖励、今日月奖励。成员数量分布：VIP1=464、VIP2=31、VIP3=30、VIP4=15、VIP5=145、VIP6=2、VIP7=1、VIP8=1、VIP9=2、VIP10=0、VIP11=2、VIP12=1。</td>
+        <td><a href="evidence/br-01-02-04-list-after-close.png">br-01-02-04-list-after-close.png</a></td>
+      </tr>
+      <tr>
+        <td>大于 0 明细</td>
+        <td>点击 VIP1 成员数量 464 后打开成员明细弹框，表格行内 VIP等级为 1，总数显示共 464 条数据。弹框顶部筛选值显示 VIP0，按既定口径作为 VIP 名称与 grade 映射差异记录，不直接判 bug。</td>
+        <td>浏览器记录：成员明细总数 464，分页 1-10，首批行 VIP等级均为 1。</td>
+      </tr>
+      <tr>
+        <td>分页</td>
+        <td>弹框分页切换到第 3 页后，激活页码为 3，首行会员 ID 变化，总数仍为 464，行内 VIP等级仍为 1。第 2 页首次切换曾短暂显示旧数据，等待后再切第 3 页可正常变化，本轮不单独判 bug。</td>
+        <td>浏览器记录：第 3 页首行 47142237，VIP等级 1。</td>
+      </tr>
+      <tr>
+        <td>筛选与空数据</td>
+        <td>在会员ID筛选输入不存在值 <code>00000000</code> 并查询，弹框显示“暂无数据”，无报错。</td>
+        <td><a href="evidence/br-06-empty-filter.png">br-06-empty-filter.png</a></td>
+      </tr>
+      <tr>
+        <td>关闭弹框后列表状态</td>
+        <td class="fail">空数据查询后，点击弹框关闭按钮、坐标点击关闭按钮、按 ESC 均未关闭弹框，页面仍显示成员明细弹框。</td>
+        <td><a href="evidence/bug-001-modal-close-not-working.png">bug-001-modal-close-not-working.png</a></td>
+      </tr>
+      <tr>
+        <td>0 数量不可点击</td>
+        <td>刷新恢复页面后，VIP10 成员数量为 0，单元格无 button/a；点击 0 后未打开成员明细弹框，仍停留在查看会员 tab。</td>
+        <td><a href="evidence/br-04-zero-not-clickable.png">br-04-zero-not-clickable.png</a></td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>测试用例结果</h2>
+    <table>
+      <tr><th>ID</th><th>结果</th><th>说明</th></tr>
+      <tr><td>BR-01</td><td class="pass">通过</td><td>后台入口可达，查看会员 tab 存在且可激活。</td></tr>
+      <tr><td>BR-02</td><td class="pass">通过</td><td>VIP等级列表和成员数量列展示完整，当前可见 12 条等级数据。</td></tr>
+      <tr><td>BR-03</td><td class="pass">通过，带残余风险</td><td>VIP1 464 可打开明细，总数一致；无数据库/接口核对口径，不宣称数据库级准确。</td></tr>
+      <tr><td>BR-04</td><td class="pass">通过</td><td>VIP10 成员数量 0 无链接按钮，点击后不弹框。</td></tr>
+      <tr><td>BR-05</td><td class="pass">通过</td><td>明细分页可切换，第 3 页数据变化且上下文仍为 VIP等级 1。</td></tr>
+      <tr><td>BR-06</td><td class="pass">通过</td><td>不存在会员ID查询显示暂无数据，无报错。</td></tr>
+      <tr><td>BR-07</td><td class="fail">失败</td><td>空数据查询后成员明细弹框无法关闭，需要修复并回归。</td></tr>
+      <tr><td>BR-08</td><td class="risk">未触发</td><td>未发现疑似影响 H5 展示的后台数据异常；H5 不作为本轮主验收链路。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>发现问题</h2>
+    <table>
+      <tr><th>ID</th><th>标题</th><th>严重级别建议</th><th>状态</th></tr>
+      <tr><td>BUG-IND-001</td><td>成员明细空数据查询后弹框无法关闭</td><td>P1 / Major</td><td class="fail">待修复、待回归</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>残余风险</h2>
+    <table>
+      <tr><th>风险</th><th>保留口径</th></tr>
+      <tr><td>成员数量准确性</td><td>本轮只做页面内一致性核对：列表数量、弹框总数、分页总数。未做数据库、接口或独立统计口径核验。</td></tr>
+      <tr><td>VIP 名称与 grade 映射</td><td>弹框顶部显示 VIP0、表格行内显示等级 1，按已知产品/后端口径作为映射差异或非 bug 判据；只有明显串级才进入 bug。</td></tr>
+      <tr><td>数据覆盖</td><td>已覆盖大于 0、等于 0、多页、空数据；未构造新测试数据，未覆盖其他站点/商户/角色权限。</td></tr>
+      <tr><td>禁止操作</td><td>导出、保存、提交、删除、审批、充值、提现、奖励发放、会员状态变更均未覆盖，且不作为本轮通过/失败依据。</td></tr>
+      <tr><td>H5</td><td>未触发 BR-08；本轮结论不覆盖 H5 VIP 展示链路。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>与本地既有结论一致性</h2>
+    <table>
+      <tr><th>既有结论</th><th>本轮对照结果</th></tr>
+      <tr><td>历史 BUG-001：VIP10 成员数量 0 不应可点击，回归报告显示已修复。</td><td class="pass">一致。本轮 VIP10 的 0 无 button/a，点击不弹框。</td></tr>
+      <tr><td>历史 Q-001：VIP 名称与 grade 数字展示差异被产品/后端接受。</td><td class="pass">一致。本轮仅记录 VIP0/等级1映射差异为残余风险，不作为 bug。</td></tr>
+      <tr><td>历史报告未覆盖空数据查询后关闭弹框失败。</td><td class="fail">本轮新增 BUG-IND-001。</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

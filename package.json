@@ -1,0 +1,15 @@
+{
+  "name": "gaming-platform-qa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "qa:question-gate": "node scripts/run-question-gate-job.mjs",
+    "qa:publish": "node scripts/publish-qa-site.mjs",
+    "test:qa-workstation": "playwright test tests/qa-workstation",
+    "test:smoke": "playwright test tests/smoke",
+    "test:smoke:h5-login": "playwright test tests/smoke/h5-login.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}

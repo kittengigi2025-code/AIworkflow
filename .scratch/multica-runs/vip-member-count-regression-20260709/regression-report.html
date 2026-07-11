@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>VIP管理 查看会员 成员数量 - BUG-001 回归报告</title>
+  <style>
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; color: #1f2933; background: #f5f7fa; }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 22px; margin: 0 0 12px; }
+    h2 { font-size: 18px; margin: 28px 0 12px; }
+    section, .meta { background: #fff; border: 1px solid #d9e2ec; border-radius: 6px; padding: 16px; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { border: 1px solid #d9e2ec; padding: 8px 10px; vertical-align: top; font-size: 13px; }
+    th { background: #eef2f7; text-align: left; }
+    .pass { color: #0f7b45; font-weight: 700; }
+    .accepted { color: #175cd3; font-weight: 700; }
+    .risk { color: #8a5a00; font-weight: 700; }
+    img { max-width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; margin-top: 8px; }
+    code { background: #eef2f7; padding: 1px 4px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>VIP管理 / 查看会员 / 成员数量 - BUG-001 回归报告</h1>
+  <div class="meta">
+    <table>
+      <tr><th>执行时间</th><td>2026-07-09 10:03 CST</td></tr>
+      <tr><th>后台</th><td>http://site.bx-tytest.xyz/#/member/level</td></tr>
+      <tr><th>路径</th><td>福利中心 / VIP管理 / 查看会员</td></tr>
+      <tr><th>站点 / 商户</th><td>巴西站-测试 / 888</td></tr>
+      <tr><th>执行边界</th><td>仅做低敏只读导航、查看、点击 0 成员数量与截图；未处理密码、验证码、OTP，未执行保存、提交、删除、审批、导出、充值、提现、奖励发放、会员状态变更。</td></tr>
+      <tr><th>登录态</th><td>Chrome 后台登录态可用。</td></tr>
+      <tr><th>回归结论</th><td class="pass">通过：BUG-001 已修复。</td></tr>
+    </table>
+  </div>
+
+  <section>
+    <h2>回归范围</h2>
+    <table>
+      <tr><th>项目</th><th>口径</th><th>结果</th></tr>
+      <tr><td>BUG-001</td><td>成员数量为 0 的 VIP 行不应呈现蓝色 link / pointer / 可点击按钮样式。</td><td class="pass">通过：VIP10 成员数量 0 为普通 TD，无 button、无 anchor，颜色为 <code>rgba(0, 0, 0, 0.85)</code>，cursor 为 <code>auto</code>。</td></tr>
+      <tr><td>BUG-001</td><td>点击 0 不应打开成员明细/查看会员弹框。</td><td class="pass">通过：点击 VIP10 的 0 后未出现成员明细弹框。</td></tr>
+      <tr><td>Q-001</td><td>VIP0 对应 grade=1、VIP1 对应 grade=2，弹框展示 VIP 名称、列表展示 grade 数字。</td><td class="accepted">产品/后端接受现状，本次不作为 bug 回归。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>执行证据</h2>
+    <table>
+      <tr><th>证据</th><th>观察</th></tr>
+      <tr>
+        <td><img src="evidence/regression-01-list-before-click-full.png" alt="查看会员列表完整截图"></td>
+        <td>查看会员列表显示 VIP1-VIP12，VIP10 成员数量为 0。</td>
+      </tr>
+      <tr>
+        <td><img src="evidence/regression-02-vip10-zero-visible-before-click.png" alt="点击前 VIP10 0 样式"></td>
+        <td>点击前 DOM 观察：VIP10 的 0 为普通 <code>TD</code>，无 <code>button</code> / <code>a</code>，颜色黑色，cursor 为 auto。</td>
+      </tr>
+      <tr>
+        <td><img src="evidence/regression-03-vip10-zero-after-click.png" alt="点击后未弹框"></td>
+        <td>点击 VIP10 的 0 后，页面仍停留在查看会员列表，未出现成员明细弹框。</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>用例结果</h2>
+    <table>
+      <tr><th>用例</th><th>检查点</th><th>实际结果</th><th>状态</th></tr>
+      <tr><td>REG-001</td><td>0 成员数量样式</td><td>VIP10 成员数量 0 无 link/button，非蓝色，cursor auto。</td><td class="pass">通过</td></tr>
+      <tr><td>REG-002</td><td>0 成员数量点击</td><td>点击 VIP10 的 0 后未打开成员明细/查看会员弹框。</td><td class="pass">通过</td></tr>
+      <tr><td>REG-003</td><td>Q-001 回归口径</td><td>按产品/后端确认，VIP 名称和 grade 数字展示差异为接受口径。</td><td class="accepted">非 bug</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>残余风险</h2>
+    <table>
+      <tr><th>风险</th><th>说明</th></tr>
+      <tr><td>仅覆盖当前 0 数据行</td><td>本次页面上可见的 0 成员数量行是 VIP10；若后续其他 VIP 等级出现 0，建议以同一规则纳入常规回归。</td></tr>
+      <tr><td>未做数据变更</td><td>本次遵守只读边界，未制造新的 0 成员数量测试数据。</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard 维护说明</title>
+  <style>
+    body { margin:0; background:#f5f7fb; color:#172033; font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif; }
+    main { width:min(1040px, calc(100% - 40px)); margin:28px auto 48px; }
+    section { background:#fff; border:1px solid #d9e0ea; border-radius:8px; padding:16px; margin-top:14px; }
+    h1 { margin:0 0 8px; font-size:28px; }
+    h2 { margin:0 0 10px; font-size:18px; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { border-top:1px solid #d9e0ea; padding:10px 9px; text-align:left; vertical-align:top; }
+    th { border-top:0; background:#fafbfc; color:#475467; font-size:12px; white-space:nowrap; }
+    code { background:#eef2f6; border:1px solid #d8dde6; border-radius:5px; padding:1px 5px; font-family:Consolas,Menlo,monospace; font-size:12px; }
+    a { color:#155eef; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Dashboard 维护说明</h1>
+  <p>目标：新增需求时不再复制粘贴大段 HTML，只维护结构化数据。</p>
+
+  <section>
+    <h2>文件分工</h2>
+    <table>
+      <tr><th>文件</th><th>职责</th></tr>
+      <tr><td><code>data/qa-dashboard.json</code></td><td>唯一的 Dashboard 数据源：需求、关注项、下载包、维护规则。</td></tr>
+      <tr><td><code>qa-dashboard-app.html</code></td><td>很薄的页面壳，只负责挂载 CSS、JS 和页面容器。</td></tr>
+      <tr><td><code>site-assets/dashboard.js</code></td><td>读取 JSON、渲染指标、筛选、列表、下载包。</td></tr>
+      <tr><td><code>site-assets/dashboard.css</code></td><td>Dashboard 样式。</td></tr>
+      <tr><td><code>scripts/publish-qa-site.mjs</code></td><td>发布前校验：统计需求、校验链接、发现死链直接失败。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>新增需求流程</h2>
+    <table>
+      <tr><th>步骤</th><th>动作</th></tr>
+      <tr><td>1</td><td>把正式报告、Bug 单、证据放入对应需求目录。</td></tr>
+      <tr><td>2</td><td>在 <code>data/qa-dashboard.json</code> 的 <code>requirements</code> 数组新增一条记录。</td></tr>
+      <tr><td>3</td><td>如有新下载包，在 <code>packages</code> 数组新增一条记录。</td></tr>
+      <tr><td>4</td><td>运行 <code>npm run qa:publish</code>。</td></tr>
+      <tr><td>5</td><td>脚本通过后，再把链接发给项目组。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>当前入口</h2>
+    <p><a href="qa-dashboard-app.html">打开 QA Dashboard</a></p>
+    <p><a href="qa-home.html">打开文档中心</a></p>
+  </section>
+</main>
+</body>
+</html>

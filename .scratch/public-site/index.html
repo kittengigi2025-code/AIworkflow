@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA 需求测试成果看板</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --line: #d9e0ea;
+      --blue: #155eef;
+      --green: #087443;
+      --red: #b42318;
+      --orange: #b54708;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 40px)); margin: 28px auto 48px; }
+    header { margin-bottom: 16px; }
+    h1, h2, h3 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 18px; margin-bottom: 12px; }
+    h3 { font-size: 16px; margin-bottom: 8px; }
+    p { margin: 6px 0; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .sub { color: var(--muted); }
+    .notice {
+      border-left: 4px solid var(--orange);
+      background: #fff8ed;
+      padding: 10px 12px;
+      border-radius: 6px;
+      color: #4e2d0a;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcff;
+    }
+    .stat strong { display: block; font-size: 24px; margin-bottom: 2px; }
+    .stat span { color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--chip);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .ok { color: var(--green); background: #ecfdf3; }
+    .fail { color: var(--red); background: #fff1f0; }
+    .warn { color: var(--orange); background: #fff7e6; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid #b7c7e6;
+      border-radius: 6px;
+      background: #f7faff;
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn.download { border-color: #b7dfc7; background: #f6fef9; color: var(--green); }
+    .btn.bug { border-color: #f5b5af; background: #fff7f6; color: var(--red); }
+    code {
+      color: #101828;
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    @media (max-width: 900px) {
+      main { width: min(100% - 24px, 1180px); margin-top: 18px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .stats { grid-template-columns: 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 7px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>QA 需求测试成果看板</h1>
+    <p class="sub">用于对外展示已测试需求、测试结论、缺陷单、证据截图和一键下载包。更新时间：2026-07-09。</p>
+  </header>
+
+  <section class="notice">
+    <strong>分享边界：</strong>当前报告包含 UAT 地址、开发/测试人员姓名、截图证据。适合发给项目组、产品、开发和管理者；如果要发到完全公开场景，建议后续再做脱敏版。
+  </section>
+
+  <section>
+    <h2>当前总览</h2>
+    <div class="stats">
+      <div class="stat"><strong>2</strong><span>已测试需求</span></div>
+      <div class="stat"><strong>1</strong><span>已关闭需求</span></div>
+      <div class="stat"><strong>1</strong><span>待修复 Bug</span></div>
+      <div class="stat"><strong>3</strong><span>可下载交付包</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>需求台账</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>需求</th>
+          <th>状态</th>
+          <th>测试结论</th>
+          <th>报告与下载</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VIP 管理 / 查看会员 / 成员数量</td>
+          <td><span class="tag ok">回归通过</span></td>
+          <td>成员数量为 0 时可点击的问题已修复并回归通过；VIP 等级显示规则已按产品/后端口径接受为非 Bug。</td>
+          <td>
+            <div class="actions">
+              <a class="btn" href="bx-7788-activity-qa/vip-member-count-final-test-report.html">最终报告</a>
+              <a class="btn" href="bx-7788-activity-qa/vip-member-count-bug-triage.html">Bug 整理</a>
+              <a class="btn download" href="packages/vip-member-count-final-report-package-20260709.zip" download>下载归档包</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>【站点】VIP 管理增加查看会员 Tab</td>
+          <td><span class="tag fail">有 Bug / 待修复</span></td>
+          <td>发现 BUG-IND-001：成员明细空数据查询后弹框无法关闭。初判前端优先，Daniel-前端主责；Mario-Java综合、Jerson-Java综合组长协查。</td>
+          <td>
+            <div class="actions">
+              <a class="btn" href="multica-runs/vip-member-tab-independent-20260709/test-report.html">测试报告</a>
+              <a class="btn bug" href="multica-runs/vip-member-tab-independent-20260709/bug-tickets.html">Bug 单</a>
+              <a class="btn" href="multica-runs/vip-member-tab-independent-20260709/evidence/">证据目录</a>
+              <a class="btn download" href="packages/vip-member-tab-bug-ind-001-dev-package-20260709.zip" download>下载 Bug 包</a>
+              <a class="btn download" href="packages/vip-member-tab-full-test-package-20260709.zip" download>下载完整测试包</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>当前待处理 Bug</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>标题</th>
+          <th>建议级别</th>
+          <th>责任判断</th>
+          <th>回归重点</th>
+          <th>交付</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BUG-IND-001</td>
+          <td>成员明细空数据查询后弹框无法关闭</td>
+          <td><span class="tag fail">P1 / Major</span></td>
+          <td>前端优先：Daniel-前端。后端协查：Mario-Java综合、Jerson-Java综合组长。</td>
+          <td>空数据查询、关闭按钮、ESC 关闭、关闭后返回查看会员列表状态。</td>
+          <td><a class="btn download" href="packages/vip-member-tab-bug-ind-001-dev-package-20260709.zip" download>下载给开发</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>发布建议</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>方式</th>
+          <th>适合场景</th>
+          <th>备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cloudflare Pages / GitHub Pages</td>
+          <td>长期可访问、可沉淀个人 QA 成果展示。</td>
+          <td>上传本目录即可，入口文件是 <code>index.html</code>。</td>
+        </tr>
+        <tr>
+          <td>Cloudflare Tunnel / ngrok</td>
+          <td>临时发给同事查看本机站点。</td>
+          <td>速度快，但依赖本机在线；公开 URL 会直接访问本机服务。</td>
+        </tr>
+        <tr>
+          <td>压缩包</td>
+          <td>无法开公网时，直接发给开发或产品。</td>
+          <td>打开压缩包内 <code>index.html</code> 即可查看全部链接。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

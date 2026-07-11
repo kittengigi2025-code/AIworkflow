@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA 产物目录与整理规则</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9dee7;
+      --blue: #175cd3;
+      --ok: #14804a;
+      --warn: #b54708;
+      --fail: #b42318;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: #344054;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      color: #101828;
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    .status {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .current { color: var(--ok); background: #f6fef9; }
+    .asset { color: var(--blue); background: #eff8ff; }
+    .archive { color: var(--warn); background: #fff7e6; }
+    .review { color: var(--fail); background: #fff1f0; }
+    ul { margin: 6px 0 0; padding-left: 18px; }
+    li + li { margin-top: 4px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>QA 产物目录与整理规则</h1>
+    <div class="meta">
+      <span class="chip">入口文件：qa-index.html</span>
+      <span class="chip">原则：正式产物只认 HTML</span>
+      <span class="chip">最后更新：2026-07-08</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>管理原则</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>一个总入口</th>
+          <td><code>.scratch/qa-index.html</code> 是唯一入口。新增 HTML 产物必须从这里能点到。</td>
+        </tr>
+        <tr>
+          <th>每个需求一个目录</th>
+          <td>需求相关文件放到 <code>.scratch/&lt;需求slug&gt;/</code>，只保留 <code>test-report.html</code>、<code>bug-tickets.html</code>、<code>evidence/</code> 等当前产物。</td>
+        </tr>
+        <tr>
+          <th>流程资产单独管理</th>
+          <td>流程、Multica、资源卡片、复盘这类跨需求文件放在顶层，并在本目录页登记。</td>
+        </tr>
+        <tr>
+          <th>旧 Markdown 不再当正式产物</th>
+          <td>旧 <code>.md</code> 只作为历史草稿。若内容已进入 HTML，可以归档；不再从 QA index 直接暴露给团队。</td>
+        </tr>
+        <tr>
+          <th>临时下载文件要标记</th>
+          <td>Axure 或页面下载的 <code>.js</code> 这类文件不能混在正式报告视图里，后续移动到 <code>tmp/</code> 或归档。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>推荐目录结构</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>路径</th>
+          <th>用途</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>.scratch/qa-index.html</code></td>
+          <td>总入口，展示所有测试需求、资源、流程资产和操作手册。</td>
+        </tr>
+        <tr>
+          <td><code>.scratch/artifact-catalog.html</code></td>
+          <td>产物目录，说明哪些文件是当前有效、哪些建议归档。</td>
+        </tr>
+        <tr>
+          <td><code>.scratch/test-resources.html</code></td>
+          <td>环境与测试资源卡片，由 QA资源管理员 维护。</td>
+        </tr>
+        <tr>
+          <td><code>.scratch/system/</code></td>
+          <td>后续建议放流程资产：Multica 操作、军团说明、复盘、skill 源文件。</td>
+        </tr>
+        <tr>
+          <td><code>.scratch/requirements/&lt;date&gt;-&lt;slug&gt;/</code></td>
+          <td>后续建议放每个需求的报告、Bug 单、证据、回归记录。</td>
+        </tr>
+        <tr>
+          <td><code>.scratch/archive/</code></td>
+          <td>历史草稿、旧 Markdown、临时下载文件。移动前应先确认不再被当前 HTML 链接。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>当前有效入口</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>文件</th>
+          <th>类型</th>
+          <th>处理建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="index.html">index.html</a></td>
+          <td><span class="status current">Web 首页</span></td>
+          <td>保留，本地 Web 服务默认首页。</td>
+        </tr>
+        <tr>
+          <td><a href="qa-index.html">qa-index.html</a></td>
+          <td><span class="status current">当前入口</span></td>
+          <td>保留，所有新产物都要从这里能访问。</td>
+        </tr>
+        <tr>
+          <td><a href="test-resources.html">test-resources.html</a></td>
+          <td><span class="status current">资源卡片</span></td>
+          <td>保留，由 QA资源管理员维护。</td>
+        </tr>
+        <tr>
+          <td><a href="qa-legion.html">qa-legion.html</a></td>
+          <td><span class="status current">流程资产</span></td>
+          <td>保留，记录 QA 测试军团设计。</td>
+        </tr>
+        <tr>
+          <td><a href="multica-cli-operations.html">multica-cli-operations.html</a></td>
+          <td><span class="status current">操作手册</span></td>
+          <td>保留，记录 Multica CLI 命令。</td>
+        </tr>
+        <tr>
+          <td><a href="qa-process-retrospective.html">qa-process-retrospective.html</a></td>
+          <td><span class="status current">复盘</span></td>
+          <td>保留，后续可以合并到 system 目录。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>当前需求产物</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>文件</th>
+          <th>类型</th>
+          <th>处理建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="bx-7788-activity-qa/vip-member-count-bug-triage.html">bx-7788-activity-qa/vip-member-count-bug-triage.html</a></td>
+          <td><span class="status current">Bug 整理</span></td>
+          <td>保留，当前对外沟通口径：1 个确认 Bug + 1 个待产品确认项。</td>
+        </tr>
+        <tr>
+          <td><a href="bx-7788-activity-qa/vip-member-count-test-report.html">bx-7788-activity-qa/vip-member-count-test-report.html</a></td>
+          <td><span class="status current">测试报告</span></td>
+          <td>保留，当前正式报告。</td>
+        </tr>
+        <tr>
+          <td><a href="bx-7788-activity-qa/vip-member-count-bug-tickets.html">bx-7788-activity-qa/vip-member-count-bug-tickets.html</a></td>
+          <td><span class="status current">Bug 单</span></td>
+          <td>保留，当前开发交付用。</td>
+        </tr>
+        <tr>
+          <td><code>bx-7788-activity-qa/evidence/*.png</code></td>
+          <td><span class="status asset">证据</span></td>
+          <td>保留，必须和报告/Bug 单相对路径一致。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>建议归档或清理</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>文件</th>
+          <th>类型</th>
+          <th>建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>bx-7788-activity-qa/*.md</code></td>
+          <td><span class="status archive">历史草稿</span></td>
+          <td>确认内容已进入 HTML 后，移动到 <code>archive/</code>；不要再作为正式交付物。</td>
+        </tr>
+        <tr>
+          <td><code>bx-7788-activity-qa/index-*.js</code></td>
+          <td><span class="status review">临时页面资产</span></td>
+          <td>若只是抓取 Axure/页面时产生的临时文件，移动到 <code>archive/tmp/</code> 或删除前先确认没有报告引用。</td>
+        </tr>
+        <tr>
+          <td><code>bx-7788-activity-qa/backend-index.js</code>、<code>ActivityList-*.js</code></td>
+          <td><span class="status review">临时分析资产</span></td>
+          <td>若后续不再做源码/API 分析，归档；若有复用价值，转成 HTML 摘要后归档源文件。</td>
+        </tr>
+        <tr>
+          <td><code>multica-gaming-qa-ledger-skill.md</code></td>
+          <td><span class="status archive">skill 源文件</span></td>
+          <td>当前仍用于更新 Multica skill；建议后续移动到 <code>system/</code>，不是正式阅读入口。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>以后新增产物的规则</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>场景</th>
+          <th>文件名</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>需求测试报告</td>
+          <td><code>.scratch/requirements/&lt;date&gt;-&lt;slug&gt;/test-report.html</code></td>
+        </tr>
+        <tr>
+          <td>产品疑问</td>
+          <td><code>.scratch/requirements/&lt;date&gt;-&lt;slug&gt;/product-questions.html</code></td>
+        </tr>
+        <tr>
+          <td>Bug 单</td>
+          <td><code>.scratch/requirements/&lt;date&gt;-&lt;slug&gt;/bug-tickets.html</code></td>
+        </tr>
+        <tr>
+          <td>截图证据</td>
+          <td><code>.scratch/requirements/&lt;date&gt;-&lt;slug&gt;/evidence/bug-001.png</code></td>
+        </tr>
+        <tr>
+          <td>流程/工具说明</td>
+          <td><code>.scratch/system/&lt;topic&gt;.html</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

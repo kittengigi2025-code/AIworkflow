@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIP管理查看会员Tab - Bug Tickets</title>
+  <style>
+    :root { --line:#d8dee4; --text:#1f2933; --muted:#667085; --fail:#b42318; }
+    body { margin:0; font-family: Arial, "Microsoft YaHei", sans-serif; color:var(--text); background:#f6f8fa; line-height:1.55; }
+    main { width:min(1080px, calc(100% - 40px)); margin:24px auto 48px; }
+    section { background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px; margin:14px 0; }
+    h1 { font-size:24px; margin:0 0 10px; }
+    h2 { font-size:18px; margin:20px 0 10px; color:var(--fail); }
+    table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    th, td { border:1px solid var(--line); padding:8px; vertical-align:top; word-break:break-word; }
+    th { background:#f3f6f8; text-align:left; width:180px; }
+    ol { margin:0; padding-left:20px; }
+    figure { margin:10px 0 0; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff; }
+    img { display:block; width:100%; height:auto; }
+    figcaption { color:var(--muted); padding:8px 10px; border-top:1px solid var(--line); font-size:12px; }
+    code { background:#f6f8fa; padding:2px 4px; border-radius:3px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>VIP管理查看会员Tab - Bug Tickets</h1>
+  <p>环境：http://site.bx-tytest.xyz；路径：福利中心 / VIP管理 / 查看会员；账号：t0lle01；日期：2026-07-09。</p>
+
+  <section>
+    <h2>BUG-IND-001：成员明细空数据查询后弹框无法关闭</h2>
+    <table>
+      <tr><th>严重级别建议</th><td>P1 / Major。影响测试与运营人员从空数据结果返回列表，必须刷新页面恢复。</td></tr>
+      <tr><th>责任判断</th><td>前端优先。空数据查询已正常展示“暂无数据”，异常集中在成员明细弹框关闭交互；建议 <strong>Daniel-前端</strong> 优先排查弹框 close 状态、遮罩层、ESC 关闭事件和空数据后组件状态。</td></tr>
+      <tr><th>协查人员</th><td><strong>Mario-Java综合</strong>、<strong>Jerson-Java综合组长</strong>。如前端排查发现接口空数据返回结构或状态码导致弹框状态异常，再由后端协查接口返回口径。</td></tr>
+      <tr><th>影响范围</th><td>后台 VIP管理 / 查看会员 / 成员明细弹框；已在 VIP1 成员明细中复现。</td></tr>
+      <tr><th>前置条件</th><td>后台已登录；进入福利中心 / VIP管理 / 查看会员；存在成员数量大于 0 的等级。</td></tr>
+      <tr><th>复现步骤</th><td>
+        <ol>
+          <li>进入查看会员 tab。</li>
+          <li>点击 VIP1 成员数量 <code>464</code> 打开成员明细弹框。</li>
+          <li>在弹框会员ID输入 <code>00000000</code>。</li>
+          <li>点击弹框内“查询”，页面显示“暂无数据”。</li>
+          <li>点击弹框右上角关闭按钮，或按 ESC。</li>
+        </ol>
+      </td></tr>
+      <tr><th>期望结果</th><td>成员明细弹框关闭，页面返回查看会员列表，查看会员 tab 和列表状态正常保留。</td></tr>
+      <tr><th>实际结果</th><td>弹框未关闭；关闭按钮点击、坐标点击关闭按钮、ESC 均无效，页面仍显示成员明细空数据弹框。只能通过刷新页面恢复。</td></tr>
+      <tr><th>证据</th><td>
+        <figure>
+          <img src="evidence/bug-001-modal-close-not-working.png" alt="成员明细空数据弹框无法关闭">
+          <figcaption>空数据查询后，成员明细弹框仍停留在页面，关闭操作未生效。</figcaption>
+        </figure>
+      </td></tr>
+      <tr><th>回归建议</th><td>修复后回归 BR-06 与 BR-07：空数据查询显示正常；关闭按钮与 ESC 均可关闭弹框；关闭后仍停留在查看会员 tab，列表可继续点击大于 0 与 0 数量行。</td></tr>
+      <tr><th>残余不确定性</th><td>本轮仅在 UAT 后台账号 <code>t0lle01</code>、VIP1 成员明细、会员ID空数据查询场景确认复现；未覆盖其他 VIP 等级、其他筛选字段组合、其他后台角色/站点权限。成员数量准确性仅做页面内一致性核对，未做数据库或接口口径校验。</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

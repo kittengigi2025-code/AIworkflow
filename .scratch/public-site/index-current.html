@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA 需求测试成果看板</title>
+  <style>
+    :root {
+      --bg:#f5f7fb; --panel:#fff; --text:#172033; --muted:#5f6b7a; --line:#d9e0ea;
+      --blue:#155eef; --green:#087443; --orange:#b54708; --chip:#eef2f6;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif; }
+    main { width:min(1180px, calc(100% - 40px)); margin:28px auto 48px; }
+    h1,h2 { margin:0; line-height:1.25; }
+    h1 { font-size:30px; }
+    h2 { font-size:18px; margin-bottom:12px; }
+    p { margin:6px 0; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; margin-top:14px; }
+    .sub { color:var(--muted); }
+    .notice { border-left:4px solid var(--orange); background:#fff8ed; padding:10px 12px; border-radius:6px; color:#4e2d0a; }
+    .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    .stat { border:1px solid var(--line); border-radius:8px; padding:12px; background:#fbfcff; }
+    .stat strong { display:block; font-size:24px; margin-bottom:2px; }
+    .stat span { color:var(--muted); }
+    table { width:100%; border-collapse:collapse; }
+    th,td { border-top:1px solid var(--line); padding:10px 9px; text-align:left; vertical-align:top; }
+    th { border-top:0; background:#fafbfc; color:#475467; font-size:12px; white-space:nowrap; }
+    .tag { display:inline-flex; align-items:center; min-height:24px; padding:2px 8px; border-radius:999px; background:var(--chip); font-size:12px; font-weight:700; white-space:nowrap; }
+    .ok { color:var(--green); background:#ecfdf3; }
+    .warn { color:var(--orange); background:#fff7e6; }
+    .actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .btn { display:inline-flex; align-items:center; min-height:30px; padding:4px 10px; border:1px solid #b7c7e6; border-radius:6px; background:#f7faff; color:var(--blue); font-weight:700; text-decoration:none; white-space:nowrap; }
+    .btn.download { border-color:#b7dfc7; background:#f6fef9; color:var(--green); }
+    code { background:#eef2f6; border:1px solid #d8dde6; border-radius:5px; padding:1px 5px; font-family:Consolas,Menlo,monospace; font-size:12px; }
+    @media (max-width:900px) { main { width:min(100% - 24px,1180px); } .stats { grid-template-columns:1fr 1fr; } }
+    @media (max-width:620px) { .stats { grid-template-columns:1fr; } table { font-size:13px; } th,td { padding:8px 7px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>QA 需求测试成果看板</h1>
+    <p class="sub">内部完整版：展示已测试需求、测试结论、回归状态、证据和下载包。更新时间：2026-07-09。</p>
+  </header>
+
+  <section class="notice">
+    <strong>分享边界：</strong>本页包含 UAT 信息和截图证据，适合项目组内网查看；对外汇报使用脱敏展示版。
+  </section>
+
+  <section>
+    <h2>当前总览</h2>
+    <div class="stats">
+      <div class="stat"><strong>2</strong><span>已测试需求</span></div>
+      <div class="stat"><strong>2</strong><span>已通过需求</span></div>
+      <div class="stat"><strong>0</strong><span>有效待修复 Bug</span></div>
+      <div class="stat"><strong>1</strong><span>本轮误报关闭</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>需求台账</h2>
+    <table>
+      <thead>
+        <tr><th>需求</th><th>状态</th><th>测试结论</th><th>报告与下载</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VIP 管理 / 查看会员 / 成员数量</td>
+          <td><span class="tag ok">回归通过</span></td>
+          <td>成员数量为 0 时可点击的问题已修复并回归通过；VIP 等级显示规则已按产品/后端口径接受为非 Bug。</td>
+          <td>
+            <div class="actions">
+              <a class="btn" href="../bx-7788-activity-qa/vip-member-count-final-test-report.html">最终报告</a>
+              <a class="btn" href="../bx-7788-activity-qa/vip-member-count-bug-triage.html">Bug 整理</a>
+              <a class="btn download" href="../packages/vip-member-count-final-report-package-20260709.zip" download>下载归档包</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>【站点】VIP 管理增加查看会员 Tab</td>
+          <td><span class="tag ok">回归通过</span></td>
+          <td>BUG-IND-001 复测未复现：空数据查询后点击可见 X 和按 ESC 均可关闭弹框，关闭后返回查看会员列表；原缺陷关闭为误报/瞬时状态。</td>
+          <td>
+            <div class="actions">
+              <a class="btn" href="../multica-runs/vip-member-tab-independent-20260709/test-report.html">原测试报告</a>
+              <a class="btn" href="../multica-runs/vip-member-tab-regression-20260709/regression-report.html">回归报告</a>
+              <a class="btn" href="../multica-runs/vip-member-tab-regression-20260709/bug-ind-001-close-note.html">关闭说明</a>
+              <a class="btn download" href="../packages/vip-member-tab-bug-ind-001-close-package-20260709.zip" download>下载关闭包</a>
+              <a class="btn download" href="../packages/vip-member-tab-full-test-package-20260709-v2.zip" download>下载完整包 v2</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>当前待处理 Bug</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>标题</th><th>处理状态</th><th>依据</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BUG-IND-001</td>
+          <td>成员明细空数据查询后弹框无法关闭</td>
+          <td><span class="tag ok">关闭：未复现 / 误报倾向</span></td>
+          <td><a href="../multica-runs/vip-member-tab-regression-20260709/regression-report.html">查看回归报告</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

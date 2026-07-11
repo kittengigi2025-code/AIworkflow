@@ -1,0 +1,4 @@
+2026-07-09 15:37:56,605 INFO stop hotkey registered: Ctrl+Alt+Esc
+2026-07-09 15:37:56,605 INFO starting activity runner dry_run=True once=True
+2026-07-09 15:37:56,605 INFO move from=(0, 0) target=(410, 606) duration=2.78s
+2026-07-09 15:37:56,605 INFO scroll wheel_clicks=-3

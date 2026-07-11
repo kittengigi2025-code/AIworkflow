@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=qa-home.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>本地 QA 文档中心</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9dee7;
+      --blue: #175cd3;
+      --green: #14804a;
+      --orange: #b54708;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1120px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    header {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .sub { color: var(--muted); }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .tile {
+      display: block;
+      min-height: 118px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: inherit;
+      text-decoration: none;
+    }
+    .tile:hover {
+      border-color: #9db7e8;
+      background: #f7faff;
+    }
+    .tile strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    .tile span { color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      color: #101828;
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    .ok { color: var(--green); font-weight: 700; }
+    .warn { color: var(--orange); font-weight: 700; }
+    @media (max-width: 860px) {
+      main { width: min(100% - 24px, 1120px); margin-top: 18px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section style="border:2px solid #155eef;background:#f7faff">
+    <h2>当前推荐入口</h2>
+    <p><a href="public-site/index.html"><strong>对外展示版 QA 成果看板</strong></a></p>
+    <p><a href="packages/qa-public-site-20260709.zip">下载对外展示站点包</a></p>
+    <p><a href="qa-index.html">查看本地 QA 测试需求台账</a></p>
+  </section>
+  <section>
+    <h2>新的主入口</h2>
+    <p><a href="qa-dashboard.html"><strong>进入本地 QA 工作台</strong></a>：按需求展示状态、报告、Bug、证据和一键下载包。</p>
+  </section>
+  <header>
+    <h1>本地 QA 文档中心</h1>
+    <div class="sub">一个静态网页入口，管理 QA 台账、测试资源、Multica 操作、流程资产和当前需求报告。</div>
+  </header>
+
+  <section>
+    <h2>常用入口</h2>
+    <div class="grid">
+      <a class="tile" href="qa-index.html">
+        <strong>QA 测试需求台账</strong>
+        <span>所有测试过的需求、报告、Bug 单和回归状态。</span>
+      </a>
+      <a class="tile" href="artifact-catalog.html">
+        <strong>产物目录与整理规则</strong>
+        <span>判断哪些文件有效、哪些可以归档，避免 HTML 越来越乱。</span>
+      </a>
+      <a class="tile" href="test-resources.html">
+        <strong>测试资源清单</strong>
+        <span>前后台地址、需求文档、路径、账号标识和操作边界。</span>
+      </a>
+      <a class="tile" href="qa-legion.html">
+        <strong>QA 测试军团</strong>
+        <span>Multica 小队角色、分工和浏览器执行边界。</span>
+      </a>
+      <a class="tile" href="multica-cli-operations.html">
+        <strong>Multica CLI 操作手册</strong>
+        <span>Cloud 登录、skill、agent、squad、成员管理命令。</span>
+      </a>
+      <a class="tile" href="qa-process-retrospective.html">
+        <strong>流程复盘</strong>
+        <span>这次流程验证的得失、保留动作和改进点。</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>当前需求</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>需求</th>
+          <th>报告</th>
+          <th>Bug 单</th>
+          <th>状态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VIP管理 / 查看会员 / 成员数量</td>
+          <td><a href="bx-7788-activity-qa/vip-member-count-final-test-report.html">最终测试报告</a></td>
+          <td><a href="bx-7788-activity-qa/vip-member-count-bug-triage.html">Bug整理</a></td>
+          <td class="ok">通过 / 已关闭</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>本地服务</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>启动命令</th>
+          <td><code>.\start-docs-server.ps1</code></td>
+        </tr>
+        <tr>
+          <th>访问地址</th>
+          <td><a href="http://127.0.0.1:8765/">http://127.0.0.1:8765/</a></td>
+        </tr>
+        <tr>
+          <th>方案性质</th>
+          <td><span class="ok">静态文件服务</span>，没有数据库，没有后端业务逻辑，适合当前阶段。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

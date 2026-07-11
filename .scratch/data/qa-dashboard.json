@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "title": "QA Dashboard",
+    "subtitle": "需求越来越多时的第一入口：看状态、找报告、追回归、证明工作量。",
+    "lastUpdated": "2026-07-09"
+  },
+  "requirements": [
+    {
+      "id": "VIP-MEMBER-COUNT",
+      "date": "2026-07-08",
+      "title": "VIP管理 / 查看会员 / 成员数量",
+      "module": "福利中心 / VIP管理 / 查看会员",
+      "status": "passed",
+      "statusText": "通过",
+      "issues": "0（BUG-001 已修复；Q-001 产品接受）",
+      "verification": "回归通过",
+      "summary": "成员数量 0 不再呈现可点击态；VIP 名称与 grade 展示差异按产品/后端口径关闭为非 Bug。",
+      "tags": ["VIP管理", "成员数量", "回归"],
+      "links": [
+        { "label": "最终报告", "href": "bx-7788-activity-qa/vip-member-count-final-test-report.html" },
+        { "label": "Bug整理", "href": "bx-7788-activity-qa/vip-member-count-bug-triage.html" },
+        { "label": "下载归档包", "href": "packages/vip-member-count-final-report-package-20260709.zip", "download": true }
+      ]
+    },
+    {
+      "id": "VIP-MEMBER-TAB",
+      "date": "2026-07-09",
+      "title": "【站点】VIP管理增加查看会员 Tab",
+      "module": "福利中心 / VIP管理 / 查看会员",
+      "status": "passed",
+      "statusText": "通过",
+      "issues": "0（BUG-IND-001 复验未复现，关闭为误报/瞬时状态）",
+      "verification": "复验通过",
+      "summary": "空数据查询后点击可见 X 和按 ESC 均可关闭弹框；关闭后返回查看会员列表。",
+      "tags": ["VIP管理", "查看会员Tab", "复验", "误报关闭"],
+      "links": [
+        { "label": "原测试报告", "href": "multica-runs/vip-member-tab-independent-20260709/test-report.html" },
+        { "label": "回归报告", "href": "multica-runs/vip-member-tab-regression-20260709/regression-report.html" },
+        { "label": "关闭说明", "href": "multica-runs/vip-member-tab-regression-20260709/bug-ind-001-close-note.html" },
+        { "label": "下载完整包 v2", "href": "packages/vip-member-tab-full-test-package-20260709-v2.zip", "download": true }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "BUG-001",
+      "requirementId": "VIP-MEMBER-COUNT",
+      "title": "成员数量为 0 时仍呈现可点击状态",
+      "type": "有效缺陷",
+      "severity": "P1",
+      "status": "regression-passed",
+      "statusText": "已修复回归",
+      "owner": "前端",
+      "summary": "VIP10 成员数量为 0 时曾显示为可点击样式并可触发弹框；开发修复后复测确认 0 不再可点击，点击不弹框。",
+      "links": [
+        { "label": "最终报告", "href": "bx-7788-activity-qa/vip-member-count-final-test-report.html" },
+        { "label": "回归报告", "href": "multica-runs/vip-member-count-regression-20260709/regression-report.html" }
+      ]
+    },
+    {
+      "id": "Q-001",
+      "requirementId": "VIP-MEMBER-COUNT",
+      "title": "列表 grade 数字与弹框 VIP 名称看起来差 1",
+      "type": "规则争议",
+      "severity": "非 Bug",
+      "status": "accepted-non-bug",
+      "statusText": "产品/后端接受",
+      "owner": "产品/后端口径",
+      "summary": "后端确认 VIP0 对应 grade=1、VIP1 对应 grade=2；列表展示 grade 数字、弹框展示 VIP 名称为接受口径，关闭为非 Bug。",
+      "links": [
+        { "label": "Bug整理", "href": "bx-7788-activity-qa/vip-member-count-bug-triage.html" }
+      ]
+    },
+    {
+      "id": "BUG-IND-001",
+      "requirementId": "VIP-MEMBER-TAB",
+      "title": "成员明细空数据查询后弹框疑似无法关闭",
+      "type": "疑似缺陷",
+      "severity": "撤销",
+      "status": "not-reproduced",
+      "statusText": "复验未复现",
+      "owner": "测试复验关闭",
+      "summary": "复测确认空数据查询后点击右上角可见 X 和按 ESC 均可关闭弹框；原结论关闭为误报/瞬时状态。",
+      "links": [
+        { "label": "关闭说明", "href": "multica-runs/vip-member-tab-regression-20260709/bug-ind-001-close-note.html" },
+        { "label": "回归报告", "href": "multica-runs/vip-member-tab-regression-20260709/regression-report.html" }
+      ]
+    }
+  ],
+  "attention": [
+    {
+      "type": "当前有效 Bug",
+      "content": "0 个。当前没有开发待处理缺陷；历史提出过的 3 条问题在“问题轨迹”区集中展示。",
+      "href": "qa-dashboard-app.html"
+    },
+    {
+      "type": "复验门禁",
+      "content": "BUG-IND-001 已复验关闭，说明复验专家角色必要。",
+      "href": "multica-runs/vip-member-tab-regression-20260709/regression-report.html"
+    },
+    {
+      "type": "下一步流程",
+      "content": "新增需求默认交给 Multica 执行：疑问闸门、测试设计、执行、Bug 提炼、复验、台账发布。",
+      "href": "multica-main-runbook.html"
+    }
+  ],
+  "packages": [
+    {
+      "name": "成员数量最终报告包",
+      "purpose": "归档给产品/测试查看",
+      "href": "packages/vip-member-count-final-report-package-20260709.zip"
+    },
+    {
+      "name": "BUG-IND-001 关闭包",
+      "purpose": "说明误报关闭依据，适合发给开发/产品",
+      "href": "packages/vip-member-tab-bug-ind-001-close-package-20260709.zip"
+    },
+    {
+      "name": "查看会员 Tab 完整测试包 v2",
+      "purpose": "包含原测试、复验报告和证据",
+      "href": "packages/vip-member-tab-full-test-package-20260709-v2.zip"
+    },
+    {
+      "name": "内部站点包 v2",
+      "purpose": "用于迁移或内网共享整个展示站",
+      "href": "packages/qa-public-site-20260709-v2.zip"
+    }
+  ],
+  "multicaWorkflow": {
+    "title": "Multica 主力执行流",
+    "summary": "把 Multica 作为测试执行主力；Codex 负责流程约束、复验收口、本地 Dashboard 发布和对外分享包。",
+    "runbookHref": "multica-main-runbook.html",
+    "stages": [
+      {
+        "name": "需求提取",
+        "owner": "Requirement Extractor",
+        "output": "需求事实、页面路径、确认规则、阻塞问题",
+        "gate": "不补脑；只保留影响通过/失败判断的问题。"
+      },
+      {
+        "name": "疑问闸门",
+        "owner": "Question Gatekeeper",
+        "output": "可直接转给产品/开发的问题",
+        "gate": "无阻塞问题才进入测试设计。"
+      },
+      {
+        "name": "测试设计",
+        "owner": "Test Designer",
+        "output": "用例、步骤、预期、证据要求",
+        "gate": "覆盖主流程、0 值、空数据、分页、筛选残留、弹框关闭。"
+      },
+      {
+        "name": "浏览器执行",
+        "owner": "QA 浏览器执行员",
+        "output": "测试报告、截图证据、发现问题",
+        "gate": "只读操作；敏感动作必须停下确认。"
+      },
+      {
+        "name": "Bug 提炼",
+        "owner": "Bug Writer",
+        "output": "开发可直接处理的 Bug 单 HTML",
+        "gate": "每个 Bug 有步骤、预期、实际、影响、责任初判和截图。"
+      },
+      {
+        "name": "复验门禁",
+        "owner": "QA 复验专家",
+        "output": "复验报告或关闭说明",
+        "gate": "新 Bug、非 Bug、误报、回归通过/失败都必须复验。"
+      },
+      {
+        "name": "台账发布",
+        "owner": "Ledger Keeper",
+        "output": "Dashboard 记录、下载包、分享入口",
+        "gate": "通过 npm run qa:publish。"
+      }
+    ]
+  },
+  "rules": [
+    {
+      "name": "新需求",
+      "description": "只新增一条需求记录，必须有：日期、需求名、模块路径、状态、报告入口、结论摘要。"
+    },
+    {
+      "name": "有 Bug",
+      "description": "Bug 单独成 HTML；Dashboard 只展示数量、最高级别、当前处理状态和入口。"
+    },
+    {
+      "name": "复验门禁",
+      "description": "凡是新增 Bug、回归通过/失败、未复现、非 Bug 关闭，都必须有复验结论，避免误报传播。"
+    },
+    {
+      "name": "分享",
+      "description": "项目组内网看完整 Dashboard；Lark 汇报贴脱敏展示版；开发只收对应 Bug/关闭包。"
+    }
+  ]
+}

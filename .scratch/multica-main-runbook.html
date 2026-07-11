@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multica QA 主力执行规范</title>
+  <link rel="stylesheet" href="site-assets/dashboard.css">
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Multica QA 主力执行规范</h1>
+      <div class="sub">目标：以后需求测试主力交给 Multica，但产物必须能进入本地 Dashboard，并经过复验后再对外流转。</div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="qa-dashboard-app.html">返回 Dashboard</a>
+      <a class="btn" href="qa-legion-current.html">测试军团</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>固定执行链路</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>阶段</th>
+          <th>负责人</th>
+          <th>必须产出</th>
+          <th>通过条件</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>需求提取</td>
+          <td>Requirement Extractor</td>
+          <td>需求事实、页面路径、已确认规则、阻塞问题</td>
+          <td>不补脑；不问文档已说明的问题；只留下影响通过/失败判断的问题。</td>
+        </tr>
+        <tr>
+          <td>疑问闸门</td>
+          <td>Question Gatekeeper</td>
+          <td>可直接发给产品/开发的阻塞问题</td>
+          <td>没有阻塞问题才允许进入测试设计；有阻塞问题则先等待确认。</td>
+        </tr>
+        <tr>
+          <td>测试设计</td>
+          <td>Test Designer</td>
+          <td>测试点、步骤、预期、证据要求、优先级</td>
+          <td>覆盖主流程、空值、0 值、分页、筛选残留、弹框关闭、前后台一致性。</td>
+        </tr>
+        <tr>
+          <td>浏览器执行</td>
+          <td>QA 浏览器执行员</td>
+          <td>测试报告、截图证据、发现问题</td>
+          <td>只做只读操作；不处理验证码、密码、资金、审批、保存、导出等敏感动作。</td>
+        </tr>
+        <tr>
+          <td>Bug 提炼</td>
+          <td>Bug Writer</td>
+          <td>独立 Bug 单 HTML</td>
+          <td>每个 Bug 必须有步骤、预期、实际、影响、责任初判、截图证据。</td>
+        </tr>
+        <tr>
+          <td>复验门禁</td>
+          <td>QA 复验专家</td>
+          <td>复验报告或关闭说明</td>
+          <td>新 Bug、误报、非 Bug、回归通过/失败都必须有复验结论。</td>
+        </tr>
+        <tr>
+          <td>台账发布</td>
+          <td>Ledger Keeper</td>
+          <td>Dashboard 数据、报告入口、下载包</td>
+          <td>通过 <code>npm run qa:publish</code>；Dashboard 能看到需求、问题轨迹和下载入口。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>每次派给 Multica 的标准要求</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>输入</th>
+          <td>需求截图、文档链接、前后台地址、已登录状态说明、产品/开发补充口径。</td>
+        </tr>
+        <tr>
+          <th>输出目录</th>
+          <td><code>.scratch/multica-runs/&lt;requirement-slug&gt;-&lt;yyyymmdd&gt;/</code>，不要输出到不可访问的插件临时路径。</td>
+        </tr>
+        <tr>
+          <th>报告格式</th>
+          <td>只交 HTML：<code>question-gate.html</code>、<code>test-design.html</code>、<code>test-report.html</code>、<code>bug-tickets.html</code>、<code>regression-report.html</code>。</td>
+        </tr>
+        <tr>
+          <th>截图位置</th>
+          <td>统一放在 <code>evidence/</code>，并嵌入到对应 Bug 或用例结果下面，不做孤立图库。</td>
+        </tr>
+        <tr>
+          <th>浏览器边界</th>
+          <td>常规查看、点击菜单、筛选、打开详情、关闭弹框、截图可以做；保存、编辑、审批、资金、账号状态变更必须停下确认。</td>
+        </tr>
+        <tr>
+          <th>质量门禁</th>
+          <td>Multica 完成后，由复验专家复查关键结论；Codex 负责收口到本地 Dashboard 和发布校验。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>当前要加强的点</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>问题</th>
+          <th>改进动作</th>
+          <th>验收标准</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>产物散落，用户不知道从哪看</td>
+          <td>所有 Multica 输出必须登记进 Dashboard 的需求列表、问题轨迹、下载与分享。</td>
+          <td>打开 Dashboard 就能看到当前需求、历史问题、报告和压缩包。</td>
+        </tr>
+        <tr>
+          <td>测试进度看起来静默</td>
+          <td>Multica issue 内按阶段回复：疑问闸门、测试设计、执行中、Bug 提炼、复验、发布。</td>
+          <td>超过一个阶段没有产物时，必须说明卡点或下一步动作。</td>
+        </tr>
+        <tr>
+          <td>Bug 数量和有效状态容易混淆</td>
+          <td>Dashboard 区分“历史问题记录”和“当前有效 Bug”。</td>
+          <td>历史 3 条问题可以追溯；当前有效 Bug 为 0 时也能解释原因。</td>
+        </tr>
+        <tr>
+          <td>误报风险</td>
+          <td>引入 QA 复验专家，所有 Bug 关闭、非 Bug、未复现都必须二次确认。</td>
+          <td>对外发给开发前，Bug 单有明确结论和证据截图。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

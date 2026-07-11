@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>本地 QA 文档中心</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --line: #d9e0ea;
+      --blue: #155eef;
+      --green: #087443;
+      --red: #b42318;
+      --orange: #b54708;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 18px; margin-bottom: 12px; }
+    p { margin: 6px 0; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { margin-bottom: 16px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .sub { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .tile {
+      display: block;
+      min-height: 112px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcff;
+      color: inherit;
+      text-decoration: none;
+    }
+    .tile:hover { border-color: #9db7e8; background: #f7faff; }
+    .tile strong { display: block; margin-bottom: 6px; font-size: 15px; }
+    .tile span { color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--chip);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .ok { color: var(--green); background: #ecfdf3; }
+    .fail { color: var(--red); background: #fff1f0; }
+    .warn { color: var(--orange); background: #fff7e6; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid #b7c7e6;
+      border-radius: 6px;
+      background: #f7faff;
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn.download { border-color: #b7dfc7; background: #f6fef9; color: var(--green); }
+    code {
+      color: #101828;
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    @media (max-width: 900px) {
+      main { width: min(100% - 24px, 1180px); margin-top: 18px; }
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .grid { grid-template-columns: 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 7px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>本地 QA 文档中心</h1>
+    <p class="sub">统一查看测试需求台账、完整内部报告、脱敏展示页、Bug 包和下载归档。最后更新：2026-07-09。</p>
+  </header>
+
+  <section>
+    <h2>常用入口</h2>
+    <div class="grid">
+      <a class="tile" href="qa-dashboard-app.html">
+        <strong>QA Dashboard</strong>
+        <span>需求越来越多时的第一入口：状态、报告、Bug、复验、下载包一屏查看。</span>
+      </a>
+      <a class="tile" href="qa-index.html">
+        <strong>QA 测试需求台账</strong>
+        <span>所有已测试需求、状态、报告、Bug 单和回归结果。</span>
+      </a>
+      <a class="tile" href="public-site/index-current.html">
+        <strong>内部完整成果看板</strong>
+        <span>包含截图、人员、UAT 线索和开发可用下载包，适合项目内网查看。</span>
+      </a>
+      <a class="tile" href="public-safe-site/index.html">
+        <strong>脱敏展示版</strong>
+        <span>适合贴到 Lark 文档或给非项目成员看，不包含敏感地址和截图。</span>
+      </a>
+      <a class="tile" href="test-resources.html">
+        <strong>测试资源清单</strong>
+        <span>前后台地址、需求文档、账号边界和操作注意事项。</span>
+      </a>
+      <a class="tile" href="qa-legion-current.html">
+        <strong>QA 测试军团</strong>
+        <span>Multica 小队职责、分工、浏览器操作边界和复用方式。</span>
+      </a>
+      <a class="tile" href="artifact-catalog.html">
+        <strong>产物目录规则</strong>
+        <span>哪些 HTML 有效、哪些归档、后续文件如何不乱。</span>
+      </a>
+      <a class="tile" href="site-sharing-guide.html">
+        <strong>站点分享说明</strong>
+        <span>给项目组、开发、汇报对象分别发哪个链接或下载包。</span>
+      </a>
+      <a class="tile" href="dashboard-maintenance.html">
+        <strong>Dashboard 维护说明</strong>
+        <span>新增需求只改 JSON，发布前用脚本校验链接和下载包。</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>当前需求</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>需求</th>
+          <th>状态</th>
+          <th>结论</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VIP 管理 / 查看会员 / 成员数量</td>
+          <td><span class="tag ok">回归通过</span></td>
+          <td>有效缺陷已修复并通过回归；规则争议已按产品/后端口径关闭。</td>
+          <td>
+            <div class="actions">
+              <a class="btn" href="bx-7788-activity-qa/vip-member-count-final-test-report.html">最终报告</a>
+              <a class="btn" href="bx-7788-activity-qa/vip-member-count-bug-triage.html">Bug 整理</a>
+              <a class="btn download" href="packages/vip-member-count-final-report-package-20260709.zip" download>下载归档包</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>【站点】VIP 管理增加查看会员 Tab</td>
+          <td><span class="tag ok">回归通过</span></td>
+          <td>BUG-IND-001 复测未复现：空数据查询后点击可见 X 和按 ESC 均可关闭弹框，关闭后返回查看会员列表；原缺陷关闭为误报/瞬时状态。</td>
+          <td>
+            <div class="actions">
+              <a class="btn" href="multica-runs/vip-member-tab-independent-20260709/test-report.html">测试报告</a>
+              <a class="btn" href="multica-runs/vip-member-tab-regression-20260709/regression-report.html">回归报告</a>
+              <a class="btn" href="multica-runs/vip-member-tab-regression-20260709/bug-ind-001-close-note.html">关闭说明</a>
+              <a class="btn download" href="packages/vip-member-tab-bug-ind-001-close-package-20260709.zip" download>下载关闭包</a>
+              <a class="btn download" href="packages/vip-member-tab-full-test-package-20260709-v2.zip" download>下载完整包 v2</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>内网访问</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>本机访问</th>
+          <td><code>http://127.0.0.1:8765/qa-home.html</code></td>
+        </tr>
+        <tr>
+          <th>内网访问</th>
+          <td>
+            当前临时内网服务：同网段优先用 <code>http://10.0.120.150:8768/qa-home.html</code>；
+            ZeroTier 网络可尝试 <code>http://10.92.75.221:8768/qa-home.html</code>。
+          </td>
+        </tr>
+        <tr>
+          <th>启动命令</th>
+          <td><code>.\start-docs-server.ps1 -Lan -Port 8768</code></td>
+        </tr>
+        <tr>
+          <th>安全边界</th>
+          <td>内网完整站点包含 UAT 信息、人员和截图，只建议项目组内访问；对更大范围分享使用脱敏展示版。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

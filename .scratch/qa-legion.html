@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA测试军团</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --line: #d9dee7;
+      --ok: #14804a;
+      --warn: #b54708;
+      --info: #175cd3;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 28px; letter-spacing: 0; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: #344054;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+    }
+    code {
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    .ok { color: var(--ok); font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    .info { color: var(--info); font-weight: 700; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li { margin: 4px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>QA测试军团</h1>
+    <div class="meta">
+      <span class="chip">Skill：gaming-qa-ledger</span>
+      <span class="chip">用途：测试报告 / Bug单 / 台账</span>
+      <span class="chip">浏览器执行：主 Agent 单线程</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>触发方式</h2>
+    <p>以后可以直接说：<code>$gaming-qa-ledger 处理这个需求，走测试军团流程，输出 HTML 报告、Bug单并更新台账。</code></p>
+    <p>已按官方 custom agents 方式创建本地 agent 文件，位置：<code>C:\Users\tolle\.codex\agents\qa-*.toml</code>。新建后通常需要重开 Codex 会话才会被当前会话识别。</p>
+  </section>
+
+  <section>
+    <h2>智能体分工</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>智能体</th>
+          <th>职责</th>
+          <th>是否可并行</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>资源管理 Agent</td>
+          <td>维护测试资源卡片：H5/后台地址、需求文档、路径、站点/商户、报告目录、截图目录和敏感操作边界；不判断 bug。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>需求提取 Agent</td>
+          <td>从截图、产品回复、原型、后台路径提取需求事实和验收规则。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>疑问闸门 Agent</td>
+          <td>只提出会影响通过/失败判断的问题，过滤掉泛化实现问题。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>用例设计 Agent</td>
+          <td>把确认后的规则转成用例、边界和证据要求。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>浏览器执行 Agent</td>
+          <td>由主 Agent 执行后台/H5只读操作、截图和结果判断。</td>
+          <td class="warn">不可并行</td>
+        </tr>
+        <tr>
+          <td>Bug单 Agent</td>
+          <td>根据已确认失败生成开发可读的 bug 单 HTML。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>台账 Agent</td>
+          <td>更新 <code>qa-index.html</code>：状态、问题数、报告链接、回归状态。</td>
+          <td class="ok">可并行</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>已创建的自定义 Agents</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Agent type</th>
+          <th>文件</th>
+          <th>用途</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>qa-requirement-extractor</code></td>
+          <td><code>~/.codex/agents/qa-requirement-extractor.toml</code></td>
+          <td>需求事实和验收规则提取。</td>
+        </tr>
+        <tr>
+          <td><code>qa-question-gatekeeper</code></td>
+          <td><code>~/.codex/agents/qa-question-gatekeeper.toml</code></td>
+          <td>阻塞型需求疑问识别。</td>
+        </tr>
+        <tr>
+          <td><code>qa-test-designer</code></td>
+          <td><code>~/.codex/agents/qa-test-designer.toml</code></td>
+          <td>测试用例、边界和证据点设计。</td>
+        </tr>
+        <tr>
+          <td><code>qa-bug-writer</code></td>
+          <td><code>~/.codex/agents/qa-bug-writer.toml</code></td>
+          <td>开发可读 bug 单生成。</td>
+        </tr>
+        <tr>
+          <td><code>qa-ledger-keeper</code></td>
+          <td><code>~/.codex/agents/qa-ledger-keeper.toml</code></td>
+          <td>QA 台账更新。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>浏览器操作边界</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>允许</th>
+          <th>需要额外确认</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <ul>
+              <li>菜单、tab、列表、详情弹框只读导航</li>
+              <li>读取字段、数量、筛选值、表格数据</li>
+              <li>点击只读详情入口</li>
+              <li>截图取证</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>登录、验证码、OTP、密码</li>
+              <li>保存、提交、审批、删除、上传、导出</li>
+              <li>资金、钱包、奖励、稽核、账号状态变更</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>VIP管理查看会员Tab - 疑问闸门结论</title>
+</head>
+<body>
+  <h1>VIP管理查看会员Tab - 疑问闸门结论</h1>
+  <p><strong>结论：</strong>无阻塞问题，可进入测试设计/执行。</p>
+  <p><strong>HTML 产物：</strong><code>http://127.0.0.1:8765/multica-runs/vip-member-tab-independent-20260709/question-gate.html</code></p>
+
+  <h2>影响通过/失败判断的问题</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr><th>阻塞问题</th><th>判断</th><th>原因</th></tr>
+    <tr>
+      <td>无</td>
+      <td>不阻塞</td>
+      <td>issue 已给出可判定的路径、范围、只读边界和核心验收点：tab 存在、VIP 等级列表、成员数量、数量大于 0 的明细入口、数量为 0 的不可点击行为、弹框上下文、分页/筛选/空数据/关闭后状态。</td>
+    </tr>
+  </table>
+
+  <h2>非阻塞口径</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr><th>事项</th><th>处理口径</th></tr>
+    <tr>
+      <td>VIP 名称与 grade 映射差异</td>
+      <td>需求已明确：如产品/后端口径存在映射差异，标为待确认或非 bug 判断依据，不作为本次阻塞问题。</td>
+    </tr>
+    <tr>
+      <td>登录态、权限、页面加载、元素定位</td>
+      <td>属于执行阶段环境/可达性问题；若实际执行超过 5 分钟无法推进，再按阻塞原因输出，不在需求闸门阶段预先阻塞。</td>
+    </tr>
+    <tr>
+      <td>成员数量正确性</td>
+      <td>可在执行阶段通过列表数量、详情弹框记录/分页总数、筛选后的数据一致性进行只读校验；若系统未暴露可核对口径，再作为执行残余风险记录。</td>
+    </tr>
+  </table>
+</body>
+</html>

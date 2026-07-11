@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA Dashboard</title>
+  <link rel="stylesheet" href="site-assets/dashboard.css">
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1 id="pageTitle">QA Dashboard</h1>
+      <div class="sub" id="pageSubtitle">加载中...</div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="qa-home.html">文档中心</a>
+      <a class="btn" href="qa-index.html">完整台账</a>
+      <a class="btn" href="qa-legion-current.html">测试军团</a>
+    </div>
+  </header>
+
+  <section id="loadError" class="error" hidden></section>
+
+  <section>
+    <h2>总览</h2>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <div class="columns dashboard-columns">
+    <section>
+      <h2>当前关注</h2>
+      <table>
+        <thead>
+          <tr><th>类型</th><th>内容</th><th>入口</th></tr>
+        </thead>
+        <tbody id="attentionRows"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>下载与分享</h2>
+      <table>
+        <thead>
+          <tr><th>包</th><th>用途</th><th>下载</th></tr>
+        </thead>
+        <tbody id="packageRows"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <section>
+    <h2>问题轨迹</h2>
+    <div class="sub">这里展示历史提出过的 Bug/疑似 Bug/规则争议。当前有效待修复 Bug 不等于历史提出问题数。</div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>问题</th>
+          <th>类型</th>
+          <th>级别</th>
+          <th>当前状态</th>
+          <th>责任/口径</th>
+          <th>结论摘要</th>
+          <th>入口</th>
+        </tr>
+      </thead>
+      <tbody id="issueRows"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="section-heading">
+      <div>
+        <h2 id="multicaTitle">Multica 主力执行流</h2>
+        <div class="sub" id="multicaSummary"></div>
+      </div>
+      <a class="btn" id="multicaRunbook" href="multica-main-runbook.html">查看规范</a>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>阶段</th>
+          <th>负责人</th>
+          <th>必须产出</th>
+          <th>门禁</th>
+        </tr>
+      </thead>
+      <tbody id="multicaWorkflowRows"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>需求列表</h2>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="搜索需求、路径、结论、标签">
+      <select id="statusFilter" aria-label="状态筛选">
+        <option value="all">全部状态</option>
+        <option value="passed">通过</option>
+        <option value="has-bug">有缺陷</option>
+        <option value="waiting-regression">待回归</option>
+        <option value="blocked">阻塞</option>
+      </select>
+      <select id="moduleFilter" aria-label="模块筛选">
+        <option value="all">全部模块</option>
+      </select>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th>需求</th>
+          <th>模块路径</th>
+          <th>状态</th>
+          <th>问题</th>
+          <th>复验</th>
+          <th>结论摘要</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="requirementRows"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Dashboard 维护规则</h2>
+    <table>
+      <tbody id="ruleRows"></tbody>
+    </table>
+  </section>
+</main>
+
+<script src="site-assets/dashboard.js"></script>
+</body>
+</html>

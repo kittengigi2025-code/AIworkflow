@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "run_24h": true,
+  "active_windows": [
+    {
+      "start": "09:00",
+      "end": "18:00"
+    }
+  ],
+  "action_interval_seconds": [45, 180],
+  "move_duration_seconds": [0.6, 2.8],
+  "safe_area": {
+    "x_min": 200,
+    "y_min": 150,
+    "x_max": 1600,
+    "y_max": 900
+  },
+  "fail_safe_corner_px": 8,
+  "enable_scroll": true,
+  "scroll_probability": 0.25,
+  "enable_clicks": false,
+  "click_probability": 0.0,
+  "right_click_probability": 0.0,
+  "enable_drags": false,
+  "drag_probability": 0.0,
+  "log_file": ".scratch/activity-runner/activity.log"
+}

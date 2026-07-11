@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIP管理增加查看会员Tab - BUG-IND-001 回归报告</title>
+  <style>
+    :root { --line:#d8dee4; --text:#1f2933; --muted:#667085; --pass:#16794c; --warn:#b54708; --fail:#b42318; }
+    body { margin:0; font-family: Arial, "Microsoft YaHei", sans-serif; color:var(--text); background:#f6f8fa; line-height:1.55; }
+    main { width:min(1120px, calc(100% - 40px)); margin:24px auto 48px; }
+    section { background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px; margin:14px 0; }
+    h1 { font-size:24px; margin:0 0 10px; }
+    h2 { font-size:18px; margin:22px 0 10px; }
+    table { width:100%; border-collapse:collapse; table-layout:fixed; margin-top:8px; }
+    th, td { border:1px solid var(--line); padding:8px; vertical-align:top; word-break:break-word; }
+    th { background:#f3f6f8; text-align:left; width:180px; }
+    .chip { display:inline-block; border:1px solid var(--line); border-radius:4px; padding:2px 6px; background:#fff; margin:2px 4px 2px 0; font-size:12px; }
+    .pass { color:var(--pass); font-weight:700; }
+    .warn { color:var(--warn); font-weight:700; }
+    .fail { color:var(--fail); font-weight:700; }
+    figure { margin:10px 0 0; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff; }
+    img { display:block; width:100%; height:auto; }
+    figcaption { color:var(--muted); padding:8px 10px; border-top:1px solid var(--line); font-size:12px; }
+    code { background:#f6f8fa; padding:2px 4px; border-radius:3px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>VIP管理增加查看会员Tab - BUG-IND-001 回归报告</h1>
+  <p><span class="chip">执行日期：2026-07-09</span><span class="chip">环境：http://site.bx-tytest.xyz</span><span class="chip">账号：t0lle01</span><span class="chip">路径：福利中心 / VIP管理 / 查看会员</span></p>
+
+  <section>
+    <h2>结论</h2>
+    <table>
+      <tr><th>原问题</th><td>BUG-IND-001：成员明细空数据查询后弹框无法关闭。</td></tr>
+      <tr><th>本次回归结论</th><td class="pass">未复现。空数据查询后，点击右上角可见 X 可关闭弹框；按 ESC 也可关闭弹框；关闭后返回查看会员列表。</td></tr>
+      <tr><th>处理建议</th><td class="pass">撤销有效 Bug，状态调整为“误报/未复现”。不需要开发修复，不进入待回归队列。</td></tr>
+      <tr><th>误报原因判断</th><td class="warn">本次观察到弹框右上角同时存在工具区与关闭 X。自动化如果点击关闭容器中心点，可能没有点到可见 X；结合用户手工验证可关闭，原结论更像测试操作命中点/瞬时网络状态导致，不作为产品缺陷。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>回归步骤</h2>
+    <table>
+      <tr><th>步骤</th><th>实际结果</th><th>结论</th></tr>
+      <tr><td>进入后台，打开 <code>#/member/level</code>，切换到“查看会员”。</td><td>列表正常展示 VIP1-VIP12，VIP1 成员数量为 476。</td><td class="pass">通过</td></tr>
+      <tr><td>点击 VIP1 成员数量，打开成员明细弹框。</td><td>弹框正常打开，默认展示 VIP0/等级1成员明细，总数 476。</td><td class="pass">通过</td></tr>
+      <tr><td>在会员ID输入 <code>99999999</code> 后查询。</td><td>弹框内显示“暂无数据”，无报错、无页面跳转。</td><td class="pass">通过</td></tr>
+      <tr><td>点击右上角可见 X。</td><td>弹框关闭，页面回到查看会员列表。</td><td class="pass">通过</td></tr>
+      <tr><td>再次打开弹框并查询空数据，按 ESC。</td><td>弹框关闭，页面回到查看会员列表。</td><td class="pass">通过</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>证据</h2>
+    <table>
+      <tr>
+        <th>空数据弹框</th>
+        <td>
+          <figure>
+            <img src="evidence/reg-01-empty-modal-before-close.png" alt="成员明细空数据弹框">
+            <figcaption>输入不存在会员ID后，成员明细弹框显示“暂无数据”。</figcaption>
+          </figure>
+        </td>
+      </tr>
+      <tr>
+        <th>点击 X 后</th>
+        <td>
+          <figure>
+            <img src="evidence/reg-02-after-close-x.png" alt="点击右上角X后返回查看会员列表">
+            <figcaption>点击右上角可见 X 后，弹框关闭，查看会员列表仍可见。</figcaption>
+          </figure>
+        </td>
+      </tr>
+      <tr>
+        <th>ESC 前</th>
+        <td>
+          <figure>
+            <img src="evidence/reg-03-empty-modal-before-esc.png" alt="ESC验证前的空数据弹框">
+            <figcaption>再次构造空数据弹框，用于验证 ESC 关闭。</figcaption>
+          </figure>
+        </td>
+      </tr>
+      <tr>
+        <th>ESC 后</th>
+        <td>
+          <figure>
+            <img src="evidence/reg-04-after-esc.png" alt="按ESC后返回查看会员列表">
+            <figcaption>按 ESC 后，弹框关闭，查看会员列表仍可见。</figcaption>
+          </figure>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>更新后的状态</h2>
+    <table>
+      <tr><th>BUG-IND-001</th><td class="pass">关闭：未复现 / 自动化误报倾向。</td></tr>
+      <tr><th>当前需求状态</th><td class="pass">通过。当前没有有效待修复 Bug。</td></tr>
+      <tr><th>残余风险</th><td>本次只覆盖当前账号、当前站点、VIP1、会员ID空数据查询、X关闭和ESC关闭。未覆盖其他角色权限、其他站点商户、导出/保存等非只读操作。</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIP管理 / 查看会员 / 成员数量 - 测试设计</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --text: #1f2933;
+      --muted: #667085;
+      --line: #d9dee7;
+      --head: #eef2f7;
+      --blue: #1769e0;
+      --green: #13795b;
+      --amber: #9a6700;
+      --red: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    header {
+      background: #233044;
+      color: #fff;
+      padding: 24px 32px;
+      border-bottom: 4px solid #66a6ff;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    header p { margin: 0; color: #d9e2ef; }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 32px 48px;
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      margin-bottom: 18px;
+      padding: 18px;
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 14px 0 8px;
+      font-size: 15px;
+      letter-spacing: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      margin-top: 10px;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+      word-break: break-word;
+    }
+    th {
+      background: var(--head);
+      font-weight: 700;
+      color: #344054;
+    }
+    ul, ol { margin: 8px 0 0 20px; padding: 0; }
+    li { margin: 4px 0; }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .meta div {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: #fbfcfe;
+      min-height: 76px;
+    }
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    .tag {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 4px;
+      border: 1px solid transparent;
+    }
+    .tag-ready { color: var(--green); background: #e9f8f2; border-color: #b7ead8; }
+    .tag-boundary { color: var(--amber); background: #fff6df; border-color: #f4d88a; }
+    .tag-risk { color: var(--red); background: #fff0ee; border-color: #ffccc7; }
+    .tag-auto { color: var(--blue); background: #edf4ff; border-color: #c7dcff; }
+    .note {
+      border-left: 4px solid #66a6ff;
+      background: #f3f8ff;
+      padding: 10px 12px;
+      margin-top: 10px;
+    }
+    .ok { color: var(--green); font-weight: 700; }
+    .warn { color: var(--amber); font-weight: 700; }
+    .risk { color: var(--red); font-weight: 700; }
+    .nowrap { white-space: nowrap; }
+    @media (max-width: 900px) {
+      header, main { padding-left: 16px; padding-right: 16px; }
+      .meta { grid-template-columns: 1fr; }
+      table { table-layout: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VIP管理 / 查看会员 / 成员数量 - 测试设计</h1>
+    <p>面向 BX/7788 UAT 后台的可执行测试点拆解；当前为设计阶段产物，执行阶段需人工准备后台登录态。</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>基础信息</h2>
+      <div class="meta">
+        <div><span class="label">需求</span>VIP 管理 / 查看会员 / 成员数量</div>
+        <div><span class="label">后台路径</span>福利中心 / VIP管理 / 查看会员<br><span class="label">路由</span>#/member/level</div>
+        <div><span class="label">环境</span>后台：http://site.bx-tytest.xyz<br>站点：巴西站-测试；商户：888</div>
+        <div><span class="label">输出阶段</span><span class="tag tag-ready">测试设计</span><span class="tag tag-boundary">只读边界</span></div>
+      </div>
+      <div class="note">
+        澄清闸门结论：无阻塞疑问，可进入测试设计。后续浏览器执行仅允许低敏只读导航、列表/弹框/字段查看和截图取证；不处理密码、验证码、OTP，不执行保存、提交、删除、审批、导出、充值、提现、奖励发放或会员状态变更。
+      </div>
+    </section>
+
+    <section>
+      <h2>确认的验收规则</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:14%">规则 ID</th>
+            <th style="width:28%">规则</th>
+            <th>判定口径</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>R-01</td>
+            <td>VIP 列表顺序</td>
+            <td>列表中的 VIP 等级必须按从低到高展示，例如 1、2、3、4；不得出现 2 在 1 前、10 被排在 2 前的字符串排序问题。</td>
+          </tr>
+          <tr>
+            <td>R-02</td>
+            <td>VIP 等级展示</td>
+            <td>展示值读取 VIP 配置，VIP1 展示为 1、VIP2 展示为 2；验证展示值与配置含义一致，不把等级名、ID、排序号混用。</td>
+          </tr>
+          <tr>
+            <td>R-03</td>
+            <td>成员数量统计</td>
+            <td>成员数量展示该 VIP 等级下会员数量；数量应与点击后弹框内会员总量或可见分页总量一致。</td>
+          </tr>
+          <tr>
+            <td>R-04</td>
+            <td>非 0 成员数量样式与交互</td>
+            <td>非 0 数字显示为蓝色，具备可点击态；点击后打开查看会员弹框，弹框上下文必须对应当前 VIP 等级。</td>
+          </tr>
+          <tr>
+            <td>R-05</td>
+            <td>0 成员数量样式与交互</td>
+            <td>0 不可点击，不应显示为可点击蓝色；点击或误触不应打开查看会员弹框，不应改变页面状态。</td>
+          </tr>
+          <tr>
+            <td>R-06</td>
+            <td>弹框展示全状态会员</td>
+            <td>查看会员弹框展示该 VIP 等级下所有状态的会员，不能只展示启用、正常或某单一状态会员；如有筛选项，默认不得隐藏其他状态。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>测试范围与边界</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:20%">类别</th>
+            <th>纳入测试</th>
+            <th>不纳入/需人工准备</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>后台页面</td>
+            <td>VIP 管理列表、查看会员入口、成员数量列、查看会员弹框、弹框列表/分页/状态展示。</td>
+            <td>会员状态修改、VIP 配置新增/编辑/保存、导出、审批、奖励发放等敏感或不可逆操作。</td>
+          </tr>
+          <tr>
+            <td>账号与登录态</td>
+            <td>使用人工已登录后台会话进行只读验证。</td>
+            <td>不输入或处理账号、密码、验证码、OTP；登录态缺失时记录为执行阻塞，由人工准备。</td>
+          </tr>
+          <tr>
+            <td>数据核对</td>
+            <td>用页面可见总数、弹框总数、分页总条数、状态筛选前后可见记录进行低敏核对。</td>
+            <td>不直连数据库，不调用后台写接口，不构造或修改会员数据。</td>
+          </tr>
+          <tr>
+            <td>H5 前台</td>
+            <td>仅在需要理解会员状态/等级来源时作为只读辅助观察。</td>
+            <td>不在 H5 做充值、提现、投注、活动领取、账号资料变更等行为。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>前后台映射与测试 seam</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:20%">seam</th>
+            <th style="width:30%">观察点</th>
+            <th>通过标准</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VIP 配置 -> VIP 列表等级展示</td>
+            <td>列表中等级列/等级标识，必要时查看页面上可见配置说明。</td>
+            <td>等级展示为配置层级数字，且按数值升序。</td>
+          </tr>
+          <tr>
+            <td>VIP 等级 -> 成员数量统计</td>
+            <td>每个 VIP 行的成员数量列，含 0 与非 0 行。</td>
+            <td>数量语义为该等级下会员数，不受列表排序或前一行弹框状态污染。</td>
+          </tr>
+          <tr>
+            <td>成员数量 -> 查看会员弹框</td>
+            <td>点击非 0 数量后弹框标题、等级上下文、列表记录、分页总数。</td>
+            <td>弹框只展示当前点击等级的会员，且总量与入口数量可解释一致。</td>
+          </tr>
+          <tr>
+            <td>会员状态 -> 弹框记录集合</td>
+            <td>弹框内状态列、默认筛选、分页记录。</td>
+            <td>默认包含该等级下所有状态会员，不因默认筛选漏掉禁用/冻结/异常等状态。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>最小测试闭环</h2>
+      <ol>
+        <li>人工准备后台登录态，打开后台并确认站点为“巴西站-测试”、商户为“888”。</li>
+        <li>进入“福利中心 / VIP管理 / 查看会员”或路由 <span class="nowrap">#/member/level</span>。</li>
+        <li>截图记录 VIP 列表首屏，验证等级列是否按数值从低到高展示。</li>
+        <li>找到至少一个成员数量为 0 的 VIP 行，验证样式不可点击，点击不弹框。</li>
+        <li>找到至少一个成员数量非 0 的 VIP 行，验证数字为蓝色可点击，点击弹出查看会员弹框。</li>
+        <li>在弹框中核对等级上下文、会员列表、状态列、分页总数或总条数。</li>
+        <li>如弹框支持状态筛选，仅做只读切换验证全状态可见性，不执行保存或修改。</li>
+        <li>关闭弹框后再点击另一个非 0 等级，确认弹框上下文不会沿用上一等级。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>测试数据要求</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:18%">数据类型</th>
+            <th style="width:32%">最低要求</th>
+            <th>用途</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VIP 等级</td>
+            <td>至少 3 个等级；最好包含 VIP1、VIP2、VIP10 或更高等级。</td>
+            <td>验证数值升序，防止字符串排序导致 VIP10 排在 VIP2 前。</td>
+          </tr>
+          <tr>
+            <td>0 成员等级</td>
+            <td>至少 1 个成员数量为 0 的等级。</td>
+            <td>验证 0 数量样式不可点击、点击不弹框。</td>
+          </tr>
+          <tr>
+            <td>非 0 成员等级</td>
+            <td>至少 1 个成员数量大于 0 的等级。</td>
+            <td>验证蓝色可点击、弹框打开、数量一致。</td>
+          </tr>
+          <tr>
+            <td>多状态会员</td>
+            <td>同一 VIP 等级下尽量存在正常、禁用、冻结或其他可见状态会员。</td>
+            <td>验证弹框默认展示全状态会员，不只显示正常会员。</td>
+          </tr>
+          <tr>
+            <td>分页数据</td>
+            <td>如某等级会员数超过单页条数，保留该等级作为分页样本。</td>
+            <td>验证弹框分页总数、翻页后等级上下文和状态集合不丢失。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>可执行测试点</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:9%">ID</th>
+            <th style="width:18%">规则</th>
+            <th style="width:29%">步骤</th>
+            <th style="width:24%">预期结果</th>
+            <th style="width:12%">证据</th>
+            <th style="width:8%">状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TC-01</td>
+            <td>VIP 等级升序</td>
+            <td>进入 VIP 管理/查看会员列表，记录所有可见 VIP 等级；如存在分页，翻页记录各页首尾等级。</td>
+            <td>等级按数值从低到高排列；跨页也不得逆序；VIP10 不得排在 VIP2 前。</td>
+            <td>列表截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-02</td>
+            <td>等级展示口径</td>
+            <td>观察 VIP1、VIP2 等配置对应的列表展示值；必要时与页面可见配置项核对。</td>
+            <td>VIP1 显示 1，VIP2 显示 2；展示内容不混入内部 ID、名称前缀或排序字段。</td>
+            <td>列表截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-03</td>
+            <td>成员数量非 0 样式</td>
+            <td>定位成员数量大于 0 的行，观察颜色、鼠标悬停态和可点击提示。</td>
+            <td>数字显示为蓝色，具备可点击视觉反馈；不会与普通文本样式混淆。</td>
+            <td>行截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-04</td>
+            <td>成员数量非 0 点击</td>
+            <td>点击非 0 成员数量。</td>
+            <td>打开查看会员弹框；弹框标题或字段能识别当前 VIP 等级；不跳转到无关页面。</td>
+            <td>弹框截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-05</td>
+            <td>非 0 数量一致性</td>
+            <td>记录入口成员数量，再记录弹框内总条数、分页总数或可见会员数。</td>
+            <td>弹框会员总量与入口成员数量一致；若因分页或权限显示存在差异，页面需有可解释口径。</td>
+            <td>入口+弹框截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-06</td>
+            <td>成员数量为 0 样式</td>
+            <td>定位成员数量为 0 的行，观察颜色、下划线、鼠标悬停态。</td>
+            <td>0 不应显示为蓝色可点击态，不应出现指针或链接样式。</td>
+            <td>行截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-07</td>
+            <td>成员数量为 0 点击</td>
+            <td>点击或误触 0 数量位置，观察页面是否出现弹框或状态变化。</td>
+            <td>不打开查看会员弹框，不改变筛选、路由或页面状态。</td>
+            <td>点击前后截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-08</td>
+            <td>弹框全状态会员展示</td>
+            <td>打开非 0 等级弹框，检查会员状态列、默认筛选条件、状态下拉或标签。</td>
+            <td>默认展示该 VIP 等级下所有状态会员；无默认只看正常/启用会员的隐藏筛选。</td>
+            <td>弹框列表截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-09</td>
+            <td>弹框状态筛选只读核对</td>
+            <td>如弹框提供状态筛选，只读切换各状态并记录各状态是否有数据；再恢复全部状态。</td>
+            <td>各状态会员仍归属于当前 VIP 等级；全部状态汇总与入口数量一致或可解释。</td>
+            <td>筛选截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-10</td>
+            <td>弹框上下文隔离</td>
+            <td>关闭第一个非 0 等级弹框，再点击另一个非 0 等级。</td>
+            <td>第二次弹框展示新等级会员，不沿用上一等级标题、数据、分页或筛选状态。</td>
+            <td>两次弹框截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-11</td>
+            <td>弹框分页</td>
+            <td>在会员数超过单页大小的等级中打开弹框，翻页或切换每页条数，仅做只读操作。</td>
+            <td>分页后仍展示当前 VIP 等级下会员；总数不变化，状态集合不因翻页丢失。</td>
+            <td>分页截图</td>
+            <td>待执行</td>
+          </tr>
+          <tr>
+            <td>TC-12</td>
+            <td>刷新/返回后稳定性</td>
+            <td>关闭弹框后刷新页面或重新进入路由，重复查看列表顺序和一个非 0 弹框。</td>
+            <td>列表顺序、成员数量、点击行为与刷新前一致；无前端缓存导致的旧数据残留。</td>
+            <td>刷新前后截图</td>
+            <td>待执行</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>检查点清单</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:24%">检查点</th>
+            <th>应记录内容</th>
+            <th style="width:18%">失败时建议严重度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>等级排序错误</td>
+            <td>错误排序前后相邻等级、分页位置、是否为字符串排序迹象。</td>
+            <td><span class="risk">Major</span></td>
+          </tr>
+          <tr>
+            <td>等级展示口径错误</td>
+            <td>配置等级与列表展示不一致的具体等级。</td>
+            <td><span class="risk">Major</span></td>
+          </tr>
+          <tr>
+            <td>非 0 不可点击或不蓝色</td>
+            <td>行等级、成员数量、样式截图、点击结果。</td>
+            <td><span class="risk">Major</span></td>
+          </tr>
+          <tr>
+            <td>0 可点击或弹框</td>
+            <td>行等级、0 数量样式、点击后弹框或页面状态变化。</td>
+            <td><span class="risk">Major</span></td>
+          </tr>
+          <tr>
+            <td>弹框漏展示状态会员</td>
+            <td>默认筛选、状态列、被漏状态、数量差异。</td>
+            <td><span class="risk">Critical/Major</span></td>
+          </tr>
+          <tr>
+            <td>数量与弹框总数不一致</td>
+            <td>入口数量、弹框总数、分页总数、是否存在可见过滤条件。</td>
+            <td><span class="risk">Major</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>风险矩阵</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:24%">风险</th>
+            <th style="width:14%">概率</th>
+            <th style="width:14%">影响</th>
+            <th>验证方式</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>等级按字符串排序</td>
+            <td>中</td>
+            <td>高</td>
+            <td>使用 VIP10 或更高等级样本验证数值升序。</td>
+          </tr>
+          <tr>
+            <td>成员数量只统计部分状态</td>
+            <td>中</td>
+            <td>高</td>
+            <td>弹框默认全状态展示与状态筛选汇总核对。</td>
+          </tr>
+          <tr>
+            <td>0 数量仍绑定点击事件</td>
+            <td>中</td>
+            <td>中</td>
+            <td>点击 0 数量并观察弹框、路由、筛选状态是否变化。</td>
+          </tr>
+          <tr>
+            <td>弹框上下文缓存污染</td>
+            <td>中</td>
+            <td>中</td>
+            <td>连续点击两个等级，检查标题、列表、分页是否切换。</td>
+          </tr>
+          <tr>
+            <td>登录态缺失影响执行</td>
+            <td>高</td>
+            <td>中</td>
+            <td>执行前人工准备后台登录态；缺失时记录为执行阻塞，不尝试处理凭据。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>自动化优先级</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:16%">优先级</th>
+            <th style="width:28%">候选项</th>
+            <th>原因与边界</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tag-auto">P1</span></td>
+            <td>VIP 等级数值升序校验</td>
+            <td>稳定、只读、低成本；适合页面列表自动抓取后做数值断言。</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-auto">P1</span></td>
+            <td>0/非 0 成员数量样式与弹框行为</td>
+            <td>核心验收点，适合用只读 UI 自动化校验；需人工或环境预置登录态。</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-auto">P2</span></td>
+            <td>弹框数量与入口数量一致</td>
+            <td>需处理分页和总数口径，自动化前要固定页面总数字段。</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-auto">P2</span></td>
+            <td>全状态会员展示</td>
+            <td>依赖测试数据具备多状态会员；可在数据稳定后纳入回归。</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-boundary">暂不自动化</span></td>
+            <td>登录、验证码、账号准备、会员状态造数</td>
+            <td>涉及凭据、验证码或状态变更；保留为人工准备或后端安全测试数据流程。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>低价值不测区</h2>
+      <ul>
+        <li>不做按钮像素级颜色差异测试；只判断非 0 是否明显为蓝色可点击态、0 是否非可点击态。</li>
+        <li>不测试 VIP 配置新增、编辑、保存链路；本需求关注列表展示和查看会员。</li>
+        <li>不测试数据库真实统计 SQL；执行阶段只用页面可见总量与弹框总量做黑盒核对。</li>
+        <li>不测试导出、批量操作、状态修改、奖励发放、充值提现等与本需求无关且高风险操作。</li>
+        <li>不编写依赖具体 DOM 层级或坐标的脆弱点击脚本；后续自动化应优先使用文本、列名、角色和稳定选择器。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>执行交接</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:22%">事项</th>
+            <th>交接说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>登录态</td>
+            <td>由人工在浏览器中准备后台登录态；测试人员不处理账号、密码、验证码、OTP。</td>
+          </tr>
+          <tr>
+            <td>证据目录</td>
+            <td>D:\gaming-platform-qa\.scratch\multica-runs\vip-member-count-squad-check\evidence\</td>
+          </tr>
+          <tr>
+            <td>执行报告建议路径</td>
+            <td>D:\gaming-platform-qa\.scratch\multica-runs\vip-member-count-squad-check\test-report.html</td>
+          </tr>
+          <tr>
+            <td>Bug 单建议路径</td>
+            <td>如发现缺陷，生成 D:\gaming-platform-qa\.scratch\multica-runs\vip-member-count-squad-check\bug-tickets.html，并把截图嵌入对应 Bug 区块。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

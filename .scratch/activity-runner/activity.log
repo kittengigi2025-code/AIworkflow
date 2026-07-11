@@ -1,0 +1,2393 @@
+2026-07-09 15:24:03 starting desktop activity runner dry_run=True once=True
+2026-07-09 15:24:03 stop with Ctrl+Alt+Esc, or move the cursor to the top-left corner
+2026-07-09 15:24:03 move from=(0,0) target=(1318,348) duration=1.18s
+2026-07-09 15:25:48 starting desktop activity runner dry_run=False once=False
+2026-07-09 15:25:48 stop with Ctrl+Alt+Esc, or move the cursor to the top-left corner
+2026-07-09 15:25:49 move from=(891,1213) target=(1006,767) duration=1.16s
+2026-07-09 15:25:50 scroll wheel_clicks=-1
+2026-07-09 15:27:41 starting desktop activity runner dry_run=True once=True
+2026-07-09 15:27:41 stop with Ctrl+Alt+Esc, or move the cursor to the top-left corner
+2026-07-09 15:27:41 move from=(0,0) target=(1151,248) duration=1.32s
+2026-07-09 15:27:52 move from=(1743,1149) target=(1312,762) duration=0.80s
+2026-07-09 15:28:06 starting desktop activity runner dry_run=False once=False
+2026-07-09 15:28:06 stop with Ctrl+Alt+Esc, or move the cursor to the top-left corner
+2026-07-09 15:28:06 move from=(1068,1142) target=(1596,759) duration=2.61s
+2026-07-09 15:28:10 scroll wheel_clicks=2
+2026-07-09 15:28:10 waiting 98.9s before next action
+2026-07-09 15:29:49 move from=(1596,759) target=(589,431) duration=1.81s
+2026-07-09 15:29:51 waiting 169.0s before next action
+2026-07-09 15:32:40 move from=(1981,914) target=(1269,899) duration=1.73s
+2026-07-09 15:32:43 waiting 172.0s before next action
+2026-07-09 15:35:35 move from=(2017,1185) target=(207,826) duration=2.38s
+2026-07-09 15:35:38 waiting 104.1s before next action
+2026-07-09 15:37:23 move from=(2510,73) target=(1418,710) duration=0.71s
+2026-07-09 15:37:25 scroll wheel_clicks=-1
+2026-07-09 15:37:25 waiting 175.6s before next action
+2026-07-09 15:40:20 move from=(1887,1175) target=(545,597) duration=1.43s
+2026-07-09 15:40:22 waiting 102.8s before next action
+2026-07-09 15:42:05 move from=(545,597) target=(942,620) duration=1.88s
+2026-07-09 15:42:07 waiting 131.9s before next action
+2026-07-09 15:44:19 move from=(991,1257) target=(637,307) duration=2.48s
+2026-07-09 15:44:23 waiting 52.8s before next action
+2026-07-09 15:45:16 move from=(637,307) target=(1578,486) duration=2.48s
+2026-07-09 15:45:19 scroll wheel_clicks=-3
+2026-07-09 15:45:19 waiting 175.7s before next action
+2026-07-09 15:48:15 move from=(1527,1351) target=(781,602) duration=1.47s
+2026-07-09 15:48:17 waiting 139.9s before next action
+2026-07-09 15:50:37 move from=(1903,1172) target=(404,608) duration=1.54s
+2026-07-09 15:50:39 waiting 152.1s before next action
+2026-07-09 15:53:11 move from=(404,608) target=(1421,489) duration=0.98s
+2026-07-09 15:53:13 waiting 131.5s before next action
+2026-07-09 15:55:24 move from=(1421,489) target=(927,392) duration=2.60s
+2026-07-09 15:55:27 waiting 51.5s before next action
+2026-07-09 15:56:19 move from=(927,392) target=(1404,226) duration=1.79s
+2026-07-09 15:56:21 waiting 57.7s before next action
+2026-07-09 15:57:19 move from=(1157,1348) target=(827,858) duration=0.65s
+2026-07-09 15:57:20 waiting 145.5s before next action
+2026-07-09 15:59:46 move from=(1288,226) target=(972,819) duration=1.32s
+2026-07-09 15:59:48 waiting 159.1s before next action
+2026-07-09 16:02:27 move from=(1384,1184) target=(859,883) duration=1.43s
+2026-07-09 16:02:29 waiting 97.4s before next action
+2026-07-09 16:04:06 move from=(859,883) target=(1541,566) duration=2.56s
+2026-07-09 16:04:09 scroll wheel_clicks=-2
+2026-07-09 16:04:09 waiting 72.7s before next action
+2026-07-09 16:05:22 move from=(1541,566) target=(1387,189) duration=2.11s
+2026-07-09 16:05:25 waiting 134.8s before next action
+2026-07-09 16:07:40 move from=(1387,189) target=(281,699) duration=1.33s
+2026-07-09 16:07:42 waiting 59.6s before next action
+2026-07-09 16:08:41 move from=(281,699) target=(295,272) duration=2.68s
+2026-07-09 16:08:44 waiting 111.3s before next action
+2026-07-09 16:10:36 move from=(295,272) target=(1280,484) duration=2.40s
+2026-07-09 16:10:39 waiting 174.9s before next action
+2026-07-09 16:13:34 move from=(1280,484) target=(381,838) duration=1.05s
+2026-07-09 16:13:36 waiting 172.8s before next action
+2026-07-09 16:16:29 move from=(381,838) target=(733,739) duration=2.63s
+2026-07-09 16:16:31 waiting 85.4s before next action
+2026-07-09 16:17:57 move from=(733,739) target=(226,153) duration=1.76s
+2026-07-09 16:17:59 scroll wheel_clicks=-2
+2026-07-09 16:17:59 waiting 143.5s before next action
+2026-07-09 16:20:23 move from=(226,153) target=(1324,804) duration=1.15s
+2026-07-09 16:20:25 waiting 93.8s before next action
+2026-07-09 16:21:59 move from=(1324,804) target=(1108,868) duration=2.60s
+2026-07-09 16:22:01 scroll wheel_clicks=-2
+2026-07-09 16:22:01 waiting 173.7s before next action
+2026-07-09 16:24:55 move from=(1108,868) target=(1192,749) duration=1.11s
+2026-07-09 16:24:56 scroll wheel_clicks=-3
+2026-07-09 16:24:56 waiting 60.4s before next action
+2026-07-09 16:25:57 move from=(1192,749) target=(840,699) duration=2.23s
+2026-07-09 16:26:00 waiting 54.9s before next action
+2026-07-09 16:26:55 move from=(840,699) target=(865,830) duration=1.34s
+2026-07-09 16:26:56 scroll wheel_clicks=1
+2026-07-09 16:26:56 waiting 103.0s before next action
+2026-07-09 16:28:39 move from=(865,830) target=(258,517) duration=1.58s
+2026-07-09 16:28:42 waiting 67.2s before next action
+2026-07-09 16:29:49 move from=(258,517) target=(1564,432) duration=2.21s
+2026-07-09 16:29:52 waiting 61.2s before next action
+2026-07-09 16:30:53 move from=(1564,432) target=(416,322) duration=0.75s
+2026-07-09 16:30:55 waiting 147.2s before next action
+2026-07-09 16:33:22 move from=(416,322) target=(1316,493) duration=1.84s
+2026-07-09 16:33:24 waiting 100.9s before next action
+2026-07-09 16:35:06 move from=(1316,493) target=(707,649) duration=1.94s
+2026-07-09 16:35:08 scroll wheel_clicks=1
+2026-07-09 16:35:08 waiting 139.2s before next action
+2026-07-09 16:37:27 move from=(707,649) target=(606,274) duration=1.21s
+2026-07-09 16:37:29 waiting 97.3s before next action
+2026-07-09 16:39:06 move from=(606,274) target=(542,579) duration=2.33s
+2026-07-09 16:39:09 waiting 53.4s before next action
+2026-07-09 16:40:02 move from=(542,579) target=(537,786) duration=2.38s
+2026-07-09 16:40:05 waiting 137.3s before next action
+2026-07-09 16:42:22 move from=(537,786) target=(1156,418) duration=0.73s
+2026-07-09 16:42:23 scroll wheel_clicks=2
+2026-07-09 16:42:23 waiting 98.3s before next action
+2026-07-09 16:44:01 move from=(1156,418) target=(1596,308) duration=1.71s
+2026-07-09 16:44:04 scroll wheel_clicks=-3
+2026-07-09 16:44:04 waiting 83.2s before next action
+2026-07-09 16:45:27 move from=(1596,308) target=(480,306) duration=2.23s
+2026-07-09 16:45:30 waiting 125.2s before next action
+2026-07-09 16:47:35 move from=(480,306) target=(1493,389) duration=1.18s
+2026-07-09 16:47:37 waiting 138.4s before next action
+2026-07-09 16:49:56 move from=(1493,389) target=(344,408) duration=0.87s
+2026-07-09 16:49:57 scroll wheel_clicks=2
+2026-07-09 16:49:57 waiting 120.7s before next action
+2026-07-09 16:51:58 move from=(344,408) target=(783,677) duration=2.30s
+2026-07-09 16:52:01 waiting 83.2s before next action
+2026-07-09 16:53:24 move from=(783,677) target=(576,892) duration=2.26s
+2026-07-09 16:53:26 waiting 73.2s before next action
+2026-07-09 16:54:40 move from=(576,892) target=(251,681) duration=0.82s
+2026-07-09 16:54:41 waiting 86.6s before next action
+2026-07-09 16:56:08 move from=(251,681) target=(1177,438) duration=1.26s
+2026-07-09 16:56:09 waiting 176.6s before next action
+2026-07-09 16:59:06 move from=(1177,438) target=(307,486) duration=1.48s
+2026-07-09 16:59:08 scroll wheel_clicks=-3
+2026-07-09 16:59:08 waiting 103.8s before next action
+2026-07-09 17:00:52 move from=(307,486) target=(1275,182) duration=2.80s
+2026-07-09 17:00:56 waiting 98.7s before next action
+2026-07-09 17:02:35 move from=(1275,182) target=(531,545) duration=1.86s
+2026-07-09 17:02:37 waiting 143.7s before next action
+2026-07-09 17:05:01 move from=(531,545) target=(535,478) duration=1.85s
+2026-07-09 17:05:03 scroll wheel_clicks=-3
+2026-07-09 17:05:03 waiting 151.9s before next action
+2026-07-09 17:07:35 move from=(535,478) target=(1058,519) duration=1.05s
+2026-07-09 17:07:36 waiting 159.6s before next action
+2026-07-09 17:10:16 move from=(1058,519) target=(982,452) duration=0.96s
+2026-07-09 17:10:17 waiting 79.9s before next action
+2026-07-09 17:11:37 move from=(982,452) target=(1096,780) duration=2.02s
+2026-07-09 17:11:40 scroll wheel_clicks=-1
+2026-07-09 17:11:40 waiting 84.9s before next action
+2026-07-09 17:13:05 move from=(2038,1095) target=(493,423) duration=1.21s
+2026-07-09 17:13:07 scroll wheel_clicks=1
+2026-07-09 17:13:07 waiting 45.0s before next action
+2026-07-09 17:13:52 move from=(401,104) target=(446,441) duration=1.72s
+2026-07-09 17:13:54 waiting 87.2s before next action
+2026-07-09 17:15:21 move from=(2502,1224) target=(329,675) duration=0.86s
+2026-07-09 17:15:24 waiting 136.5s before next action
+2026-07-09 17:17:40 move from=(329,675) target=(933,680) duration=1.70s
+2026-07-09 17:17:43 scroll wheel_clicks=2
+2026-07-09 17:17:43 waiting 137.4s before next action
+2026-07-09 17:20:00 move from=(933,680) target=(656,643) duration=2.18s
+2026-07-09 17:20:03 waiting 48.0s before next action
+2026-07-09 17:20:51 move from=(656,643) target=(251,460) duration=1.02s
+2026-07-09 17:20:52 waiting 158.1s before next action
+2026-07-09 17:23:30 move from=(251,460) target=(608,311) duration=2.40s
+2026-07-09 17:23:33 scroll wheel_clicks=2
+2026-07-09 17:23:33 waiting 72.5s before next action
+2026-07-09 17:24:46 move from=(608,311) target=(1150,787) duration=2.43s
+2026-07-09 17:24:49 waiting 139.2s before next action
+2026-07-09 17:27:08 move from=(1150,787) target=(1499,297) duration=1.23s
+2026-07-09 17:27:10 waiting 161.8s before next action
+2026-07-09 17:29:52 move from=(1499,297) target=(1302,282) duration=1.11s
+2026-07-09 17:29:53 waiting 52.7s before next action
+2026-07-09 17:30:46 move from=(1302,282) target=(1572,502) duration=2.11s
+2026-07-09 17:30:48 waiting 162.5s before next action
+2026-07-09 17:33:31 move from=(976,981) target=(1297,616) duration=2.41s
+2026-07-09 17:33:34 waiting 74.9s before next action
+2026-07-09 17:34:49 move from=(1297,616) target=(267,460) duration=2.14s
+2026-07-09 17:34:52 waiting 162.3s before next action
+2026-07-09 17:37:34 move from=(1949,1181) target=(912,821) duration=0.68s
+2026-07-09 17:37:36 waiting 64.4s before next action
+2026-07-09 17:38:40 move from=(912,821) target=(1124,320) duration=0.68s
+2026-07-09 17:38:41 scroll wheel_clicks=-2
+2026-07-09 17:38:41 waiting 47.3s before next action
+2026-07-09 17:39:29 move from=(1124,320) target=(696,695) duration=2.65s
+2026-07-09 17:39:32 scroll wheel_clicks=1
+2026-07-09 17:39:32 waiting 53.9s before next action
+2026-07-09 17:40:26 move from=(696,695) target=(501,721) duration=1.76s
+2026-07-09 17:40:28 scroll wheel_clicks=-3
+2026-07-09 17:40:28 waiting 156.6s before next action
+2026-07-09 17:43:05 move from=(1074,881) target=(249,543) duration=0.62s
+2026-07-09 17:43:06 waiting 87.2s before next action
+2026-07-09 17:44:33 move from=(249,543) target=(741,432) duration=1.48s
+2026-07-09 17:44:35 scroll wheel_clicks=2
+2026-07-09 17:44:35 waiting 105.7s before next action
+2026-07-09 17:46:21 move from=(741,432) target=(1206,551) duration=2.03s
+2026-07-09 17:46:24 scroll wheel_clicks=-3
+2026-07-09 17:46:24 waiting 154.4s before next action
+2026-07-09 17:48:58 move from=(2447,13) target=(1052,358) duration=1.82s
+2026-07-09 17:49:01 waiting 80.4s before next action
+2026-07-09 17:50:21 move from=(1451,1344) target=(840,824) duration=1.55s
+2026-07-09 17:50:23 waiting 103.0s before next action
+2026-07-09 17:52:07 move from=(1567,1366) target=(1180,770) duration=1.31s
+2026-07-09 17:52:08 waiting 90.2s before next action
+2026-07-09 17:53:39 move from=(1180,770) target=(1518,730) duration=1.75s
+2026-07-09 17:53:41 waiting 70.6s before next action
+2026-07-09 17:54:51 move from=(1518,730) target=(1347,511) duration=2.19s
+2026-07-09 17:54:54 scroll wheel_clicks=-2
+2026-07-09 17:54:54 waiting 88.8s before next action
+2026-07-09 17:56:23 move from=(1347,511) target=(503,466) duration=0.68s
+2026-07-09 17:56:24 waiting 101.2s before next action
+2026-07-09 17:58:05 move from=(503,466) target=(756,502) duration=1.87s
+2026-07-09 17:58:08 waiting 161.3s before next action
+2026-07-09 18:00:49 move from=(756,502) target=(1431,241) duration=2.43s
+2026-07-09 18:00:52 scroll wheel_clicks=2
+2026-07-09 18:00:52 waiting 179.9s before next action
+2026-07-09 18:03:52 move from=(839,935) target=(712,667) duration=2.75s
+2026-07-09 18:03:55 waiting 98.3s before next action
+2026-07-09 18:05:34 move from=(609,380) target=(257,490) duration=1.91s
+2026-07-09 18:05:36 scroll wheel_clicks=3
+2026-07-09 18:05:36 waiting 50.4s before next action
+2026-07-09 18:06:26 move from=(1298,540) target=(578,855) duration=0.69s
+2026-07-09 18:06:27 waiting 96.7s before next action
+2026-07-09 18:08:04 move from=(709,198) target=(1138,798) duration=2.22s
+2026-07-09 18:08:07 waiting 63.0s before next action
+2026-07-09 18:09:10 move from=(1472,1269) target=(1268,504) duration=0.96s
+2026-07-09 18:09:11 scroll wheel_clicks=-3
+2026-07-09 18:09:11 waiting 56.5s before next action
+2026-07-09 18:10:08 move from=(1573,659) target=(1363,728) duration=0.81s
+2026-07-09 18:10:09 waiting 83.9s before next action
+2026-07-09 18:11:33 move from=(1363,728) target=(282,830) duration=1.36s
+2026-07-09 18:11:35 waiting 179.6s before next action
+2026-07-09 18:14:35 move from=(282,830) target=(1565,549) duration=2.36s
+2026-07-09 18:14:38 waiting 160.5s before next action
+2026-07-09 18:17:19 move from=(1565,549) target=(426,252) duration=1.42s
+2026-07-09 18:17:21 waiting 49.5s before next action
+2026-07-09 18:18:10 move from=(426,252) target=(694,153) duration=1.79s
+2026-07-09 18:18:12 waiting 101.4s before next action
+2026-07-09 18:19:54 move from=(694,153) target=(1097,348) duration=1.83s
+2026-07-09 18:19:56 waiting 170.2s before next action
+2026-07-09 18:22:46 move from=(1097,348) target=(362,664) duration=2.23s
+2026-07-09 18:22:49 waiting 151.9s before next action
+2026-07-09 18:25:21 move from=(362,664) target=(299,792) duration=1.33s
+2026-07-09 18:25:23 scroll wheel_clicks=-3
+2026-07-09 18:25:23 waiting 89.7s before next action
+2026-07-09 18:26:53 move from=(299,792) target=(1161,210) duration=1.66s
+2026-07-09 18:26:55 scroll wheel_clicks=1
+2026-07-09 18:26:55 waiting 100.8s before next action
+2026-07-09 18:28:36 move from=(1036,1365) target=(690,656) duration=1.78s
+2026-07-09 18:28:38 waiting 120.6s before next action
+2026-07-09 18:30:39 move from=(690,656) target=(709,537) duration=2.60s
+2026-07-09 18:30:41 waiting 78.4s before next action
+2026-07-09 18:32:00 move from=(709,537) target=(1071,550) duration=2.48s
+2026-07-09 18:32:03 waiting 83.8s before next action
+2026-07-09 18:33:27 move from=(1071,550) target=(1105,872) duration=0.85s
+2026-07-09 18:33:28 waiting 88.7s before next action
+2026-07-09 18:34:58 move from=(1316,642) target=(1314,833) duration=0.74s
+2026-07-09 18:34:58 scroll wheel_clicks=2
+2026-07-09 18:34:58 waiting 141.5s before next action
+2026-07-09 18:37:20 move from=(312,280) target=(915,341) duration=2.27s
+2026-07-09 18:37:23 waiting 129.5s before next action
+2026-07-09 18:39:32 move from=(752,475) target=(1068,293) duration=0.99s
+2026-07-09 18:39:34 scroll wheel_clicks=-2
+2026-07-09 18:39:34 waiting 60.0s before next action
+2026-07-09 18:40:34 move from=(749,697) target=(1445,447) duration=1.25s
+2026-07-09 18:40:35 scroll wheel_clicks=-3
+2026-07-09 18:40:36 waiting 81.7s before next action
+2026-07-09 18:41:57 move from=(1440,447) target=(1004,266) duration=2.71s
+2026-07-09 18:42:01 waiting 64.1s before next action
+2026-07-09 18:43:05 move from=(1300,0) target=(1249,843) duration=1.48s
+2026-07-09 18:43:07 scroll wheel_clicks=3
+2026-07-09 18:43:07 waiting 145.2s before next action
+2026-07-09 18:45:32 move from=(1249,830) target=(614,632) duration=1.00s
+2026-07-09 18:45:34 scroll wheel_clicks=3
+2026-07-09 18:45:34 waiting 146.7s before next action
+2026-07-09 18:48:01 move from=(434,812) target=(1246,880) duration=1.52s
+2026-07-09 18:48:03 waiting 100.1s before next action
+2026-07-09 18:49:43 move from=(1246,830) target=(1491,742) duration=2.66s
+2026-07-09 18:49:46 waiting 93.4s before next action
+2026-07-09 18:51:19 move from=(1440,742) target=(537,275) duration=2.65s
+2026-07-09 18:51:23 waiting 72.5s before next action
+2026-07-09 18:52:35 move from=(838,513) target=(446,266) duration=0.65s
+2026-07-09 18:52:36 scroll wheel_clicks=-2
+2026-07-09 18:52:36 waiting 113.1s before next action
+2026-07-09 18:54:30 move from=(1201,13) target=(1552,303) duration=1.21s
+2026-07-09 18:54:31 waiting 144.6s before next action
+2026-07-09 18:56:56 move from=(1440,303) target=(292,764) duration=2.28s
+2026-07-09 18:56:59 waiting 132.4s before next action
+2026-07-09 18:59:12 move from=(1440,830) target=(1552,800) duration=0.81s
+2026-07-09 18:59:13 waiting 151.1s before next action
+2026-07-09 19:01:44 move from=(1552,800) target=(1156,467) duration=2.09s
+2026-07-09 19:01:46 scroll wheel_clicks=-2
+2026-07-09 19:01:46 waiting 179.4s before next action
+2026-07-09 19:04:46 move from=(1156,467) target=(994,400) duration=1.69s
+2026-07-09 19:04:47 scroll wheel_clicks=-3
+2026-07-09 19:04:47 waiting 135.6s before next action
+2026-07-09 19:07:03 move from=(994,400) target=(912,682) duration=2.12s
+2026-07-09 19:07:05 scroll wheel_clicks=-3
+2026-07-09 19:07:05 waiting 91.2s before next action
+2026-07-09 19:08:37 move from=(912,682) target=(1449,326) duration=1.03s
+2026-07-09 19:08:38 waiting 60.5s before next action
+2026-07-09 19:09:39 move from=(960,505) target=(638,816) duration=2.50s
+2026-07-09 19:09:42 waiting 55.1s before next action
+2026-07-09 19:10:37 move from=(638,816) target=(753,209) duration=2.46s
+2026-07-09 19:10:40 waiting 157.4s before next action
+2026-07-09 19:13:18 move from=(1814,145) target=(1363,617) duration=1.04s
+2026-07-09 19:13:19 waiting 116.9s before next action
+2026-07-09 19:15:16 move from=(1425,812) target=(672,392) duration=1.70s
+2026-07-09 19:15:19 waiting 119.6s before next action
+2026-07-09 19:17:18 move from=(1475,833) target=(1087,769) duration=1.25s
+2026-07-09 19:17:20 waiting 143.7s before next action
+2026-07-09 19:19:44 move from=(1154,999) target=(449,815) duration=0.99s
+2026-07-09 19:19:45 waiting 113.1s before next action
+2026-07-09 19:21:38 move from=(449,815) target=(477,818) duration=1.30s
+2026-07-09 19:21:40 waiting 99.3s before next action
+2026-07-09 19:23:19 move from=(477,818) target=(925,173) duration=0.60s
+2026-07-09 19:23:20 scroll wheel_clicks=-1
+2026-07-09 19:23:20 waiting 82.0s before next action
+2026-07-09 19:24:42 move from=(925,173) target=(1251,213) duration=0.85s
+2026-07-09 19:24:44 waiting 58.5s before next action
+2026-07-09 19:25:42 move from=(1257,972) target=(771,309) duration=1.40s
+2026-07-09 19:25:44 waiting 73.9s before next action
+2026-07-09 19:26:58 move from=(1281,817) target=(386,269) duration=2.11s
+2026-07-09 19:27:01 waiting 154.5s before next action
+2026-07-09 19:29:36 move from=(1474,596) target=(316,592) duration=2.65s
+2026-07-09 19:29:40 waiting 56.4s before next action
+2026-07-09 19:30:36 move from=(526,210) target=(448,377) duration=2.70s
+2026-07-09 19:30:39 scroll wheel_clicks=-2
+2026-07-09 19:30:39 waiting 105.7s before next action
+2026-07-09 19:32:25 move from=(448,377) target=(661,344) duration=1.95s
+2026-07-09 19:32:27 waiting 119.8s before next action
+2026-07-09 19:34:27 move from=(244,736) target=(800,212) duration=2.51s
+2026-07-09 19:34:30 waiting 134.3s before next action
+2026-07-09 19:36:44 move from=(1918,431) target=(300,769) duration=1.72s
+2026-07-09 19:36:47 scroll wheel_clicks=-2
+2026-07-09 19:36:47 waiting 105.2s before next action
+2026-07-09 19:38:32 move from=(934,689) target=(1502,671) duration=2.36s
+2026-07-09 19:38:35 waiting 135.3s before next action
+2026-07-09 19:40:50 move from=(810,321) target=(1301,387) duration=1.52s
+2026-07-09 19:40:52 waiting 160.2s before next action
+2026-07-09 19:43:32 move from=(535,21) target=(562,785) duration=2.59s
+2026-07-09 19:43:35 waiting 100.4s before next action
+2026-07-09 19:45:16 move from=(1026,1000) target=(1350,289) duration=1.87s
+2026-07-09 19:45:18 waiting 54.9s before next action
+2026-07-09 19:46:13 move from=(1350,289) target=(577,292) duration=2.07s
+2026-07-09 19:46:16 waiting 148.2s before next action
+2026-07-09 19:48:44 move from=(577,292) target=(730,805) duration=2.66s
+2026-07-09 19:48:47 scroll wheel_clicks=-2
+2026-07-09 19:48:47 waiting 119.3s before next action
+2026-07-09 19:50:47 move from=(730,805) target=(750,460) duration=1.23s
+2026-07-09 19:50:48 waiting 58.0s before next action
+2026-07-09 19:51:47 move from=(750,460) target=(798,429) duration=0.60s
+2026-07-09 19:51:47 waiting 114.1s before next action
+2026-07-09 19:53:41 move from=(798,429) target=(1399,636) duration=1.51s
+2026-07-09 19:53:44 waiting 131.0s before next action
+2026-07-09 19:55:55 move from=(1399,636) target=(1591,731) duration=1.62s
+2026-07-09 19:55:56 waiting 63.1s before next action
+2026-07-09 19:57:00 move from=(1591,731) target=(497,622) duration=2.31s
+2026-07-09 19:57:03 waiting 163.0s before next action
+2026-07-09 19:59:46 move from=(497,622) target=(1454,313) duration=1.81s
+2026-07-09 19:59:48 waiting 148.5s before next action
+2026-07-09 20:02:17 move from=(1454,313) target=(299,782) duration=1.85s
+2026-07-09 20:02:20 scroll wheel_clicks=-3
+2026-07-09 20:02:20 waiting 120.4s before next action
+2026-07-09 20:04:20 move from=(299,782) target=(819,890) duration=0.84s
+2026-07-09 20:04:21 waiting 72.8s before next action
+2026-07-09 20:05:34 move from=(819,890) target=(213,296) duration=0.99s
+2026-07-09 20:05:36 waiting 138.2s before next action
+2026-07-09 20:07:54 move from=(213,296) target=(463,201) duration=1.40s
+2026-07-09 20:07:56 waiting 57.8s before next action
+2026-07-09 20:08:54 move from=(463,201) target=(1599,162) duration=0.88s
+2026-07-09 20:08:55 waiting 77.9s before next action
+2026-07-09 20:10:13 move from=(1599,162) target=(348,560) duration=1.54s
+2026-07-09 20:10:16 waiting 72.9s before next action
+2026-07-09 20:11:29 move from=(348,560) target=(1452,471) duration=2.25s
+2026-07-09 20:11:32 waiting 73.2s before next action
+2026-07-09 20:12:45 move from=(1452,471) target=(947,324) duration=2.45s
+2026-07-09 20:12:48 waiting 106.6s before next action
+2026-07-09 20:14:35 move from=(947,324) target=(778,791) duration=0.60s
+2026-07-09 20:14:36 waiting 101.9s before next action
+2026-07-09 20:16:18 move from=(778,791) target=(865,244) duration=1.88s
+2026-07-09 20:16:20 scroll wheel_clicks=3
+2026-07-09 20:16:20 waiting 66.1s before next action
+2026-07-09 20:17:26 move from=(865,244) target=(245,824) duration=0.86s
+2026-07-09 20:17:28 scroll wheel_clicks=1
+2026-07-09 20:17:28 waiting 165.4s before next action
+2026-07-09 20:20:13 move from=(245,824) target=(949,879) duration=1.54s
+2026-07-09 20:20:15 scroll wheel_clicks=-3
+2026-07-09 20:20:15 waiting 138.3s before next action
+2026-07-09 20:22:34 move from=(949,879) target=(1178,740) duration=0.62s
+2026-07-09 20:22:35 scroll wheel_clicks=1
+2026-07-09 20:22:35 waiting 148.9s before next action
+2026-07-09 20:25:04 move from=(1178,740) target=(1324,614) duration=1.56s
+2026-07-09 20:25:05 waiting 154.1s before next action
+2026-07-09 20:27:40 move from=(1324,614) target=(1128,235) duration=1.37s
+2026-07-09 20:27:41 waiting 150.4s before next action
+2026-07-09 20:30:12 move from=(1128,235) target=(1321,758) duration=0.74s
+2026-07-09 20:30:13 waiting 141.8s before next action
+2026-07-09 20:32:35 move from=(1321,758) target=(518,706) duration=2.77s
+2026-07-09 20:32:39 waiting 154.5s before next action
+2026-07-09 20:35:13 move from=(518,706) target=(1021,411) duration=2.14s
+2026-07-09 20:35:16 waiting 169.5s before next action
+2026-07-09 20:38:05 move from=(1021,411) target=(1256,639) duration=2.36s
+2026-07-09 20:38:08 waiting 56.7s before next action
+2026-07-09 20:39:05 move from=(1256,639) target=(1094,248) duration=2.13s
+2026-07-09 20:39:07 waiting 163.5s before next action
+2026-07-09 20:41:51 move from=(1094,248) target=(1547,371) duration=1.08s
+2026-07-09 20:41:52 waiting 144.3s before next action
+2026-07-09 20:44:16 move from=(1547,371) target=(1383,867) duration=0.68s
+2026-07-09 20:44:18 waiting 82.2s before next action
+2026-07-09 20:45:40 move from=(1383,867) target=(1509,400) duration=1.56s
+2026-07-09 20:45:42 waiting 131.8s before next action
+2026-07-09 20:47:54 move from=(1509,400) target=(1547,453) duration=2.42s
+2026-07-09 20:47:57 waiting 171.2s before next action
+2026-07-09 20:50:48 move from=(1547,453) target=(878,869) duration=2.48s
+2026-07-09 20:50:51 waiting 70.8s before next action
+2026-07-09 20:52:02 move from=(878,869) target=(901,417) duration=2.69s
+2026-07-09 20:52:05 scroll wheel_clicks=-3
+2026-07-09 20:52:05 waiting 127.2s before next action
+2026-07-09 20:54:12 move from=(901,417) target=(617,837) duration=1.74s
+2026-07-09 20:54:15 waiting 79.9s before next action
+2026-07-09 20:55:34 move from=(617,837) target=(1255,879) duration=1.57s
+2026-07-09 20:55:37 waiting 115.0s before next action
+2026-07-09 20:57:32 move from=(1255,879) target=(1220,286) duration=1.07s
+2026-07-09 20:57:33 waiting 160.3s before next action
+2026-07-10 07:18:49,063 INFO stop hotkey registered: Ctrl+Alt+Esc
+2026-07-10 07:18:49,064 INFO starting activity runner dry_run=False once=False
+2026-07-10 07:18:49,064 INFO move from=(384, 287) target=(1560, 854) duration=2.14s
+2026-07-10 07:18:51,306 INFO waiting 128.3s before next action
+2026-07-10 07:20:59,564 INFO move from=(1262, 986) target=(1093, 784) duration=1.46s
+2026-07-10 07:21:01,165 INFO waiting 118.7s before next action
+2026-07-10 07:22:59,901 INFO move from=(885, 567) target=(1178, 544) duration=2.73s
+2026-07-10 07:23:02,626 INFO scroll wheel_clicks=-1
+2026-07-10 07:23:02,627 INFO waiting 106.7s before next action
+2026-07-10 07:24:49,283 INFO move from=(1178, 544) target=(1067, 790) duration=1.37s
+2026-07-10 07:24:50,737 INFO waiting 53.3s before next action
+2026-07-10 07:25:44,030 INFO move from=(1067, 790) target=(740, 795) duration=1.76s
+2026-07-10 07:25:45,730 INFO waiting 132.1s before next action
+2026-07-10 07:27:57,789 INFO move from=(741, 792) target=(1503, 567) duration=1.61s
+2026-07-10 07:27:59,482 INFO waiting 74.9s before next action
+2026-07-10 07:29:14,367 INFO move from=(94, 377) target=(462, 725) duration=1.53s
+2026-07-10 07:29:15,978 INFO waiting 131.1s before next action
+2026-07-10 07:31:27,066 INFO move from=(1256, 732) target=(532, 560) duration=1.40s
+2026-07-10 07:31:28,501 INFO waiting 133.3s before next action
+2026-07-10 07:33:41,760 INFO move from=(532, 560) target=(312, 154) duration=2.69s
+2026-07-10 07:33:44,434 INFO waiting 145.6s before next action
+2026-07-10 07:36:10,065 INFO move from=(1255, 732) target=(665, 784) duration=1.10s
+2026-07-10 07:36:11,175 INFO scroll wheel_clicks=3
+2026-07-10 07:36:11,176 INFO waiting 153.9s before next action
+2026-07-10 07:38:45,105 INFO move from=(662, 783) target=(280, 574) duration=2.19s
+2026-07-10 07:38:47,383 INFO scroll wheel_clicks=-3
+2026-07-10 07:38:47,384 INFO waiting 155.4s before next action
+2026-07-10 07:41:22,768 INFO move from=(1192, 975) target=(1424, 471) duration=2.54s
+2026-07-10 07:41:25,316 INFO scroll wheel_clicks=-1
+2026-07-10 07:41:25,317 INFO waiting 123.3s before next action
+2026-07-10 07:43:28,623 INFO move from=(1424, 471) target=(680, 375) duration=1.22s
+2026-07-10 07:43:29,877 INFO scroll wheel_clicks=-1
+2026-07-10 07:43:29,878 INFO waiting 70.9s before next action
+2026-07-10 07:44:40,744 INFO move from=(680, 375) target=(1186, 886) duration=1.68s
+2026-07-10 07:44:42,493 INFO scroll wheel_clicks=-3
+2026-07-10 07:44:42,494 INFO waiting 86.2s before next action
+2026-07-10 07:46:08,714 INFO move from=(1186, 886) target=(1470, 892) duration=2.35s
+2026-07-10 07:46:11,093 INFO waiting 131.4s before next action
+2026-07-10 07:48:22,489 INFO move from=(1470, 892) target=(601, 332) duration=2.69s
+2026-07-10 07:48:25,299 INFO scroll wheel_clicks=-1
+2026-07-10 07:48:25,299 INFO waiting 117.6s before next action
+2026-07-10 07:50:22,868 INFO move from=(601, 332) target=(815, 275) duration=1.86s
+2026-07-10 07:50:24,728 INFO waiting 74.5s before next action
+2026-07-10 07:51:39,222 INFO move from=(815, 275) target=(299, 357) duration=1.10s
+2026-07-10 07:51:40,394 INFO scroll wheel_clicks=-2
+2026-07-10 07:51:40,394 INFO waiting 140.6s before next action
+2026-07-10 07:54:01,029 INFO move from=(1537, 71) target=(1228, 233) duration=1.29s
+2026-07-10 07:54:02,334 INFO waiting 79.2s before next action
+2026-07-10 07:55:21,585 INFO move from=(1259, 983) target=(1106, 528) duration=2.13s
+2026-07-10 07:55:23,743 INFO waiting 57.9s before next action
+2026-07-10 07:56:21,664 INFO move from=(1904, 167) target=(585, 321) duration=0.82s
+2026-07-10 07:56:22,563 INFO scroll wheel_clicks=3
+2026-07-10 07:56:22,563 INFO waiting 172.0s before next action
+2026-07-10 07:59:14,519 INFO move from=(1460, 755) target=(1532, 167) duration=1.03s
+2026-07-10 07:59:15,517 INFO waiting 114.5s before next action
+2026-07-10 08:01:10,065 INFO move from=(1530, 169) target=(1224, 240) duration=1.95s
+2026-07-10 08:01:12,010 INFO waiting 72.6s before next action
+2026-07-10 08:02:24,600 INFO move from=(471, 159) target=(1182, 331) duration=2.13s
+2026-07-10 08:02:26,653 INFO scroll wheel_clicks=-2
+2026-07-10 08:02:26,654 INFO waiting 127.8s before next action
+2026-07-10 08:04:34,466 INFO move from=(1182, 328) target=(974, 608) duration=1.96s
+2026-07-10 08:04:36,550 INFO waiting 136.2s before next action
+2026-07-10 08:06:52,703 INFO move from=(974, 608) target=(1527, 653) duration=2.63s
+2026-07-10 08:06:55,398 INFO scroll wheel_clicks=2
+2026-07-10 08:06:55,399 INFO waiting 164.3s before next action
+2026-07-10 08:09:39,683 INFO move from=(1527, 653) target=(669, 411) duration=1.04s
+2026-07-10 08:09:40,760 INFO waiting 135.1s before next action
+2026-07-10 08:11:55,846 INFO move from=(666, 408) target=(323, 704) duration=2.70s
+2026-07-10 08:11:58,602 INFO scroll wheel_clicks=1
+2026-07-10 08:11:58,603 INFO waiting 153.1s before next action
+2026-07-10 08:14:31,655 INFO move from=(323, 704) target=(923, 666) duration=2.12s
+2026-07-10 08:14:33,814 INFO waiting 135.2s before next action
+2026-07-10 08:16:49,010 INFO move from=(922, 664) target=(1388, 439) duration=1.22s
+2026-07-10 08:16:50,264 INFO waiting 84.7s before next action
+2026-07-10 08:18:14,981 INFO move from=(1388, 439) target=(1250, 745) duration=1.34s
+2026-07-10 08:18:16,377 INFO scroll wheel_clicks=3
+2026-07-10 08:18:16,378 INFO waiting 128.1s before next action
+2026-07-10 08:20:24,438 INFO move from=(1251, 744) target=(887, 678) duration=1.52s
+2026-07-10 08:20:25,914 INFO waiting 128.4s before next action
+2026-07-10 08:22:34,341 INFO move from=(887, 678) target=(1139, 244) duration=1.04s
+2026-07-10 08:22:35,448 INFO waiting 174.8s before next action
+2026-07-10 08:25:30,282 INFO move from=(1142, 247) target=(787, 553) duration=1.05s
+2026-07-10 08:25:31,409 INFO waiting 174.3s before next action
+2026-07-10 08:28:25,737 INFO move from=(787, 553) target=(1072, 874) duration=2.79s
+2026-07-10 08:28:28,583 INFO scroll wheel_clicks=3
+2026-07-10 08:28:28,583 INFO waiting 81.1s before next action
+2026-07-10 08:29:49,712 INFO move from=(1072, 874) target=(464, 737) duration=2.57s
+2026-07-10 08:29:52,363 INFO scroll wheel_clicks=-3
+2026-07-10 08:29:52,363 INFO waiting 167.7s before next action
+2026-07-10 08:32:40,113 INFO move from=(461, 737) target=(1114, 315) duration=1.22s
+2026-07-10 08:32:41,423 INFO waiting 139.0s before next action
+2026-07-10 08:35:00,457 INFO move from=(1116, 318) target=(747, 759) duration=1.43s
+2026-07-10 08:35:01,914 INFO waiting 53.1s before next action
+2026-07-10 08:35:55,006 INFO move from=(747, 759) target=(271, 494) duration=2.02s
+2026-07-10 08:35:57,152 INFO waiting 135.1s before next action
+2026-07-10 08:38:12,257 INFO move from=(271, 494) target=(639, 400) duration=0.63s
+2026-07-10 08:38:12,892 INFO scroll wheel_clicks=1
+2026-07-10 08:38:12,893 INFO waiting 114.9s before next action
+2026-07-10 08:40:07,809 INFO move from=(639, 400) target=(504, 643) duration=1.35s
+2026-07-10 08:40:09,221 INFO scroll wheel_clicks=-1
+2026-07-10 08:40:09,222 INFO waiting 55.8s before next action
+2026-07-10 08:41:05,008 INFO move from=(507, 643) target=(1405, 709) duration=1.73s
+2026-07-10 08:41:06,851 INFO waiting 60.1s before next action
+2026-07-10 08:42:06,980 INFO move from=(1405, 709) target=(887, 325) duration=1.26s
+2026-07-10 08:42:08,284 INFO waiting 108.1s before next action
+2026-07-10 08:43:56,347 INFO move from=(1444, 732) target=(815, 442) duration=1.66s
+2026-07-10 08:43:58,014 INFO waiting 156.0s before next action
+2026-07-10 08:46:34,065 INFO move from=(1848, 14) target=(299, 353) duration=1.71s
+2026-07-10 08:46:35,843 INFO waiting 62.6s before next action
+2026-07-10 08:47:38,460 INFO move from=(269, 303) target=(1135, 544) duration=1.05s
+2026-07-10 08:47:39,573 INFO waiting 121.1s before next action
+2026-07-10 08:49:40,698 INFO move from=(1253, 510) target=(1599, 198) duration=1.56s
+2026-07-10 08:49:42,323 INFO scroll wheel_clicks=1
+2026-07-10 08:49:42,323 INFO waiting 177.8s before next action
+2026-07-10 08:52:40,081 INFO move from=(127, 83) target=(355, 659) duration=1.46s
+2026-07-10 08:52:41,597 INFO waiting 70.0s before next action
+2026-07-10 08:53:51,642 INFO move from=(775, 370) target=(537, 252) duration=0.66s
+2026-07-10 08:53:52,276 INFO waiting 165.5s before next action
+2026-07-10 08:56:37,759 INFO move from=(1154, 984) target=(938, 259) duration=2.03s
+2026-07-10 08:56:39,887 INFO waiting 56.7s before next action
+2026-07-10 08:57:36,606 INFO move from=(1007, 46) target=(1298, 513) duration=0.68s
+2026-07-10 08:57:37,314 INFO waiting 99.1s before next action
+2026-07-10 08:59:16,393 INFO move from=(889, 12) target=(1453, 763) duration=1.03s
+2026-07-10 08:59:17,525 INFO scroll wheel_clicks=-1
+2026-07-10 08:59:17,525 INFO waiting 125.8s before next action
+2026-07-10 09:01:23,314 INFO move from=(1849, 18) target=(1483, 449) duration=2.66s
+2026-07-10 09:01:26,043 INFO waiting 104.4s before next action
+2026-07-10 09:03:10,472 INFO move from=(1107, 378) target=(711, 201) duration=2.22s
+2026-07-10 09:03:12,788 INFO scroll wheel_clicks=-3
+2026-07-10 09:03:12,788 INFO waiting 106.2s before next action
+2026-07-10 09:04:59,026 INFO move from=(973, 855) target=(747, 176) duration=2.37s
+2026-07-10 09:05:01,480 INFO waiting 141.8s before next action
+2026-07-10 09:07:23,297 INFO move from=(672, 768) target=(1116, 336) duration=1.76s
+2026-07-10 09:07:25,073 INFO waiting 72.3s before next action
+2026-07-10 09:08:37,337 INFO move from=(1116, 333) target=(1247, 712) duration=1.03s
+2026-07-10 09:08:38,376 INFO scroll wheel_clicks=-2
+2026-07-10 09:08:38,376 INFO waiting 109.4s before next action
+2026-07-10 09:10:27,791 INFO move from=(865, 687) target=(947, 865) duration=1.48s
+2026-07-10 09:10:29,275 INFO waiting 94.9s before next action
+2026-07-10 09:12:04,225 INFO move from=(945, 868) target=(1335, 842) duration=2.37s
+2026-07-10 09:12:06,734 INFO waiting 68.9s before next action
+2026-07-10 09:13:15,614 INFO move from=(787, 1007) target=(772, 795) duration=2.30s
+2026-07-10 09:13:17,878 INFO waiting 137.9s before next action
+2026-07-10 09:15:35,803 INFO move from=(772, 795) target=(1237, 163) duration=2.48s
+2026-07-10 09:15:38,357 INFO scroll wheel_clicks=-1
+2026-07-10 09:15:38,357 INFO waiting 125.1s before next action
+2026-07-10 09:17:43,419 INFO move from=(1237, 163) target=(964, 890) duration=1.00s
+2026-07-10 09:17:44,496 INFO scroll wheel_clicks=2
+2026-07-10 09:17:44,497 INFO waiting 172.3s before next action
+2026-07-10 09:20:36,819 INFO move from=(964, 890) target=(1136, 185) duration=2.70s
+2026-07-10 09:20:39,611 INFO scroll wheel_clicks=2
+2026-07-10 09:20:39,612 INFO waiting 145.5s before next action
+2026-07-10 09:23:05,152 INFO move from=(1138, 187) target=(1553, 240) duration=0.76s
+2026-07-10 09:23:05,916 INFO waiting 45.0s before next action
+2026-07-10 09:23:50,938 INFO move from=(1553, 240) target=(498, 337) duration=2.22s
+2026-07-10 09:23:53,222 INFO waiting 139.4s before next action
+2026-07-10 09:26:12,643 INFO move from=(501, 338) target=(405, 415) duration=1.54s
+2026-07-10 09:26:14,139 INFO waiting 52.4s before next action
+2026-07-10 09:27:06,581 INFO move from=(408, 417) target=(342, 678) duration=1.77s
+2026-07-10 09:27:08,261 INFO scroll wheel_clicks=-2
+2026-07-10 09:27:08,262 INFO waiting 137.8s before next action
+2026-07-10 09:29:26,079 INFO move from=(342, 678) target=(1579, 637) duration=1.69s
+2026-07-10 09:29:27,849 INFO waiting 149.4s before next action
+2026-07-10 09:31:57,291 INFO move from=(1578, 636) target=(1234, 811) duration=1.54s
+2026-07-10 09:31:58,934 INFO waiting 111.8s before next action
+2026-07-10 09:33:50,710 INFO move from=(1233, 814) target=(1407, 772) duration=2.19s
+2026-07-10 09:33:52,993 INFO waiting 127.4s before next action
+2026-07-10 09:35:58,389 INFO move from=(1280, 685) target=(878, 861) duration=1.30s
+2026-07-10 09:35:59,729 INFO waiting 66.8s before next action
+2026-07-10 09:37:06,550 INFO move from=(1580, 946) target=(958, 898) duration=2.01s
+2026-07-10 09:37:08,556 INFO waiting 114.4s before next action
+2026-07-10 09:39:02,971 INFO move from=(1443, 1338) target=(553, 312) duration=1.30s
+2026-07-10 09:39:04,344 INFO waiting 151.5s before next action
+2026-07-10 09:41:35,890 INFO move from=(553, 312) target=(1178, 716) duration=1.30s
+2026-07-10 09:41:37,219 INFO waiting 107.8s before next action
+2026-07-10 09:43:25,055 INFO move from=(1178, 713) target=(827, 307) duration=0.71s
+2026-07-10 09:43:25,772 INFO waiting 94.4s before next action
+2026-07-10 09:45:00,178 INFO move from=(830, 309) target=(702, 345) duration=0.70s
+2026-07-10 09:45:00,884 INFO waiting 50.4s before next action
+2026-07-10 09:45:51,256 INFO move from=(702, 345) target=(249, 883) duration=2.55s
+2026-07-10 09:45:53,793 INFO scroll wheel_clicks=1
+2026-07-10 09:45:53,793 INFO waiting 140.8s before next action
+2026-07-10 09:48:14,596 INFO move from=(246, 880) target=(437, 728) duration=1.49s
+2026-07-10 09:48:16,163 INFO scroll wheel_clicks=-2
+2026-07-10 09:48:16,164 INFO waiting 101.9s before next action
+2026-07-10 09:49:58,102 INFO move from=(1435, 1350) target=(253, 513) duration=0.93s
+2026-07-10 09:49:59,120 INFO waiting 120.3s before next action
+2026-07-10 09:51:59,456 INFO move from=(1465, 1350) target=(1048, 443) duration=2.24s
+2026-07-10 09:52:01,824 INFO waiting 139.9s before next action
+2026-07-10 09:54:21,702 INFO move from=(1048, 443) target=(285, 883) duration=2.55s
+2026-07-10 09:54:24,276 INFO scroll wheel_clicks=-1
+2026-07-10 09:54:24,276 INFO waiting 84.9s before next action
+2026-07-10 09:55:49,161 INFO move from=(288, 885) target=(595, 492) duration=1.31s
+2026-07-10 09:55:50,517 INFO waiting 116.5s before next action
+2026-07-10 09:57:47,033 INFO move from=(595, 492) target=(1415, 817) duration=2.06s
+2026-07-10 09:57:49,281 INFO scroll wheel_clicks=1
+2026-07-10 09:57:49,281 INFO waiting 115.2s before next action
+2026-07-10 09:59:44,445 INFO move from=(886, 1232) target=(921, 491) duration=1.92s
+2026-07-10 09:59:46,480 INFO scroll wheel_clicks=3
+2026-07-10 09:59:46,480 INFO waiting 98.7s before next action
+2026-07-10 10:01:25,167 INFO move from=(921, 491) target=(268, 682) duration=1.27s
+2026-07-10 10:01:26,510 INFO scroll wheel_clicks=3
+2026-07-10 10:01:26,510 INFO waiting 60.2s before next action
+2026-07-10 10:02:26,745 INFO move from=(268, 682) target=(1478, 474) duration=1.67s
+2026-07-10 10:02:28,530 INFO scroll wheel_clicks=2
+2026-07-10 10:02:28,530 INFO waiting 150.4s before next action
+2026-07-10 10:04:58,892 INFO move from=(738, 1174) target=(1042, 328) duration=1.20s
+2026-07-10 10:05:00,177 INFO waiting 161.0s before next action
+2026-07-10 10:07:41,171 INFO move from=(1042, 328) target=(1161, 805) duration=2.53s
+2026-07-10 10:07:43,671 INFO waiting 102.1s before next action
+2026-07-10 10:09:25,810 INFO move from=(1159, 805) target=(1319, 531) duration=1.92s
+2026-07-10 10:09:27,771 INFO waiting 69.2s before next action
+2026-07-10 10:10:37,018 INFO move from=(1319, 531) target=(215, 414) duration=1.05s
+2026-07-10 10:10:38,107 INFO scroll wheel_clicks=-1
+2026-07-10 10:10:38,107 INFO waiting 130.2s before next action
+2026-07-10 10:12:48,350 INFO move from=(215, 414) target=(1083, 181) duration=1.35s
+2026-07-10 10:12:49,725 INFO scroll wheel_clicks=2
+2026-07-10 10:12:49,725 INFO waiting 145.6s before next action
+2026-07-10 10:15:15,333 INFO move from=(712, 1151) target=(1013, 408) duration=0.71s
+2026-07-10 10:15:16,088 INFO waiting 52.1s before next action
+2026-07-10 10:16:08,193 INFO move from=(1013, 408) target=(507, 841) duration=2.35s
+2026-07-10 10:16:10,574 INFO waiting 55.1s before next action
+2026-07-10 10:17:05,660 INFO move from=(507, 841) target=(226, 343) duration=1.55s
+2026-07-10 10:17:07,249 INFO waiting 109.1s before next action
+2026-07-10 10:18:56,306 INFO move from=(226, 343) target=(495, 688) duration=1.79s
+2026-07-10 10:18:58,074 INFO scroll wheel_clicks=2
+2026-07-10 10:18:58,075 INFO waiting 134.4s before next action
+2026-07-10 10:21:12,524 INFO move from=(495, 688) target=(1580, 618) duration=2.13s
+2026-07-10 10:21:14,742 INFO waiting 58.5s before next action
+2026-07-10 10:22:13,272 INFO move from=(625, 1121) target=(1086, 542) duration=1.75s
+2026-07-10 10:22:15,172 INFO waiting 96.3s before next action
+2026-07-10 10:23:51,483 INFO move from=(769, 78) target=(653, 491) duration=1.81s
+2026-07-10 10:23:53,267 INFO waiting 106.4s before next action
+2026-07-10 10:25:39,661 INFO move from=(626, 1112) target=(475, 876) duration=1.55s
+2026-07-10 10:25:41,175 INFO waiting 101.0s before next action
+2026-07-10 10:27:22,223 INFO move from=(265, 158) target=(703, 712) duration=1.70s
+2026-07-10 10:27:23,965 INFO scroll wheel_clicks=2
+2026-07-10 10:27:23,968 INFO waiting 105.5s before next action
+2026-07-10 10:29:09,477 INFO move from=(978, 957) target=(647, 320) duration=1.72s
+2026-07-10 10:29:11,231 INFO scroll wheel_clicks=1
+2026-07-10 10:29:11,231 INFO waiting 111.5s before next action
+2026-07-10 10:31:02,750 INFO move from=(647, 320) target=(357, 458) duration=1.64s
+2026-07-10 10:31:04,371 INFO scroll wheel_clicks=-2
+2026-07-10 10:31:04,371 INFO waiting 96.7s before next action
+2026-07-10 10:32:41,094 INFO move from=(895, 896) target=(824, 592) duration=1.02s
+2026-07-10 10:32:42,076 INFO waiting 128.6s before next action
+2026-07-10 10:34:50,687 INFO move from=(483, 623) target=(817, 361) duration=2.35s
+2026-07-10 10:34:52,935 INFO waiting 150.0s before next action
+2026-07-10 10:37:22,931 INFO move from=(817, 361) target=(369, 418) duration=2.53s
+2026-07-10 10:37:25,686 INFO waiting 65.0s before next action
+2026-07-10 10:38:30,681 INFO move from=(367, 418) target=(1382, 433) duration=2.00s
+2026-07-10 10:38:32,700 INFO scroll wheel_clicks=-2
+2026-07-10 10:38:32,701 INFO waiting 106.4s before next action
+2026-07-10 10:40:19,148 INFO move from=(1382, 433) target=(566, 847) duration=2.26s
+2026-07-10 10:40:21,551 INFO scroll wheel_clicks=-3
+2026-07-10 10:40:21,552 INFO waiting 153.0s before next action
+2026-07-10 10:42:54,514 INFO move from=(569, 847) target=(1121, 501) duration=0.75s
+2026-07-10 10:42:55,312 INFO scroll wheel_clicks=3
+2026-07-10 10:42:55,312 INFO waiting 108.7s before next action
+2026-07-10 10:44:44,026 INFO move from=(275, 1005) target=(373, 280) duration=0.93s
+2026-07-10 10:44:45,010 INFO waiting 103.8s before next action
+2026-07-10 10:46:28,843 INFO move from=(25, 297) target=(1561, 518) duration=1.33s
+2026-07-10 10:46:30,256 INFO waiting 177.9s before next action
+2026-07-10 10:49:28,175 INFO move from=(747, 1270) target=(354, 182) duration=2.04s
+2026-07-10 10:49:30,412 INFO scroll wheel_clicks=-3
+2026-07-10 10:49:30,412 INFO waiting 67.4s before next action
+2026-07-10 10:50:37,857 INFO move from=(743, 1255) target=(1335, 433) duration=1.21s
+2026-07-10 10:50:39,167 INFO scroll wheel_clicks=1
+2026-07-10 10:50:39,168 INFO waiting 88.9s before next action
+2026-07-10 10:52:08,110 INFO move from=(809, 1266) target=(1102, 187) duration=1.38s
+2026-07-10 10:52:09,619 INFO waiting 163.2s before next action
+2026-07-10 10:54:52,815 INFO move from=(1103, 184) target=(335, 211) duration=1.04s
+2026-07-10 10:54:53,950 INFO scroll wheel_clicks=2
+2026-07-10 10:54:53,950 INFO waiting 158.5s before next action
+2026-07-10 10:57:32,484 INFO move from=(2070, 1048) target=(481, 863) duration=1.47s
+2026-07-10 10:57:34,080 INFO waiting 63.6s before next action
+2026-07-10 10:58:37,676 INFO move from=(732, 1209) target=(357, 545) duration=2.39s
+2026-07-10 10:58:40,132 INFO waiting 73.8s before next action
+2026-07-10 10:59:53,966 INFO move from=(1930, 1144) target=(1340, 817) duration=2.59s
+2026-07-10 10:59:56,654 INFO waiting 106.5s before next action
+2026-07-10 11:01:43,133 INFO move from=(1130, 1268) target=(1150, 395) duration=2.00s
+2026-07-10 11:01:45,115 INFO scroll wheel_clicks=-1
+2026-07-10 11:01:45,115 INFO waiting 95.5s before next action
+2026-07-10 11:03:20,667 INFO move from=(676, 1260) target=(1251, 694) duration=0.81s
+2026-07-10 11:03:21,526 INFO waiting 155.7s before next action
+2026-07-10 11:05:57,242 INFO move from=(1488, 1367) target=(394, 437) duration=2.44s
+2026-07-10 11:05:59,808 INFO waiting 162.8s before next action
+2026-07-10 11:08:42,623 INFO move from=(396, 438) target=(1124, 153) duration=2.74s
+2026-07-10 11:08:45,490 INFO waiting 171.6s before next action
+2026-07-10 11:11:37,137 INFO move from=(1468, 783) target=(1311, 776) duration=0.98s
+2026-07-10 11:11:38,083 INFO waiting 71.9s before next action
+2026-07-10 11:12:49,946 INFO move from=(728, 1273) target=(702, 413) duration=0.86s
+2026-07-10 11:12:50,841 INFO waiting 102.8s before next action
+2026-07-10 11:14:33,614 INFO move from=(1175, 976) target=(550, 376) duration=1.86s
+2026-07-10 11:14:35,616 INFO waiting 65.8s before next action
+2026-07-10 11:15:41,419 INFO move from=(1322, 1078) target=(1086, 619) duration=1.07s
+2026-07-10 11:15:42,520 INFO scroll wheel_clicks=2
+2026-07-10 11:15:42,521 INFO waiting 68.7s before next action
+2026-07-10 11:16:51,242 INFO move from=(1322, 1078) target=(680, 528) duration=1.93s
+2026-07-10 11:16:53,303 INFO waiting 116.8s before next action
+2026-07-10 11:18:50,133 INFO move from=(675, 1274) target=(830, 445) duration=0.64s
+2026-07-10 11:18:50,885 INFO scroll wheel_clicks=1
+2026-07-10 11:18:50,885 INFO waiting 174.1s before next action
+2026-07-10 11:21:44,965 INFO move from=(1907, 560) target=(912, 535) duration=1.26s
+2026-07-10 11:21:46,301 INFO waiting 85.6s before next action
+2026-07-10 11:23:11,869 INFO move from=(1969, 1182) target=(800, 479) duration=1.73s
+2026-07-10 11:23:13,695 INFO waiting 65.7s before next action
+2026-07-10 11:24:19,414 INFO move from=(2093, 861) target=(331, 644) duration=1.87s
+2026-07-10 11:24:21,406 INFO waiting 109.2s before next action
+2026-07-10 11:26:10,639 INFO move from=(1998, 785) target=(1397, 166) duration=0.82s
+2026-07-10 11:26:11,554 INFO waiting 92.1s before next action
+2026-07-10 11:27:43,659 INFO move from=(1399, 165) target=(1180, 370) duration=2.72s
+2026-07-10 11:27:46,294 INFO waiting 143.7s before next action
+2026-07-10 11:30:10,003 INFO move from=(1180, 370) target=(1556, 199) duration=1.58s
+2026-07-10 11:30:11,529 INFO waiting 142.5s before next action
+2026-07-10 11:32:34,010 INFO move from=(1554, 199) target=(1030, 277) duration=2.19s
+2026-07-10 11:32:36,176 INFO waiting 167.2s before next action
+2026-07-10 11:35:23,361 INFO move from=(1030, 277) target=(499, 273) duration=1.17s
+2026-07-10 11:35:24,569 INFO waiting 145.2s before next action
+2026-07-10 11:37:49,811 INFO move from=(501, 275) target=(1071, 497) duration=1.31s
+2026-07-10 11:37:51,215 INFO waiting 60.4s before next action
+2026-07-10 11:38:51,635 INFO move from=(1071, 497) target=(863, 529) duration=2.48s
+2026-07-10 11:38:53,988 INFO scroll wheel_clicks=-1
+2026-07-10 11:38:53,989 INFO waiting 160.4s before next action
+2026-07-10 11:41:34,434 INFO move from=(863, 529) target=(396, 153) duration=1.03s
+2026-07-10 11:41:35,535 INFO scroll wheel_clicks=-1
+2026-07-10 11:41:35,536 INFO waiting 132.8s before next action
+2026-07-10 11:43:48,372 INFO move from=(396, 153) target=(350, 321) duration=0.90s
+2026-07-10 11:43:49,179 INFO waiting 80.7s before next action
+2026-07-10 11:45:09,833 INFO move from=(351, 322) target=(546, 263) duration=1.96s
+2026-07-10 11:45:11,959 INFO scroll wheel_clicks=-2
+2026-07-10 11:45:11,960 INFO waiting 167.0s before next action
+2026-07-10 11:47:58,919 INFO move from=(546, 263) target=(959, 275) duration=1.98s
+2026-07-10 11:48:00,820 INFO scroll wheel_clicks=3
+2026-07-10 11:48:00,821 INFO waiting 132.0s before next action
+2026-07-10 11:50:12,822 INFO move from=(959, 275) target=(365, 153) duration=1.13s
+2026-07-10 11:50:13,966 INFO waiting 142.1s before next action
+2026-07-10 11:52:36,075 INFO move from=(365, 153) target=(859, 310) duration=2.16s
+2026-07-10 11:52:38,221 INFO scroll wheel_clicks=2
+2026-07-10 11:52:38,222 INFO waiting 93.2s before next action
+2026-07-10 11:54:11,399 INFO move from=(862, 307) target=(1057, 815) duration=0.63s
+2026-07-10 11:54:12,079 INFO scroll wheel_clicks=-1
+2026-07-10 11:54:12,080 INFO waiting 150.5s before next action
+2026-07-10 11:56:42,589 INFO move from=(1057, 815) target=(1391, 511) duration=2.47s
+2026-07-10 11:56:45,257 INFO waiting 122.7s before next action
+2026-07-10 11:58:47,938 INFO move from=(1388, 512) target=(1215, 247) duration=2.55s
+2026-07-10 11:58:50,359 INFO scroll wheel_clicks=-2
+2026-07-10 11:58:50,360 INFO waiting 103.3s before next action
+2026-07-10 12:00:33,699 INFO move from=(1215, 247) target=(1222, 202) duration=2.75s
+2026-07-10 12:00:36,689 INFO waiting 136.1s before next action
+2026-07-10 12:02:52,760 INFO move from=(1222, 202) target=(937, 373) duration=2.44s
+2026-07-10 12:02:55,335 INFO scroll wheel_clicks=1
+2026-07-10 12:02:55,336 INFO waiting 165.6s before next action
+2026-07-10 12:05:40,965 INFO move from=(938, 371) target=(1504, 305) duration=1.97s
+2026-07-10 12:05:42,989 INFO waiting 179.4s before next action
+2026-07-10 12:08:42,439 INFO move from=(1505, 304) target=(333, 445) duration=2.72s
+2026-07-10 12:08:45,361 INFO scroll wheel_clicks=2
+2026-07-10 12:08:45,361 INFO waiting 125.1s before next action
+2026-07-10 12:10:50,486 INFO move from=(333, 445) target=(432, 312) duration=2.22s
+2026-07-10 12:10:52,835 INFO waiting 92.7s before next action
+2026-07-10 12:12:25,505 INFO move from=(432, 312) target=(811, 221) duration=1.00s
+2026-07-10 12:12:26,552 INFO waiting 172.9s before next action
+2026-07-10 12:15:19,483 INFO move from=(814, 221) target=(657, 607) duration=1.29s
+2026-07-10 12:15:20,697 INFO waiting 108.8s before next action
+2026-07-10 12:17:09,477 INFO move from=(657, 607) target=(1160, 674) duration=2.53s
+2026-07-10 12:17:12,059 INFO waiting 169.6s before next action
+2026-07-10 12:20:01,658 INFO move from=(1163, 677) target=(279, 232) duration=0.75s
+2026-07-10 12:20:02,474 INFO scroll wheel_clicks=-3
+2026-07-10 12:20:02,475 INFO waiting 46.4s before next action
+2026-07-10 12:20:48,915 INFO move from=(279, 231) target=(1047, 354) duration=2.05s
+2026-07-10 12:20:51,026 INFO waiting 135.2s before next action
+2026-07-10 12:23:06,257 INFO move from=(1048, 351) target=(631, 654) duration=1.51s
+2026-07-10 12:23:07,807 INFO waiting 120.3s before next action
+2026-07-10 12:25:08,063 INFO move from=(631, 654) target=(1471, 259) duration=1.56s
+2026-07-10 12:25:09,680 INFO waiting 175.7s before next action
+2026-07-10 12:28:05,381 INFO move from=(1358, 604) target=(1189, 516) duration=0.65s
+2026-07-10 12:28:06,058 INFO scroll wheel_clicks=-2
+2026-07-10 12:28:06,058 INFO waiting 95.9s before next action
+2026-07-10 12:29:41,948 INFO move from=(365, 388) target=(1159, 866) duration=2.11s
+2026-07-10 12:29:44,080 INFO scroll wheel_clicks=2
+2026-07-10 12:29:44,080 INFO waiting 66.2s before next action
+2026-07-10 12:30:50,243 INFO move from=(1229, 1001) target=(1214, 854) duration=1.98s
+2026-07-10 12:30:52,328 INFO scroll wheel_clicks=-3
+2026-07-10 12:30:52,328 INFO waiting 69.8s before next action
+2026-07-10 12:32:02,174 INFO move from=(2082, 824) target=(460, 172) duration=0.93s
+2026-07-10 12:32:03,226 INFO waiting 151.5s before next action
+2026-07-10 12:34:34,746 INFO move from=(2012, 966) target=(372, 320) duration=2.10s
+2026-07-10 12:34:36,969 INFO scroll wheel_clicks=3
+2026-07-10 12:34:36,970 INFO waiting 95.2s before next action
+2026-07-10 12:36:12,177 INFO move from=(2089, 497) target=(340, 518) duration=1.73s
+2026-07-10 12:36:14,040 INFO scroll wheel_clicks=-1
+2026-07-10 12:36:14,041 INFO waiting 127.2s before next action
+2026-07-10 12:38:21,234 INFO move from=(1980, 953) target=(1343, 213) duration=2.18s
+2026-07-10 12:38:23,492 INFO waiting 131.3s before next action
+2026-07-10 12:40:34,822 INFO move from=(1504, 1351) target=(609, 380) duration=1.78s
+2026-07-10 12:40:36,693 INFO waiting 49.6s before next action
+2026-07-10 12:41:26,316 INFO move from=(609, 380) target=(601, 705) duration=1.41s
+2026-07-10 12:41:27,758 INFO waiting 94.1s before next action
+2026-07-10 12:43:01,815 INFO move from=(601, 705) target=(1293, 283) duration=1.99s
+2026-07-10 12:43:03,810 INFO scroll wheel_clicks=3
+2026-07-10 12:43:03,810 INFO waiting 108.9s before next action
+2026-07-10 12:44:52,704 INFO move from=(1293, 283) target=(263, 493) duration=0.89s
+2026-07-10 12:44:53,628 INFO scroll wheel_clicks=-1
+2026-07-10 12:44:53,629 INFO waiting 85.5s before next action
+2026-07-10 12:46:19,144 INFO move from=(2294, 264) target=(1290, 162) duration=1.19s
+2026-07-10 12:46:20,369 INFO waiting 101.6s before next action
+2026-07-10 12:48:01,930 INFO move from=(1944, 1177) target=(306, 185) duration=1.60s
+2026-07-10 12:48:03,652 INFO scroll wheel_clicks=-3
+2026-07-10 12:48:03,653 INFO waiting 101.7s before next action
+2026-07-10 12:49:45,351 INFO move from=(309, 187) target=(1340, 443) duration=2.44s
+2026-07-10 12:49:47,844 INFO waiting 135.2s before next action
+2026-07-10 12:52:03,054 INFO move from=(1341, 440) target=(1223, 739) duration=0.90s
+2026-07-10 12:52:04,036 INFO waiting 142.6s before next action
+2026-07-10 12:54:26,604 INFO move from=(1223, 739) target=(1104, 261) duration=1.72s
+2026-07-10 12:54:28,352 INFO waiting 85.1s before next action
+2026-07-10 12:55:53,480 INFO move from=(1101, 262) target=(1159, 181) duration=2.46s
+2026-07-10 12:55:56,005 INFO waiting 119.6s before next action
+2026-07-10 12:57:55,614 INFO move from=(1160, 180) target=(1070, 667) duration=1.29s
+2026-07-10 12:57:56,956 INFO waiting 150.4s before next action
+2026-07-10 13:00:27,354 INFO move from=(1070, 667) target=(423, 756) duration=2.73s
+2026-07-10 13:00:30,000 INFO waiting 133.6s before next action
+2026-07-10 13:02:43,562 INFO move from=(423, 756) target=(899, 228) duration=2.59s
+2026-07-10 13:02:46,233 INFO waiting 172.4s before next action
+2026-07-10 13:05:38,662 INFO move from=(900, 225) target=(889, 672) duration=2.74s
+2026-07-10 13:05:41,457 INFO waiting 173.2s before next action
+2026-07-10 13:08:34,687 INFO move from=(889, 672) target=(572, 472) duration=0.83s
+2026-07-10 13:08:35,500 INFO scroll wheel_clicks=2
+2026-07-10 13:08:35,501 INFO waiting 123.4s before next action
+2026-07-10 13:10:38,923 INFO move from=(572, 472) target=(498, 893) duration=2.33s
+2026-07-10 13:10:41,268 INFO waiting 49.4s before next action
+2026-07-10 13:11:30,639 INFO move from=(499, 890) target=(1526, 641) duration=2.25s
+2026-07-10 13:11:32,843 INFO waiting 67.5s before next action
+2026-07-10 13:12:40,389 INFO move from=(1526, 641) target=(1184, 231) duration=2.71s
+2026-07-10 13:12:43,174 INFO scroll wheel_clicks=2
+2026-07-10 13:12:43,174 INFO waiting 58.1s before next action
+2026-07-10 13:13:41,254 INFO move from=(1184, 230) target=(206, 464) duration=1.33s
+2026-07-10 13:13:42,641 INFO waiting 136.9s before next action
+2026-07-10 13:15:59,529 INFO move from=(206, 464) target=(580, 750) duration=1.62s
+2026-07-10 13:16:01,089 INFO waiting 48.2s before next action
+2026-07-10 13:16:49,253 INFO move from=(579, 752) target=(1506, 840) duration=1.63s
+2026-07-10 13:16:50,990 INFO waiting 126.4s before next action
+2026-07-10 13:18:57,397 INFO move from=(1506, 840) target=(1595, 569) duration=1.88s
+2026-07-10 13:18:59,436 INFO waiting 47.1s before next action
+2026-07-10 13:19:46,539 INFO move from=(1597, 571) target=(1140, 299) duration=0.99s
+2026-07-10 13:19:47,621 INFO waiting 87.3s before next action
+2026-07-10 13:21:14,960 INFO move from=(1138, 298) target=(1129, 566) duration=1.31s
+2026-07-10 13:21:16,243 INFO waiting 126.9s before next action
+2026-07-10 13:23:23,189 INFO move from=(1130, 563) target=(1358, 872) duration=0.73s
+2026-07-10 13:23:23,936 INFO waiting 163.6s before next action
+2026-07-10 13:26:07,584 INFO move from=(1358, 872) target=(200, 746) duration=1.76s
+2026-07-10 13:26:09,461 INFO waiting 125.7s before next action
+2026-07-10 13:28:15,144 INFO move from=(202, 745) target=(848, 888) duration=1.05s
+2026-07-10 13:28:16,228 INFO scroll wheel_clicks=2
+2026-07-10 13:28:16,229 INFO waiting 89.8s before next action
+2026-07-10 13:29:46,030 INFO move from=(848, 888) target=(975, 308) duration=1.01s
+2026-07-10 13:29:47,050 INFO waiting 70.0s before next action
+2026-07-10 13:30:57,052 INFO move from=(975, 308) target=(1495, 491) duration=2.18s
+2026-07-10 13:30:59,276 INFO scroll wheel_clicks=3
+2026-07-10 13:30:59,276 INFO waiting 76.8s before next action
+2026-07-10 13:32:16,111 INFO move from=(1986, 977) target=(1282, 388) duration=2.76s
+2026-07-10 13:32:18,955 INFO scroll wheel_clicks=-3
+2026-07-10 13:32:18,956 INFO waiting 74.9s before next action
+2026-07-10 13:33:33,868 INFO move from=(1280, 386) target=(349, 422) duration=1.35s
+2026-07-10 13:33:35,311 INFO scroll wheel_clicks=2
+2026-07-10 13:33:35,311 INFO waiting 139.9s before next action
+2026-07-10 13:35:55,210 INFO move from=(349, 422) target=(530, 772) duration=2.37s
+2026-07-10 13:35:57,519 INFO waiting 108.2s before next action
+2026-07-10 13:37:45,711 INFO move from=(530, 772) target=(1032, 167) duration=1.74s
+2026-07-10 13:37:47,478 INFO scroll wheel_clicks=2
+2026-07-10 13:37:47,478 INFO waiting 105.5s before next action
+2026-07-10 13:39:33,016 INFO move from=(1035, 168) target=(1253, 436) duration=1.36s
+2026-07-10 13:39:34,394 INFO scroll wheel_clicks=1
+2026-07-10 13:39:34,394 INFO waiting 151.0s before next action
+2026-07-10 13:42:05,414 INFO move from=(1881, 1091) target=(494, 754) duration=1.76s
+2026-07-10 13:42:07,304 INFO scroll wheel_clicks=3
+2026-07-10 13:42:07,305 INFO waiting 128.3s before next action
+2026-07-10 13:44:15,619 INFO move from=(2255, 1073) target=(653, 615) duration=1.86s
+2026-07-10 13:44:17,642 INFO scroll wheel_clicks=-1
+2026-07-10 13:44:17,642 INFO waiting 53.5s before next action
+2026-07-10 13:45:11,193 INFO move from=(1989, 1187) target=(653, 700) duration=1.06s
+2026-07-10 13:45:12,359 INFO waiting 51.1s before next action
+2026-07-10 13:46:03,483 INFO move from=(2093, 857) target=(1152, 299) duration=2.79s
+2026-07-10 13:46:06,342 INFO waiting 141.5s before next action
+2026-07-10 13:48:27,811 INFO move from=(1896, 1202) target=(1409, 218) duration=1.77s
+2026-07-10 13:48:29,708 INFO waiting 89.8s before next action
+2026-07-10 13:49:52 starting desktop activity runner dry_run=False once=False
+2026-07-10 13:49:52 stop with Ctrl+Alt+Esc, or move the cursor to the top-left corner
+2026-07-10 13:49:52 move from=(1409,218) target=(909,539) duration=2.17s
+2026-07-10 13:49:55 waiting 85.4s before next action
+2026-07-10 13:49:59,471 INFO move from=(909, 539) target=(1010, 638) duration=2.62s
+2026-07-10 13:50:02,127 INFO waiting 51.1s before next action
+2026-07-10 13:50:45 starting desktop activity runner dry_run=False once=False
+2026-07-10 13:50:45 stop with Ctrl+Alt+Esc, or move the cursor to the top-left corner
+2026-07-10 13:50:46 move from=(1546,1119) target=(1301,191) duration=1.91s
+2026-07-10 13:50:48 waiting 156.1s before next action
+2026-07-10 13:53:24 move from=(1301,191) target=(1204,499) duration=2.74s
+2026-07-10 13:53:27 waiting 89.1s before next action
+2026-07-10 13:54:56 move from=(1992,1203) target=(1005,586) duration=1.60s
+2026-07-10 13:54:59 waiting 135.3s before next action
+2026-07-10 13:57:14 move from=(1539,1072) target=(279,568) duration=1.52s
+2026-07-10 13:57:16 scroll wheel_clicks=-3
+2026-07-10 13:57:16 waiting 179.4s before next action
+2026-07-10 14:00:16 move from=(1531,1176) target=(686,745) duration=1.22s
+2026-07-10 14:00:18 waiting 52.9s before next action
+2026-07-10 14:01:11 move from=(686,745) target=(1400,242) duration=2.51s
+2026-07-10 14:01:14 scroll wheel_clicks=-1
+2026-07-10 14:01:14 waiting 112.4s before next action
+2026-07-10 14:03:07 move from=(1400,242) target=(408,234) duration=2.72s
+2026-07-10 14:03:10 waiting 72.9s before next action
+2026-07-10 14:04:23 move from=(408,234) target=(1524,658) duration=0.87s
+2026-07-10 14:04:25 waiting 69.5s before next action
+2026-07-10 14:05:34 move from=(1431,1313) target=(636,670) duration=2.13s
+2026-07-10 14:05:37 waiting 141.3s before next action
+2026-07-10 14:07:58 move from=(1156,1191) target=(1329,590) duration=1.65s
+2026-07-10 14:08:01 waiting 93.8s before next action
+2026-07-10 14:09:35 move from=(823,546) target=(967,646) duration=0.90s
+2026-07-10 14:09:36 waiting 177.6s before next action
+2026-07-10 14:12:33 move from=(1769,1171) target=(661,751) duration=0.68s
+2026-07-10 14:12:35 waiting 149.4s before next action
+2026-07-10 14:15:05 move from=(661,751) target=(1373,214) duration=2.09s
+2026-07-10 14:15:07 scroll wheel_clicks=3
+2026-07-10 14:15:07 waiting 159.0s before next action
+2026-07-10 14:17:47 move from=(1365,849) target=(898,672) duration=2.47s
+2026-07-10 14:17:49 waiting 124.1s before next action
+2026-07-10 14:19:54 move from=(898,672) target=(1481,428) duration=1.26s
+2026-07-10 14:19:55 scroll wheel_clicks=-2
+2026-07-10 14:19:55 waiting 162.3s before next action
+2026-07-10 14:22:38 move from=(1481,428) target=(1216,804) duration=2.25s
+2026-07-10 14:22:40 waiting 89.0s before next action
+2026-07-10 14:24:09 move from=(1454,1168) target=(562,564) duration=2.71s
+2026-07-10 14:24:13 waiting 152.1s before next action
+2026-07-10 14:26:45 move from=(1673,1109) target=(564,884) duration=2.36s
+2026-07-10 14:26:49 waiting 91.9s before next action
+2026-07-10 14:28:21 move from=(564,884) target=(905,709) duration=1.69s
+2026-07-10 14:28:23 waiting 74.7s before next action
+2026-07-10 14:29:37 move from=(905,709) target=(1062,898) duration=2.65s
+2026-07-10 14:29:40 scroll wheel_clicks=-2
+2026-07-10 14:29:40 waiting 105.9s before next action
+2026-07-10 14:31:26 move from=(1062,898) target=(886,720) duration=2.57s
+2026-07-10 14:31:29 waiting 62.3s before next action
+2026-07-10 14:32:31 move from=(886,720) target=(630,715) duration=0.81s
+2026-07-10 14:32:32 scroll wheel_clicks=2
+2026-07-10 14:32:32 waiting 140.9s before next action
+2026-07-10 14:34:53 move from=(630,715) target=(359,656) duration=1.85s
+2026-07-10 14:34:56 waiting 152.1s before next action
+2026-07-10 14:37:28 move from=(359,656) target=(887,539) duration=2.46s
+2026-07-10 14:37:31 waiting 177.0s before next action
+2026-07-10 14:40:28 move from=(887,539) target=(269,279) duration=2.04s
+2026-07-10 14:40:31 waiting 146.3s before next action
+2026-07-10 14:42:57 move from=(269,279) target=(661,420) duration=1.05s
+2026-07-10 14:42:58 scroll wheel_clicks=1
+2026-07-10 14:42:58 waiting 60.9s before next action
+2026-07-10 14:43:59 move from=(661,420) target=(1476,674) duration=1.30s
+2026-07-10 14:44:01 scroll wheel_clicks=3
+2026-07-10 14:44:01 waiting 114.2s before next action
+2026-07-10 14:45:56 move from=(1476,674) target=(683,153) duration=1.07s
+2026-07-10 14:45:57 waiting 108.1s before next action
+2026-07-10 14:47:46 move from=(683,153) target=(518,900) duration=1.55s
+2026-07-10 14:47:48 waiting 140.9s before next action
+2026-07-10 14:50:09 move from=(518,900) target=(1090,718) duration=2.42s
+2026-07-10 14:50:12 scroll wheel_clicks=-2
+2026-07-10 14:50:12 waiting 49.6s before next action
+2026-07-10 14:51:01 move from=(1090,718) target=(421,678) duration=2.76s
+2026-07-10 14:51:05 waiting 172.3s before next action
+2026-07-10 14:53:57 move from=(421,678) target=(1244,480) duration=1.84s
+2026-07-10 14:54:00 waiting 131.7s before next action
+2026-07-10 14:56:12 move from=(1244,480) target=(628,500) duration=1.92s
+2026-07-10 14:56:14 waiting 65.2s before next action
+2026-07-10 14:57:19 move from=(628,500) target=(1567,416) duration=1.41s
+2026-07-10 14:57:21 waiting 156.4s before next action
+2026-07-10 14:59:58 move from=(1567,416) target=(609,178) duration=1.20s
+2026-07-10 15:00:00 scroll wheel_clicks=1
+2026-07-10 15:00:00 waiting 57.3s before next action
+2026-07-10 15:00:57 move from=(609,178) target=(860,229) duration=2.71s
+2026-07-10 15:01:00 waiting 116.4s before next action
+2026-07-10 15:02:57 move from=(860,229) target=(717,393) duration=1.78s
+2026-07-10 15:02:59 waiting 153.9s before next action
+2026-07-10 15:05:33 move from=(717,393) target=(1228,179) duration=0.81s
+2026-07-10 15:05:34 waiting 139.3s before next action
+2026-07-10 15:07:53 move from=(1228,179) target=(974,487) duration=2.63s
+2026-07-10 15:07:56 waiting 136.0s before next action
+2026-07-10 15:10:12 move from=(974,487) target=(1468,228) duration=1.18s
+2026-07-10 15:10:14 waiting 74.9s before next action
+2026-07-10 15:11:29 move from=(1468,228) target=(647,418) duration=2.35s
+2026-07-10 15:11:32 waiting 71.3s before next action
+2026-07-10 15:12:43 move from=(647,418) target=(441,403) duration=2.51s
+2026-07-10 15:12:46 waiting 132.2s before next action
+2026-07-10 15:14:59 move from=(441,403) target=(1189,273) duration=1.99s
+2026-07-10 15:15:01 scroll wheel_clicks=2
+2026-07-10 15:15:01 waiting 111.0s before next action
+2026-07-10 15:16:52 move from=(1732,873) target=(513,293) duration=2.26s
+2026-07-10 15:16:55 scroll wheel_clicks=-2
+2026-07-10 15:16:55 waiting 134.2s before next action
+2026-07-10 15:19:10 move from=(513,293) target=(1490,218) duration=2.68s
+2026-07-10 15:19:13 waiting 90.2s before next action
+2026-07-10 15:20:44 move from=(1490,218) target=(881,151) duration=2.43s
+2026-07-10 15:20:46 waiting 101.3s before next action
+2026-07-10 15:22:28 move from=(881,151) target=(1316,728) duration=2.68s
+2026-07-10 15:22:31 waiting 126.3s before next action
+2026-07-10 15:24:38 move from=(1316,728) target=(446,900) duration=2.51s
+2026-07-10 15:24:41 scroll wheel_clicks=-1
+2026-07-10 15:24:41 waiting 110.5s before next action
+2026-07-10 15:26:31 move from=(446,900) target=(720,849) duration=2.11s
+2026-07-10 15:26:34 waiting 72.5s before next action
+2026-07-10 15:27:47 move from=(720,849) target=(697,455) duration=1.33s
+2026-07-10 15:27:48 scroll wheel_clicks=-2
+2026-07-10 15:27:48 waiting 115.1s before next action
+2026-07-10 15:29:43 move from=(697,455) target=(1361,820) duration=1.53s
+2026-07-10 15:29:46 waiting 160.7s before next action
+2026-07-10 15:32:26 move from=(1437,1129) target=(438,400) duration=2.64s
+2026-07-10 15:32:30 waiting 165.3s before next action
+2026-07-10 15:35:15 move from=(438,400) target=(311,173) duration=1.88s
+2026-07-10 15:35:17 waiting 109.5s before next action
+2026-07-10 15:37:07 move from=(311,173) target=(383,482) duration=2.42s
+2026-07-10 15:37:10 waiting 100.0s before next action
+2026-07-10 15:38:50 move from=(383,482) target=(1009,501) duration=2.24s
+2026-07-10 15:38:53 waiting 100.6s before next action
+2026-07-10 15:40:33 move from=(1009,501) target=(1573,800) duration=2.16s
+2026-07-10 15:40:36 scroll wheel_clicks=3
+2026-07-10 15:40:36 waiting 93.6s before next action
+2026-07-10 15:42:10 move from=(1404,993) target=(1200,501) duration=1.61s
+2026-07-10 15:42:12 waiting 160.1s before next action
+2026-07-10 15:44:52 move from=(1297,1175) target=(1032,269) duration=2.71s
+2026-07-10 15:44:55 scroll wheel_clicks=-2
+2026-07-10 15:44:55 waiting 89.8s before next action
+2026-07-10 15:46:25 move from=(1032,269) target=(827,254) duration=0.64s
+2026-07-10 15:46:26 scroll wheel_clicks=1
+2026-07-10 15:46:26 waiting 91.4s before next action
+2026-07-10 15:47:57 move from=(827,254) target=(1551,217) duration=1.96s
+2026-07-10 15:48:00 waiting 84.1s before next action
+2026-07-10 15:49:24 move from=(1551,217) target=(1220,412) duration=0.96s
+2026-07-10 15:49:26 scroll wheel_clicks=3
+2026-07-10 15:49:26 waiting 176.3s before next action
+2026-07-10 15:52:22 move from=(1386,781) target=(697,832) duration=0.76s
+2026-07-10 15:52:23 scroll wheel_clicks=3
+2026-07-10 15:52:23 waiting 88.2s before next action
+2026-07-10 15:53:52 move from=(697,832) target=(1184,801) duration=1.92s
+2026-07-10 15:53:54 waiting 123.4s before next action
+2026-07-10 15:55:57 move from=(1184,801) target=(1232,800) duration=1.40s
+2026-07-10 15:55:59 waiting 88.0s before next action
+2026-07-10 15:57:27 move from=(1232,800) target=(721,568) duration=1.24s
+2026-07-10 15:57:29 scroll wheel_clicks=2
+2026-07-10 15:57:29 waiting 82.8s before next action
+2026-07-10 15:58:51 move from=(721,568) target=(1491,538) duration=0.78s
+2026-07-10 15:58:53 waiting 166.1s before next action
+2026-07-10 16:01:39 move from=(1333,921) target=(906,634) duration=2.80s
+2026-07-10 16:01:42 waiting 63.2s before next action
+2026-07-10 16:02:46 move from=(906,634) target=(296,816) duration=0.76s
+2026-07-10 16:02:47 scroll wheel_clicks=-2
+2026-07-10 16:02:47 waiting 81.3s before next action
+2026-07-10 16:04:08 move from=(296,816) target=(438,815) duration=1.80s
+2026-07-10 16:04:10 waiting 178.0s before next action
+2026-07-10 16:07:08 move from=(438,815) target=(1178,894) duration=0.83s
+2026-07-10 16:07:09 scroll wheel_clicks=-3
+2026-07-10 16:07:09 waiting 141.7s before next action
+2026-07-10 16:09:31 move from=(1178,894) target=(858,166) duration=1.27s
+2026-07-10 16:09:33 waiting 116.9s before next action
+2026-07-10 16:11:30 move from=(858,166) target=(978,394) duration=2.19s
+2026-07-10 16:11:32 waiting 54.4s before next action
+2026-07-10 16:12:27 move from=(978,394) target=(1541,364) duration=1.90s
+2026-07-10 16:12:29 waiting 145.4s before next action
+2026-07-10 16:14:55 move from=(1541,364) target=(234,395) duration=0.90s
+2026-07-10 16:14:57 waiting 53.8s before next action
+2026-07-10 16:15:50 move from=(234,395) target=(561,776) duration=2.12s
+2026-07-10 16:15:53 waiting 47.6s before next action
+2026-07-10 16:16:41 move from=(561,776) target=(1529,738) duration=0.81s
+2026-07-10 16:16:42 waiting 169.9s before next action
+2026-07-10 16:19:32 move from=(1529,738) target=(816,221) duration=2.35s
+2026-07-10 16:19:35 waiting 102.6s before next action
+2026-07-10 16:21:18 move from=(816,221) target=(495,678) duration=1.92s
+2026-07-10 16:21:20 scroll wheel_clicks=2
+2026-07-10 16:21:20 waiting 88.1s before next action
+2026-07-10 16:22:48 move from=(495,678) target=(1131,222) duration=1.41s
+2026-07-10 16:22:50 scroll wheel_clicks=2
+2026-07-10 16:22:50 waiting 121.1s before next action
+2026-07-10 16:24:51 move from=(1131,222) target=(554,899) duration=2.05s
+2026-07-10 16:24:55 scroll wheel_clicks=-3
+2026-07-10 16:24:55 waiting 63.3s before next action
+2026-07-10 16:25:58 move from=(554,899) target=(1065,235) duration=1.19s
+2026-07-10 16:26:00 waiting 91.7s before next action
+2026-07-10 16:27:32 move from=(1065,235) target=(368,445) duration=0.80s
+2026-07-10 16:27:33 waiting 129.9s before next action
+2026-07-10 16:29:43 move from=(1457,1346) target=(1517,844) duration=1.80s
+2026-07-10 16:29:45 scroll wheel_clicks=-1
+2026-07-10 16:29:45 waiting 135.2s before next action
+2026-07-10 16:32:00 move from=(1517,844) target=(1010,301) duration=2.42s
+2026-07-10 16:32:03 waiting 47.3s before next action
+2026-07-10 16:32:51 move from=(1010,301) target=(1122,831) duration=2.71s
+2026-07-10 16:32:54 waiting 151.3s before next action
+2026-07-10 16:35:25 move from=(1122,831) target=(384,710) duration=0.94s
+2026-07-10 16:35:27 waiting 53.6s before next action
+2026-07-10 16:36:21 move from=(384,710) target=(650,593) duration=0.61s
+2026-07-10 16:36:22 waiting 72.5s before next action
+2026-07-10 16:37:34 move from=(650,593) target=(1320,371) duration=2.56s
+2026-07-10 16:37:37 waiting 128.7s before next action
+2026-07-10 16:39:46 move from=(1320,371) target=(1243,246) duration=1.60s
+2026-07-10 16:39:48 waiting 121.6s before next action
+2026-07-10 16:41:50 move from=(1243,246) target=(813,803) duration=2.66s
+2026-07-10 16:41:53 waiting 51.4s before next action
+2026-07-10 16:42:44 move from=(813,803) target=(1111,307) duration=2.37s
+2026-07-10 16:42:47 waiting 57.7s before next action
+2026-07-10 16:43:45 move from=(1111,307) target=(1192,335) duration=2.31s
+2026-07-10 16:43:48 waiting 100.3s before next action
+2026-07-10 16:45:28 move from=(1192,335) target=(1536,865) duration=1.06s
+2026-07-10 16:45:30 waiting 55.3s before next action
+2026-07-10 16:46:25 move from=(1536,865) target=(542,312) duration=2.04s
+2026-07-10 16:46:28 waiting 63.5s before next action
+2026-07-10 16:47:32 move from=(542,312) target=(338,688) duration=2.03s
+2026-07-10 16:47:34 scroll wheel_clicks=1
+2026-07-10 16:47:34 waiting 172.9s before next action
+2026-07-10 16:50:27 move from=(338,688) target=(371,442) duration=2.20s
+2026-07-10 16:50:29 scroll wheel_clicks=-1
+2026-07-10 16:50:29 waiting 167.6s before next action
+2026-07-10 16:53:17 move from=(371,442) target=(1375,549) duration=2.10s
+2026-07-10 16:53:20 waiting 69.8s before next action
+2026-07-10 16:54:30 move from=(1375,549) target=(374,513) duration=0.71s
+2026-07-10 16:54:31 waiting 114.1s before next action
+2026-07-10 16:56:26 move from=(374,513) target=(1144,828) duration=1.82s
+2026-07-10 16:56:28 waiting 68.7s before next action
+2026-07-10 16:57:37 move from=(1144,828) target=(1101,735) duration=0.95s
+2026-07-10 16:57:38 waiting 146.7s before next action
+2026-07-10 17:00:05 move from=(1101,735) target=(1067,651) duration=2.52s
+2026-07-10 17:00:07 scroll wheel_clicks=1
+2026-07-10 17:00:07 waiting 59.5s before next action
+2026-07-10 17:01:07 move from=(1067,651) target=(1409,546) duration=2.37s
+2026-07-10 17:01:10 waiting 160.7s before next action
+2026-07-10 17:03:50 move from=(1409,546) target=(278,777) duration=1.79s
+2026-07-10 17:03:53 waiting 165.7s before next action
+2026-07-10 17:06:39 move from=(278,777) target=(1081,626) duration=1.26s
+2026-07-10 17:06:41 waiting 136.8s before next action
+2026-07-10 17:08:58 move from=(1081,626) target=(1215,518) duration=1.34s
+2026-07-10 17:08:59 waiting 91.7s before next action
+2026-07-10 17:10:31 move from=(1215,518) target=(850,324) duration=2.63s
+2026-07-10 17:10:34 waiting 119.6s before next action
+2026-07-10 17:12:34 move from=(850,324) target=(922,644) duration=2.13s
+2026-07-10 17:12:36 waiting 90.0s before next action
+2026-07-10 17:14:07 move from=(922,644) target=(1572,689) duration=1.31s
+2026-07-10 17:14:08 waiting 96.2s before next action
+2026-07-10 17:15:45 move from=(1572,689) target=(905,725) duration=1.60s
+2026-07-10 17:15:47 waiting 177.2s before next action
+2026-07-10 17:18:44 move from=(868,120) target=(1089,535) duration=2.28s
+2026-07-10 17:18:47 waiting 153.9s before next action
+2026-07-10 17:21:21 move from=(1240,419) target=(1567,445) duration=1.88s
+2026-07-10 17:21:23 scroll wheel_clicks=-2
+2026-07-10 17:21:23 waiting 98.2s before next action
+2026-07-10 17:23:01 move from=(1567,445) target=(765,849) duration=2.02s
+2026-07-10 17:23:04 waiting 82.9s before next action
+2026-07-10 17:24:27 move from=(710,67) target=(1407,304) duration=1.31s
+2026-07-10 17:24:29 waiting 111.8s before next action
+2026-07-10 17:26:21 move from=(722,432) target=(535,676) duration=2.38s
+2026-07-10 17:26:24 waiting 96.1s before next action
+2026-07-10 17:28:00 move from=(535,676) target=(819,406) duration=1.59s
+2026-07-10 17:28:02 waiting 176.2s before next action
+2026-07-10 17:30:58 move from=(1906,1068) target=(387,702) duration=0.65s
+2026-07-10 17:31:00 waiting 107.4s before next action
+2026-07-10 17:32:48 move from=(387,702) target=(1208,515) duration=2.65s
+2026-07-10 17:32:52 waiting 75.2s before next action
+2026-07-10 17:34:07 move from=(1208,515) target=(732,270) duration=2.61s
+2026-07-10 17:34:10 scroll wheel_clicks=2
+2026-07-10 17:34:10 waiting 84.4s before next action
+2026-07-10 17:35:34 move from=(732,270) target=(918,595) duration=1.03s
+2026-07-10 17:35:36 scroll wheel_clicks=-1
+2026-07-10 17:35:36 waiting 141.3s before next action
+2026-07-10 17:37:57 move from=(1748,986) target=(1450,834) duration=1.04s
+2026-07-10 17:37:58 waiting 158.7s before next action
+2026-07-10 17:40:37 move from=(861,734) target=(1327,704) duration=1.32s
+2026-07-10 17:40:39 scroll wheel_clicks=-3
+2026-07-10 17:40:39 waiting 150.9s before next action
+2026-07-10 17:43:10 move from=(2250,1090) target=(818,567) duration=1.11s
+2026-07-10 17:43:12 scroll wheel_clicks=2
+2026-07-10 17:43:12 waiting 149.3s before next action
+2026-07-10 17:45:41 move from=(818,567) target=(330,326) duration=0.84s
+2026-07-10 17:45:43 scroll wheel_clicks=2
+2026-07-10 17:45:43 waiting 117.0s before next action
+2026-07-10 17:47:40 move from=(330,326) target=(414,497) duration=2.09s
+2026-07-10 17:47:42 waiting 170.1s before next action
+2026-07-10 17:50:32 move from=(1450,1012) target=(560,220) duration=1.69s
+2026-07-10 17:50:35 waiting 166.4s before next action
+2026-07-10 17:53:22 move from=(1747,1172) target=(226,264) duration=1.99s
+2026-07-10 17:53:25 waiting 143.0s before next action
+2026-07-10 17:55:48 move from=(226,264) target=(1175,284) duration=1.08s
+2026-07-10 17:55:49 waiting 81.6s before next action
+2026-07-10 17:57:11 move from=(1175,284) target=(1270,396) duration=1.82s
+2026-07-10 17:57:13 waiting 136.0s before next action
+2026-07-10 17:59:29 move from=(1270,396) target=(314,713) duration=1.89s
+2026-07-10 17:59:32 waiting 59.5s before next action
+2026-07-10 18:00:31 move from=(314,713) target=(1331,796) duration=2.74s
+2026-07-10 18:00:35 waiting 97.8s before next action
+2026-07-10 18:02:13 move from=(1809,1192) target=(509,851) duration=1.17s
+2026-07-10 18:02:15 waiting 94.1s before next action
+2026-07-10 18:03:49 move from=(847,75) target=(1562,769) duration=2.15s
+2026-07-10 18:03:52 scroll wheel_clicks=2
+2026-07-10 18:03:52 waiting 158.1s before next action
+2026-07-10 18:06:30 move from=(2206,982) target=(1274,648) duration=1.93s
+2026-07-10 18:06:33 waiting 148.4s before next action
+2026-07-10 18:09:01 move from=(1274,648) target=(1596,890) duration=2.40s
+2026-07-10 18:09:04 scroll wheel_clicks=-2
+2026-07-10 18:09:04 waiting 72.0s before next action
+2026-07-10 18:10:16 move from=(1596,890) target=(297,199) duration=2.41s
+2026-07-10 18:10:20 waiting 161.6s before next action
+2026-07-10 18:13:01 move from=(1756,1175) target=(1114,310) duration=2.53s
+2026-07-10 18:13:05 waiting 163.7s before next action
+2026-07-10 18:15:49 move from=(1114,310) target=(1137,314) duration=2.67s
+2026-07-10 18:15:51 waiting 74.3s before next action
+2026-07-10 18:17:06 move from=(1137,314) target=(407,730) duration=0.63s
+2026-07-10 18:17:07 waiting 124.9s before next action
+2026-07-10 18:19:12 move from=(407,730) target=(964,687) duration=1.85s
+2026-07-10 18:19:14 waiting 114.8s before next action
+2026-07-10 18:21:09 move from=(964,687) target=(1318,886) duration=2.60s
+2026-07-10 18:21:12 scroll wheel_clicks=-2
+2026-07-10 18:21:12 waiting 125.6s before next action
+2026-07-10 18:23:18 move from=(1318,886) target=(1104,307) duration=1.87s
+2026-07-10 18:23:20 scroll wheel_clicks=3
+2026-07-10 18:23:20 waiting 146.8s before next action
+2026-07-10 18:25:47 move from=(1104,307) target=(1561,894) duration=0.65s
+2026-07-10 18:25:48 waiting 64.0s before next action
+2026-07-10 18:26:52 move from=(1561,894) target=(1222,712) duration=2.47s
+2026-07-10 18:26:55 scroll wheel_clicks=-3
+2026-07-10 18:26:55 waiting 119.6s before next action
+2026-07-10 18:28:55 move from=(1222,712) target=(428,748) duration=1.82s
+2026-07-10 18:28:57 waiting 119.0s before next action
+2026-07-10 18:30:56 move from=(428,748) target=(1369,424) duration=1.69s
+2026-07-10 18:30:59 scroll wheel_clicks=1
+2026-07-10 18:30:59 waiting 110.0s before next action
+2026-07-10 18:32:49 move from=(1369,424) target=(1110,338) duration=2.03s
+2026-07-10 18:32:51 scroll wheel_clicks=-3
+2026-07-10 18:32:51 waiting 69.2s before next action
+2026-07-10 18:34:00 move from=(1110,338) target=(601,564) duration=1.81s
+2026-07-10 18:34:03 waiting 100.0s before next action
+2026-07-10 18:35:43 move from=(601,564) target=(1295,307) duration=1.89s
+2026-07-10 18:35:45 waiting 165.2s before next action
+2026-07-10 18:38:31 move from=(1295,307) target=(474,675) duration=1.75s
+2026-07-10 18:38:33 waiting 98.7s before next action
+2026-07-10 18:40:12 move from=(474,675) target=(736,730) duration=2.69s
+2026-07-10 18:40:15 waiting 119.0s before next action
+2026-07-10 18:42:14 move from=(736,730) target=(736,793) duration=2.56s
+2026-07-10 18:42:17 waiting 82.9s before next action
+2026-07-10 18:43:40 move from=(736,793) target=(1332,443) duration=2.52s
+2026-07-10 18:43:43 scroll wheel_clicks=-2
+2026-07-10 18:43:43 waiting 89.4s before next action
+2026-07-10 18:45:12 move from=(1332,443) target=(891,865) duration=1.81s
+2026-07-10 18:45:15 waiting 54.1s before next action
+2026-07-10 18:46:09 move from=(891,865) target=(459,196) duration=1.64s
+2026-07-10 18:46:11 waiting 103.8s before next action
+2026-07-10 18:47:55 move from=(459,196) target=(1560,861) duration=0.81s
+2026-07-10 18:47:57 waiting 109.0s before next action
+2026-07-10 18:49:46 move from=(1560,861) target=(480,150) duration=2.55s
+2026-07-10 18:49:50 scroll wheel_clicks=-1
+2026-07-10 18:49:50 waiting 166.1s before next action
+2026-07-10 18:52:36 move from=(480,150) target=(537,692) duration=1.36s
+2026-07-10 18:52:38 waiting 122.4s before next action
+2026-07-10 18:54:40 move from=(537,692) target=(1398,525) duration=2.08s
+2026-07-10 18:54:43 waiting 134.2s before next action
+2026-07-10 18:56:58 move from=(1398,525) target=(774,313) duration=2.25s
+2026-07-10 18:57:00 waiting 93.2s before next action
+2026-07-10 18:58:34 move from=(774,313) target=(911,831) duration=1.68s
+2026-07-10 18:58:36 waiting 112.1s before next action
+2026-07-10 19:00:28 move from=(911,831) target=(1331,373) duration=1.69s
+2026-07-10 19:00:30 waiting 109.4s before next action
+2026-07-10 19:02:20 move from=(1331,373) target=(1067,234) duration=1.32s
+2026-07-10 19:02:21 waiting 133.1s before next action
+2026-07-10 19:04:34 move from=(1067,234) target=(481,303) duration=2.55s
+2026-07-10 19:04:37 scroll wheel_clicks=2
+2026-07-10 19:04:37 waiting 74.9s before next action
+2026-07-10 19:05:52 move from=(481,303) target=(1199,692) duration=1.33s
+2026-07-10 19:05:54 waiting 77.5s before next action
+2026-07-10 19:07:12 move from=(1199,692) target=(391,888) duration=1.94s
+2026-07-10 19:07:15 waiting 165.3s before next action
+2026-07-10 19:10:00 move from=(391,888) target=(479,152) duration=1.57s
+2026-07-10 19:10:02 waiting 137.0s before next action
+2026-07-10 19:12:19 move from=(479,152) target=(806,717) duration=0.74s
+2026-07-10 19:12:21 waiting 120.3s before next action
+2026-07-10 19:14:21 move from=(806,717) target=(626,173) duration=1.95s
+2026-07-10 19:14:24 scroll wheel_clicks=1
+2026-07-10 19:14:24 waiting 123.2s before next action
+2026-07-10 19:16:27 move from=(626,173) target=(1061,502) duration=2.03s
+2026-07-10 19:16:29 waiting 169.3s before next action
+2026-07-10 19:19:19 move from=(1061,502) target=(1449,819) duration=0.63s
+2026-07-10 19:19:20 waiting 45.6s before next action
+2026-07-10 19:20:06 move from=(1449,819) target=(1145,536) duration=1.06s
+2026-07-10 19:20:07 waiting 122.8s before next action
+2026-07-10 19:22:10 move from=(1145,536) target=(736,252) duration=1.64s
+2026-07-10 19:22:12 waiting 122.7s before next action
+2026-07-10 19:24:15 move from=(873,1007) target=(1081,167) duration=1.80s
+2026-07-10 19:24:17 waiting 163.6s before next action
+2026-07-10 19:27:01 move from=(1553,1355) target=(1134,412) duration=2.58s
+2026-07-10 19:27:04 scroll wheel_clicks=1
+2026-07-10 19:27:04 waiting 73.7s before next action
+2026-07-10 19:28:18 move from=(1134,412) target=(572,882) duration=0.64s
+2026-07-10 19:28:19 scroll wheel_clicks=-3
+2026-07-10 19:28:19 waiting 170.0s before next action
+2026-07-10 19:31:09 move from=(690,1043) target=(1507,264) duration=0.83s
+2026-07-10 19:31:11 waiting 73.4s before next action
+2026-07-10 19:32:24 move from=(1177,957) target=(1165,637) duration=1.82s
+2026-07-10 19:32:26 waiting 89.9s before next action
+2026-07-10 19:33:56 move from=(1165,637) target=(1467,297) duration=2.58s
+2026-07-10 19:34:00 scroll wheel_clicks=1
+2026-07-10 19:34:00 waiting 59.3s before next action
+2026-07-10 19:34:59 move from=(62,227) target=(433,546) duration=0.82s
+2026-07-10 19:35:00 waiting 156.0s before next action
+2026-07-10 19:37:36 move from=(1067,1327) target=(1593,211) duration=0.70s
+2026-07-10 19:37:38 waiting 157.5s before next action
+2026-07-10 19:40:16 move from=(1593,211) target=(244,752) duration=1.79s
+2026-07-10 19:40:19 waiting 161.9s before next action
+2026-07-10 19:43:01 move from=(244,752) target=(936,411) duration=2.77s
+2026-07-10 19:43:04 waiting 166.0s before next action
+2026-07-10 19:45:50 move from=(936,411) target=(663,748) duration=2.00s
+2026-07-10 19:45:53 scroll wheel_clicks=2
+2026-07-10 19:45:53 waiting 138.1s before next action
+2026-07-10 19:48:11 move from=(663,748) target=(1467,293) duration=0.84s
+2026-07-10 19:48:12 waiting 173.9s before next action
+2026-07-10 19:51:06 move from=(239,133) target=(434,398) duration=0.80s
+2026-07-10 19:51:07 waiting 48.2s before next action
+2026-07-10 19:51:56 move from=(316,128) target=(1345,379) duration=1.25s
+2026-07-10 19:51:58 waiting 158.1s before next action
+2026-07-10 19:54:36 move from=(1478,927) target=(431,208) duration=2.39s
+2026-07-10 19:54:39 waiting 98.1s before next action
+2026-07-10 19:56:17 move from=(431,208) target=(655,370) duration=2.57s
+2026-07-10 19:56:20 waiting 134.6s before next action
+2026-07-10 19:58:35 move from=(655,370) target=(569,409) duration=1.92s
+2026-07-10 19:58:37 waiting 154.5s before next action
+2026-07-10 20:01:11 move from=(569,409) target=(1298,511) duration=1.35s
+2026-07-10 20:01:13 scroll wheel_clicks=-2
+2026-07-10 20:01:13 waiting 169.8s before next action
+2026-07-10 20:04:03 move from=(1440,830) target=(653,696) duration=1.20s
+2026-07-10 20:04:05 scroll wheel_clicks=2
+2026-07-10 20:04:05 waiting 134.3s before next action
+2026-07-10 20:06:20 move from=(653,696) target=(1136,681) duration=2.42s
+2026-07-10 20:06:22 waiting 86.8s before next action
+2026-07-10 20:07:49 move from=(1136,681) target=(961,758) duration=1.30s
+2026-07-10 20:07:51 scroll wheel_clicks=-3
+2026-07-10 20:07:51 waiting 115.4s before next action
+2026-07-10 20:09:46 move from=(961,758) target=(1493,190) duration=2.45s
+2026-07-10 20:09:49 waiting 138.3s before next action
+2026-07-10 20:12:08 move from=(1493,190) target=(222,783) duration=2.04s
+2026-07-10 20:12:11 waiting 170.1s before next action
+2026-07-10 20:15:01 move from=(222,783) target=(542,545) duration=1.15s
+2026-07-10 20:15:02 waiting 73.1s before next action
+2026-07-10 20:16:16 move from=(542,545) target=(971,609) duration=0.70s
+2026-07-10 20:16:17 scroll wheel_clicks=-2
+2026-07-10 20:16:17 waiting 74.4s before next action
+2026-07-10 20:17:31 move from=(971,609) target=(1239,477) duration=1.00s
+2026-07-10 20:17:33 waiting 69.0s before next action
+2026-07-10 20:18:42 move from=(1239,477) target=(1347,241) duration=2.09s
+2026-07-10 20:18:44 waiting 135.8s before next action
+2026-07-10 20:21:00 move from=(1347,241) target=(1345,899) duration=1.15s
+2026-07-10 20:21:02 scroll wheel_clicks=-2
+2026-07-10 20:21:02 waiting 65.6s before next action
+2026-07-10 20:22:08 move from=(1345,899) target=(714,282) duration=1.67s
+2026-07-10 20:22:10 waiting 48.5s before next action
+2026-07-10 20:22:58 move from=(714,282) target=(405,731) duration=2.56s
+2026-07-10 20:23:02 waiting 140.0s before next action
+2026-07-10 20:25:22 move from=(405,731) target=(1291,820) duration=2.54s
+2026-07-10 20:25:25 waiting 55.9s before next action
+2026-07-10 20:26:21 move from=(1291,820) target=(257,898) duration=2.62s
+2026-07-10 20:26:24 scroll wheel_clicks=-2
+2026-07-10 20:26:24 waiting 173.1s before next action
+2026-07-10 20:29:18 move from=(257,898) target=(447,172) duration=0.87s
+2026-07-10 20:29:19 waiting 179.9s before next action
+2026-07-10 20:32:19 move from=(447,172) target=(654,230) duration=1.84s
+2026-07-10 20:32:21 waiting 79.7s before next action
+2026-07-10 20:33:40 move from=(654,230) target=(856,606) duration=0.72s
+2026-07-10 20:33:42 waiting 127.9s before next action
+2026-07-10 20:35:50 move from=(856,606) target=(1001,261) duration=2.28s
+2026-07-10 20:35:52 scroll wheel_clicks=2
+2026-07-10 20:35:52 waiting 85.5s before next action
+2026-07-10 20:37:18 move from=(1001,261) target=(1078,608) duration=2.33s
+2026-07-10 20:37:20 waiting 46.2s before next action
+2026-07-10 20:38:07 move from=(1078,608) target=(1001,484) duration=1.92s
+2026-07-10 20:38:09 scroll wheel_clicks=-3
+2026-07-10 20:38:09 waiting 159.4s before next action
+2026-07-10 20:40:48 move from=(1001,484) target=(1040,540) duration=1.31s
+2026-07-10 20:40:50 waiting 140.7s before next action
+2026-07-10 20:43:11 move from=(960,505) target=(1353,703) duration=1.08s
+2026-07-10 20:43:12 scroll wheel_clicks=-3
+2026-07-10 20:43:12 waiting 88.0s before next action
+2026-07-10 20:44:40 move from=(1353,703) target=(1588,743) duration=0.91s
+2026-07-10 20:44:42 waiting 88.7s before next action
+2026-07-10 20:46:10 move from=(1588,743) target=(947,562) duration=1.59s
+2026-07-10 20:46:12 waiting 146.4s before next action
+2026-07-10 20:48:39 move from=(947,562) target=(367,840) duration=1.56s
+2026-07-10 20:48:41 waiting 104.3s before next action
+2026-07-10 20:50:26 move from=(1243,506) target=(343,566) duration=1.22s
+2026-07-10 20:50:27 waiting 163.1s before next action
+2026-07-10 20:53:11 move from=(1199,642) target=(458,775) duration=2.09s
+2026-07-10 20:53:13 scroll wheel_clicks=2
+2026-07-10 20:53:13 waiting 76.8s before next action
+2026-07-10 20:54:30 move from=(1178,228) target=(1316,481) duration=1.66s
+2026-07-10 20:54:32 waiting 149.1s before next action
+2026-07-10 20:57:01 move from=(1237,1006) target=(1130,545) duration=0.80s
+2026-07-10 20:57:02 scroll wheel_clicks=1
+2026-07-10 20:57:02 waiting 158.4s before next action
+2026-07-10 20:59:41 move from=(1073,448) target=(1200,710) duration=0.64s
+2026-07-10 20:59:42 waiting 114.2s before next action
+2026-07-10 21:01:36 move from=(1335,198) target=(325,817) duration=1.92s
+2026-07-10 21:01:39 scroll wheel_clicks=2
+2026-07-10 21:01:39 waiting 148.2s before next action
+2026-07-10 21:04:07 move from=(325,817) target=(849,192) duration=1.50s
+2026-07-10 21:04:09 waiting 47.2s before next action
+2026-07-10 21:04:57 move from=(849,192) target=(438,775) duration=0.88s
+2026-07-10 21:04:58 waiting 147.7s before next action
+2026-07-10 21:07:26 move from=(1472,554) target=(1326,465) duration=1.64s
+2026-07-10 21:07:28 waiting 85.8s before next action
+2026-07-10 21:08:53 move from=(1291,435) target=(1228,460) duration=2.46s
+2026-07-10 21:08:56 scroll wheel_clicks=-3
+2026-07-10 21:08:56 waiting 61.4s before next action
+2026-07-10 21:09:58 move from=(1606,1006) target=(1135,398) duration=1.49s
+2026-07-10 21:10:00 scroll wheel_clicks=1
+2026-07-10 21:10:00 waiting 65.7s before next action
+2026-07-10 21:11:06 move from=(1296,449) target=(1168,220) duration=1.35s
+2026-07-10 21:11:07 waiting 114.3s before next action
+2026-07-10 21:13:02 move from=(1068,85) target=(1564,563) duration=1.51s
+2026-07-10 21:13:04 waiting 77.7s before next action
+2026-07-10 21:14:21 move from=(1236,1005) target=(454,263) duration=2.78s
+2026-07-10 21:14:25 scroll wheel_clicks=-1
+2026-07-10 21:14:25 waiting 65.9s before next action
+2026-07-10 21:15:31 move from=(454,263) target=(936,711) duration=1.51s
+2026-07-10 21:15:33 waiting 90.3s before next action
+2026-07-10 21:17:04 move from=(936,711) target=(821,601) duration=2.60s
+2026-07-10 21:17:06 waiting 147.4s before next action
+2026-07-10 21:19:34 move from=(821,601) target=(637,365) duration=2.25s
+2026-07-10 21:19:36 waiting 168.3s before next action
+2026-07-10 21:22:25 move from=(637,365) target=(467,813) duration=1.95s
+2026-07-10 21:22:27 waiting 138.9s before next action
+2026-07-10 21:24:46 move from=(467,813) target=(953,459) duration=1.53s
+2026-07-10 21:24:48 waiting 59.4s before next action
+2026-07-10 21:25:48 move from=(953,459) target=(836,647) duration=2.05s
+2026-07-10 21:25:50 waiting 162.7s before next action
+2026-07-10 21:28:33 move from=(836,647) target=(1310,509) duration=0.91s
+2026-07-10 21:28:34 scroll wheel_clicks=1
+2026-07-10 21:28:34 waiting 91.7s before next action
+2026-07-10 21:30:06 move from=(1310,509) target=(820,585) duration=1.31s
+2026-07-10 21:30:07 waiting 66.1s before next action
+2026-07-10 21:31:14 move from=(820,585) target=(649,404) duration=2.60s
+2026-07-10 21:31:16 waiting 67.8s before next action
+2026-07-10 21:32:24 move from=(649,404) target=(396,562) duration=1.55s
+2026-07-10 21:32:26 scroll wheel_clicks=3
+2026-07-10 21:32:26 waiting 55.3s before next action
+2026-07-10 21:33:22 move from=(396,562) target=(905,828) duration=1.89s
+2026-07-10 21:33:24 scroll wheel_clicks=-3
+2026-07-10 21:33:24 waiting 128.7s before next action
+2026-07-10 21:35:33 move from=(905,828) target=(781,452) duration=2.63s
+2026-07-10 21:35:35 waiting 99.4s before next action
+2026-07-10 21:37:15 move from=(1276,1007) target=(528,463) duration=1.79s
+2026-07-10 21:37:17 waiting 138.9s before next action
+2026-07-10 21:39:36 move from=(528,463) target=(221,870) duration=2.65s
+2026-07-10 21:39:39 waiting 122.0s before next action
+2026-07-10 21:41:41 move from=(221,870) target=(1303,239) duration=0.68s
+2026-07-10 21:41:43 scroll wheel_clicks=3
+2026-07-10 21:41:43 waiting 154.6s before next action
+2026-07-10 21:44:18 move from=(1303,239) target=(574,412) duration=1.29s
+2026-07-10 21:44:20 scroll wheel_clicks=3
+2026-07-10 21:44:20 waiting 131.6s before next action
+2026-07-10 21:46:32 move from=(574,412) target=(979,682) duration=0.93s
+2026-07-10 21:46:33 scroll wheel_clicks=1
+2026-07-10 21:46:33 waiting 83.8s before next action
+2026-07-10 21:47:57 move from=(979,682) target=(562,309) duration=0.95s
+2026-07-10 21:47:58 waiting 96.2s before next action
+2026-07-10 21:49:34 move from=(1809,0) target=(1272,872) duration=2.11s
+2026-07-10 21:49:37 waiting 57.2s before next action
+2026-07-10 21:50:35 move from=(1272,872) target=(759,370) duration=2.03s
+2026-07-10 21:50:37 waiting 107.6s before next action
+2026-07-10 21:52:25 move from=(759,370) target=(364,598) duration=2.23s
+2026-07-10 21:52:28 waiting 175.5s before next action
+2026-07-10 21:55:23 move from=(364,598) target=(1166,197) duration=1.02s
+2026-07-10 21:55:25 scroll wheel_clicks=1
+2026-07-10 21:55:25 waiting 59.2s before next action
+2026-07-10 21:56:24 move from=(1166,197) target=(1253,664) duration=1.47s
+2026-07-10 21:56:26 waiting 64.3s before next action
+2026-07-10 21:57:30 move from=(1253,664) target=(1163,548) duration=1.86s
+2026-07-10 21:57:32 waiting 129.0s before next action
+2026-07-10 21:59:41 move from=(1163,548) target=(1570,240) duration=1.06s
+2026-07-10 21:59:43 waiting 170.0s before next action
+2026-07-10 22:02:33 move from=(1570,240) target=(1048,756) duration=1.70s
+2026-07-10 22:02:35 waiting 149.9s before next action
+2026-07-10 22:05:05 move from=(1048,756) target=(741,261) duration=1.20s
+2026-07-10 22:05:07 scroll wheel_clicks=1
+2026-07-10 22:05:07 waiting 92.2s before next action
+2026-07-10 22:06:39 move from=(741,261) target=(281,281) duration=2.13s
+2026-07-10 22:06:41 waiting 136.5s before next action
+2026-07-10 22:08:58 move from=(281,281) target=(738,867) duration=1.93s
+2026-07-10 22:09:01 scroll wheel_clicks=3
+2026-07-10 22:09:01 waiting 175.0s before next action
+2026-07-10 22:11:56 move from=(738,867) target=(1127,216) duration=2.06s
+2026-07-10 22:11:58 waiting 178.0s before next action
+2026-07-10 22:14:57 move from=(1127,216) target=(303,707) duration=1.35s
+2026-07-10 22:14:59 waiting 86.0s before next action
+2026-07-10 22:16:25 move from=(303,707) target=(1284,665) duration=1.92s
+2026-07-10 22:16:27 waiting 127.8s before next action
+2026-07-10 22:18:35 move from=(1284,665) target=(1182,203) duration=1.04s
+2026-07-10 22:18:37 waiting 153.6s before next action
+2026-07-10 22:21:10 move from=(1182,203) target=(1429,362) duration=1.20s
+2026-07-10 22:21:12 scroll wheel_clicks=-2
+2026-07-10 22:21:12 waiting 100.0s before next action
+2026-07-10 22:22:52 move from=(1429,362) target=(1599,842) duration=1.76s
+2026-07-10 22:22:54 scroll wheel_clicks=-1
+2026-07-10 22:22:54 waiting 171.8s before next action
+2026-07-10 22:25:46 move from=(1599,842) target=(1339,584) duration=1.47s
+2026-07-10 22:25:48 waiting 155.5s before next action
+2026-07-10 22:28:23 move from=(1339,584) target=(303,351) duration=0.97s
+2026-07-10 22:28:25 waiting 89.8s before next action
+2026-07-10 22:29:55 move from=(303,351) target=(829,814) duration=0.91s
+2026-07-10 22:29:56 scroll wheel_clicks=-2
+2026-07-10 22:29:56 waiting 166.2s before next action
+2026-07-10 22:32:42 move from=(829,814) target=(791,253) duration=1.41s
+2026-07-10 22:32:44 waiting 52.1s before next action
+2026-07-10 22:33:36 move from=(791,253) target=(748,696) duration=2.29s
+2026-07-10 22:33:39 waiting 92.7s before next action
+2026-07-10 22:35:12 move from=(748,696) target=(1173,269) duration=0.98s
+2026-07-10 22:35:13 scroll wheel_clicks=-1
+2026-07-10 22:35:13 waiting 57.4s before next action
+2026-07-10 22:36:11 move from=(1173,269) target=(1175,302) duration=2.39s
+2026-07-10 22:36:14 waiting 62.2s before next action
+2026-07-10 22:37:16 move from=(1175,302) target=(626,675) duration=1.46s
+2026-07-10 22:37:18 waiting 134.9s before next action
+2026-07-10 22:39:33 move from=(626,675) target=(568,307) duration=1.96s
+2026-07-10 22:39:35 scroll wheel_clicks=3
+2026-07-10 22:39:35 waiting 163.0s before next action
+2026-07-10 22:42:18 move from=(568,307) target=(491,682) duration=2.01s
+2026-07-10 22:42:21 waiting 57.6s before next action
+2026-07-10 22:43:18 move from=(491,682) target=(1059,431) duration=1.65s
+2026-07-10 22:43:20 waiting 158.7s before next action
+2026-07-10 22:45:59 move from=(1213,822) target=(835,813) duration=0.86s
+2026-07-10 22:46:00 waiting 105.7s before next action
+2026-07-10 22:47:46 move from=(835,813) target=(1214,863) duration=2.77s
+2026-07-10 22:47:49 waiting 46.6s before next action
+2026-07-10 22:48:36 move from=(1227,1006) target=(1350,486) duration=1.71s
+2026-07-10 22:48:38 waiting 143.5s before next action
+2026-07-10 22:51:01 move from=(1350,486) target=(655,211) duration=1.44s
+2026-07-10 22:51:03 waiting 45.9s before next action
+2026-07-10 22:51:49 move from=(655,211) target=(1112,727) duration=1.83s
+2026-07-10 22:51:52 waiting 149.4s before next action
+2026-07-10 22:54:21 move from=(1166,688) target=(792,890) duration=0.98s
+2026-07-10 22:54:22 waiting 110.9s before next action
+2026-07-10 22:56:13 move from=(1790,634) target=(393,585) duration=1.82s
+2026-07-10 22:56:16 waiting 179.9s before next action
+2026-07-10 22:59:16 move from=(1364,725) target=(599,787) duration=2.57s
+2026-07-10 22:59:20 scroll wheel_clicks=2
+2026-07-10 22:59:20 waiting 63.5s before next action
+2026-07-10 23:00:23 move from=(599,787) target=(1369,873) duration=0.82s
+2026-07-10 23:00:24 waiting 89.7s before next action
+2026-07-10 23:01:54 move from=(1369,873) target=(743,767) duration=2.54s
+2026-07-10 23:01:58 waiting 169.8s before next action
+2026-07-10 23:04:47 move from=(1428,462) target=(1042,187) duration=2.09s
+2026-07-10 23:04:50 waiting 120.6s before next action
+2026-07-10 23:06:51 move from=(613,610) target=(1234,465) duration=2.43s
+2026-07-10 23:06:53 waiting 118.9s before next action
+2026-07-10 23:08:53 move from=(1234,465) target=(484,613) duration=1.86s
+2026-07-10 23:08:55 waiting 121.0s before next action
+2026-07-10 23:10:56 move from=(484,613) target=(328,507) duration=1.55s
+2026-07-10 23:10:58 waiting 162.9s before next action
+2026-07-10 23:13:41 move from=(328,507) target=(523,494) duration=0.94s
+2026-07-10 23:13:42 waiting 177.1s before next action
+2026-07-10 23:16:39 move from=(523,494) target=(1574,452) duration=2.73s
+2026-07-10 23:16:43 waiting 102.6s before next action
+2026-07-10 23:18:26 move from=(1574,452) target=(544,871) duration=0.98s
+2026-07-10 23:18:27 waiting 149.1s before next action
+2026-07-10 23:20:56 move from=(544,871) target=(1223,311) duration=1.94s
+2026-07-10 23:20:59 waiting 82.0s before next action
+2026-07-10 23:22:21 move from=(1223,311) target=(1204,601) duration=0.97s
+2026-07-10 23:22:22 waiting 163.4s before next action
+2026-07-10 23:25:06 move from=(1204,601) target=(295,185) duration=0.78s
+2026-07-10 23:25:07 scroll wheel_clicks=2
+2026-07-10 23:25:07 waiting 125.7s before next action
+2026-07-10 23:27:13 move from=(295,185) target=(1145,647) duration=0.61s
+2026-07-10 23:27:14 waiting 148.5s before next action
+2026-07-10 23:29:43 move from=(1145,647) target=(1258,217) duration=2.40s
+2026-07-10 23:29:46 waiting 146.5s before next action
+2026-07-10 23:32:12 move from=(1258,217) target=(1288,585) duration=1.95s
+2026-07-10 23:32:15 waiting 162.7s before next action
+2026-07-10 23:34:57 move from=(1288,585) target=(201,184) duration=1.88s
+2026-07-10 23:35:00 waiting 122.5s before next action
+2026-07-10 23:37:03 move from=(201,184) target=(947,597) duration=2.61s
+2026-07-10 23:37:06 scroll wheel_clicks=-2
+2026-07-10 23:37:06 waiting 144.2s before next action
+2026-07-10 23:39:30 move from=(947,597) target=(1382,151) duration=2.49s
+2026-07-10 23:39:34 scroll wheel_clicks=-1
+2026-07-10 23:39:34 waiting 145.5s before next action
+2026-07-10 23:41:59 move from=(1382,151) target=(414,165) duration=0.86s
+2026-07-10 23:42:00 scroll wheel_clicks=-1
+2026-07-10 23:42:00 waiting 179.9s before next action
+2026-07-10 23:45:00 move from=(414,165) target=(694,762) duration=2.12s
+2026-07-10 23:45:03 waiting 150.3s before next action
+2026-07-10 23:47:34 move from=(694,762) target=(327,574) duration=2.40s
+2026-07-10 23:47:36 waiting 127.7s before next action
+2026-07-10 23:49:44 move from=(327,574) target=(410,286) duration=0.66s
+2026-07-10 23:49:45 waiting 68.5s before next action
+2026-07-10 23:50:54 move from=(410,286) target=(879,852) duration=1.61s
+2026-07-10 23:50:56 waiting 151.3s before next action
+2026-07-10 23:53:27 move from=(879,852) target=(927,388) duration=0.70s
+2026-07-10 23:53:28 waiting 79.7s before next action
+2026-07-10 23:54:48 move from=(927,388) target=(955,815) duration=1.79s
+2026-07-10 23:54:50 waiting 86.0s before next action
+2026-07-10 23:56:16 move from=(955,815) target=(732,525) duration=1.39s
+2026-07-10 23:56:18 waiting 139.0s before next action
+2026-07-10 23:58:37 move from=(732,525) target=(1327,747) duration=2.02s
+2026-07-10 23:58:39 waiting 169.7s before next action
+2026-07-11 00:01:29 move from=(1327,747) target=(1470,293) duration=1.51s
+2026-07-11 00:01:31 waiting 100.5s before next action
+2026-07-11 00:03:12 move from=(1470,293) target=(282,313) duration=1.78s
+2026-07-11 00:03:14 waiting 170.0s before next action
+2026-07-11 00:06:05 move from=(282,313) target=(744,772) duration=1.22s
+2026-07-11 00:06:06 scroll wheel_clicks=-1
+2026-07-11 00:06:06 waiting 50.1s before next action
+2026-07-11 00:06:56 move from=(744,772) target=(457,487) duration=1.23s
+2026-07-11 00:06:58 waiting 58.5s before next action
+2026-07-11 00:07:56 move from=(457,487) target=(1570,621) duration=2.14s
+2026-07-11 00:07:59 scroll wheel_clicks=2
+2026-07-11 00:07:59 waiting 90.7s before next action
+2026-07-11 00:09:30 move from=(1570,621) target=(798,443) duration=1.25s
+2026-07-11 00:09:32 scroll wheel_clicks=-3
+2026-07-11 00:09:32 waiting 123.7s before next action
+2026-07-11 00:11:36 move from=(798,443) target=(1006,815) duration=2.07s
+2026-07-11 00:11:38 waiting 105.1s before next action
+2026-07-11 00:13:24 move from=(1006,815) target=(772,279) duration=2.52s
+2026-07-11 00:13:27 waiting 81.0s before next action
+2026-07-11 00:14:48 move from=(772,279) target=(226,664) duration=1.99s
+2026-07-11 00:14:50 scroll wheel_clicks=-2
+2026-07-11 00:14:50 waiting 100.7s before next action
+2026-07-11 00:16:31 move from=(226,664) target=(1590,828) duration=2.06s
+2026-07-11 00:16:35 waiting 72.6s before next action
+2026-07-11 00:17:47 move from=(1590,828) target=(1090,369) duration=1.49s
+2026-07-11 00:17:49 waiting 74.9s before next action
+2026-07-11 00:19:04 move from=(1090,369) target=(1555,576) duration=0.68s
+2026-07-11 00:19:06 waiting 147.0s before next action
+2026-07-11 00:21:33 move from=(1555,576) target=(300,397) duration=1.25s
+2026-07-11 00:21:35 scroll wheel_clicks=-1
+2026-07-11 00:21:35 waiting 121.3s before next action
+2026-07-11 00:23:36 move from=(300,397) target=(786,354) duration=1.81s
+2026-07-11 00:23:38 scroll wheel_clicks=3
+2026-07-11 00:23:38 waiting 116.0s before next action
+2026-07-11 00:25:34 move from=(786,354) target=(1047,227) duration=1.89s
+2026-07-11 00:25:37 scroll wheel_clicks=-2
+2026-07-11 00:25:37 waiting 129.1s before next action
+2026-07-11 00:27:46 move from=(1047,227) target=(413,522) duration=1.10s
+2026-07-11 00:27:48 scroll wheel_clicks=1
+2026-07-11 00:27:48 waiting 174.6s before next action
+2026-07-11 00:30:42 move from=(413,522) target=(433,326) duration=0.94s
+2026-07-11 00:30:43 waiting 62.6s before next action
+2026-07-11 00:31:46 move from=(433,326) target=(1359,277) duration=1.47s
+2026-07-11 00:31:48 waiting 176.7s before next action
+2026-07-11 00:34:45 move from=(1359,277) target=(810,498) duration=1.68s
+2026-07-11 00:34:47 scroll wheel_clicks=-2
+2026-07-11 00:34:47 waiting 153.2s before next action
+2026-07-11 00:37:20 move from=(810,498) target=(554,358) duration=1.06s
+2026-07-11 00:37:22 waiting 175.8s before next action
+2026-07-11 00:40:18 move from=(554,358) target=(1236,786) duration=1.12s
+2026-07-11 00:40:19 waiting 70.2s before next action
+2026-07-11 00:41:30 move from=(1236,786) target=(740,773) duration=1.64s
+2026-07-11 00:41:32 waiting 123.2s before next action
+2026-07-11 00:43:35 move from=(740,773) target=(1436,356) duration=1.73s
+2026-07-11 00:43:37 waiting 99.9s before next action
+2026-07-11 00:45:17 move from=(1436,356) target=(362,611) duration=2.33s
+2026-07-11 00:45:21 scroll wheel_clicks=2
+2026-07-11 00:45:21 waiting 87.8s before next action
+2026-07-11 00:46:48 move from=(362,611) target=(285,681) duration=0.98s
+2026-07-11 00:46:50 waiting 112.3s before next action
+2026-07-11 00:48:42 move from=(285,681) target=(371,805) duration=1.26s
+2026-07-11 00:48:43 waiting 81.1s before next action
+2026-07-11 00:50:05 move from=(371,805) target=(644,690) duration=1.03s
+2026-07-11 00:50:06 waiting 68.7s before next action
+2026-07-11 00:51:15 move from=(644,690) target=(398,151) duration=1.07s
+2026-07-11 00:51:16 waiting 79.5s before next action
+2026-07-11 00:52:36 move from=(398,151) target=(1382,765) duration=1.74s
+2026-07-11 00:52:39 waiting 120.8s before next action
+2026-07-11 00:54:39 move from=(1382,765) target=(804,627) duration=0.66s
+2026-07-11 00:54:40 scroll wheel_clicks=3
+2026-07-11 00:54:40 waiting 94.6s before next action
+2026-07-11 00:56:15 move from=(804,627) target=(1274,737) duration=1.41s
+2026-07-11 00:56:17 waiting 74.5s before next action
+2026-07-11 00:57:32 move from=(1274,737) target=(512,358) duration=1.17s
+2026-07-11 00:57:33 waiting 104.9s before next action
+2026-07-11 00:59:18 move from=(512,358) target=(920,459) duration=2.36s
+2026-07-11 00:59:21 waiting 103.0s before next action
+2026-07-11 01:01:04 move from=(920,459) target=(737,197) duration=1.83s
+2026-07-11 01:01:06 waiting 56.9s before next action
+2026-07-11 01:02:03 move from=(737,197) target=(1484,683) duration=1.89s
+2026-07-11 01:02:06 waiting 76.0s before next action
+2026-07-11 01:03:22 move from=(1484,683) target=(574,733) duration=0.86s
+2026-07-11 01:03:23 waiting 140.8s before next action
+2026-07-11 01:05:44 move from=(574,733) target=(1442,402) duration=1.63s
+2026-07-11 01:05:47 waiting 47.1s before next action
+2026-07-11 01:06:34 move from=(1442,402) target=(729,711) duration=1.12s
+2026-07-11 01:06:35 scroll wheel_clicks=-3
+2026-07-11 01:06:35 waiting 166.0s before next action
+2026-07-11 01:09:22 move from=(729,711) target=(525,815) duration=0.96s
+2026-07-11 01:09:23 scroll wheel_clicks=1
+2026-07-11 01:09:23 waiting 54.8s before next action
+2026-07-11 01:10:18 move from=(525,815) target=(1183,668) duration=0.79s
+2026-07-11 01:10:19 waiting 64.6s before next action
+2026-07-11 01:11:24 move from=(1183,668) target=(1160,554) duration=2.22s
+2026-07-11 01:11:26 scroll wheel_clicks=2
+2026-07-11 01:11:26 waiting 81.1s before next action
+2026-07-11 01:12:47 move from=(1160,554) target=(1222,681) duration=2.27s
+2026-07-11 01:12:50 waiting 130.2s before next action
+2026-07-11 01:15:00 move from=(1222,681) target=(1186,580) duration=1.47s
+2026-07-11 01:15:02 scroll wheel_clicks=-3
+2026-07-11 01:15:02 waiting 178.8s before next action
+2026-07-11 01:18:00 move from=(1186,580) target=(908,362) duration=1.94s
+2026-07-11 01:18:03 waiting 105.2s before next action
+2026-07-11 01:19:48 move from=(908,362) target=(486,443) duration=1.80s
+2026-07-11 01:19:50 scroll wheel_clicks=3
+2026-07-11 01:19:50 waiting 166.7s before next action
+2026-07-11 01:22:37 move from=(486,443) target=(644,576) duration=1.47s
+2026-07-11 01:22:38 waiting 122.9s before next action
+2026-07-11 01:24:41 move from=(644,576) target=(1410,773) duration=1.69s
+2026-07-11 01:24:44 waiting 94.7s before next action
+2026-07-11 01:26:19 move from=(1410,773) target=(1058,810) duration=1.03s
+2026-07-11 01:26:20 waiting 176.4s before next action
+2026-07-11 01:29:16 move from=(1058,810) target=(1578,725) duration=0.60s
+2026-07-11 01:29:17 waiting 115.2s before next action
+2026-07-11 01:31:13 move from=(1578,725) target=(957,367) duration=2.15s
+2026-07-11 01:31:15 waiting 96.5s before next action
+2026-07-11 01:32:52 move from=(957,367) target=(939,604) duration=0.69s
+2026-07-11 01:32:53 waiting 137.4s before next action
+2026-07-11 01:35:10 move from=(939,604) target=(815,782) duration=1.29s
+2026-07-11 01:35:12 waiting 98.9s before next action
+2026-07-11 01:36:51 move from=(815,782) target=(538,780) duration=2.67s
+2026-07-11 01:36:53 scroll wheel_clicks=3
+2026-07-11 01:36:53 waiting 109.1s before next action
+2026-07-11 01:38:43 move from=(538,780) target=(1177,459) duration=1.71s
+2026-07-11 01:38:45 scroll wheel_clicks=3
+2026-07-11 01:38:45 waiting 79.2s before next action
+2026-07-11 01:40:04 move from=(1177,459) target=(1123,640) duration=2.02s
+2026-07-11 01:40:06 scroll wheel_clicks=-1
+2026-07-11 01:40:06 waiting 55.5s before next action
+2026-07-11 01:41:02 move from=(1123,640) target=(544,796) duration=1.98s
+2026-07-11 01:41:04 scroll wheel_clicks=-1
+2026-07-11 01:41:04 waiting 107.7s before next action
+2026-07-11 01:42:52 move from=(544,796) target=(1181,831) duration=1.12s
+2026-07-11 01:42:54 waiting 161.1s before next action
+2026-07-11 01:45:35 move from=(1181,831) target=(415,233) duration=2.12s
+2026-07-11 01:45:38 waiting 151.2s before next action
+2026-07-11 01:48:09 move from=(415,233) target=(1144,420) duration=1.46s
+2026-07-11 01:48:11 waiting 83.0s before next action
+2026-07-11 01:49:34 move from=(1144,420) target=(444,400) duration=0.83s
+2026-07-11 01:49:36 waiting 150.2s before next action
+2026-07-11 01:52:06 move from=(444,400) target=(479,554) duration=2.21s
+2026-07-11 01:52:08 scroll wheel_clicks=-2
+2026-07-11 01:52:08 waiting 178.7s before next action
+2026-07-11 01:55:07 move from=(479,554) target=(369,173) duration=0.69s
+2026-07-11 01:55:08 scroll wheel_clicks=-2
+2026-07-11 01:55:08 waiting 104.4s before next action
+2026-07-11 01:56:53 move from=(369,173) target=(1413,797) duration=2.00s
+2026-07-11 01:56:56 waiting 69.3s before next action
+2026-07-11 01:58:05 move from=(1413,797) target=(733,814) duration=0.90s
+2026-07-11 01:58:06 waiting 104.9s before next action
+2026-07-11 01:59:51 move from=(733,814) target=(658,373) duration=1.42s
+2026-07-11 01:59:53 waiting 178.6s before next action
+2026-07-11 02:02:52 move from=(658,373) target=(622,766) duration=1.25s
+2026-07-11 02:02:54 scroll wheel_clicks=2
+2026-07-11 02:02:54 waiting 155.4s before next action
+2026-07-11 02:05:29 move from=(622,766) target=(829,287) duration=0.71s
+2026-07-11 02:05:30 waiting 62.1s before next action
+2026-07-11 02:06:32 move from=(829,287) target=(331,515) duration=2.67s
+2026-07-11 02:06:35 waiting 127.6s before next action
+2026-07-11 02:08:43 move from=(331,515) target=(1442,791) duration=0.84s
+2026-07-11 02:08:44 waiting 46.0s before next action
+2026-07-11 02:09:30 move from=(1442,791) target=(499,899) duration=2.17s
+2026-07-11 02:09:33 waiting 72.3s before next action
+2026-07-11 02:10:46 move from=(499,899) target=(495,593) duration=1.84s
+2026-07-11 02:10:48 waiting 152.6s before next action
+2026-07-11 02:13:21 move from=(495,593) target=(764,656) duration=0.83s
+2026-07-11 02:13:22 scroll wheel_clicks=-1
+2026-07-11 02:13:22 waiting 55.0s before next action
+2026-07-11 02:14:17 move from=(764,656) target=(915,797) duration=2.14s
+2026-07-11 02:14:19 waiting 87.4s before next action
+2026-07-11 02:15:47 move from=(915,797) target=(323,515) duration=1.02s
+2026-07-11 02:15:48 waiting 90.0s before next action
+2026-07-11 02:17:18 move from=(323,515) target=(1521,566) duration=2.49s
+2026-07-11 02:17:22 scroll wheel_clicks=1
+2026-07-11 02:17:22 waiting 85.0s before next action
+2026-07-11 02:18:47 move from=(1521,566) target=(1391,484) duration=0.75s
+2026-07-11 02:18:48 waiting 158.2s before next action
+2026-07-11 02:21:26 move from=(1391,484) target=(724,891) duration=1.83s
+2026-07-11 02:21:29 scroll wheel_clicks=-3
+2026-07-11 02:21:29 waiting 152.2s before next action
+2026-07-11 02:24:01 move from=(724,891) target=(263,219) duration=1.60s
+2026-07-11 02:24:03 waiting 91.0s before next action
+2026-07-11 02:25:34 move from=(263,219) target=(755,354) duration=2.74s
+2026-07-11 02:25:38 waiting 76.8s before next action
+2026-07-11 02:26:55 move from=(755,354) target=(1374,662) duration=1.65s
+2026-07-11 02:26:57 waiting 119.6s before next action
+2026-07-11 02:28:57 move from=(1374,662) target=(1303,627) duration=1.30s
+2026-07-11 02:28:58 waiting 142.0s before next action
+2026-07-11 02:31:20 move from=(1303,627) target=(623,791) duration=1.45s
+2026-07-11 02:31:22 waiting 178.2s before next action
+2026-07-11 02:34:21 move from=(623,791) target=(1110,825) duration=1.76s
+2026-07-11 02:34:23 waiting 71.9s before next action
+2026-07-11 02:35:35 move from=(1110,825) target=(1275,379) duration=0.95s
+2026-07-11 02:35:36 waiting 75.5s before next action
+2026-07-11 02:36:52 move from=(1275,379) target=(876,690) duration=1.17s
+2026-07-11 02:36:54 scroll wheel_clicks=3
+2026-07-11 02:36:54 waiting 128.0s before next action
+2026-07-11 02:39:02 move from=(876,690) target=(1554,406) duration=1.22s
+2026-07-11 02:39:04 waiting 92.6s before next action
+2026-07-11 02:40:36 move from=(1554,406) target=(1200,422) duration=2.49s
+2026-07-11 02:40:39 waiting 132.3s before next action
+2026-07-11 02:42:52 move from=(1200,422) target=(1400,649) duration=1.59s
+2026-07-11 02:42:53 scroll wheel_clicks=-2
+2026-07-11 02:42:53 waiting 111.4s before next action
+2026-07-11 02:44:45 move from=(1400,649) target=(512,331) duration=1.73s
+2026-07-11 02:44:47 waiting 108.1s before next action
+2026-07-11 02:46:36 move from=(512,331) target=(1263,681) duration=2.65s
+2026-07-11 02:46:39 waiting 161.1s before next action
+2026-07-11 02:49:20 move from=(1263,681) target=(1305,793) duration=0.96s
+2026-07-11 02:49:21 scroll wheel_clicks=2
+2026-07-11 02:49:21 waiting 49.9s before next action
+2026-07-11 02:50:11 move from=(1305,793) target=(1332,287) duration=2.23s
+2026-07-11 02:50:14 waiting 127.0s before next action
+2026-07-11 02:52:21 move from=(1332,287) target=(580,682) duration=1.82s
+2026-07-11 02:52:24 waiting 157.2s before next action
+2026-07-11 02:55:01 move from=(580,682) target=(1241,224) duration=1.61s
+2026-07-11 02:55:03 waiting 179.4s before next action
+2026-07-11 02:58:03 move from=(1241,224) target=(1383,576) duration=1.76s
+2026-07-11 02:58:05 waiting 76.8s before next action
+2026-07-11 02:59:22 move from=(1383,576) target=(887,643) duration=1.73s
+2026-07-11 02:59:24 waiting 59.5s before next action
+2026-07-11 03:00:24 move from=(887,643) target=(1010,744) duration=0.64s
+2026-07-11 03:00:25 waiting 124.3s before next action
+2026-07-11 03:02:29 move from=(1010,744) target=(1309,539) duration=1.52s
+2026-07-11 03:02:31 waiting 65.5s before next action
+2026-07-11 03:03:36 move from=(1309,539) target=(1557,678) duration=2.26s
+2026-07-11 03:03:39 waiting 45.1s before next action
+2026-07-11 03:04:24 move from=(1557,678) target=(1248,288) duration=0.68s
+2026-07-11 03:04:25 waiting 170.6s before next action
+2026-07-11 03:07:16 move from=(1248,288) target=(1468,750) duration=1.84s
+2026-07-11 03:07:18 waiting 72.2s before next action
+2026-07-11 03:08:31 move from=(1468,750) target=(1582,328) duration=0.62s
+2026-07-11 03:08:32 waiting 78.3s before next action
+2026-07-11 03:09:50 move from=(1582,328) target=(452,868) duration=1.93s
+2026-07-11 03:09:53 waiting 110.4s before next action
+2026-07-11 03:11:43 move from=(452,868) target=(972,305) duration=2.17s
+2026-07-11 03:11:46 scroll wheel_clicks=-3
+2026-07-11 03:11:46 waiting 89.6s before next action
+2026-07-11 03:13:16 move from=(972,305) target=(1344,619) duration=0.62s
+2026-07-11 03:13:17 waiting 91.8s before next action
+2026-07-11 03:14:49 move from=(1344,619) target=(499,841) duration=2.46s
+2026-07-11 03:14:52 waiting 142.1s before next action
+2026-07-11 03:17:14 move from=(499,841) target=(576,449) duration=2.50s
+2026-07-11 03:17:17 waiting 72.4s before next action
+2026-07-11 03:18:30 move from=(576,449) target=(1019,214) duration=2.41s
+2026-07-11 03:18:33 waiting 55.3s before next action
+2026-07-11 03:19:28 move from=(1019,214) target=(1076,826) duration=2.72s
+2026-07-11 03:19:31 waiting 125.5s before next action
+2026-07-11 03:21:37 move from=(1076,826) target=(891,637) duration=2.48s
+2026-07-11 03:21:39 waiting 149.1s before next action
+2026-07-11 03:24:09 move from=(891,637) target=(591,844) duration=2.66s
+2026-07-11 03:24:12 waiting 82.0s before next action
+2026-07-11 03:25:34 move from=(591,844) target=(502,665) duration=1.62s
+2026-07-11 03:25:36 waiting 101.7s before next action
+2026-07-11 03:27:18 move from=(502,665) target=(1093,244) duration=1.16s
+2026-07-11 03:27:20 waiting 58.7s before next action
+2026-07-11 03:28:18 move from=(1093,244) target=(433,226) duration=1.00s
+2026-07-11 03:28:20 waiting 62.8s before next action
+2026-07-11 03:29:23 move from=(433,226) target=(1523,600) duration=0.82s
+2026-07-11 03:29:24 waiting 47.4s before next action
+2026-07-11 03:30:12 move from=(1523,600) target=(604,743) duration=2.13s
+2026-07-11 03:30:15 waiting 85.0s before next action
+2026-07-11 03:31:40 move from=(604,743) target=(724,565) duration=0.79s
+2026-07-11 03:31:41 waiting 107.5s before next action
+2026-07-11 03:33:28 move from=(724,565) target=(1476,595) duration=1.15s
+2026-07-11 03:33:30 waiting 136.1s before next action
+2026-07-11 03:35:46 move from=(1476,595) target=(1464,389) duration=1.79s
+2026-07-11 03:35:48 scroll wheel_clicks=1
+2026-07-11 03:35:48 waiting 176.1s before next action
+2026-07-11 03:38:44 move from=(1464,389) target=(642,840) duration=2.06s
+2026-07-11 03:38:47 scroll wheel_clicks=-2
+2026-07-11 03:38:47 waiting 57.8s before next action
+2026-07-11 03:39:45 move from=(642,840) target=(1170,558) duration=2.22s
+2026-07-11 03:39:48 waiting 147.2s before next action
+2026-07-11 03:42:15 move from=(1170,558) target=(273,311) duration=0.96s
+2026-07-11 03:42:17 waiting 152.9s before next action
+2026-07-11 03:44:50 move from=(273,311) target=(1555,752) duration=1.45s
+2026-07-11 03:44:52 waiting 93.4s before next action
+2026-07-11 03:46:25 move from=(1555,752) target=(1549,703) duration=1.57s
+2026-07-11 03:46:27 waiting 55.5s before next action
+2026-07-11 03:47:23 move from=(1549,703) target=(596,697) duration=1.70s
+2026-07-11 03:47:25 scroll wheel_clicks=3
+2026-07-11 03:47:25 waiting 92.3s before next action
+2026-07-11 03:48:58 move from=(596,697) target=(1518,605) duration=2.22s
+2026-07-11 03:49:01 scroll wheel_clicks=-3
+2026-07-11 03:49:01 waiting 59.1s before next action
+2026-07-11 03:50:00 move from=(1518,605) target=(1445,856) duration=1.59s
+2026-07-11 03:50:02 waiting 129.5s before next action
+2026-07-11 03:52:11 move from=(1445,856) target=(455,703) duration=1.15s
+2026-07-11 03:52:13 waiting 132.0s before next action
+2026-07-11 03:54:25 move from=(455,703) target=(949,636) duration=2.36s
+2026-07-11 03:54:28 waiting 108.1s before next action
+2026-07-11 03:56:16 move from=(949,636) target=(1094,838) duration=1.27s
+2026-07-11 03:56:18 waiting 84.5s before next action
+2026-07-11 03:57:42 move from=(1094,838) target=(311,471) duration=2.51s
+2026-07-11 03:57:45 waiting 74.1s before next action
+2026-07-11 03:59:00 move from=(311,471) target=(221,238) duration=1.86s
+2026-07-11 03:59:02 waiting 170.6s before next action
+2026-07-11 04:01:52 move from=(221,238) target=(697,740) duration=1.29s
+2026-07-11 04:01:54 scroll wheel_clicks=1
+2026-07-11 04:01:54 waiting 131.0s before next action
+2026-07-11 04:04:05 move from=(697,740) target=(984,578) duration=1.35s
+2026-07-11 04:04:07 waiting 109.8s before next action
+2026-07-11 04:05:57 move from=(984,578) target=(761,885) duration=0.87s
+2026-07-11 04:05:58 waiting 137.5s before next action
+2026-07-11 04:08:15 move from=(761,885) target=(1133,518) duration=2.07s
+2026-07-11 04:08:18 scroll wheel_clicks=-1
+2026-07-11 04:08:18 waiting 150.9s before next action
+2026-07-11 04:10:49 move from=(1133,518) target=(1458,230) duration=1.14s
+2026-07-11 04:10:50 waiting 72.9s before next action
+2026-07-11 04:12:03 move from=(1458,230) target=(864,151) duration=1.37s
+2026-07-11 04:12:05 waiting 62.7s before next action
+2026-07-11 04:13:08 move from=(864,151) target=(725,896) duration=1.58s
+2026-07-11 04:13:10 scroll wheel_clicks=3
+2026-07-11 04:13:10 waiting 73.6s before next action
+2026-07-11 04:14:24 move from=(725,896) target=(719,462) duration=1.39s
+2026-07-11 04:14:26 scroll wheel_clicks=-2
+2026-07-11 04:14:26 waiting 71.5s before next action
+2026-07-11 04:15:37 move from=(719,462) target=(456,790) duration=0.90s
+2026-07-11 04:15:39 waiting 115.4s before next action
+2026-07-11 04:17:34 move from=(456,790) target=(438,751) duration=1.83s
+2026-07-11 04:17:36 waiting 97.1s before next action
+2026-07-11 04:19:13 move from=(438,751) target=(580,221) duration=1.43s
+2026-07-11 04:19:15 waiting 54.6s before next action
+2026-07-11 04:20:10 move from=(580,221) target=(1550,377) duration=0.96s
+2026-07-11 04:20:11 waiting 80.6s before next action
+2026-07-11 04:21:32 move from=(1550,377) target=(808,795) duration=1.04s
+2026-07-11 04:21:34 scroll wheel_clicks=2
+2026-07-11 04:21:34 waiting 167.6s before next action
+2026-07-11 04:24:21 move from=(808,795) target=(795,283) duration=1.34s
+2026-07-11 04:24:23 waiting 105.9s before next action
+2026-07-11 04:26:09 move from=(795,283) target=(1176,277) duration=1.70s
+2026-07-11 04:26:11 scroll wheel_clicks=2
+2026-07-11 04:26:11 waiting 120.7s before next action
+2026-07-11 04:28:12 move from=(1176,277) target=(572,192) duration=0.66s
+2026-07-11 04:28:13 waiting 83.1s before next action
+2026-07-11 04:29:36 move from=(572,192) target=(1459,396) duration=2.73s
+2026-07-11 04:29:40 waiting 123.8s before next action
+2026-07-11 04:31:43 move from=(1459,396) target=(1105,188) duration=2.34s
+2026-07-11 04:31:46 scroll wheel_clicks=1
+2026-07-11 04:31:46 waiting 120.2s before next action
+2026-07-11 04:33:47 move from=(1105,188) target=(329,874) duration=1.88s
+2026-07-11 04:33:49 waiting 126.3s before next action
+2026-07-11 04:35:56 move from=(329,874) target=(717,343) duration=1.24s
+2026-07-11 04:35:57 waiting 93.8s before next action
+2026-07-11 04:37:31 move from=(717,343) target=(696,347) duration=1.15s
+2026-07-11 04:37:33 waiting 102.0s before next action
+2026-07-11 04:39:15 move from=(696,347) target=(645,437) duration=1.96s
+2026-07-11 04:39:17 waiting 51.4s before next action
+2026-07-11 04:40:08 move from=(645,437) target=(547,647) duration=1.33s
+2026-07-11 04:40:10 waiting 167.0s before next action
+2026-07-11 04:42:57 move from=(547,647) target=(786,624) duration=1.37s
+2026-07-11 04:42:58 scroll wheel_clicks=1
+2026-07-11 04:42:58 waiting 78.4s before next action
+2026-07-11 04:44:17 move from=(786,624) target=(388,641) duration=2.08s
+2026-07-11 04:44:19 waiting 133.7s before next action
+2026-07-11 04:46:33 move from=(388,641) target=(220,754) duration=2.03s
+2026-07-11 04:46:36 waiting 104.1s before next action
+2026-07-11 04:48:20 move from=(220,754) target=(992,175) duration=1.60s
+2026-07-11 04:48:22 waiting 158.4s before next action
+2026-07-11 04:51:01 move from=(992,175) target=(387,516) duration=1.81s
+2026-07-11 04:51:03 waiting 46.1s before next action
+2026-07-11 04:51:49 move from=(387,516) target=(1384,227) duration=1.26s
+2026-07-11 04:51:51 scroll wheel_clicks=-2
+2026-07-11 04:51:51 waiting 52.1s before next action
+2026-07-11 04:52:43 move from=(1384,227) target=(338,408) duration=1.98s
+2026-07-11 04:52:46 waiting 85.3s before next action
+2026-07-11 04:54:12 move from=(338,408) target=(302,239) duration=1.32s
+2026-07-11 04:54:13 waiting 53.2s before next action
+2026-07-11 04:55:07 move from=(302,239) target=(822,488) duration=2.28s
+2026-07-11 04:55:09 waiting 169.1s before next action
+2026-07-11 04:57:59 move from=(822,488) target=(468,164) duration=1.04s
+2026-07-11 04:58:00 waiting 135.5s before next action
+2026-07-11 05:00:16 move from=(468,164) target=(630,374) duration=2.04s
+2026-07-11 05:00:18 scroll wheel_clicks=3
+2026-07-11 05:00:18 waiting 120.1s before next action
+2026-07-11 05:02:18 move from=(630,374) target=(858,452) duration=1.55s
+2026-07-11 05:02:20 waiting 64.7s before next action
+2026-07-11 05:03:25 move from=(858,452) target=(1026,403) duration=0.72s
+2026-07-11 05:03:26 waiting 112.1s before next action
+2026-07-11 05:05:18 move from=(1026,403) target=(863,482) duration=2.51s
+2026-07-11 05:05:20 waiting 47.2s before next action
+2026-07-11 05:06:08 move from=(863,482) target=(1505,166) duration=1.77s
+2026-07-11 05:06:10 waiting 121.7s before next action
+2026-07-11 05:08:12 move from=(1505,166) target=(978,708) duration=1.17s
+2026-07-11 05:08:13 waiting 92.1s before next action
+2026-07-11 05:09:46 move from=(978,708) target=(727,822) duration=0.80s
+2026-07-11 05:09:47 scroll wheel_clicks=-2
+2026-07-11 05:09:47 waiting 106.9s before next action
+2026-07-11 05:11:34 move from=(727,822) target=(1413,766) duration=2.26s
+2026-07-11 05:11:37 waiting 126.7s before next action
+2026-07-11 05:13:43 move from=(1413,766) target=(859,425) duration=1.04s
+2026-07-11 05:13:45 waiting 93.0s before next action
+2026-07-11 05:15:18 move from=(859,425) target=(1060,738) duration=1.39s
+2026-07-11 05:15:20 scroll wheel_clicks=1
+2026-07-11 05:15:20 waiting 131.1s before next action
+2026-07-11 05:17:31 move from=(1060,738) target=(609,826) duration=2.50s
+2026-07-11 05:17:34 waiting 110.0s before next action
+2026-07-11 05:19:24 move from=(609,826) target=(586,184) duration=0.74s
+2026-07-11 05:19:25 waiting 108.9s before next action
+2026-07-11 05:21:14 move from=(586,184) target=(1398,374) duration=2.55s
+2026-07-11 05:21:17 waiting 168.6s before next action
+2026-07-11 05:24:06 move from=(1398,374) target=(449,477) duration=2.24s
+2026-07-11 05:24:09 waiting 148.5s before next action
+2026-07-11 05:26:38 move from=(449,477) target=(613,394) duration=0.93s
+2026-07-11 05:26:39 waiting 103.8s before next action
+2026-07-11 05:28:23 move from=(613,394) target=(1443,287) duration=1.47s
+2026-07-11 05:28:25 waiting 140.9s before next action
+2026-07-11 05:30:46 move from=(1443,287) target=(868,856) duration=2.26s
+2026-07-11 05:30:49 waiting 121.4s before next action
+2026-07-11 05:32:50 move from=(868,856) target=(1520,737) duration=2.00s
+2026-07-11 05:32:52 waiting 92.0s before next action
+2026-07-11 05:34:25 move from=(1520,737) target=(731,163) duration=0.62s
+2026-07-11 05:34:26 waiting 81.7s before next action
+2026-07-11 05:35:48 move from=(731,163) target=(1209,180) duration=1.34s
+2026-07-11 05:35:50 scroll wheel_clicks=1
+2026-07-11 05:35:50 waiting 99.5s before next action
+2026-07-11 05:37:29 move from=(1209,180) target=(1243,700) duration=2.45s
+2026-07-11 05:37:32 scroll wheel_clicks=3
+2026-07-11 05:37:32 waiting 86.8s before next action
+2026-07-11 05:38:59 move from=(1243,700) target=(540,464) duration=0.90s
+2026-07-11 05:39:00 waiting 88.0s before next action
+2026-07-11 05:40:28 move from=(540,464) target=(1203,336) duration=0.75s
+2026-07-11 05:40:29 waiting 111.5s before next action
+2026-07-11 05:42:21 move from=(1203,336) target=(1014,890) duration=0.61s
+2026-07-11 05:42:22 waiting 70.5s before next action
+2026-07-11 05:43:33 move from=(1014,890) target=(627,297) duration=2.75s
+2026-07-11 05:43:36 waiting 73.8s before next action
+2026-07-11 05:44:50 move from=(627,297) target=(1076,652) duration=1.77s
+2026-07-11 05:44:52 scroll wheel_clicks=2
+2026-07-11 05:44:52 waiting 114.0s before next action
+2026-07-11 05:46:46 move from=(1076,652) target=(450,867) duration=1.14s
+2026-07-11 05:46:48 scroll wheel_clicks=3
+2026-07-11 05:46:48 waiting 66.1s before next action
+2026-07-11 05:47:54 move from=(450,867) target=(839,563) duration=1.16s
+2026-07-11 05:47:56 waiting 172.1s before next action
+2026-07-11 05:50:48 move from=(839,563) target=(1201,186) duration=1.41s
+2026-07-11 05:50:50 scroll wheel_clicks=3
+2026-07-11 05:50:50 waiting 57.7s before next action
+2026-07-11 05:51:47 move from=(1201,186) target=(768,176) duration=1.52s
+2026-07-11 05:51:49 waiting 156.9s before next action
+2026-07-11 05:54:26 move from=(768,176) target=(754,316) duration=1.73s
+2026-07-11 05:54:28 waiting 137.6s before next action
+2026-07-11 05:56:46 move from=(754,316) target=(871,289) duration=0.73s
+2026-07-11 05:56:47 scroll wheel_clicks=1
+2026-07-11 05:56:47 waiting 58.9s before next action
+2026-07-11 05:57:46 move from=(871,289) target=(375,547) duration=0.99s
+2026-07-11 05:57:47 waiting 74.8s before next action
+2026-07-11 05:59:02 move from=(375,547) target=(857,507) duration=2.15s
+2026-07-11 05:59:05 waiting 118.1s before next action
+2026-07-11 06:01:03 move from=(857,507) target=(269,282) duration=1.28s
+2026-07-11 06:01:05 scroll wheel_clicks=2
+2026-07-11 06:01:05 waiting 159.0s before next action
+2026-07-11 06:03:44 move from=(269,282) target=(1453,271) duration=1.85s
+2026-07-11 06:03:46 waiting 105.7s before next action
+2026-07-11 06:05:32 move from=(1453,271) target=(324,442) duration=2.04s
+2026-07-11 06:05:35 waiting 52.1s before next action
+2026-07-11 06:06:27 move from=(324,442) target=(1349,301) duration=1.36s
+2026-07-11 06:06:29 scroll wheel_clicks=2
+2026-07-11 06:06:29 waiting 56.7s before next action
+2026-07-11 06:07:26 move from=(1349,301) target=(1381,472) duration=0.83s
+2026-07-11 06:07:27 scroll wheel_clicks=-2
+2026-07-11 06:07:27 waiting 81.8s before next action
+2026-07-11 06:08:49 move from=(1381,472) target=(1095,743) duration=2.29s
+2026-07-11 06:08:51 waiting 172.7s before next action
+2026-07-11 06:11:44 move from=(1095,743) target=(401,224) duration=2.65s
+2026-07-11 06:11:47 scroll wheel_clicks=-1
+2026-07-11 06:11:47 waiting 102.5s before next action
+2026-07-11 06:13:30 move from=(401,224) target=(1461,866) duration=1.08s
+2026-07-11 06:13:32 waiting 85.3s before next action
+2026-07-11 06:14:57 move from=(1461,866) target=(259,619) duration=2.09s
+2026-07-11 06:15:01 waiting 96.6s before next action
+2026-07-11 06:16:37 move from=(259,619) target=(851,714) duration=1.40s
+2026-07-11 06:16:39 waiting 74.9s before next action
+2026-07-11 06:17:54 move from=(851,714) target=(437,442) duration=1.84s
+2026-07-11 06:17:56 waiting 133.3s before next action
+2026-07-11 06:20:10 move from=(437,442) target=(1185,544) duration=1.85s
+2026-07-11 06:20:12 waiting 156.1s before next action
+2026-07-11 06:22:48 move from=(1185,544) target=(821,773) duration=2.18s
+2026-07-11 06:22:51 waiting 51.4s before next action
+2026-07-11 06:23:42 move from=(821,773) target=(1572,730) duration=2.50s
+2026-07-11 06:23:45 waiting 148.1s before next action
+2026-07-11 06:26:14 move from=(1572,730) target=(1130,677) duration=2.79s
+2026-07-11 06:26:17 scroll wheel_clicks=1
+2026-07-11 06:26:17 waiting 153.6s before next action
+2026-07-11 06:28:51 move from=(1130,677) target=(1466,448) duration=2.56s
+2026-07-11 06:28:53 scroll wheel_clicks=1
+2026-07-11 06:28:53 waiting 97.6s before next action
+2026-07-11 06:30:31 move from=(1466,448) target=(1334,181) duration=1.32s
+2026-07-11 06:30:33 waiting 125.2s before next action
+2026-07-11 06:32:38 move from=(1334,181) target=(1580,356) duration=1.86s
+2026-07-11 06:32:40 waiting 100.8s before next action
+2026-07-11 06:34:21 move from=(1580,356) target=(600,843) duration=0.71s
+2026-07-11 06:34:23 waiting 110.4s before next action
+2026-07-11 06:36:13 move from=(600,843) target=(361,216) duration=2.37s
+2026-07-11 06:36:16 waiting 177.5s before next action
+2026-07-11 06:39:14 move from=(361,216) target=(1506,241) duration=1.50s
+2026-07-11 06:39:16 waiting 61.8s before next action
+2026-07-11 06:40:18 move from=(1506,241) target=(1236,506) duration=0.99s
+2026-07-11 06:40:19 waiting 136.1s before next action
+2026-07-11 06:42:36 move from=(1236,506) target=(1286,731) duration=2.44s
+2026-07-11 06:42:38 waiting 65.6s before next action
+2026-07-11 06:43:44 move from=(1286,731) target=(939,681) duration=0.93s
+2026-07-11 06:43:45 waiting 126.2s before next action
+2026-07-11 06:45:51 move from=(939,681) target=(721,216) duration=1.92s
+2026-07-11 06:45:54 waiting 163.3s before next action
+2026-07-11 06:48:37 move from=(721,216) target=(1008,671) duration=0.77s
+2026-07-11 06:48:39 waiting 83.2s before next action
+2026-07-11 06:50:02 move from=(1008,671) target=(1123,216) duration=2.20s
+2026-07-11 06:50:04 waiting 177.1s before next action
+2026-07-11 06:53:02 move from=(1123,216) target=(492,854) duration=1.00s
+2026-07-11 06:53:03 waiting 87.9s before next action
+2026-07-11 06:54:31 move from=(492,854) target=(1273,310) duration=2.52s
+2026-07-11 06:54:35 waiting 123.4s before next action
+2026-07-11 06:56:38 move from=(1273,310) target=(826,897) duration=2.15s
+2026-07-11 06:56:41 waiting 138.5s before next action
+2026-07-11 06:59:00 move from=(826,897) target=(1470,181) duration=1.70s
+2026-07-11 06:59:02 waiting 156.9s before next action
+2026-07-11 07:01:39 move from=(1470,181) target=(419,390) duration=2.05s
+2026-07-11 07:01:42 waiting 147.4s before next action
+2026-07-11 07:04:10 move from=(419,390) target=(266,289) duration=2.05s
+2026-07-11 07:04:12 waiting 77.3s before next action
+2026-07-11 07:05:29 move from=(266,289) target=(204,843) duration=1.89s
+2026-07-11 07:05:31 scroll wheel_clicks=-3
+2026-07-11 07:05:31 waiting 86.8s before next action
+2026-07-11 07:06:58 move from=(204,843) target=(1316,834) duration=1.75s
+2026-07-11 07:07:01 scroll wheel_clicks=-3
+2026-07-11 07:07:01 waiting 76.6s before next action
+2026-07-11 07:08:18 move from=(1316,834) target=(913,225) duration=1.66s
+2026-07-11 07:08:20 scroll wheel_clicks=2
+2026-07-11 07:08:20 waiting 148.9s before next action
+2026-07-11 07:10:49 move from=(913,225) target=(474,246) duration=1.35s
+2026-07-11 07:10:51 scroll wheel_clicks=1
+2026-07-11 07:10:51 waiting 106.4s before next action
+2026-07-11 07:12:37 move from=(474,246) target=(401,603) duration=2.42s
+2026-07-11 07:12:40 waiting 130.5s before next action
+2026-07-11 07:14:51 move from=(401,603) target=(699,325) duration=1.38s
+2026-07-11 07:14:52 scroll wheel_clicks=-2
+2026-07-11 07:14:52 waiting 105.7s before next action
+2026-07-11 07:16:38 move from=(699,325) target=(227,279) duration=0.85s
+2026-07-11 07:16:40 waiting 64.5s before next action
+2026-07-11 07:17:44 move from=(227,279) target=(1026,680) duration=1.68s
+2026-07-11 07:17:46 scroll wheel_clicks=-1
+2026-07-11 07:17:46 waiting 163.6s before next action
+2026-07-11 07:20:30 move from=(1026,680) target=(884,230) duration=1.46s
+2026-07-11 07:20:32 scroll wheel_clicks=-3
+2026-07-11 07:20:32 waiting 95.7s before next action
+2026-07-11 07:22:08 move from=(884,230) target=(704,655) duration=1.33s
+2026-07-11 07:22:09 waiting 155.6s before next action
+2026-07-11 07:24:45 move from=(704,655) target=(913,694) duration=2.68s
+2026-07-11 07:24:48 waiting 100.1s before next action
+2026-07-11 07:26:28 move from=(913,694) target=(358,302) duration=0.77s
+2026-07-11 07:26:30 scroll wheel_clicks=2
+2026-07-11 07:26:30 waiting 177.5s before next action
+2026-07-11 07:29:27 move from=(358,302) target=(418,863) duration=0.70s
+2026-07-11 07:29:28 waiting 130.9s before next action
+2026-07-11 07:31:39 move from=(418,863) target=(539,588) duration=2.50s
+2026-07-11 07:31:42 waiting 164.3s before next action
+2026-07-11 07:34:27 move from=(539,588) target=(340,794) duration=0.62s
+2026-07-11 07:34:27 waiting 109.2s before next action
+2026-07-11 07:36:17 move from=(340,794) target=(761,332) duration=2.24s
+2026-07-11 07:36:19 waiting 91.0s before next action
+2026-07-11 07:37:51 move from=(1435,823) target=(1149,502) duration=1.52s
+2026-07-11 07:37:52 scroll wheel_clicks=-2
+2026-07-11 07:37:52 waiting 108.0s before next action
+2026-07-11 07:39:41 move from=(1149,502) target=(1095,307) duration=1.09s
+2026-07-11 07:39:42 scroll wheel_clicks=2
+2026-07-11 07:39:42 waiting 108.1s before next action
+2026-07-11 07:41:30 move from=(1095,307) target=(847,239) duration=0.84s
+2026-07-11 07:41:31 waiting 70.1s before next action
+2026-07-11 07:42:41 move from=(847,239) target=(298,324) duration=2.09s
+2026-07-11 07:42:44 waiting 176.3s before next action
+2026-07-11 07:45:40 move from=(1121,835) target=(890,685) duration=2.62s
+2026-07-11 07:45:43 waiting 85.6s before next action
+2026-07-11 07:47:09 move from=(1160,1006) target=(732,171) duration=2.64s
+2026-07-11 07:47:12 waiting 80.6s before next action
+2026-07-11 07:48:33 move from=(138,287) target=(644,463) duration=2.64s
+2026-07-11 07:48:36 scroll wheel_clicks=3
+2026-07-11 07:48:36 waiting 60.8s before next action
+2026-07-11 07:49:37 move from=(644,463) target=(1082,843) duration=2.08s
+2026-07-11 07:49:39 scroll wheel_clicks=3
+2026-07-11 07:49:39 waiting 146.9s before next action
+2026-07-11 07:52:06 move from=(833,1004) target=(475,214) duration=2.64s
+2026-07-11 07:52:10 waiting 153.8s before next action
+2026-07-11 07:54:43 move from=(475,214) target=(792,291) duration=0.73s
+2026-07-11 07:54:45 waiting 55.2s before next action
+2026-07-11 07:55:40 move from=(792,291) target=(1256,744) duration=2.22s
+2026-07-11 07:55:43 waiting 95.9s before next action
+2026-07-11 07:57:19 move from=(1256,744) target=(1379,162) duration=2.06s
+2026-07-11 07:57:22 waiting 93.7s before next action
+2026-07-11 07:58:55 move from=(1379,162) target=(1315,425) duration=1.02s
+2026-07-11 07:58:57 waiting 128.2s before next action
+2026-07-11 08:01:05 move from=(1161,995) target=(351,233) duration=2.18s
+2026-07-11 08:01:08 scroll wheel_clicks=2
+2026-07-11 08:01:08 waiting 90.3s before next action
+2026-07-11 08:02:38 move from=(351,233) target=(1132,654) duration=2.06s
+2026-07-11 08:02:41 waiting 82.2s before next action
+2026-07-11 08:04:04 move from=(1132,654) target=(563,552) duration=2.20s
+2026-07-11 08:04:06 waiting 60.3s before next action
+2026-07-11 08:05:07 move from=(563,552) target=(890,656) duration=1.74s
+2026-07-11 08:05:09 scroll wheel_clicks=-3
+2026-07-11 08:05:09 waiting 90.7s before next action
+2026-07-11 08:06:39 move from=(890,656) target=(759,324) duration=1.75s
+2026-07-11 08:06:42 waiting 162.1s before next action
+2026-07-11 08:09:24 move from=(759,324) target=(260,852) duration=0.89s
+2026-07-11 08:09:25 scroll wheel_clicks=1
+2026-07-11 08:09:25 waiting 66.2s before next action
+2026-07-11 08:10:32 move from=(260,852) target=(706,535) duration=2.75s
+2026-07-11 08:10:35 scroll wheel_clicks=1
+2026-07-11 08:10:35 waiting 85.6s before next action
+2026-07-11 08:12:01 move from=(706,535) target=(375,515) duration=2.19s
+2026-07-11 08:12:03 waiting 137.7s before next action
+2026-07-11 08:14:21 move from=(375,515) target=(280,275) duration=2.47s
+2026-07-11 08:14:23 scroll wheel_clicks=-2
+2026-07-11 08:14:23 waiting 166.2s before next action
+2026-07-11 08:17:10 move from=(280,275) target=(960,571) duration=0.95s
+2026-07-11 08:17:11 waiting 119.2s before next action
+2026-07-11 08:19:10 move from=(960,571) target=(421,575) duration=1.18s
+2026-07-11 08:19:12 waiting 155.9s before next action
+2026-07-11 08:21:48 move from=(421,575) target=(279,576) duration=1.55s
+2026-07-11 08:21:50 waiting 175.6s before next action
+2026-07-11 08:24:45 move from=(279,576) target=(973,389) duration=0.96s
+2026-07-11 08:24:47 waiting 82.5s before next action
+2026-07-11 08:26:09 move from=(973,389) target=(875,864) duration=0.97s
+2026-07-11 08:26:11 scroll wheel_clicks=-1
+2026-07-11 08:26:11 waiting 88.7s before next action
+2026-07-11 08:27:40 move from=(875,864) target=(636,730) duration=1.76s
+2026-07-11 08:27:42 waiting 128.8s before next action
+2026-07-11 08:29:51 move from=(636,730) target=(1044,615) duration=2.18s
+2026-07-11 08:29:53 waiting 147.0s before next action
+2026-07-11 08:32:20 move from=(1044,615) target=(1395,334) duration=1.15s
+2026-07-11 08:32:22 waiting 143.0s before next action
+2026-07-11 08:34:45 move from=(1395,334) target=(676,419) duration=2.67s
+2026-07-11 08:34:49 scroll wheel_clicks=-3
+2026-07-11 08:34:49 waiting 167.2s before next action
+2026-07-11 08:37:36 move from=(676,419) target=(525,838) duration=1.71s
+2026-07-11 08:37:38 scroll wheel_clicks=-1
+2026-07-11 08:37:38 waiting 133.3s before next action
+2026-07-11 08:39:52 move from=(525,838) target=(1012,165) duration=1.13s
+2026-07-11 08:39:53 waiting 115.9s before next action
+2026-07-11 08:41:49 move from=(1734,686) target=(651,462) duration=1.56s
+2026-07-11 08:41:52 waiting 125.4s before next action
+2026-07-11 08:43:57 move from=(994,648) target=(410,471) duration=1.07s
+2026-07-11 08:43:59 scroll wheel_clicks=1
+2026-07-11 08:43:59 waiting 141.9s before next action
+2026-07-11 08:46:21 move from=(471,837) target=(859,637) duration=0.72s
+2026-07-11 08:46:22 waiting 172.7s before next action
+2026-07-11 08:49:15 move from=(930,733) target=(919,405) duration=1.28s
+2026-07-11 08:49:16 waiting 103.3s before next action
+2026-07-11 08:51:00 move from=(919,405) target=(945,868) duration=2.28s
+2026-07-11 08:51:03 waiting 99.6s before next action
+2026-07-11 08:52:42 move from=(945,868) target=(687,436) duration=0.69s
+2026-07-11 08:52:43 waiting 176.8s before next action
+2026-07-11 08:55:40 move from=(687,436) target=(403,862) duration=1.90s
+2026-07-11 08:55:42 waiting 175.9s before next action
+2026-07-11 08:58:39 move from=(403,862) target=(563,475) duration=0.74s
+2026-07-11 08:58:40 scroll wheel_clicks=-1
+2026-07-11 08:58:40 waiting 97.7s before next action
+2026-07-11 09:00:18 move from=(563,475) target=(522,234) duration=2.57s
+2026-07-11 09:00:20 waiting 101.4s before next action
+2026-07-11 09:02:02 move from=(522,234) target=(659,684) duration=1.12s
+2026-07-11 09:02:03 scroll wheel_clicks=-1
+2026-07-11 09:02:03 waiting 77.6s before next action
+2026-07-11 09:03:21 move from=(659,684) target=(250,217) duration=1.35s
+2026-07-11 09:03:23 scroll wheel_clicks=3
+2026-07-11 09:03:23 waiting 111.5s before next action
+2026-07-11 09:05:15 move from=(250,217) target=(492,739) duration=2.19s
+2026-07-11 09:05:17 waiting 79.4s before next action
+2026-07-11 09:06:37 move from=(689,679) target=(614,198) duration=1.35s
+2026-07-11 09:06:39 scroll wheel_clicks=2
+2026-07-11 09:06:39 waiting 62.1s before next action
+2026-07-11 09:07:41 move from=(702,705) target=(1380,484) duration=1.11s
+2026-07-11 09:07:42 waiting 45.6s before next action
+2026-07-11 09:08:28 move from=(551,866) target=(451,416) duration=2.60s
+2026-07-11 09:08:31 waiting 122.6s before next action
+2026-07-11 09:10:34 move from=(917,815) target=(766,733) duration=2.12s
+2026-07-11 09:10:36 waiting 97.1s before next action
+2026-07-11 09:12:14 move from=(766,733) target=(903,832) duration=1.87s
+2026-07-11 09:12:16 waiting 165.0s before next action
+2026-07-11 09:15:01 move from=(764,742) target=(1383,896) duration=2.17s
+2026-07-11 09:15:04 waiting 78.7s before next action
+2026-07-11 09:16:22 move from=(921,821) target=(1319,654) duration=1.62s
+2026-07-11 09:16:24 waiting 112.3s before next action
+2026-07-11 09:18:17 move from=(1319,654) target=(487,666) duration=1.43s
+2026-07-11 09:18:19 waiting 148.6s before next action
+2026-07-11 09:20:47 move from=(795,620) target=(1550,727) duration=2.42s
+2026-07-11 09:20:50 scroll wheel_clicks=-1
+2026-07-11 09:20:50 waiting 61.2s before next action
+2026-07-11 09:21:52 move from=(1289,979) target=(1142,734) duration=2.35s
+2026-07-11 09:21:54 scroll wheel_clicks=-2
+2026-07-11 09:21:54 waiting 74.4s before next action
+2026-07-11 09:23:09 move from=(400,589) target=(1458,261) duration=2.41s
+2026-07-11 09:23:12 scroll wheel_clicks=-3
+2026-07-11 09:23:12 waiting 103.1s before next action
+2026-07-11 09:24:56 move from=(1458,261) target=(1138,712) duration=1.63s
+2026-07-11 09:24:58 waiting 70.5s before next action
+2026-07-11 09:26:08 move from=(984,885) target=(1386,604) duration=2.63s
+2026-07-11 09:26:11 waiting 117.1s before next action
+2026-07-11 09:28:09 move from=(634,546) target=(1128,701) duration=1.48s
+2026-07-11 09:28:10 waiting 108.9s before next action
+2026-07-11 09:29:59 move from=(1125,932) target=(1330,682) duration=1.11s
+2026-07-11 09:30:01 waiting 152.1s before next action
+2026-07-11 09:32:33 move from=(1211,425) target=(298,852) duration=1.25s
+2026-07-11 09:32:35 waiting 49.9s before next action
+2026-07-11 09:33:25 move from=(298,852) target=(1310,582) duration=2.14s
+2026-07-11 09:33:28 scroll wheel_clicks=-1
+2026-07-11 09:33:28 waiting 174.6s before next action
+2026-07-11 09:36:23 move from=(1019,904) target=(1275,587) duration=1.05s
+2026-07-11 09:36:24 waiting 86.9s before next action
+2026-07-11 09:37:51 move from=(1057,926) target=(1101,372) duration=1.37s
+2026-07-11 09:37:53 scroll wheel_clicks=2
+2026-07-11 09:37:53 waiting 174.0s before next action
+2026-07-11 09:40:47 move from=(984,836) target=(1522,612) duration=0.71s
+2026-07-11 09:40:48 waiting 149.9s before next action
+2026-07-11 09:43:18 move from=(1522,612) target=(433,590) duration=1.38s
+2026-07-11 09:43:20 waiting 68.9s before next action
+2026-07-11 09:44:29 move from=(857,314) target=(1449,473) duration=1.36s
+2026-07-11 09:44:31 waiting 169.2s before next action
+2026-07-11 09:47:21 move from=(870,832) target=(1177,895) duration=0.93s
+2026-07-11 09:47:22 waiting 71.8s before next action
+2026-07-11 09:48:34 move from=(1177,895) target=(1166,534) duration=1.06s
+2026-07-11 09:48:35 scroll wheel_clicks=-3
+2026-07-11 09:48:35 waiting 76.0s before next action
+2026-07-11 09:49:51 move from=(1166,534) target=(1471,690) duration=1.34s
+2026-07-11 09:49:53 waiting 45.7s before next action
+2026-07-11 09:50:39 move from=(1471,690) target=(344,397) duration=1.39s
+2026-07-11 09:50:41 waiting 155.8s before next action
+2026-07-11 09:53:17 move from=(344,397) target=(1009,447) duration=1.75s
+2026-07-11 09:53:19 waiting 62.4s before next action
+2026-07-11 09:54:21 move from=(1009,447) target=(814,825) duration=0.94s
+2026-07-11 09:54:23 waiting 106.9s before next action
+2026-07-11 09:56:10 move from=(814,825) target=(873,813) duration=0.71s
+2026-07-11 09:56:10 waiting 93.3s before next action
+2026-07-11 09:57:44 move from=(826,295) target=(383,670) duration=2.80s
+2026-07-11 09:57:47 waiting 98.2s before next action
+2026-07-11 09:59:25 move from=(383,670) target=(1252,284) duration=2.73s
+2026-07-11 09:59:29 waiting 167.5s before next action
+2026-07-11 10:02:17 move from=(1521,676) target=(1286,559) duration=2.41s
+2026-07-11 10:02:19 waiting 131.8s before next action
+2026-07-11 10:04:31 move from=(762,909) target=(1467,794) duration=1.67s
+2026-07-11 10:04:33 scroll wheel_clicks=3
+2026-07-11 10:04:33 waiting 106.6s before next action
+2026-07-11 10:06:20 move from=(799,908) target=(224,324) duration=2.49s
+2026-07-11 10:06:23 waiting 52.2s before next action
+2026-07-11 10:07:15 move from=(876,284) target=(934,306) duration=0.94s
+2026-07-11 10:07:16 waiting 70.4s before next action
+2026-07-11 10:08:27 move from=(960,466) target=(919,657) duration=2.54s
+2026-07-11 10:08:30 waiting 74.9s before next action
+2026-07-11 10:09:45 move from=(1201,715) target=(1385,272) duration=1.14s
+2026-07-11 10:09:47 waiting 110.0s before next action
+2026-07-11 10:11:37 move from=(1794,24) target=(684,302) duration=0.85s
+2026-07-11 10:11:38 waiting 64.8s before next action
+2026-07-11 10:12:43 move from=(1156,667) target=(873,502) duration=1.10s
+2026-07-11 10:12:44 waiting 45.4s before next action
+2026-07-11 10:12:58 Stopped by Ctrl+Alt+Esc or top-left fail-safe.
+2026-07-11 10:13:08 starting desktop activity runner dry_run=False once=False
+2026-07-11 10:13:08 stop with Ctrl+Alt+Esc, or move the cursor to the top-left corner
+2026-07-11 10:13:08 move from=(418,543) target=(798,676) duration=1.53s
+2026-07-11 10:13:10 waiting 47.5s before next action
+2026-07-11 10:13:57 move from=(360,104) target=(341,396) duration=1.30s
+2026-07-11 10:13:59 scroll wheel_clicks=-2
+2026-07-11 10:13:59 waiting 164.8s before next action
+2026-07-11 10:16:44 move from=(1361,875) target=(426,693) duration=1.46s
+2026-07-11 10:16:46 waiting 97.0s before next action
+2026-07-11 10:18:23 move from=(719,324) target=(1060,836) duration=1.46s
+2026-07-11 10:18:25 scroll wheel_clicks=2
+2026-07-11 10:18:25 waiting 93.1s before next action
+2026-07-11 10:19:58 move from=(1243,608) target=(1054,453) duration=0.78s
+2026-07-11 10:19:59 waiting 63.8s before next action
+2026-07-11 10:21:03 move from=(1369,627) target=(216,765) duration=1.44s
+2026-07-11 10:21:05 waiting 143.4s before next action
+2026-07-11 10:23:29 move from=(1291,811) target=(367,159) duration=2.36s
+2026-07-11 10:23:32 scroll wheel_clicks=3
+2026-07-11 10:23:32 waiting 168.1s before next action
+2026-07-11 10:26:20 move from=(780,358) target=(809,818) duration=2.36s
+2026-07-11 10:26:23 waiting 146.1s before next action
+2026-07-11 10:28:49 move from=(1183,356) target=(1055,838) duration=1.04s
+2026-07-11 10:28:51 waiting 160.5s before next action
+2026-07-11 10:31:31 move from=(77,302) target=(1193,511) duration=1.90s
+2026-07-11 10:31:34 waiting 172.7s before next action
+2026-07-11 10:34:27 move from=(850,105) target=(677,753) duration=1.52s
+2026-07-11 10:34:29 scroll wheel_clicks=-2
+2026-07-11 10:34:29 waiting 150.7s before next action
+2026-07-11 10:37:00 move from=(1207,227) target=(1136,166) duration=2.53s
+2026-07-11 10:37:02 waiting 128.9s before next action

@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIP管理 查看会员 成员数量 - 最终测试报告</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9dee7;
+      --ok: #14804a;
+      --warn: #b54708;
+      --fail: #b42318;
+      --info: #175cd3;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    header, section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    header { margin-top: 0; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: #344054;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .pass { background: #f6fef9; color: var(--ok); font-weight: 700; }
+    .closed { background: #eff8ff; color: var(--info); font-weight: 700; }
+    .risk { background: #fff7e6; color: var(--warn); font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    a { color: var(--info); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      color: #101828;
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    figure {
+      margin: 10px 0 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    img { display: block; width: 100%; height: auto; }
+    figcaption { padding: 8px 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcfd;
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .card span { color: var(--muted); }
+    @media (max-width: 860px) {
+      main { width: min(100% - 24px, 1180px); margin-top: 18px; }
+      .summary { grid-template-columns: 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 7px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>VIP管理 / 查看会员 / 成员数量 - 最终测试报告</h1>
+    <div class="meta">
+      <span class="chip">需求路径：福利中心 / VIP管理 / 查看会员</span>
+      <span class="chip">后台路由：#/member/level</span>
+      <span class="chip">环境：BX/7788 UAT 后台</span>
+      <span class="chip">报告日期：2026-07-09</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>最终结论</h2>
+    <div class="summary">
+      <div class="card"><strong class="pass">通过</strong><span>当前需求可关闭</span></div>
+      <div class="card"><strong>0</strong><span>当前未关闭 Bug</span></div>
+      <div class="card"><strong>1</strong><span>已修复并回归通过</span></div>
+      <div class="card"><strong>1</strong><span>产品接受为非 Bug</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>需求点摘要</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>需求点</th>
+          <th>验收口径</th>
+          <th>测试结论</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VIP 等级列表</td>
+          <td>列表按 VIP 等级从低到高展示，读取 VIP 配置。</td>
+          <td><span class="chip pass">通过</span></td>
+        </tr>
+        <tr>
+          <td>成员数量展示</td>
+          <td>展示该 VIP 等级下成员数量；数量大于 0 时允许点击查看成员。</td>
+          <td><span class="chip pass">通过</span></td>
+        </tr>
+        <tr>
+          <td>成员数量为 0</td>
+          <td>0 时不可点击，点击不应出现成员明细弹框。</td>
+          <td><span class="chip pass">通过，已回归修复</span></td>
+        </tr>
+        <tr>
+          <td>VIP 名称与 grade 映射</td>
+          <td>产品/后端确认 VIP0 对应 grade=1、VIP1 对应 grade=2；列表可展示 grade 数字，弹框可展示 VIP 名称。</td>
+          <td><span class="chip closed">非 Bug，产品接受</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>执行范围</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>测试入口</th>
+          <td>后台：<code>http://site.bx-tytest.xyz/#/member/level</code></td>
+        </tr>
+        <tr>
+          <th>业务路径</th>
+          <td>福利中心 / VIP管理 / 查看会员</td>
+        </tr>
+        <tr>
+          <th>执行方式</th>
+          <td>人工测试 + Multica 对照测试 + 修复后 Multica 回归验证。</td>
+        </tr>
+        <tr>
+          <th>操作边界</th>
+          <td>只做低敏只读导航、查看、点击成员数量和截图；未执行保存、提交、删除、审批、导出、充值、提现、奖励发放或会员状态变更。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>问题处理结论</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>问题</th>
+          <th>来源</th>
+          <th>最终处理</th>
+          <th>是否需要回归</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BUG-001</td>
+          <td>成员数量为 0 时仍显示为可点击状态，点击后可能弹出成员明细。</td>
+          <td>人工测试 + Multica 对照测试</td>
+          <td><span class="chip pass">已修复，回归通过</span></td>
+          <td>已回归，无需继续阻塞。</td>
+        </tr>
+        <tr>
+          <td>Q-001</td>
+          <td>列表展示 grade 数字，弹框展示 VIP 名称，看起来存在等级少 1。</td>
+          <td>人工测试 + Multica 对照测试 + 后端反馈</td>
+          <td><span class="chip closed">产品/后端接受，非 Bug</span></td>
+          <td>不需要回归。</td>
+        </tr>
+        <tr>
+          <td>新增问题</td>
+          <td>无第三个独立问题。</td>
+          <td>Multica 对照结果复核</td>
+          <td><span class="chip pass">无新增</span></td>
+          <td>不需要。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>回归证据</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>检查点</th>
+          <th>结果</th>
+          <th>证据</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0 成员数量样式</td>
+          <td>VIP10 成员数量 0 为普通文本样式，无 link / pointer / button。</td>
+          <td>
+            <figure>
+              <img src="../multica-runs/vip-member-count-regression-20260709/evidence/regression-02-vip10-zero-visible-before-click.png" alt="回归证据：VIP10 成员数量 0 为普通文本样式">
+              <figcaption>回归证据：点击前，VIP10 成员数量 0 不再呈现可点击样式。</figcaption>
+            </figure>
+          </td>
+        </tr>
+        <tr>
+          <td>0 成员数量点击行为</td>
+          <td>点击 VIP10 的 0 后未打开成员明细弹框。</td>
+          <td>
+            <figure>
+              <img src="../multica-runs/vip-member-count-regression-20260709/evidence/regression-03-vip10-zero-after-click.png" alt="回归证据：点击 VIP10 成员数量 0 后未弹框">
+              <figcaption>回归证据：点击后仍停留在列表，未出现成员明细弹框。</figcaption>
+            </figure>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>测试用例结果</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>用例 ID</th>
+          <th>规则</th>
+          <th>验证点</th>
+          <th>结果</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TC-001</td>
+          <td>查看会员入口</td>
+          <td>进入福利中心 / VIP管理 / 查看会员，列表可见 VIP 等级和成员数量。</td>
+          <td><span class="chip pass">通过</span></td>
+        </tr>
+        <tr>
+          <td>TC-002</td>
+          <td>非 0 成员数量</td>
+          <td>成员数量大于 0 的行可点击查看成员明细。</td>
+          <td><span class="chip pass">通过</span></td>
+        </tr>
+        <tr>
+          <td>TC-003</td>
+          <td>0 成员数量样式</td>
+          <td>成员数量为 0 时不显示为蓝色 link / button，鼠标不为 pointer。</td>
+          <td><span class="chip pass">通过</span></td>
+        </tr>
+        <tr>
+          <td>TC-004</td>
+          <td>0 成员数量点击</td>
+          <td>点击成员数量 0 后不弹出成员明细。</td>
+          <td><span class="chip pass">通过</span></td>
+        </tr>
+        <tr>
+          <td>TC-005</td>
+          <td>VIP 名称与 grade 映射</td>
+          <td>VIP0=grade1、VIP1=grade2 的展示差异按产品/后端口径接受。</td>
+          <td><span class="chip closed">非 Bug</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>残余风险</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>数据覆盖</th>
+          <td>本次回归覆盖当前页面可见的 0 成员数量行 VIP10。若后续其他 VIP 等级也出现 0，建议按同一规则纳入常规回归。</td>
+        </tr>
+        <tr>
+          <th>只读边界</th>
+          <td>本次未制造新会员数据，也未修改 VIP 配置；结论基于 UAT 当前数据状态。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>关联产物</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>Bug 去重与状态整理</th>
+          <td><a href="vip-member-count-bug-triage.html">vip-member-count-bug-triage.html</a></td>
+        </tr>
+        <tr>
+          <th>Multica 回归报告</th>
+          <td><a href="../multica-runs/vip-member-count-regression-20260709/regression-report.html">../multica-runs/vip-member-count-regression-20260709/regression-report.html</a></td>
+        </tr>
+        <tr>
+          <th>历史人工 Bug 单</th>
+          <td><a href="vip-member-count-bug-tickets.html">vip-member-count-bug-tickets.html</a></td>
+        </tr>
+        <tr>
+          <th>历史 Multica 对照 Bug 单</th>
+          <td><a href="../multica-runs/vip-member-count-squad-check/bug-tickets.html">../multica-runs/vip-member-count-squad-check/bug-tickets.html</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

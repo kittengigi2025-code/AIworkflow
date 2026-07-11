@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA 测试军团</title>
+  <style>
+    :root {
+      --bg:#f6f7f9; --panel:#fff; --text:#1f2937; --line:#d9dee7;
+      --ok:#14804a; --warn:#b54708; --info:#175cd3; --chip:#eef2f6;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif; }
+    main { width:min(1180px, calc(100% - 40px)); margin:28px auto 48px; }
+    h1,h2 { margin:0; line-height:1.25; }
+    h1 { font-size:28px; }
+    h2 { font-size:18px; margin-bottom:10px; }
+    section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; margin-top:14px; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chip { display:inline-flex; align-items:center; min-height:24px; padding:2px 9px; border-radius:999px; background:var(--chip); color:#344054; font-size:12px; white-space:nowrap; }
+    table { width:100%; border-collapse:collapse; }
+    th,td { border-top:1px solid var(--line); padding:10px 9px; text-align:left; vertical-align:top; }
+    th { border-top:0; background:#fafbfc; color:#475467; font-size:12px; white-space:nowrap; }
+    code { background:#eef2f6; border:1px solid #d8dde6; border-radius:5px; padding:1px 5px; font-family:Consolas,Menlo,monospace; font-size:12px; }
+    .ok { color:var(--ok); font-weight:700; }
+    .warn { color:var(--warn); font-weight:700; }
+    .info { color:var(--info); font-weight:700; }
+    ul { margin:8px 0 0; padding-left:20px; }
+    li { margin:4px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>QA 测试军团</h1>
+    <div class="meta">
+      <span class="chip">Multica Squad：QA测试军团</span>
+      <span class="chip">Squad ID：8862a723-d93c-461a-b0e4-9c62cc212e9f</span>
+      <span class="chip">最后更新：2026-07-09</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>核心原则</h2>
+    <table>
+      <tr><th>原则</th><th>说明</th></tr>
+      <tr><td>疑问先行</td><td>需求规则不清楚时，先由需求澄清员输出阻塞问题，不带着问题执行。</td></tr>
+      <tr><td>只读执行</td><td>浏览器执行只做导航、查询、详情、弹框、截图；不保存、不提交、不导出、不改业务状态。</td></tr>
+      <tr><td>复验门禁</td><td class="warn">测试报告和 Bug 单发布前，必须经过测试复验专家抽查；高风险结论必须复验。</td></tr>
+      <tr><td>HTML 交付</td><td>正式结果统一输出 HTML：测试报告、Bug 单、关闭说明、回归报告、台账。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>小队成员</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>角色</th>
+          <th>Agent</th>
+          <th>ID</th>
+          <th>职责</th>
+          <th>是否可并行</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>指挥</td>
+          <td>QA测试指挥官</td>
+          <td><code>9afef00f-d328-45ad-bc59-494eb051a014</code></td>
+          <td>拆解任务、分派角色、汇总结果，最终决定是否发布。</td>
+          <td class="warn">串行收口</td>
+        </tr>
+        <tr>
+          <td>资源管理</td>
+          <td>QA资源管理员</td>
+          <td><code>9c9a79be-994c-4b71-a858-ce12e80479b4</code></td>
+          <td>维护前后台地址、需求文档、测试账号边界、输出目录和下载包位置。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>需求澄清</td>
+          <td>QA需求澄清员</td>
+          <td><code>07969174-0bc4-4c45-824f-594941a9b791</code></td>
+          <td>抽取需求事实，只提出会影响通过/失败判断的阻塞问题。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>测试设计</td>
+          <td>QA测试设计员</td>
+          <td><code>b32c4fdf-d35e-4bdf-9975-8e379582a102</code></td>
+          <td>把验收规则转成测试用例、边界场景和证据要求。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>浏览器执行</td>
+          <td>QA浏览器执行员</td>
+          <td><code>0a8624cf-11dd-467c-9f9c-782fd11c4fc5</code></td>
+          <td>执行只读页面操作、截图、记录实际结果。登录/验证码交给用户或主 Agent。</td>
+          <td class="warn">单线程</td>
+        </tr>
+        <tr>
+          <td>缺陷单</td>
+          <td>QA缺陷单撰写员</td>
+          <td><code>cf7e6f9b-84e0-423e-aa25-2902079ac7f7</code></td>
+          <td>把确认失败整理成开发可执行 Bug 单，包含步骤、期望、实际、影响和截图。</td>
+          <td class="ok">可并行</td>
+        </tr>
+        <tr>
+          <td>测试复验</td>
+          <td>QA测试复验专家</td>
+          <td><code>193cfbd2-8e73-4f62-bd13-9fad079b4f70</code></td>
+          <td>对小队结论做第二道门禁：复验 Bug、回归、未复现、非 Bug、证据和台账状态，识别误报、漏报和旧结论传播。</td>
+          <td class="warn">关键结论前串行</td>
+        </tr>
+        <tr>
+          <td>台账维护</td>
+          <td>QA台账维护员</td>
+          <td><code>1dbd5d51-4d1f-4a61-bfcf-426a850cc99e</code></td>
+          <td>更新 qa-index、首页、下载包和当前状态，确保旧报告不再作为当前入口。</td>
+          <td class="ok">可并行，发布前收口</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>复验专家介入规则</h2>
+    <table>
+      <thead>
+        <tr><th>场景</th><th>复验动作</th><th>输出</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>新增 Bug</td>
+          <td>复查需求依据、复现步骤、截图证据、操作命中点、网络/环境瞬时状态可能性。</td>
+          <td>通过 / 需补证 / 推翻 Bug。</td>
+        </tr>
+        <tr>
+          <td>回归通过或失败</td>
+          <td>抽查失败点或修复点是否真正覆盖，确认报告、Bug 单、台账状态一致。</td>
+          <td>回归复验报告 HTML。</td>
+        </tr>
+        <tr>
+          <td>未复现</td>
+          <td>确认是否真的覆盖原复现路径；不能只因为一次没看到就关闭。</td>
+          <td>未复现说明或继续观察建议。</td>
+        </tr>
+        <tr>
+          <td>产品/后端接受为非 Bug</td>
+          <td>检查是否有明确口径，报告中是否把非 Bug 和残余风险分开。</td>
+          <td>口径确认记录。</td>
+        </tr>
+        <tr>
+          <td>站点/台账发布</td>
+          <td>检查首页、台账、内部看板、脱敏看板、下载包是否使用同一结论。</td>
+          <td>发布前门禁结论。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>标准流转</h2>
+    <table>
+      <thead>
+        <tr><th>阶段</th><th>负责人</th><th>通过条件</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>需求输入</td><td>资源管理员 + 需求澄清员</td><td>需求来源、路径、验收规则、阻塞问题清楚。</td></tr>
+        <tr><td>用例设计</td><td>测试设计员</td><td>覆盖核心业务闭环、边界和证据点。</td></tr>
+        <tr><td>只读执行</td><td>浏览器执行员 / 主 Agent</td><td>结果有截图或页面证据，禁止操作未越界。</td></tr>
+        <tr><td>缺陷整理</td><td>缺陷单撰写员</td><td>Bug 单可直接给开发复现。</td></tr>
+        <tr><td>复验门禁</td><td>测试复验专家</td><td>高风险结论通过复验，误报/漏报已处理。</td></tr>
+        <tr><td>发布归档</td><td>台账维护员</td><td>HTML 报告、台账、首页、下载包状态一致。</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

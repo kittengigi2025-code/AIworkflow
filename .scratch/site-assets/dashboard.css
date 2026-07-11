@@ -1,0 +1,167 @@
+:root {
+  --bg: #f5f7fb;
+  --panel: #fff;
+  --text: #172033;
+  --muted: #5f6b7a;
+  --line: #d9e0ea;
+  --blue: #155eef;
+  --green: #087443;
+  --red: #b42318;
+  --orange: #b54708;
+  --gray: #eef2f6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, #eaf0f8 0, #f5f7fb 260px);
+  color: var(--text);
+  font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+}
+
+main { width: min(1320px, calc(100% - 40px)); margin: 24px auto 48px; }
+header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 18px 18px 16px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+h1, h2 { margin: 0; line-height: 1.25; }
+h1 { font-size: 30px; }
+h2 { font-size: 18px; margin-bottom: 12px; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 14px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+.sub { color: var(--muted); margin-top: 6px; }
+.section-heading {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.section-heading h2 { margin-bottom: 0; }
+.stats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.stat { border: 1px solid var(--line); border-radius: 8px; padding: 13px 12px; background: #fbfcff; }
+.stat strong { display: block; font-size: 24px; line-height: 1.1; }
+.stat span { color: var(--muted); font-size: 12px; }
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+input, select {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 9px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+table { width: 100%; border-collapse: collapse; }
+th, td { border-top: 1px solid var(--line); padding: 11px 10px; text-align: left; vertical-align: top; }
+th { border-top: 0; background: #f8fafc; color: #475467; font-size: 12px; white-space: nowrap; }
+tbody tr:hover { background: #fbfdff; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #eff4ff;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.passed { color: var(--green); background: #ecfdf3; }
+.blocked { color: var(--orange); background: #fff7e6; }
+.bug { color: var(--red); background: #fff1f0; }
+.testing { color: var(--blue); background: #eff4ff; }
+.muted { color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 3px 9px;
+  border: 1px solid #b7c7e6;
+  border-radius: 6px;
+  background: #f7faff;
+  color: var(--blue);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.btn.download { border-color: #b7dfc7; background: #f6fef9; color: var(--green); }
+.columns { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+.dashboard-columns section { margin-top: 0; }
+
+code {
+  background: #eef2f6;
+  border: 1px solid #d8dde6;
+  border-radius: 5px;
+  padding: 1px 5px;
+  font-family: Consolas, Menlo, monospace;
+  font-size: 12px;
+}
+
+.error {
+  border-color: #f5b5af;
+  background: #fff7f6;
+  color: var(--red);
+}
+
+@media (max-width: 1000px) {
+  main { width: min(100% - 24px, 1320px); }
+  header { display: block; }
+  .section-heading { display: block; }
+  .section-heading .btn { margin-top: 10px; }
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .toolbar { grid-template-columns: 1fr; }
+  .columns { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  table { font-size: 13px; }
+  th, td { padding: 8px 7px; }
+}

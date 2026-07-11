@@ -1,0 +1,40 @@
+请 QA测试军团独立测试这个需求，并把结果输出为本地 HTML，最后在 issue 评论里给出结论和产物路径。
+
+目标：验证 BX/7788 UAT 后台【VIP管理 / 查看会员 / 成员数量】需求。
+
+测试资源：
+- H5 前台：https://99.bx-1234.xyz/#/dashboard/game
+- 后台：http://site.bx-tytest.xyz
+- 后台路径：福利中心 / VIP管理 / 查看会员
+- 后台路由：#/member/level
+- 站点：巴西站-测试
+- 商户：888
+- 需求文档：https://z91jq0.axshare.com
+- 本地资源卡片：D:\gaming-platform-qa\.scratch\test-resources.html
+- 本地 QA 台账：D:\gaming-platform-qa\.scratch\qa-index.html
+
+需求规则：
+1. VIP 列表按照 VIP 等级从低到高显示。
+2. VIP 等级读取 VIP 配置，例如 VIP1 显示 1，VIP2 显示 2。
+3. 成员数量显示该 VIP 等级下的会员数量。
+4. 成员数量为非 0 时，数字应显示为蓝色且可点击。
+5. 点击非 0 成员数量后，弹出查看会员弹框。
+6. 弹框应展示该 VIP 等级里所有状态的会员。
+7. 成员数量为 0 时，不可点击，点击不应出现弹框。
+
+执行要求：
+1. 先由 QA资源管理员确认资源卡片是否完整。
+2. 再由 QA需求澄清员判断是否存在阻塞疑问；若有疑问，先停下并输出产品问题。
+3. 若无阻塞疑问，再做测试设计和浏览器执行。
+4. 浏览器执行只允许普通页面内容和低敏只读交互；不处理密码、验证码、OTP，不做保存、提交、删除、审批、导出、提现、充值、奖励发放等敏感或不可逆操作。
+5. 如果需要登录态，直接说明需要人工准备登录态，不要尝试处理账号密码或验证码。
+6. 发现问题时保存截图证据，并生成开发可读的 HTML Bug 单。
+7. 输出目录建议使用：D:\gaming-platform-qa\.scratch\multica-runs\vip-member-count-squad-check\
+
+交付物：
+- test-report.html
+- bug-tickets.html（如果有 bug）
+- evidence/ 截图目录
+- 在 issue 评论里总结：测试结论、发现的问题、残余风险、HTML 文件路径。
+
+请独立判断，不要引用现有测试报告里的结论。

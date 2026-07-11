@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIP管理查看会员 - Bug单</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9dee7;
+      --fail: #b42318;
+      --warn: #b54708;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1080px, calc(100% - 40px)); margin: 28px auto 48px; }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 16px;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 28px; letter-spacing: 0; }
+    h2 { font-size: 20px; margin-bottom: 10px; }
+    h3 { font-size: 15px; margin: 14px 0 6px; }
+    p { margin: 0 0 10px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .ticket { border-left: 4px solid var(--fail); }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: #344054;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      min-width: 96px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--fail);
+      color: #fff;
+      font-weight: 700;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      width: 132px;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+      border-top: 0;
+    }
+    code {
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    ol, ul { margin: 8px 0 0; padding-left: 20px; }
+    li { margin: 4px 0; }
+    figure {
+      margin: 10px 0 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+    img { display: block; width: 100%; height: auto; }
+    figcaption {
+      padding: 8px 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .note {
+      border-left: 4px solid var(--warn);
+      background: #fffaf3;
+    }
+    @media print {
+      body { background: #fff; }
+      main { width: 100%; margin: 0; }
+      section { break-inside: avoid; }
+    }
+    @media (max-width: 760px) {
+      main { width: min(100% - 24px, 1080px); margin-top: 18px; }
+      header { grid-template-columns: 1fr; }
+      th { width: 96px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>VIP管理查看会员 - Bug单</h1>
+      <div class="meta">
+        <span class="chip">项目：BX / 7788 UAT</span>
+        <span class="chip">模块：福利中心 / VIP管理 / 查看会员</span>
+        <span class="chip">路由：#/member/level</span>
+        <span class="chip">测试账号：t0lle01</span>
+        <span class="chip">日期：2026-07-08</span>
+      </div>
+    </div>
+    <div class="status">2 个问题</div>
+  </header>
+
+  <section class="ticket">
+    <h2>BUG-001：成员数量为 0 时仍显示为蓝色可点击样式</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>建议级别</th>
+          <td>P1</td>
+        </tr>
+        <tr>
+          <th>影响范围</th>
+          <td>VIP管理 / 查看会员 / 成员数量列</td>
+        </tr>
+        <tr>
+          <th>前置条件</th>
+          <td>后台已登录，进入 <code>福利中心 / VIP管理 / 查看会员</code>，当前站点为 <code>巴西站-测试</code>，商户号 <code>888</code>。</td>
+        </tr>
+        <tr>
+          <th>复现步骤</th>
+          <td>
+            <ol>
+              <li>进入 <code>福利中心 / VIP管理</code>。</li>
+              <li>切换到 <code>查看会员</code> tab。</li>
+              <li>查看 VIP10 行的成员数量。</li>
+              <li>观察成员数量 <code>0</code> 的样式，并点击该数字。</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <th>期望结果</th>
+          <td>成员数量为 <code>0</code> 时不可点击，不应表现为蓝色 link 或手型指针，点击后不出现查看会员弹框。</td>
+        </tr>
+        <tr>
+          <th>实际结果</th>
+          <td>
+            VIP10 成员数量为 <code>0</code>，点击后确实不出现弹框；但该数字仍使用 <code>ant-btn ant-btn-link</code>，
+            颜色为 <code>rgb(24, 144, 255)</code>，鼠标指针为 <code>pointer</code>，视觉上仍像可点击入口。
+          </td>
+        </tr>
+        <tr>
+          <th>证据截图</th>
+          <td>
+            <figure>
+              <img src="evidence/bug-001-vip10-zero-link.png" alt="VIP10 成员数量为 0 但显示为蓝色可点击样式">
+              <figcaption>VIP10 成员数量为 0，仍显示为蓝色 link 样式。</figcaption>
+            </figure>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="ticket">
+    <h2>BUG-002：成员明细弹框顶部 VIP等级筛选值与被点击等级不一致</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>建议级别</th>
+          <td>P1</td>
+        </tr>
+        <tr>
+          <th>影响范围</th>
+          <td>VIP管理 / 查看会员 / 成员明细弹框</td>
+        </tr>
+        <tr>
+          <th>前置条件</th>
+          <td>后台已登录，进入 <code>福利中心 / VIP管理 / 查看会员</code>，当前站点为 <code>巴西站-测试</code>，商户号 <code>888</code>。</td>
+        </tr>
+        <tr>
+          <th>复现步骤</th>
+          <td>
+            <ol>
+              <li>进入 <code>福利中心 / VIP管理 / 查看会员</code>。</li>
+              <li>点击 VIP1 的成员数量。</li>
+              <li>观察成员明细弹框顶部 <code>VIP等级</code> 筛选值和表格行内 <code>VIP等级</code>。</li>
+              <li>关闭弹框。</li>
+              <li>点击 VIP2 的成员数量。</li>
+              <li>再次观察成员明细弹框顶部 <code>VIP等级</code> 筛选值和表格行内 <code>VIP等级</code>。</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <th>期望结果</th>
+          <td>弹框顶部 <code>VIP等级</code> 筛选值应与被点击的 VIP 等级一致。例如点击 VIP2，筛选值应显示 VIP2 或等级 2。</td>
+        </tr>
+        <tr>
+          <th>实际结果</th>
+          <td>
+            点击 VIP1 成员数量，弹框行内 <code>VIP等级 = 1</code>，但顶部筛选显示 <code>VIP0</code>。<br>
+            点击 VIP2 成员数量，弹框行内 <code>VIP等级 = 2</code>，但顶部筛选显示 <code>VIP1</code>。<br>
+            列表数据未观察到串用，但筛选展示值与当前等级错位。
+          </td>
+        </tr>
+        <tr>
+          <th>证据截图</th>
+          <td>
+            <figure>
+              <img src="evidence/bug-002-vip2-filter-mismatch.png" alt="VIP2 成员明细弹框顶部筛选显示 VIP1 但行内 VIP等级为 2">
+              <figcaption>点击 VIP2，弹框顶部显示 VIP1，行内 VIP等级为 2。</figcaption>
+            </figure>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="note">
+    <h2>备注</h2>
+    <p>
+      这份 HTML 是单独给开发流转的 bug 单。完整测试过程和用例结果仍保留在
+      <code>vip-member-count-test-report.html</code>。
+    </p>
+  </section>
+</main>
+</body>
+</html>

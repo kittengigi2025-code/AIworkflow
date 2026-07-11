@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>VIP管理 查看会员 成员数量 - 测试执行报告</title>
+  <style>
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; color: #1f2933; background: #f5f7fa; }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 22px; margin: 0 0 12px; }
+    h2 { font-size: 18px; margin: 28px 0 12px; }
+    .meta, section { background: #fff; border: 1px solid #d9e2ec; border-radius: 6px; padding: 16px; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { border: 1px solid #d9e2ec; padding: 8px 10px; vertical-align: top; font-size: 13px; }
+    th { background: #eef2f7; text-align: left; }
+    .pass { color: #0f7b45; font-weight: 700; }
+    .fail { color: #b42318; font-weight: 700; }
+    .risk { color: #8a5a00; font-weight: 700; }
+    .blocked { color: #615400; font-weight: 700; }
+    img { max-width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; margin-top: 8px; }
+    code { background: #eef2f7; padding: 1px 4px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>VIP管理 / 查看会员 / 成员数量 - 测试执行报告</h1>
+  <div class="meta">
+    <table>
+      <tr><th>执行时间</th><td>2026-07-08 16:41 CST</td></tr>
+      <tr><th>后台</th><td>http://site.bx-tytest.xyz/#/member/level</td></tr>
+      <tr><th>路径</th><td>福利中心 / VIP管理 / 查看会员</td></tr>
+      <tr><th>站点 / 商户</th><td>巴西站-测试 / 888</td></tr>
+      <tr><th>执行边界</th><td>仅做低敏只读导航、列表查看、弹框打开/关闭与截图；未执行保存、提交、删除、审批、导出、充值、提现、奖励发放、会员状态变更。</td></tr>
+      <tr><th>登录态</th><td>Chrome 已存在后台登录态，可执行。</td></tr>
+      <tr><th>结论</th><td class="fail">未通过。发现 2 个前端行为缺陷，需要缺陷单撰写员介入。</td></tr>
+    </table>
+  </div>
+
+  <section>
+    <h2>需求点摘要</h2>
+    <table>
+      <tr><th>编号</th><th>需求规则</th><th>执行结论</th></tr>
+      <tr><td>R1</td><td>VIP 列表按照 VIP 等级从低到高显示。</td><td class="pass">通过：当前列表显示 1 到 12，顺序升序。</td></tr>
+      <tr><td>R2</td><td>VIP 等级读取 VIP 配置，例如 VIP1 显示 1、VIP2 显示 2。</td><td class="pass">列表通过：VIP等级列显示 1、2、3 ... 12。</td></tr>
+      <tr><td>R3</td><td>成员数量显示该 VIP 等级下的会员数量。</td><td class="risk">部分可见验证：列表有成员数量；弹框数据与列表等级存在显示错位，影响数量一致性判断。</td></tr>
+      <tr><td>R4</td><td>成员数量非 0 时，数字蓝色且可点击。</td><td class="pass">通过：非 0 数量为蓝色按钮，鼠标指针为 pointer，可打开成员明细。</td></tr>
+      <tr><td>R5</td><td>点击非 0 成员数量后，弹出查看会员弹框。</td><td class="fail">不通过：可弹框，但 VIP1 的成员明细筛选显示为 VIP0，等级上下文错误。</td></tr>
+      <tr><td>R6</td><td>弹框应展示该 VIP 等级里所有状态的会员。</td><td class="risk">受限：弹框表格未展示会员状态字段，仅可验证可见会员行的 VIP等级列。</td></tr>
+      <tr><td>R7</td><td>成员数量为 0 时，不可点击，点击不应出现弹框。</td><td class="fail">不通过：VIP10 成员数量 0 仍为蓝色 pointer 按钮，点击后出现成员明细弹框。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>已完成观察</h2>
+    <table>
+      <tr><th>观察项</th><th>实际结果</th><th>证据</th></tr>
+      <tr>
+        <td>列表初始状态</td>
+        <td>页面路径正确，站点为巴西站-测试，商户号 888。VIP 列表显示 1-12，共 12 条。</td>
+        <td><img src="evidence/execution-02b-vip-list-after-close.png" alt="VIP列表"></td>
+      </tr>
+      <tr>
+        <td>非 0 成员数量</td>
+        <td>VIP1 成员数量 458 为蓝色按钮，可点击打开成员明细；弹框内会员行 VIP等级列为 1，但筛选区显示 VIP0。</td>
+        <td><img src="evidence/execution-03b-click-vip1-458-modal.png" alt="点击VIP1成员数量后弹框"></td>
+      </tr>
+      <tr>
+        <td>0 成员数量</td>
+        <td>VIP10 成员数量 0 为蓝色 pointer 按钮。</td>
+        <td><img src="evidence/execution-04c-vip10-zero-visible-before-click.png" alt="VIP10 0成员数量可见"></td>
+      </tr>
+      <tr>
+        <td>点击 0 成员数量</td>
+        <td>点击 VIP10 的 0 后打开成员明细弹框，弹框筛选区显示 VIP9 且暂无数据。</td>
+        <td><img src="evidence/execution-04d-vip10-zero-after-click.png" alt="点击VIP10 0成员数量后弹框"></td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>发现的问题</h2>
+    <table>
+      <tr><th>ID</th><th>标题</th><th>严重性建议</th><th>影响</th></tr>
+      <tr><td>BUG-001</td><td>查看会员弹框 VIP 等级筛选显示比列表等级小 1</td><td>Major</td><td>用户难以确认当前查看的 VIP 等级，影响成员明细与数量一致性的判断。</td></tr>
+      <tr><td>BUG-002</td><td>成员数量为 0 仍显示为可点击蓝色按钮，点击后弹出成员明细</td><td>Major</td><td>违反 0 不可点击且不弹框的验收规则。</td></tr>
+    </table>
+    <p>开发可读缺陷单见 <a href="bug-tickets.html">bug-tickets.html</a>。</p>
+  </section>
+
+  <section>
+    <h2>测试用例结果</h2>
+    <table>
+      <tr><th>用例</th><th>检查点</th><th>结果</th><th>说明</th></tr>
+      <tr><td>TC-01</td><td>VIP 等级升序</td><td class="pass">通过</td><td>可见列表为 1-12 升序。</td></tr>
+      <tr><td>TC-02</td><td>VIP 等级显示口径</td><td class="fail">部分失败</td><td>列表显示正确；弹框筛选显示存在 off-by-one。</td></tr>
+      <tr><td>TC-03</td><td>非 0 数量样式与点击</td><td class="fail">部分失败</td><td>蓝色可点击通过；弹框等级上下文错误。</td></tr>
+      <tr><td>TC-04</td><td>0 数量样式与点击</td><td class="fail">失败</td><td>0 仍蓝色可点击，且点击后出现弹框。</td></tr>
+      <tr><td>TC-05</td><td>成员明细展示该等级会员</td><td class="risk">受限</td><td>可见会员行 VIP等级与点击等级一致，但筛选区显示错位；页面未提供状态字段，无法确认“所有状态”。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>残余风险</h2>
+    <table>
+      <tr><th>风险</th><th>说明</th></tr>
+      <tr><td>全状态会员无法完全验收</td><td>成员明细表未展示会员状态字段，也未提供可读状态筛选或后台数据基准；只能确认可见会员行等级。</td></tr>
+      <tr><td>数量总数一致性未完全验收</td><td>VIP1 列表数量为 458，弹框分页仅显示 50 条/页；受弹框等级显示错位影响，未继续做全页计数。</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

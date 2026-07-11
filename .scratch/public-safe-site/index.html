@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA 测试成果展示</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --line: #d9e0ea;
+      --blue: #155eef;
+      --green: #087443;
+      --red: #b42318;
+      --orange: #b54708;
+      --chip: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1120px, calc(100% - 40px)); margin: 30px auto 52px; }
+    h1, h2, h3 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 18px; margin-bottom: 12px; }
+    h3 { font-size: 16px; margin: 0 0 6px; }
+    p { margin: 6px 0; }
+    header { margin-bottom: 16px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .sub { color: var(--muted); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcff;
+    }
+    .stat strong { display: block; font-size: 24px; margin-bottom: 2px; }
+    .stat span { color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--chip);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .ok { color: var(--green); background: #ecfdf3; }
+    .fail { color: var(--red); background: #fff1f0; }
+    .warn { color: var(--orange); background: #fff7e6; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcff;
+      padding: 12px;
+    }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    li { margin: 4px 0; }
+    @media (max-width: 900px) {
+      main { width: min(100% - 24px, 1120px); margin-top: 18px; }
+      .stats, .cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .stats, .cards { grid-template-columns: 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 7px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>QA 测试成果展示</h1>
+    <p class="sub">面向外部可见的脱敏版报告：展示测试工作、质量发现和交付结果，不包含系统地址、账号、人员姓名、内部截图或原始缺陷包。</p>
+    <p class="sub">更新时间：2026-07-09</p>
+  </header>
+
+  <section>
+    <h2>工作总览</h2>
+    <div class="stats">
+      <div class="stat"><strong>2</strong><span>已验证需求</span></div>
+      <div class="stat"><strong>13</strong><span>设计/执行检查点</span></div>
+      <div class="stat"><strong>2</strong><span>已完成回归判断</span></div>
+      <div class="stat"><strong>0</strong><span>有效待修复缺陷</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>需求测试进展</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>需求</th>
+          <th>覆盖范围</th>
+          <th>状态</th>
+          <th>结论</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VIP 管理成员数量展示与明细查看</td>
+          <td>列表展示、成员数量点击、空数据状态、弹框数据一致性、回归验证。</td>
+          <td><span class="tag ok">已关闭</span></td>
+          <td>原有效缺陷已修复并回归通过；另一个争议点经产品/后端确认后按业务规则关闭。</td>
+        </tr>
+        <tr>
+          <td>VIP 管理新增查看会员 Tab</td>
+          <td>Tab 展示、会员明细、筛选参数、空数据、弹框关闭、列表状态恢复。</td>
+          <td><span class="tag ok">已通过</span></td>
+          <td>原疑似交互问题经复测未复现：空数据状态下弹框可通过可见关闭入口和键盘关闭，已按误报/瞬时状态关闭。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>测试方法沉淀</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>需求先澄清</h3>
+        <p>先抽取需求规则和验收口径，只把会影响通过/失败判断的问题提交给产品确认。</p>
+      </div>
+      <div class="card">
+        <h3>按业务闭环测试</h3>
+        <p>围绕入口、数据展示、明细查看、筛选、空状态、关闭返回和回归路径设计用例。</p>
+      </div>
+      <div class="card">
+        <h3>缺陷独立交付</h3>
+        <p>有效问题单独形成缺陷说明，包含影响、步骤、期望、实际、证据和回归重点。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>质量发现</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>类型</th>
+          <th>影响</th>
+          <th>处理状态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>疑似交互状态问题</td>
+          <td>曾观察到空数据明细弹框关闭异常；复测确认可关闭，归类为误报/瞬时状态。</td>
+          <td><span class="tag ok">复测关闭</span></td>
+        </tr>
+        <tr>
+          <td>规则口径争议</td>
+          <td>显示字段与命名口径需要产品/后端确认，避免误报。</td>
+          <td><span class="tag ok">已确认关闭</span></td>
+        </tr>
+        <tr>
+          <td>历史有效缺陷</td>
+          <td>成员数量为 0 时仍呈现可点击状态，容易误导用户。</td>
+          <td><span class="tag ok">已修复回归</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>交付产物</h2>
+    <ul>
+      <li>需求规则摘要与疑问门禁，避免带着不确定规则执行测试。</li>
+      <li>按业务闭环整理的测试用例与执行记录。</li>
+      <li>疑似缺陷的关闭说明和回归证据。</li>
+      <li>本地 QA 台账与报告归档，支持后续复盘和复用。</li>
+      <li>Multica 协作流程验证：适合做需求提炼、用例设计、缺陷整理；浏览器实操和最终判定仍需要主流程把关。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

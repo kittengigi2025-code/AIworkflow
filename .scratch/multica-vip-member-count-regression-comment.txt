@@ -1,0 +1,26 @@
+[@QA测试指挥官](mention://agent/9afef00f-d328-45ad-bc59-494eb051a014) 请重新启动 WS-11 的回归流程。
+
+最新处理结论：
+1. 前端反馈 BUG-001 已修复：成员数量为 0 时不应显示可点击样式，点击不应打开查看会员弹框。
+2. 后端/产品确认 Q-001 维持现状，不作为 bug：VIP0 对应 grade=1，VIP1 对应 grade=2，弹框展示 VIP 名称、列表展示 grade 数字属于产品接受口径。
+
+本次只回归 BUG-001：
+- 进入后台：福利中心 / VIP管理 / 查看会员，路由 #/member/level。
+- 找到成员数量为 0 的 VIP 行，例如 VIP10。
+- 验证 0 是否不再为蓝色 link / pointer / 可点击按钮。
+- 点击 0，确认不打开成员明细/查看会员弹框。
+- 若仍可点击或弹框，回归失败并截图。
+- 若已修复，回归通过，并更新本地 HTML 台账与 Bug 整理页。
+
+Q-001 不再作为缺陷回归，仅在报告里标记为产品接受/非 bug。
+
+禁止处理密码、验证码、OTP；如后台无登录态，请回复阻塞项，不要尝试登录。
+
+输出目录：
+D:\gaming-platform-qa\.scratch\multica-runs\vip-member-count-regression-20260709\
+
+交付物：
+- regression-report.html
+- evidence/ 截图目录
+- 更新 D:\gaming-platform-qa\.scratch\bx-7788-activity-qa\vip-member-count-bug-triage.html
+- 更新 D:\gaming-platform-qa\.scratch\qa-index.html

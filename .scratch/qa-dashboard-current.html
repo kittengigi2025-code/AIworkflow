@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=qa-dashboard-app.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA Dashboard</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #fff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --line: #d9e0ea;
+      --blue: #155eef;
+      --green: #087443;
+      --red: #b42318;
+      --orange: #b54708;
+      --gray: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1280px, calc(100% - 40px)); margin: 28px auto 48px; }
+    header { display: flex; gap: 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 16px; }
+    h1, h2 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 18px; margin-bottom: 12px; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .sub { color: var(--muted); margin-top: 6px; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcff;
+    }
+    .stat strong { display: block; font-size: 24px; line-height: 1.1; }
+    .stat span { color: var(--muted); font-size: 12px; }
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    input, select {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px 9px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--gray);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .passed { color: var(--green); background: #ecfdf3; }
+    .blocked { color: var(--orange); background: #fff7e6; }
+    .bug { color: var(--red); background: #fff1f0; }
+    .testing { color: var(--blue); background: #eff4ff; }
+    .muted { color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 3px 9px;
+      border: 1px solid #b7c7e6;
+      border-radius: 6px;
+      background: #f7faff;
+      color: var(--blue);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .btn.download { border-color: #b7dfc7; background: #f6fef9; color: var(--green); }
+    .columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+    code {
+      background: #eef2f6;
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, Menlo, monospace;
+      font-size: 12px;
+    }
+    @media (max-width: 1000px) {
+      main { width: min(100% - 24px, 1280px); }
+      header { display: block; }
+      .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .toolbar { grid-template-columns: 1fr; }
+      .columns { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 7px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>QA Dashboard</h1>
+      <div class="sub">需求越多，这里越应该是第一入口：看状态、找报告、追回归、证明工作量。最后更新：2026-07-09。</div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="qa-home.html">文档中心</a>
+      <a class="btn" href="qa-index.html">完整台账</a>
+      <a class="btn" href="qa-legion-current.html">测试军团</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>总览</h2>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section>
+    <h2>需求列表</h2>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="搜索需求、路径、结论、标签">
+      <select id="statusFilter" aria-label="状态筛选">
+        <option value="all">全部状态</option>
+        <option value="passed">通过</option>
+        <option value="has-bug">有缺陷</option>
+        <option value="waiting-regression">待回归</option>
+        <option value="blocked">阻塞</option>
+      </select>
+      <select id="moduleFilter" aria-label="模块筛选">
+        <option value="all">全部模块</option>
+      </select>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th>需求</th>
+          <th>模块路径</th>
+          <th>状态</th>
+          <th>问题</th>
+          <th>复验</th>
+          <th>结论摘要</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="requirementRows"></tbody>
+    </table>
+  </section>
+
+  <div class="columns">
+    <section>
+      <h2>当前关注</h2>
+      <table>
+        <thead>
+          <tr><th>类型</th><th>内容</th><th>入口</th></tr>
+        </thead>
+        <tbody id="attentionRows"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>下载与分享</h2>
+      <table>
+        <thead>
+          <tr><th>包</th><th>用途</th><th>下载</th></tr>
+        </thead>
+        <tbody id="packageRows"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <section>
+    <h2>Dashboard 维护规则</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>新需求</th>
+          <td>只新增一条需求记录，必须有：日期、需求名、模块路径、状态、报告入口、结论摘要。</td>
+        </tr>
+        <tr>
+          <th>有 Bug</th>
+          <td>Bug 单独成 HTML；Dashboard 只展示数量、最高级别、当前处理状态和入口。</td>
+        </tr>
+        <tr>
+          <th>复验门禁</th>
+          <td>凡是新增 Bug、回归通过/失败、未复现、非 Bug 关闭，都必须有复验结论，避免误报传播。</td>
+        </tr>
+        <tr>
+          <th>分享</th>
+          <td>项目组内网看完整 Dashboard；Lark 汇报贴脱敏展示版；开发只收对应 Bug/关闭包。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script>
+const requirements = [
+  {
+    date: "2026-07-08",
+    title: "VIP管理 / 查看会员 / 成员数量",
+    module: "福利中心 / VIP管理 / 查看会员",
+    status: "passed",
+    statusText: "通过",
+    issues: "0（BUG-001 已修复；Q-001 产品接受）",
+    verification: "回归通过",
+    summary: "成员数量 0 不再呈现可点击态；VIP 名称与 grade 展示差异按产品/后端口径关闭为非 Bug。",
+    tags: ["VIP管理", "成员数量", "回归"],
+    links: [
+      ["最终报告", "bx-7788-activity-qa/vip-member-count-final-test-report.html"],
+      ["Bug整理", "bx-7788-activity-qa/vip-member-count-bug-triage.html"],
+      ["下载归档包", "packages/vip-member-count-final-report-package-20260709.zip", "download"]
+    ]
+  },
+  {
+    date: "2026-07-09",
+    title: "【站点】VIP管理增加查看会员 Tab",
+    module: "福利中心 / VIP管理 / 查看会员",
+    status: "passed",
+    statusText: "通过",
+    issues: "0（BUG-IND-001 复验未复现，关闭为误报/瞬时状态）",
+    verification: "复验通过",
+    summary: "空数据查询后点击可见 X 和按 ESC 均可关闭弹框；关闭后返回查看会员列表。",
+    tags: ["VIP管理", "查看会员Tab", "复验", "误报关闭"],
+    links: [
+      ["原测试报告", "multica-runs/vip-member-tab-independent-20260709/test-report.html"],
+      ["回归报告", "multica-runs/vip-member-tab-regression-20260709/regression-report.html"],
+      ["关闭说明", "multica-runs/vip-member-tab-regression-20260709/bug-ind-001-close-note.html"],
+      ["下载完整包 v2", "packages/vip-member-tab-full-test-package-20260709-v2.zip", "download"]
+    ]
+  }
+];
+
+const packages = [
+  ["成员数量最终报告包", "归档给产品/测试查看", "packages/vip-member-count-final-report-package-20260709.zip"],
+  ["BUG-IND-001 关闭包", "说明误报关闭依据，适合发给开发/产品", "packages/vip-member-tab-bug-ind-001-close-package-20260709.zip"],
+  ["查看会员 Tab 完整测试包 v2", "包含原测试、复验报告和证据", "packages/vip-member-tab-full-test-package-20260709-v2.zip"],
+  ["内部站点包 v2", "用于迁移或内网共享整个展示站", "packages/qa-public-site-20260709-v2.zip"]
+];
+
+function statusClass(status) {
+  if (status === "passed") return "passed";
+  if (status === "has-bug") return "bug";
+  if (status === "waiting-regression" || status === "blocked") return "blocked";
+  return "testing";
+}
+
+function renderStats(items) {
+  const total = items.length;
+  const passed = items.filter(item => item.status === "passed").length;
+  const hasBug = items.filter(item => item.status === "has-bug").length;
+  const waitingRegression = items.filter(item => item.status === "waiting-regression").length;
+  const closedIssues = 3;
+  const packagesCount = packages.length;
+  const stats = [
+    [total, "需求总数"],
+    [passed, "已通过"],
+    [hasBug, "有效待修复 Bug"],
+    [waitingRegression, "待回归"],
+    [closedIssues, "已关闭问题/争议"],
+    [packagesCount, "下载包"]
+  ];
+  document.getElementById("stats").innerHTML = stats.map(([value, label]) => (
+    `<div class="stat"><strong>${value}</strong><span>${label}</span></div>`
+  )).join("");
+}
+
+function renderModules() {
+  const select = document.getElementById("moduleFilter");
+  [...new Set(requirements.map(item => item.module))].forEach(module => {
+    const option = document.createElement("option");
+    option.value = module;
+    option.textContent = module;
+    select.appendChild(option);
+  });
+}
+
+function renderRows() {
+  const search = document.getElementById("search").value.trim().toLowerCase();
+  const status = document.getElementById("statusFilter").value;
+  const module = document.getElementById("moduleFilter").value;
+  const rows = requirements.filter(item => {
+    const haystack = [item.title, item.module, item.statusText, item.issues, item.verification, item.summary, item.tags.join(" ")].join(" ").toLowerCase();
+    return (status === "all" || item.status === status) &&
+      (module === "all" || item.module === module) &&
+      (!search || haystack.includes(search));
+  });
+  document.getElementById("requirementRows").innerHTML = rows.map(item => `
+    <tr>
+      <td>${item.date}</td>
+      <td><strong>${item.title}</strong><div class="muted">${item.tags.map(tag => `<span class="tag">${tag}</span>`).join(" ")}</div></td>
+      <td>${item.module}</td>
+      <td><span class="tag ${statusClass(item.status)}">${item.statusText}</span></td>
+      <td>${item.issues}</td>
+      <td>${item.verification}</td>
+      <td>${item.summary}</td>
+      <td><div class="actions">${item.links.map(([label, href, kind]) => `<a class="btn ${kind === "download" ? "download" : ""}" href="${href}" ${kind === "download" ? "download" : ""}>${label}</a>`).join("")}</div></td>
+    </tr>
+  `).join("");
+}
+
+function renderAttention() {
+  const rows = [
+    ["当前有效 Bug", "0 个。当前没有开发待处理缺陷。", "qa-index.html"],
+    ["复验门禁", "BUG-IND-001 已复验关闭，说明复验专家角色必要。", "multica-runs/vip-member-tab-regression-20260709/regression-report.html"],
+    ["下一步流程", "新增需求时先走疑问闸门，再测试设计、执行、复验、台账发布。", "qa-legion-current.html"]
+  ];
+  document.getElementById("attentionRows").innerHTML = rows.map(([type, content, href]) => `
+    <tr><td>${type}</td><td>${content}</td><td><a href="${href}">查看</a></td></tr>
+  `).join("");
+}
+
+function renderPackages() {
+  document.getElementById("packageRows").innerHTML = packages.map(([name, purpose, href]) => `
+    <tr><td>${name}</td><td>${purpose}</td><td><a class="btn download" href="${href}" download>下载</a></td></tr>
+  `).join("");
+}
+
+renderStats(requirements);
+renderModules();
+renderRows();
+renderAttention();
+renderPackages();
+document.getElementById("search").addEventListener("input", renderRows);
+document.getElementById("statusFilter").addEventListener("change", renderRows);
+document.getElementById("moduleFilter").addEventListener("change", renderRows);
+</script>
+</body>
+</html>

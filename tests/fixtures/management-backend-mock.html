@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UAT Management Backend — VIP Management</title>
+    <style>
+      body { font-family: sans-serif; margin: 0; padding: 16px; background: #f5f6fa; }
+      .header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+      .header h1 { font-size: 18px; margin: 0; }
+      .badge { background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+      .tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 2px solid #e0e0e0; }
+      .tab { padding: 8px 16px; cursor: pointer; font-size: 14px; border: none; background: none; }
+      .tab.active { border-bottom: 2px solid #1a73e8; color: #1a73e8; font-weight: 600; }
+      .vip-list { display: flex; gap: 8px; margin-bottom: 16px; }
+      .vip-btn { padding: 8px 16px; border: 1px solid #ccc; border-radius: 4px; background: #fff; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+      .vip-btn .count { background: #e8f0fe; color: #1a73e8; padding: 1px 6px; border-radius: 3px; font-size: 12px; }
+      .vip-btn.active { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+      .vip-btn.active .count { background: rgba(255,255,255,0.2); color: #fff; }
+      .vip-btn.zero .count { color: #999; }
+      .toolbar { display: flex; gap: 8px; margin-bottom: 12px; align-items: center; }
+      .search-box { padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; width: 200px; }
+      .refresh-btn { padding: 6px 12px; border: 1px solid #ccc; border-radius: 4px; background: #fff; cursor: pointer; font-size: 14px; }
+      .member-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 4px; overflow: hidden; }
+      .member-table th, .member-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+      .member-table th { background: #f0f0f0; font-weight: 600; }
+      .total-row { font-weight: 600; }
+      .empty-state { text-align: center; padding: 24px; color: #999; }
+      .pagination { display: flex; gap: 4px; margin-top: 12px; align-items: center; }
+      .page-btn { padding: 4px 10px; border: 1px solid #ccc; border-radius: 3px; background: #fff; cursor: pointer; font-size: 13px; }
+      .page-btn.active { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+      .page-btn:disabled { opacity: 0.4; cursor: default; }
+      .filter-display { font-size: 13px; color: #555; }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>VIP Management</h1>
+      <span class="badge" data-testid="uat-env">UAT</span>
+      <span class="badge" data-testid="merchant-scope">merchant-7788</span>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="vip-summary" data-testid="tab-vip-summary">VIP Summary</button>
+      <button class="tab" data-tab="view-members" data-testid="tab-view-members">View Members</button>
+    </div>
+
+    <div class="vip-list" id="vip-buttons"></div>
+
+    <div class="toolbar" id="toolbar" style="display:none;">
+      <input type="text" class="search-box" id="search-input" placeholder="Search username..." data-testid="search-input" />
+      <button class="refresh-btn" id="refresh-btn" data-testid="refresh-btn">Refresh</button>
+      <span class="filter-display" id="filter-display" data-testid="filter-display"></span>
+    </div>
+
+    <table class="member-table" id="member-table" style="display:none;">
+      <thead>
+        <tr>
+          <th>Member ID</th>
+          <th>Username</th>
+          <th>VIP Level</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody id="member-rows"></tbody>
+      <tfoot>
+        <tr class="total-row">
+          <td colspan="3">Total</td>
+          <td id="total-count" data-testid="total-count">0</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="empty-state" id="empty-state" style="display:none;">
+      No members in this VIP level.
+    </div>
+
+    <div class="pagination" id="pagination" data-testid="pagination"></div>
+
+    <script>
+      var PAGE_SIZE = 5;
+
+      var members = {
+        "VIP1": [
+          { id: "M001", username: "alice", vipLevel: "VIP1", balance: "1,200.00" },
+          { id: "M002", username: "bob", vipLevel: "VIP1", balance: "850.00" },
+          { id: "M003", username: "charlie", vipLevel: "VIP1", balance: "3,400.00" },
+          { id: "M004", username: "diana", vipLevel: "VIP1", balance: "560.00" },
+          { id: "M005", username: "eve", vipLevel: "VIP1", balance: "2,100.00" },
+          { id: "M006", username: "frank", vipLevel: "VIP1", balance: "780.00" },
+          { id: "M007", username: "grace", vipLevel: "VIP1", balance: "1,500.00" },
+          { id: "M008", username: "heidi", vipLevel: "VIP1", balance: "920.00" },
+          { id: "M009", username: "ivan", vipLevel: "VIP1", balance: "4,300.00" },
+          { id: "M010", username: "judy", vipLevel: "VIP1", balance: "670.00" },
+          { id: "M011", username: "karl", vipLevel: "VIP1", balance: "2,800.00" },
+          { id: "M012", username: "liam", vipLevel: "VIP1", balance: "1,100.00" }
+        ],
+        "VIP2": [
+          { id: "M013", username: "mia", vipLevel: "VIP2", balance: "500.00" },
+          { id: "M014", username: "nina", vipLevel: "VIP2", balance: "3,200.00" },
+          { id: "M015", username: "oscar", vipLevel: "VIP2", balance: "890.00" }
+        ],
+        "VIP3": []
+      };
+
+      var currentVip = null;
+      var currentPage = 0;
+      var searchTerm = "";
+
+      function init() {
+        var container = document.getElementById("vip-buttons");
+        Object.keys(members).forEach(function(vip) {
+          var count = members[vip].length;
+          var btn = document.createElement("button");
+          btn.className = "vip-btn" + (count === 0 ? " zero" : "");
+          btn.dataset.vip = vip;
+          btn.dataset.testid = "vip-btn-" + vip;
+          btn.innerHTML = vip + ' <span class="count">' + count + '</span>';
+          btn.addEventListener("click", function() { selectVip(vip); });
+          container.appendChild(btn);
+        });
+
+        document.getElementById("search-input").addEventListener("input", function(e) {
+          searchTerm = e.target.value.trim().toLowerCase();
+          currentPage = 0;
+          renderMembers();
+        });
+
+        document.getElementById("refresh-btn").addEventListener("click", function() {
+          currentPage = 0;
+          renderMembers();
+        });
+
+        document.querySelectorAll(".tab").forEach(function(tab) {
+          tab.addEventListener("click", function() {
+            document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
+            tab.classList.add("active");
+            var panel = tab.dataset.tab;
+            var isViewMembers = panel === "view-members";
+            document.getElementById("toolbar").style.display = isViewMembers ? "" : "none";
+            document.getElementById("member-table").style.display = isViewMembers && currentVip ? "" : "none";
+            var emptyState = document.getElementById("empty-state");
+            if (emptyState) emptyState.style.display = "none";
+          });
+        });
+      }
+
+      function selectVip(vip) {
+        document.querySelectorAll(".vip-btn").forEach(function(b) { b.classList.remove("active"); });
+        var btn = document.querySelector('.vip-btn[data-vip="' + vip + '"]');
+        if (btn) btn.classList.add("active");
+        currentVip = vip;
+        currentPage = 0;
+        searchTerm = "";
+        var searchInput = document.getElementById("search-input");
+        if (searchInput) searchInput.value = "";
+
+        document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
+        var viewMembersTab = document.querySelector('.tab[data-tab="view-members"]');
+        if (viewMembersTab) viewMembersTab.classList.add("active");
+        document.getElementById("toolbar").style.display = "";
+        document.getElementById("member-table").style.display = "";
+
+        renderMembers();
+      }
+
+      function getFilteredMembers() {
+        var list = members[currentVip] || [];
+        if (searchTerm) {
+          list = list.filter(function(m) { return m.username.toLowerCase().indexOf(searchTerm) >= 0; });
+        }
+        return list;
+      }
+
+      function renderMembers() {
+        var list = getFilteredMembers();
+        var totalPages = Math.ceil(list.length / PAGE_SIZE);
+        if (currentPage >= totalPages) currentPage = Math.max(0, totalPages - 1);
+        var pageStart = currentPage * PAGE_SIZE;
+        var pageEnd = Math.min(pageStart + PAGE_SIZE, list.length);
+        var pageItems = list.slice(pageStart, pageEnd);
+
+        var tbody = document.getElementById("member-rows");
+        var emptyState = document.getElementById("empty-state");
+        var table = document.getElementById("member-table");
+        var pagination = document.getElementById("pagination");
+
+        tbody.innerHTML = "";
+        emptyState.style.display = "none";
+        table.style.display = "";
+        pagination.innerHTML = "";
+
+        if (list.length === 0) {
+          table.style.display = "none";
+          emptyState.style.display = "";
+          document.getElementById("total-count").textContent = "0";
+          document.getElementById("filter-display").textContent = currentVip ? "Filter: " + currentVip : "";
+          return;
+        }
+
+        pageItems.forEach(function(m) {
+          var tr = document.createElement("tr");
+          tr.innerHTML = "<td>" + m.id + "</td><td>" + m.username + "</td><td>" + m.vipLevel + "</td><td>" + m.balance + "</td>";
+          tbody.appendChild(tr);
+        });
+
+        document.getElementById("total-count").textContent = String(list.length);
+        document.getElementById("filter-display").textContent = "Filter: " + currentVip + (searchTerm ? " | Search: " + searchTerm : "");
+
+        if (totalPages > 1) {
+          for (var i = 0; i < totalPages; i++) {
+            var btn = document.createElement("button");
+            btn.className = "page-btn" + (i === currentPage ? " active" : "");
+            btn.textContent = String(i + 1);
+            btn.dataset.page = String(i);
+            btn.addEventListener("click", function(e) {
+              currentPage = parseInt(e.target.dataset.page, 10);
+              renderMembers();
+            });
+            pagination.appendChild(btn);
+          }
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>

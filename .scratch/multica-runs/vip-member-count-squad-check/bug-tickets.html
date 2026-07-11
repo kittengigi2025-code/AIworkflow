@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>VIP管理 / 查看会员 / 成员数量 - Bug单</title>
+  <style>
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; color: #1f2933; background: #f5f7fa; }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 22px; margin: 0 0 16px; }
+    h2 { font-size: 18px; margin: 0 0 12px; }
+    section { background: #fff; border: 1px solid #d9e2ec; border-radius: 6px; padding: 16px; margin-bottom: 18px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+    th, td { border: 1px solid #d9e2ec; padding: 8px 10px; vertical-align: top; font-size: 13px; }
+    th { width: 180px; background: #eef2f7; text-align: left; }
+    ol { margin: 0; padding-left: 20px; }
+    li { margin: 3px 0; }
+    img { max-width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; margin-top: 8px; }
+    .sev { color: #b42318; font-weight: 700; }
+    .note { color: #6b4e00; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>VIP管理 / 查看会员 / 成员数量 - Bug单</h1>
+
+  <section>
+    <h2>BUG-001：查看会员弹框 VIP 等级筛选显示比列表等级少 1</h2>
+    <table>
+      <tr><th>建议级别</th><td class="sev">Major / P1</td></tr>
+      <tr><th>环境</th><td>UAT 后台：<code>http://site.bx-tytest.xyz/#/member/level</code>；路径：福利中心 / VIP管理 / 查看会员；站点：巴西站-测试；商户：888。</td></tr>
+      <tr><th>前置条件</th><td>后台已登录，当前页面存在成员数量非 0 的 VIP 等级行；执行仅限低敏只读查看与截图。</td></tr>
+      <tr><th>影响范围</th><td>成员数量非 0 时打开的“查看会员/成员明细”弹框等级上下文。若筛选等级显示错位，运营人员会误判当前查看的 VIP 等级，并影响成员数量与明细数据一致性核对。</td></tr>
+      <tr>
+        <th>复现路径</th>
+        <td>
+          <ol>
+            <li>进入后台 <strong>福利中心 / VIP管理 / 查看会员</strong> 页面。</li>
+            <li>确认列表中 VIP1 行成员数量为 <strong>458</strong>，且数字为蓝色可点击状态。</li>
+            <li>点击 VIP1 行成员数量 <strong>458</strong>。</li>
+            <li>查看弹框上方 VIP 等级筛选显示值，并对比弹框表格中会员行的 VIP等级列。</li>
+            <li>补充交叉观察：点击 VIP10 行成员数量 0 后，弹框筛选区显示 VIP9，表现为同类 off-by-one 错位。</li>
+          </ol>
+        </td>
+      </tr>
+      <tr><th>实际结果</th><td>点击 VIP1 成员数量后，弹框表格内会员 <strong>VIP等级为 1</strong>，但弹框筛选区显示 <strong>VIP0</strong>；点击 VIP10 的 0 后弹框筛选区显示 <strong>VIP9</strong>。</td></tr>
+      <tr><th>期望结果</th><td>点击某一 VIP 等级的成员数量后，成员明细弹框应保持同一等级上下文：点击 VIP1 应显示 VIP1 并展示 VIP等级为 1 的会员；点击 VIP10 应显示 VIP10。弹框筛选显示不得比列表等级少 1。</td></tr>
+      <tr><th>截图证据</th><td><img src="evidence/execution-03b-click-vip1-458-modal.png" alt="点击 VIP1 成员数量 458 后弹框筛选显示 VIP0，但会员行 VIP等级为 1"></td></tr>
+      <tr><th>残余不确定性</th><td class="note">当前只读页面未提供后端数据基准，无法确认错位仅为筛选标签显示错误，还是请求参数/查询条件也存在等级偏移；建议开发同时核对弹框打开时传入的 VIP level 参数与展示标签映射。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>BUG-002：成员数量为 0 仍显示为可点击蓝色按钮，点击后弹出成员明细</h2>
+    <table>
+      <tr><th>建议级别</th><td class="sev">Major / P1</td></tr>
+      <tr><th>环境</th><td>UAT 后台：<code>http://site.bx-tytest.xyz/#/member/level</code>；路径：福利中心 / VIP管理 / 查看会员；站点：巴西站-测试；商户：888。</td></tr>
+      <tr><th>前置条件</th><td>后台已登录；列表中 VIP10 行成员数量为 <strong>0</strong>；执行仅限低敏只读查看与截图。</td></tr>
+      <tr><th>影响范围</th><td>所有成员数量为 0 的 VIP 等级行。该行为直接违反“0 不可点击，点击不应出现弹框”的验收规则，会造成无效弹框和错误等级上下文。</td></tr>
+      <tr>
+        <th>复现路径</th>
+        <td>
+          <ol>
+            <li>进入后台 <strong>福利中心 / VIP管理 / 查看会员</strong> 页面。</li>
+            <li>定位到 VIP10 行，确认成员数量为 <strong>0</strong>。</li>
+            <li>观察 0 的样式和鼠标状态。</li>
+            <li>点击 VIP10 行成员数量 <strong>0</strong>。</li>
+            <li>观察是否弹出成员明细弹框。</li>
+          </ol>
+        </td>
+      </tr>
+      <tr><th>实际结果</th><td>VIP10 的成员数量 <strong>0</strong> 显示为蓝色按钮，鼠标为 pointer；点击后弹出成员明细弹框，弹框筛选区显示 VIP9 且暂无数据。</td></tr>
+      <tr><th>期望结果</th><td>成员数量为 0 时，不应显示为蓝色可点击状态；点击 0 不应触发任何成员明细弹框。</td></tr>
+      <tr><th>截图证据：点击前</th><td><img src="evidence/execution-04c-vip10-zero-visible-before-click.png" alt="VIP10 成员数量 0 显示为蓝色可点击状态"></td></tr>
+      <tr><th>截图证据：点击后</th><td><img src="evidence/execution-04d-vip10-zero-after-click.png" alt="点击 VIP10 成员数量 0 后弹出成员明细弹框"></td></tr>
+      <tr><th>残余不确定性</th><td class="note">当前证据确认 VIP10 的 0 可点击并弹框；尚未逐一点击其他成员数量为 0 的 VIP 等级行，因此影响范围按同一组件/同一交互规则推断为所有 0 成员数量行，需开发回归时覆盖同类行。</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

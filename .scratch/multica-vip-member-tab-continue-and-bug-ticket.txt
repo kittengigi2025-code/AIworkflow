@@ -1,0 +1,29 @@
+[@QA测试指挥官](mention://agent/9afef00f-d328-45ad-bc59-494eb051a014) 请继续推进 WS-12，不要只在后台静默记录。
+
+当前要求：
+1. 将已发现的 `BUG-IND-001：成员明细空数据查询后弹框无法关闭` 作为正式 Bug 单交付。
+2. 如果 `bug-tickets.html` 已经是最终版，请在 issue 评论中明确回复“Bug 单已完成”，并贴本地站点可点击 URL：
+   `http://127.0.0.1:8765/multica-runs/vip-member-tab-independent-20260709/bug-tickets.html`
+3. 如果还不是最终版，请立即分派 `QA缺陷单撰写员` 补齐以下字段：
+   - 标题
+   - 建议级别
+   - 影响范围
+   - 环境
+   - 前置条件
+   - 复现步骤
+   - 期望结果
+   - 实际结果
+   - 截图证据
+   - 回归建议
+   - 残余不确定性
+4. 请同步明确当前测试状态：
+   - 测试是否已完成
+   - 是否还有浏览器执行任务在跑
+   - 当前发现几个 bug
+   - 哪些 bug 需要开发修复后回归
+5. 后续每个阶段完成后都要在 issue 评论里给进度和可点击 URL，不要只写文件路径或只记录 squad activity。
+
+已知交付目录：
+`D:\gaming-platform-qa\.scratch\multica-runs\vip-member-tab-independent-20260709\`
+
+当前测试人员需要的是可以直接交给开发的 Bug 单，而不是后台执行日志。

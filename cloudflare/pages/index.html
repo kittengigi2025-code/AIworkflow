@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desktop Activity Control</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div>
+          <h1>Desktop Activity Control</h1>
+          <p>Cloudflare 控制台，用于查看本机 Agent 状态并维护远程配置。</p>
+        </div>
+        <div class="status" id="connectionStatus">未连接</div>
+      </section>
+
+      <section class="panel auth-panel">
+        <label>
+          Worker API
+          <input id="apiBase" placeholder="https://activity-worker.example.workers.dev">
+        </label>
+        <label>
+          API Token
+          <input id="apiToken" type="password" placeholder="Bearer token">
+        </label>
+        <label>
+          Device ID
+          <input id="deviceId" value="main">
+        </label>
+        <button id="saveSettings">保存</button>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <div class="panel-title">
+            <h2>设备状态</h2>
+            <button id="refreshState">刷新</button>
+          </div>
+          <dl class="facts">
+            <div><dt>设备</dt><dd id="stateDevice">-</dd></div>
+            <div><dt>最近心跳</dt><dd id="stateHeartbeat">-</dd></div>
+            <div><dt>运行状态</dt><dd id="stateMode">-</dd></div>
+            <div><dt>最近动作</dt><dd id="stateAction">-</dd></div>
+          </dl>
+        </article>
+
+        <article class="panel">
+          <div class="panel-title">
+            <h2>远程配置</h2>
+            <div>
+              <button id="loadConfig">读取</button>
+              <button id="saveConfig">保存</button>
+            </div>
+          </div>
+          <textarea id="configEditor" spellcheck="false"></textarea>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title">
+          <h2>操作日志</h2>
+          <button id="clearLog">清空</button>
+        </div>
+        <pre id="log"></pre>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

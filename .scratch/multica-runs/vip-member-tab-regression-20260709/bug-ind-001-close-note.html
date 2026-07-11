@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BUG-IND-001 缺陷关闭说明</title>
+  <style>
+    body { margin:0; background:#f6f8fa; color:#1f2933; font:14px/1.6 Arial, "Microsoft YaHei", sans-serif; }
+    main { width:min(980px, calc(100% - 40px)); margin:24px auto 48px; }
+    section { background:#fff; border:1px solid #d8dee4; border-radius:8px; padding:16px; margin:14px 0; }
+    h1 { margin:0 0 10px; font-size:24px; }
+    h2 { margin:20px 0 10px; font-size:18px; }
+    table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    th, td { border:1px solid #d8dee4; padding:8px; vertical-align:top; word-break:break-word; }
+    th { width:170px; background:#f3f6f8; text-align:left; }
+    .pass { color:#16794c; font-weight:700; }
+    .warn { color:#b54708; font-weight:700; }
+    a { color:#175cd3; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    code { background:#f6f8fa; padding:2px 4px; border-radius:3px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>BUG-IND-001 缺陷关闭说明</h1>
+  <section>
+    <table>
+      <tr><th>原缺陷</th><td>成员明细空数据查询后弹框无法关闭。</td></tr>
+      <tr><th>当前状态</th><td class="pass">关闭：本轮回归未复现，不作为有效 Bug。</td></tr>
+      <tr><th>关闭依据</th><td>2026-07-09 复测：输入不存在会员ID <code>99999999</code> 查询后显示“暂无数据”；点击右上角可见 X 可关闭；再次构造空数据后按 ESC 也可关闭；关闭后仍停留在查看会员列表。</td></tr>
+      <tr><th>原因判断</th><td class="warn">更倾向于原测试过程中的操作命中点/瞬时网络状态导致。当前不需要开发修复。</td></tr>
+      <tr><th>回归报告</th><td><a href="regression-report.html">regression-report.html</a></td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

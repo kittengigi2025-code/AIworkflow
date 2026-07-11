@@ -1,0 +1,22 @@
+[@QA测试指挥官](mention://agent/9afef00f-d328-45ad-bc59-494eb051a014) 补充一条产物位置和回复格式规则，避免测试人员在本地站点看不到 HTML：
+
+1. 后续所有正式 HTML 产物必须同步到：
+   `D:\gaming-platform-qa\.scratch\multica-runs\vip-member-tab-independent-20260709\`
+
+2. issue 评论里不要只贴 `.scratch/...` 或 `D:\...` 文件路径。必须同时贴本地站点可访问 URL：
+   - 测试设计：
+     `http://127.0.0.1:8765/multica-runs/vip-member-tab-independent-20260709/test-design.html`
+   - 疑问闸门：
+     `http://127.0.0.1:8765/multica-runs/vip-member-tab-independent-20260709/question-gate.html`
+   - 最终测试报告：
+     `http://127.0.0.1:8765/multica-runs/vip-member-tab-independent-20260709/test-report.html`
+   - Bug 单：
+     `http://127.0.0.1:8765/multica-runs/vip-member-tab-independent-20260709/bug-tickets.html`
+   - 台账建议：
+     `http://127.0.0.1:8765/multica-runs/vip-member-tab-independent-20260709/ledger-update.html`
+
+3. 当前 `question-gate.html` 只出现在 agent 工作区，没有同步到 `D:\gaming-platform-qa`，本地站点无法访问。请补同步；如果无法补同步，请在最终 `test-report.html` 中合并疑问闸门结论，不再让测试人员点一个不存在的文件。
+
+4. 最终报告完成后，请在评论里只给测试人员可点击的 `http://127.0.0.1:8765/...` 链接，不要只给文件系统路径。
+
+5. 如浏览器执行已经在跑，不要重启测试；只把这条作为输出和归档要求继续执行。

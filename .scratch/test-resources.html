@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BX/7788 UAT 测试资源卡片</title>
+  <style>
+    :root { --bg:#f6f7f9; --panel:#fff; --text:#1f2937; --muted:#667085; --line:#d9dee7; --blue:#175cd3; --ok:#067647; --warn:#b54708; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif; }
+    main { width:min(1120px, calc(100% - 40px)); margin:28px auto 48px; }
+    h1,h2 { margin:0; line-height:1.25; }
+    h1 { font-size:26px; }
+    h2 { font-size:18px; margin-bottom:10px; }
+    section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; margin-top:14px; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; color:var(--muted); }
+    .chip { display:inline-flex; align-items:center; min-height:24px; padding:2px 9px; border-radius:999px; background:#eef2f6; color:#344054; font-size:12px; white-space:nowrap; }
+    table { width:100%; border-collapse:collapse; }
+    th,td { border-top:1px solid var(--line); padding:10px 9px; text-align:left; vertical-align:top; }
+    th { border-top:0; background:#fafbfc; color:#475467; font-size:12px; width:230px; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    code { padding:2px 5px; border-radius:4px; background:#f2f4f7; font-family:Consolas,"SFMono-Regular",Menlo,monospace; font-size:12px; }
+    .ok { color:var(--ok); font-weight:700; }
+    .warn { color:var(--warn); font-weight:700; }
+    ul { margin:0; padding-left:18px; }
+    li + li { margin-top:4px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>BX/7788 UAT 测试资源卡片</h1>
+    <div class="meta">
+      <span class="chip">需求：VIP管理 / 查看会员 / 成员数量</span>
+      <span class="chip">站点：巴西站-测试</span>
+      <span class="chip">商户：888</span>
+      <span class="chip">最后更新：2026-07-08</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>资源门禁结论</h2>
+    <table><tbody>
+      <tr><th>结论</th><td><span class="ok">资源卡片字段已补齐，可进入需求澄清闸门。</span></td></tr>
+      <tr><th>URL 可达性</th><td>后台首页 HTTP 200 已确认；H5 前台与 Axure 需求链接为 HTTPS，当前命令行环境出现 Schannel 凭据错误，需在浏览器/已登录会话中继续打开确认。</td></tr>
+      <tr><th>登录态要求</th><td>如后台或 H5 需要登录，需人工准备登录态；资源管理员不处理密码、验证码、OTP 或任何敏感凭据。</td></tr>
+    </tbody></table>
+  </section>
+
+  <section>
+    <h2>环境与业务路径</h2>
+    <table><tbody>
+      <tr><th>H5 前台地址</th><td><a href="https://99.bx-1234.xyz/#/dashboard/game">https://99.bx-1234.xyz/#/dashboard/game</a></td></tr>
+      <tr><th>后台地址</th><td><a href="http://site.bx-tytest.xyz">http://site.bx-tytest.xyz</a></td></tr>
+      <tr><th>后台菜单路径</th><td>福利中心 / VIP管理 / 查看会员</td></tr>
+      <tr><th>后台路由</th><td><code>#/member/level</code></td></tr>
+      <tr><th>站点 / 商户</th><td>巴西站-测试 / 888</td></tr>
+      <tr><th>需求文档</th><td><a href="https://z91jq0.axshare.com">https://z91jq0.axshare.com</a></td></tr>
+    </tbody></table>
+  </section>
+
+  <section>
+    <h2>本地目录</h2>
+    <table><tbody>
+      <tr><th>资源卡片</th><td><code>D:\gaming-platform-qa\.scratch\test-resources.html</code></td></tr>
+      <tr><th>QA 台账</th><td><code>D:\gaming-platform-qa\.scratch\qa-index.html</code></td></tr>
+      <tr><th>本次输出目录</th><td><code>D:\gaming-platform-qa\.scratch\multica-runs\vip-member-count-squad-check\</code></td></tr>
+      <tr><th>截图证据目录</th><td><code>D:\gaming-platform-qa\.scratch\multica-runs\vip-member-count-squad-check\evidence\</code></td></tr>
+    </tbody></table>
+  </section>
+
+  <section>
+    <h2>账号与敏感信息边界</h2>
+    <table><tbody>
+      <tr><th>已知测试账号标识</th><td>未在本资源卡片保存账号、密码、OTP、验证码、支付、充值、提现或其他敏感凭据。</td></tr>
+      <tr><th>允许操作</th><td><ul><li>只读导航菜单、tab、列表、分页、筛选项和详情弹框。</li><li>读取可见字段、数量、URL 和页面状态。</li><li>保存截图证据并写入 HTML 报告。</li></ul></td></tr>
+      <tr><th>禁止操作</th><td><ul><li class="warn">不处理密码、验证码、OTP。</li><li class="warn">不保存、提交、创建、编辑、删除、审批、拒绝、导出、上传或改权限。</li><li class="warn">不执行充值、提现、钱包、奖励发放、会员状态变更等资金或账号状态动作。</li></ul></td></tr>
+    </tbody></table>
+  </section>
+</main>
+</body>
+</html>

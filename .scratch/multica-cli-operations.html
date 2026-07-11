@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multica CLI 操作手册</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9dee7;
+      --blue: #175cd3;
+      --green: #14804a;
+      --orange: #b54708;
+      --code: #101828;
+      --code-bg: #eef2f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 40px)); margin: 28px auto 48px; }
+    h1, h2, h3 { margin: 0; line-height: 1.25; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    h3 { font-size: 15px; margin: 12px 0 6px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: #eef2f6;
+      color: #344054;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      border-top: 0;
+      background: #fafbfc;
+      color: #475467;
+      font-size: 12px;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      color: var(--code);
+      background: var(--code-bg);
+      border: 1px solid #d8dde6;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+    }
+    pre {
+      margin: 8px 0 0;
+      padding: 12px;
+      overflow: auto;
+      border-radius: 8px;
+      border: 1px solid #d8dde6;
+      background: #f2f4f7;
+    }
+    pre code {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      white-space: pre;
+    }
+    .ok { color: var(--green); font-weight: 700; }
+    .warn { color: var(--orange); font-weight: 700; }
+    ul { margin: 6px 0 0; padding-left: 18px; }
+    li + li { margin-top: 4px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Multica CLI 操作手册</h1>
+    <div class="meta">
+      <span class="chip">来源：$ask-matt 路由后沉淀</span>
+      <span class="chip">环境：Multica Cloud + Windows 本机 daemon</span>
+      <span class="chip">最后更新：2026-07-08</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>使用原则</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>先查 help</th>
+          <td>以本机 <code>multica --help</code> 和 <code>multica &lt;command&gt; --help</code> 为准。README 可能滞后，本机 CLI 是当前可执行能力清单。</td>
+        </tr>
+        <tr>
+          <th>云托管路径</th>
+          <td>当前不是 self-host，使用 <code>multica setup cloud</code>。只有本机自建服务才用 <code>multica setup self-host</code>。</td>
+        </tr>
+        <tr>
+          <th>结构化输出</th>
+          <td>查询和创建类命令优先加 <code>--output json</code>，方便复制 ID、校验成员和自动化。</td>
+        </tr>
+        <tr>
+          <th>敏感信息</th>
+          <td>不要把 token、密码、OTP、验证码、MCP secret 写进命令历史。涉及 secret 时用 <code>--custom-env-stdin</code>、<code>--custom-env-file</code> 或 <code>--mcp-config-stdin</code>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>基础配置与状态检查</h2>
+    <h3>连接 Multica Cloud</h3>
+    <pre><code>multica setup cloud</code></pre>
+    <p>这个命令会配置 <code>https://api.multica.ai</code> 和 <code>https://multica.ai</code>，打开浏览器登录，并启动本机 daemon。</p>
+
+    <h3>查看配置</h3>
+    <pre><code>multica config show</code></pre>
+
+    <h3>查看 workspace / runtime / daemon</h3>
+    <pre><code>multica workspace list --output json
+multica runtime list --output json
+multica daemon status</code></pre>
+  </section>
+
+  <section>
+    <h2>Skill 操作</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>目的</th>
+          <th>命令</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>查看 workspace skills</td>
+          <td><code>multica skill list --output json</code></td>
+        </tr>
+        <tr>
+          <td>用本地文件创建 skill</td>
+          <td><code>multica skill create --name gaming-qa-ledger --description "..." --content-file .scratch\multica-gaming-qa-ledger-skill.md --output json</code></td>
+        </tr>
+        <tr>
+          <td>更新 skill 内容</td>
+          <td><code>multica skill update &lt;skill-id&gt; --content-file .scratch\multica-gaming-qa-ledger-skill.md --description "..." --output json</code></td>
+        </tr>
+        <tr>
+          <td>读取 skill 详情</td>
+          <td><code>multica skill get &lt;skill-id&gt; --output json</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Agent 操作</h2>
+    <h3>查看 agents</h3>
+    <pre><code>multica agent list --output json</code></pre>
+
+    <h3>创建 agent</h3>
+    <pre><code>multica agent create `
+  --name "QA资源管理员" `
+  --description "维护测试资源清单：前后台地址、需求文档、路径、账号标识、报告目录和敏感操作边界。" `
+  --instructions "你是 QA资源管理员。..." `
+  --runtime-id &lt;runtime-id&gt; `
+  --visibility workspace `
+  --thinking-level medium `
+  --output json</code></pre>
+
+    <h3>更新 agent</h3>
+    <pre><code>multica agent update &lt;agent-id&gt; `
+  --instructions "新的 instructions" `
+  --description "新的描述" `
+  --output json</code></pre>
+
+    <h3>绑定 skill</h3>
+    <pre><code>multica agent skills add &lt;agent-id&gt; --skill-ids &lt;skill-id&gt; --output json
+multica agent skills list &lt;agent-id&gt; --output json</code></pre>
+
+    <p class="warn">注意：创建 agent 必须有 <code>--runtime-id</code>。先用 <code>multica runtime list --output json</code> 找在线 runtime。</p>
+  </section>
+
+  <section>
+    <h2>Squad 操作</h2>
+    <h3>查看 squads</h3>
+    <pre><code>multica squad list --output json</code></pre>
+
+    <h3>创建 squad</h3>
+    <pre><code>multica squad create `
+  --name "QA测试军团" `
+  --description "博彩/游戏 H5 + 后台管理系统 QA 小队：需求澄清、测试设计、低敏浏览器执行、HTML bug 单、QA 台账。" `
+  --leader &lt;leader-agent-id-or-name&gt; `
+  --output json</code></pre>
+
+    <h3>添加成员</h3>
+    <pre><code>multica squad member add &lt;squad-id&gt; `
+  --member-id &lt;agent-id&gt; `
+  --type agent `
+  --role "资源管理" `
+  --output json</code></pre>
+
+    <h3>校验 squad</h3>
+    <pre><code>multica squad get &lt;squad-id&gt; --output json
+multica squad member list &lt;squad-id&gt; --output json</code></pre>
+  </section>
+
+  <section>
+    <h2>当前 QA 小队对象</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>对象</th>
+          <th>名称</th>
+          <th>ID</th>
+          <th>备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Workspace</td>
+          <td>忽然崩塌</td>
+          <td><code>d5c0fbf9-3512-43f8-a99d-c6d48ec20934</code></td>
+          <td>Multica Cloud workspace</td>
+        </tr>
+        <tr>
+          <td>Runtime</td>
+          <td>Codex (jgtoqwfy44bpds4)</td>
+          <td><code>416dffdd-d9f7-4d65-88f9-f578b310db62</code></td>
+          <td class="ok">online</td>
+        </tr>
+        <tr>
+          <td>Skill</td>
+          <td>gaming-qa-ledger</td>
+          <td><code>25c4e112-2bd8-4825-9203-cc746ead2205</code></td>
+          <td>QA 流程、HTML 产物、资源卡片规范</td>
+        </tr>
+        <tr>
+          <td>Squad</td>
+          <td>QA测试军团</td>
+          <td><code>8862a723-d93c-461a-b0e4-9c62cc212e9f</code></td>
+          <td>当前 7 个成员</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>当前 QA Agent 清单</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>角色</th>
+          <th>Agent</th>
+          <th>ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>leader</td>
+          <td>QA测试指挥官</td>
+          <td><code>9afef00f-d328-45ad-bc59-494eb051a014</code></td>
+        </tr>
+        <tr>
+          <td>资源管理</td>
+          <td>QA资源管理员</td>
+          <td><code>9c9a79be-994c-4b71-a858-ce12e80479b4</code></td>
+        </tr>
+        <tr>
+          <td>需求澄清</td>
+          <td>QA需求澄清员</td>
+          <td><code>07969174-0bc4-4c45-824f-594941a9b791</code></td>
+        </tr>
+        <tr>
+          <td>测试设计</td>
+          <td>QA测试设计员</td>
+          <td><code>b32c4fdf-d35e-4bdf-9975-8e379582a102</code></td>
+        </tr>
+        <tr>
+          <td>浏览器执行</td>
+          <td>QA浏览器执行员</td>
+          <td><code>0a8624cf-11dd-467c-9f9c-782fd11c4fc5</code></td>
+        </tr>
+        <tr>
+          <td>缺陷单</td>
+          <td>QA缺陷单撰写员</td>
+          <td><code>cf7e6f9b-84e0-423e-aa25-2902079ac7f7</code></td>
+        </tr>
+        <tr>
+          <td>台账维护</td>
+          <td>QA台账维护员</td>
+          <td><code>1dbd5d51-4d1f-4a61-bfcf-426a850cc99e</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>常见问题</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>现象</th>
+          <th>处理</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>No server configured. Run 'multica setup' first.</code></td>
+          <td>云托管执行 <code>multica setup cloud</code>，self-host 才执行 <code>multica setup self-host</code>。</td>
+        </tr>
+        <tr>
+          <td><code>workspace ID is required</code></td>
+          <td>先 <code>multica workspace list</code>，再 <code>multica workspace switch &lt;workspace-id-or-slug&gt;</code>；或命令加 <code>--workspace-id</code>。</td>
+        </tr>
+        <tr>
+          <td>沙箱里提示无法连接服务器</td>
+          <td>需要在允许外部网络的环境执行 Multica 命令；本次用的是已授权的 <code>multica</code> 前缀。</td>
+        </tr>
+        <tr>
+          <td>UI 没看到新 squad/agent</td>
+          <td>先用 <code>multica squad get</code> 或 <code>multica agent list</code> 校验。CLI 已存在但 UI 没刷新时，刷新 Multica 桌面应用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>
